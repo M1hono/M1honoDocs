@@ -1,0 +1,1631 @@
+{
+  "net.minecraft.client.gui.font.providers.BitmapProvider": {
+    "className": "BitmapProvider",
+    "fullName": "net.minecraft.client.gui.font.providers.BitmapProvider",
+    "packageName": "net.minecraft.client.gui.font.providers",
+    "filePath": "/net/minecraft/client/gui/font/providers/BitmapProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "GlyphProvider"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.font.GlyphInfo",
+      "com.mojang.blaze3d.font.GlyphProvider",
+      "com.mojang.blaze3d.font.SheetGlyphInfo",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.MapCodec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.ints.IntSet",
+      "it.unimi.dsi.fastutil.ints.IntSets",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Function",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.gui.font.CodepointMap",
+      "net.minecraft.client.gui.font.glyphs.BakedGlyph",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BitmapProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGlyphs",
+            "type": "CodepointMap<BitmapProvider.Glyph>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getGlyph",
+        "returnType": "GlyphInfo",
+        "parameters": [
+          {
+            "name": "pCharacter",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSupportedGlyphs",
+        "returnType": "IntSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Definition",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "file",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "height",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ascent",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "codepointGrid",
+            "type": "int[][]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Glyph",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "scale",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "image",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "offsetX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "offsetY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "width",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "height",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "advance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ascent",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 205
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "image",
+        "type": "NativeImage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "glyphs",
+        "type": "CodepointMap<BitmapProvider.Glyph>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 31,
+      "end": 206
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/BitmapProvider.java"
+  },
+  "net.minecraft.client.gui.font.providers.GlyphProviderDefinition": {
+    "className": "GlyphProviderDefinition",
+    "fullName": "net.minecraft.client.gui.font.providers.GlyphProviderDefinition",
+    "packageName": "net.minecraft.client.gui.font.providers",
+    "filePath": "/net/minecraft/client/gui/font/providers/GlyphProviderDefinition.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.font.GlyphProvider",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "java.io.IOException",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "type",
+        "returnType": "GlyphProviderType",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpack",
+        "returnType": "Either<GlyphProviderDefinition.Loader, GlyphProviderDefinition.Reference>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Reference",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Loader",
+        "fullName": "net.minecraft.client.gui.font.providers.GlyphProviderDefinition.Loader",
+        "packageName": "net.minecraft.client.gui.font.providers",
+        "filePath": "/net/minecraft/client/gui/font/providers/GlyphProviderDefinition.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.font.GlyphProvider",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.serialization.Codec",
+          "java.io.IOException",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "load",
+            "returnType": "GlyphProvider",
+            "parameters": [
+              {
+                "name": "pResourceManager",
+                "type": "ResourceManager",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 24,
+              "end": 24
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/GlyphProviderDefinition/Loader.java"
+      }
+    ],
+    "lineRange": {
+      "start": 13,
+      "end": 30
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/GlyphProviderDefinition.java"
+  },
+  "net.minecraft.client.gui.font.providers.GlyphProviderType": {
+    "className": "GlyphProviderType",
+    "fullName": "net.minecraft.client.gui.font.providers.GlyphProviderType",
+    "packageName": "net.minecraft.client.gui.font.providers",
+    "filePath": "/net/minecraft/client/gui/font/providers/GlyphProviderType.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.font.SpaceProvider",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.MapCodec",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BITMAP",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "TTF",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "SPACE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "UNIHEX",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "REFERENCE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "GlyphProviderType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "MapCodec<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/GlyphProviderType.java"
+  },
+  "net.minecraft.client.gui.font.providers.UnihexProvider": {
+    "className": "UnihexProvider",
+    "fullName": "net.minecraft.client.gui.font.providers.UnihexProvider",
+    "packageName": "net.minecraft.client.gui.font.providers",
+    "filePath": "/net/minecraft/client/gui/font/providers/UnihexProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "GlyphProvider"
+    ],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.blaze3d.font.GlyphInfo",
+      "com.mojang.blaze3d.font.GlyphProvider",
+      "com.mojang.blaze3d.font.SheetGlyphInfo",
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.MapCodec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.bytes.ByteArrayList",
+      "it.unimi.dsi.fastutil.bytes.ByteList",
+      "it.unimi.dsi.fastutil.ints.IntSet",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.IntBuffer",
+      "java.util.List",
+      "java.util.function.Function",
+      "java.util.zip.ZipEntry",
+      "java.util.zip.ZipInputStream",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.gui.font.CodepointMap",
+      "net.minecraft.client.gui.font.glyphs.BakedGlyph",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.FastBufferedInputStream",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.lwjgl.system.MemoryUtil",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "UnihexProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pGlyph",
+            "type": "CodepointMap<UnihexProvider.Glyph>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getGlyph",
+        "returnType": "GlyphInfo",
+        "parameters": [
+          {
+            "name": "pCharacter",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSupportedGlyphs",
+        "returnType": "IntSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpackBitsToBytes",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLineData",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLeft",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpackBitsToBytes",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLineData",
+            "type": "UnihexProvider.LineData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLeft",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readFromStream",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "UnihexProvider.ReaderOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 86,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "decodeHex",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pLineNumber",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pByteList",
+            "type": "ByteList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "decodeHex",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pLineNumber",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pData",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 201
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copyUntil",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pByteList",
+            "type": "ByteList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 203,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ByteContents",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "contents",
+            "type": "byte[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Dimensions",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "left",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "right",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 323,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Glyph",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "contents",
+            "type": "UnihexProvider.LineData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "left",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "right",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 390
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "IntContents",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "contents",
+            "type": "int[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "bitWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 393,
+          "end": 445
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "OverrideRange",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "from",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "to",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dimensions",
+            "type": "UnihexProvider.Dimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 481,
+          "end": 490
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ShortContents",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "contents",
+            "type": "short[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 499,
+          "end": 523
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "GLYPH_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "DIGITS_PER_BYTE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "DIGITS_FOR_WIDTH_8",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "32",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "DIGITS_FOR_WIDTH_16",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "DIGITS_FOR_WIDTH_24",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "96",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "DIGITS_FOR_WIDTH_32",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "128",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "glyphs",
+        "type": "CodepointMap<UnihexProvider.Glyph>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Definition",
+        "fullName": "net.minecraft.client.gui.font.providers.UnihexProvider.Definition",
+        "packageName": "net.minecraft.client.gui.font.providers",
+        "filePath": "/net/minecraft/client/gui/font/providers/UnihexProvider.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "GlyphProviderDefinition"
+        ],
+        "imports": [
+          "com.google.common.annotations.VisibleForTesting",
+          "com.mojang.blaze3d.font.GlyphInfo",
+          "com.mojang.blaze3d.font.GlyphProvider",
+          "com.mojang.blaze3d.font.SheetGlyphInfo",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.MapCodec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.bytes.ByteArrayList",
+          "it.unimi.dsi.fastutil.bytes.ByteList",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.IntBuffer",
+          "java.util.List",
+          "java.util.function.Function",
+          "java.util.zip.ZipEntry",
+          "java.util.zip.ZipInputStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.gui.font.CodepointMap",
+          "net.minecraft.client.gui.font.glyphs.BakedGlyph",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.FastBufferedInputStream",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.lwjgl.system.MemoryUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Definition",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p_286378_",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_286770_",
+                "type": "List<UnihexProvider.OverrideRange>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 255,
+              "end": 258
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "type",
+            "returnType": "GlyphProviderType",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 260,
+              "end": 262
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unpack",
+            "returnType": "Either<GlyphProviderDefinition.Loader, GlyphProviderDefinition.Reference>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 264,
+              "end": 266
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "load",
+            "returnType": "GlyphProvider",
+            "parameters": [
+              {
+                "name": "p_286472_",
+                "type": "ResourceManager",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 268,
+              "end": 272
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "loadData",
+            "returnType": "UnihexProvider",
+            "parameters": [
+              {
+                "name": "pInputStream",
+                "type": "InputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 274,
+              "end": 319
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "hexFile",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 252,
+              "end": 252
+            }
+          },
+          {
+            "name": "sizeOverrides",
+            "type": "List<UnihexProvider.OverrideRange>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 253,
+              "end": 253
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 244,
+          "end": 320
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/UnihexProvider/Definition.java"
+      },
+      {
+        "className": "LineData",
+        "fullName": "net.minecraft.client.gui.font.providers.UnihexProvider.LineData",
+        "packageName": "net.minecraft.client.gui.font.providers",
+        "filePath": "/net/minecraft/client/gui/font/providers/UnihexProvider.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.annotations.VisibleForTesting",
+          "com.mojang.blaze3d.font.GlyphInfo",
+          "com.mojang.blaze3d.font.GlyphProvider",
+          "com.mojang.blaze3d.font.SheetGlyphInfo",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.MapCodec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.bytes.ByteArrayList",
+          "it.unimi.dsi.fastutil.bytes.ByteList",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.IntBuffer",
+          "java.util.List",
+          "java.util.function.Function",
+          "java.util.zip.ZipEntry",
+          "java.util.zip.ZipInputStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.gui.font.CodepointMap",
+          "net.minecraft.client.gui.font.glyphs.BakedGlyph",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.FastBufferedInputStream",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.lwjgl.system.MemoryUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "line",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 449,
+              "end": 449
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "bitWidth",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 451,
+              "end": 451
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 448,
+          "end": 478
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/UnihexProvider/LineData.java"
+      },
+      {
+        "className": "ReaderOutput",
+        "fullName": "net.minecraft.client.gui.font.providers.UnihexProvider.ReaderOutput",
+        "packageName": "net.minecraft.client.gui.font.providers",
+        "filePath": "/net/minecraft/client/gui/font/providers/UnihexProvider.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.annotations.VisibleForTesting",
+          "com.mojang.blaze3d.font.GlyphInfo",
+          "com.mojang.blaze3d.font.GlyphProvider",
+          "com.mojang.blaze3d.font.SheetGlyphInfo",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.MapCodec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.bytes.ByteArrayList",
+          "it.unimi.dsi.fastutil.bytes.ByteList",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.IntBuffer",
+          "java.util.List",
+          "java.util.function.Function",
+          "java.util.zip.ZipEntry",
+          "java.util.zip.ZipInputStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.gui.font.CodepointMap",
+          "net.minecraft.client.gui.font.glyphs.BakedGlyph",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.FastBufferedInputStream",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.lwjgl.system.MemoryUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "accept",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_285139_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_284982_",
+                "type": "UnihexProvider.LineData",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 495,
+              "end": 495
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 494,
+          "end": 496
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/UnihexProvider/ReaderOutput.java"
+      }
+    ],
+    "lineRange": {
+      "start": 38,
+      "end": 524
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/font/providers/UnihexProvider.java"
+  }
+}

@@ -1,0 +1,1538 @@
+{
+  "com.mojang.blaze3d.pipeline.MainTarget": {
+    "className": "MainTarget",
+    "fullName": "com.mojang.blaze3d.pipeline.MainTarget",
+    "packageName": "com.mojang.blaze3d.pipeline",
+    "filePath": "/com/mojang/blaze3d/pipeline/MainTarget.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RenderTarget",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "java.nio.IntBuffer",
+      "java.util.List",
+      "java.util.Objects",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MainTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createFrameBuffer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "allocateColorAttachment",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDimension",
+            "type": "MainTarget.Dimension",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "allocateDepthAttachment",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDimension",
+            "type": "MainTarget.Dimension",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 97
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DEFAULT_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "854",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "DEFAULT_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "480",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AttachmentState",
+        "fullName": "com.mojang.blaze3d.pipeline.MainTarget.AttachmentState",
+        "packageName": "com.mojang.blaze3d.pipeline",
+        "filePath": "/com/mojang/blaze3d/pipeline/MainTarget.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.TextureUtil",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "java.nio.IntBuffer",
+          "java.util.List",
+          "java.util.Objects",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 100,
+          "end": 111
+        },
+        "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/MainTarget/AttachmentState.java"
+      },
+      {
+        "className": "Dimension",
+        "fullName": "com.mojang.blaze3d.pipeline.MainTarget.Dimension",
+        "packageName": "com.mojang.blaze3d.pipeline",
+        "filePath": "/com/mojang/blaze3d/pipeline/MainTarget.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.TextureUtil",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "java.nio.IntBuffer",
+          "java.util.List",
+          "java.util.Objects",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Dimension",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 118,
+              "end": 121
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "listWithFallback",
+            "returnType": "List<MainTarget.Dimension>",
+            "parameters": [
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 123,
+              "end": 127
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "equals",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pOther",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 129,
+              "end": 138
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hashCode",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 142
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toString",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 144,
+              "end": 146
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "width",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 115,
+              "end": 115
+            }
+          },
+          {
+            "name": "height",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 116,
+              "end": 116
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 114,
+          "end": 147
+        },
+        "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/MainTarget/Dimension.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 148
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/MainTarget.java"
+  },
+  "com.mojang.blaze3d.pipeline.RenderCall": {
+    "className": "RenderCall",
+    "fullName": "com.mojang.blaze3d.pipeline.RenderCall",
+    "packageName": "com.mojang.blaze3d.pipeline",
+    "filePath": "/com/mojang/blaze3d/pipeline/RenderCall.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "execute",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/RenderCall.java"
+  },
+  "com.mojang.blaze3d.pipeline.RenderPipeline": {
+    "className": "RenderPipeline",
+    "fullName": "com.mojang.blaze3d.pipeline.RenderPipeline",
+    "packageName": "com.mojang.blaze3d.pipeline",
+    "filePath": "/com/mojang/blaze3d/pipeline/RenderPipeline.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "java.util.List",
+      "java.util.concurrent.ConcurrentLinkedQueue",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RenderPipeline",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "canBeginRecording",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginRecording",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "recordRenderCall",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRenderCall",
+            "type": "RenderCall",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endRecording",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeginProcessing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginProcessing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processRecordedQueue",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endProcessing",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startRendering",
+        "returnType": "ConcurrentLinkedQueue<RenderCall>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRecordingQueue",
+        "returnType": "ConcurrentLinkedQueue<RenderCall>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProcessedQueue",
+        "returnType": "ConcurrentLinkedQueue<RenderCall>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 96
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "isRecording",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "recordingBuffer",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "isProcessing",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "processedBuffer",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "renderingBuffer",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 97
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/RenderPipeline.java"
+  },
+  "com.mojang.blaze3d.pipeline.RenderTarget": {
+    "className": "RenderTarget",
+    "fullName": "com.mojang.blaze3d.pipeline.RenderTarget",
+    "packageName": "com.mojang.blaze3d.pipeline",
+    "filePath": "/com/mojang/blaze3d/pipeline/RenderTarget.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.blaze3d.vertex.BufferBuilder",
+      "com.mojang.blaze3d.vertex.BufferUploader",
+      "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+      "com.mojang.blaze3d.vertex.Tesselator",
+      "com.mojang.blaze3d.vertex.VertexFormat",
+      "com.mojang.blaze3d.vertex.VertexSorting",
+      "java.nio.IntBuffer",
+      "net.minecraft.Util",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.renderer.ShaderInstance",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RenderTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUseDepth",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "resize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClearError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_resize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClearError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroyBuffers",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copyDepthFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOtherTarget",
+            "type": "RenderTarget",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBuffers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClearError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setFilterMode",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFilterMode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkStatus",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindRead",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unbindRead",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindWrite",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSetViewport",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_bindWrite",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSetViewport",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 200,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unbindWrite",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 209,
+          "end": 218
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setClearColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 220,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blitToScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blitToScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDisableBlend",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_blitToScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDisableBlend",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 282
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pClearError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 284,
+          "end": 296
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getColorTextureId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 298,
+          "end": 300
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDepthTextureId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 302,
+          "end": 304
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableStencil",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 314,
+          "end": 318
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isStencilEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 324,
+          "end": 326
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RED_CHANNEL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "GREEN_CHANNEL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "BLUE_CHANNEL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "ALPHA_CHANNEL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "viewWidth",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "viewHeight",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "useDepth",
+        "type": "boolean",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "frameBufferId",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "colorTextureId",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "depthBufferId",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "filterMode",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "stencilEnabled",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 307,
+          "end": 307
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 328
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/RenderTarget.java"
+  },
+  "com.mojang.blaze3d.pipeline.TextureTarget": {
+    "className": "TextureTarget",
+    "fullName": "com.mojang.blaze3d.pipeline.TextureTarget",
+    "packageName": "com.mojang.blaze3d.pipeline",
+    "filePath": "/com/mojang/blaze3d/pipeline/TextureTarget.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RenderTarget",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TextureTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseDepth",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClearError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 13
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 14
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/pipeline/TextureTarget.java"
+  }
+}

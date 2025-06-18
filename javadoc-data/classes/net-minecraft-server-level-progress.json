@@ -1,0 +1,861 @@
+{
+  "net.minecraft.server.level.progress.ChunkProgressListener": {
+    "className": "ChunkProgressListener",
+    "fullName": "net.minecraft.server.level.progress.ChunkProgressListener",
+    "packageName": "net.minecraft.server.level.progress",
+    "filePath": "/net/minecraft/server/level/progress/ChunkProgressListener.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "updateSpawnPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCenter",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStatusChange",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPosition",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewStatus",
+            "type": "ChunkStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 15
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/level/progress/ChunkProgressListener.java"
+  },
+  "net.minecraft.server.level.progress.ChunkProgressListenerFactory": {
+    "className": "ChunkProgressListenerFactory",
+    "fullName": "net.minecraft.server.level.progress.ChunkProgressListenerFactory",
+    "packageName": "net.minecraft.server.level.progress",
+    "filePath": "/net/minecraft/server/level/progress/ChunkProgressListenerFactory.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "ChunkProgressListener",
+        "parameters": [
+          {
+            "name": "pRadius",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 5
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/level/progress/ChunkProgressListenerFactory.java"
+  },
+  "net.minecraft.server.level.progress.LoggerChunkProgressListener": {
+    "className": "LoggerChunkProgressListener",
+    "fullName": "net.minecraft.server.level.progress.LoggerChunkProgressListener",
+    "packageName": "net.minecraft.server.level.progress",
+    "filePath": "/net/minecraft/server/level/progress/LoggerChunkProgressListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ChunkProgressListener"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkStatus",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LoggerChunkProgressListener",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRadius",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "updateSpawnPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCenter",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStatusChange",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPosition",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewStatus",
+            "type": "ChunkStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProgress",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "maxCount",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "startTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "nextTickTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Long.MAX_VALUE",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 53
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/level/progress/LoggerChunkProgressListener.java"
+  },
+  "net.minecraft.server.level.progress.ProcessorChunkProgressListener": {
+    "className": "ProcessorChunkProgressListener",
+    "fullName": "net.minecraft.server.level.progress.ProcessorChunkProgressListener",
+    "packageName": "net.minecraft.server.level.progress",
+    "filePath": "/net/minecraft/server/level/progress/ProcessorChunkProgressListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ChunkProgressListener"
+    ],
+    "imports": [
+      "java.util.concurrent.Executor",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.thread.ProcessorMailbox",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ProcessorChunkProgressListener",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDelegate",
+            "type": "ChunkProgressListener",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDispatcher",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createStarted",
+        "returnType": "ProcessorChunkProgressListener",
+        "parameters": [
+          {
+            "name": "pDelegate",
+            "type": "ChunkProgressListener",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDispatcher",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSpawnPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCenter",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStatusChange",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPosition",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewStatus",
+            "type": "ChunkStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "delegate",
+        "type": "ChunkProgressListener",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "mailbox",
+        "type": "ProcessorMailbox<Runnable>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/level/progress/ProcessorChunkProgressListener.java"
+  },
+  "net.minecraft.server.level.progress.StoringChunkProgressListener": {
+    "className": "StoringChunkProgressListener",
+    "fullName": "net.minecraft.server.level.progress.StoringChunkProgressListener",
+    "packageName": "net.minecraft.server.level.progress",
+    "filePath": "/net/minecraft/server/level/progress/StoringChunkProgressListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ChunkProgressListener"
+    ],
+    "imports": [
+      "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+      "javax.annotation.Nullable",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StoringChunkProgressListener",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRadius",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "updateSpawnPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCenter",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStatusChange",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPosition",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewStatus",
+            "type": "ChunkStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFullDiameter",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDiameter",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProgress",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStatus",
+        "returnType": "ChunkStatus",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "delegate",
+        "type": "LoggerChunkProgressListener",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "statuses",
+        "type": "Long2ObjectOpenHashMap<ChunkStatus>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "fullDiameter",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "radius",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "diameter",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "started",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 71
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/level/progress/StoringChunkProgressListener.java"
+  }
+}

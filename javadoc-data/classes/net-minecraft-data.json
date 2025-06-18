@@ -1,0 +1,2605 @@
+{
+  "net.minecraft.data.BlockFamilies": {
+    "className": "BlockFamilies",
+    "fullName": "net.minecraft.data.BlockFamilies",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/BlockFamilies.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "java.util.Map",
+      "java.util.stream.Stream",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getAllFamilies",
+        "returnType": "Stream<BlockFamily>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 91
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RECIPE_GROUP_PREFIX_WOODEN",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"wooden\"",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "RECIPE_UNLOCKED_BY_HAS_PLANKS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"has_planks\"",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 92
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/BlockFamilies.java"
+  },
+  "net.minecraft.data.BlockFamily": {
+    "className": "BlockFamily",
+    "fullName": "net.minecraft.data.BlockFamily",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/BlockFamily.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "java.util.Map",
+      "java.util.Optional",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.world.flag.FeatureFlag",
+      "net.minecraft.world.flag.FeatureFlagSet",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.level.block.Block"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockFamily",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBaseBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getBaseBlock",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVariants",
+        "returnType": "Map<BlockFamily.Variant, Block>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Block",
+        "parameters": [
+          {
+            "name": "pVariant",
+            "type": "BlockFamily.Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldGenerateModel",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldGenerateRecipe",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEnabledFeatures",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRecipeGroupPrefix",
+        "returnType": "Optional<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRecipeUnlockedBy",
+        "returnType": "Optional<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "baseBlock",
+        "type": "Block",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "requiredFeatures",
+        "type": "FeatureFlagSet",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "FeatureFlags.VANILLA_SET",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "generateModel",
+        "type": "boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "generateRecipe",
+        "type": "boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "recipeGroupPrefix",
+        "type": "String",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "recipeUnlockedBy",
+        "type": "String",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.data.BlockFamily.Builder",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/BlockFamily.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "java.util.Map",
+          "java.util.Optional",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.level.block.Block"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pBaseBlock",
+                "type": "Block",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 59,
+              "end": 61
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getFamily",
+            "returnType": "BlockFamily",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 63,
+              "end": 65
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "family",
+            "type": "BlockFamily",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 57,
+              "end": 57
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 56,
+          "end": 177
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/BlockFamily/Builder.java"
+      },
+      {
+        "className": "Variant",
+        "fullName": "net.minecraft.data.BlockFamily.Variant",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/BlockFamily.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "java.util.Map",
+          "java.util.Optional",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.level.block.Block"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "BUTTON",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 180,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CHISELED",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 181,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CRACKED",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 182,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CUT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 183,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "DOOR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 184,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CUSTOM_FENCE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 185,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "FENCE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 186,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CUSTOM_FENCE_GATE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 187,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "FENCE_GATE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 188,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "MOSAIC",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 189,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "SIGN",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 190,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "SLAB",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 191,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "STAIRS",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 192,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "PRESSURE_PLATE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 193,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "POLISHED",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 194,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "TRAPDOOR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 195,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "WALL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 196,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "WALL_SIGN",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 197,
+              "end": 197
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Variant",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pVariantName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 201,
+              "end": 203
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 205,
+              "end": 207
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 199,
+              "end": 199
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 179,
+          "end": 208
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/BlockFamily/Variant.java"
+      }
+    ],
+    "lineRange": {
+      "start": 13,
+      "end": 209
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/BlockFamily.java"
+  },
+  "net.minecraft.data.CachedOutput": {
+    "className": "CachedOutput",
+    "fullName": "net.minecraft.data.CachedOutput",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/CachedOutput.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.hash.HashCode",
+      "java.io.IOException",
+      "java.nio.file.Files",
+      "java.nio.file.Path"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "writeIfNeeded",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFilePath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pData",
+            "type": "byte[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHashCode",
+            "type": "HashCode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 15
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/CachedOutput.java"
+  },
+  "net.minecraft.data.DataGenerator": {
+    "className": "DataGenerator",
+    "fullName": "net.minecraft.data.DataGenerator",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/DataGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Stopwatch",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.HashSet",
+      "java.util.LinkedHashMap",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.TimeUnit",
+      "net.minecraft.WorldVersion",
+      "net.minecraft.server.Bootstrap",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DataGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRootOutputFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersion",
+            "type": "WorldVersion",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlwaysGenerate",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 36,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProvidersView",
+        "returnType": "Map<String, DataProvider>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPackOutput",
+        "returnType": "PackOutput",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPackOutput",
+        "returnType": "PackOutput",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "rootOutputFolder",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "vanillaPackOutput",
+        "type": "PackOutput",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "version",
+        "type": "WorldVersion",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "alwaysGenerate",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PackGenerator",
+        "fullName": "net.minecraft.data.DataGenerator.PackGenerator",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/DataGenerator.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Stopwatch",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.nio.file.Path",
+          "java.util.HashSet",
+          "java.util.LinkedHashMap",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.concurrent.TimeUnit",
+          "net.minecraft.WorldVersion",
+          "net.minecraft.server.Bootstrap",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PackGenerator",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pToRun",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProviderPrefix",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOutput",
+                "type": "PackOutput",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 107
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "toRun",
+            "type": "boolean",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 99,
+              "end": 99
+            }
+          },
+          {
+            "name": "providerPrefix",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 100,
+              "end": 100
+            }
+          },
+          {
+            "name": "output",
+            "type": "PackOutput",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 101,
+              "end": 101
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 98,
+          "end": 122
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/DataGenerator/PackGenerator.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/DataGenerator.java"
+  },
+  "net.minecraft.data.DataProvider": {
+    "className": "DataProvider",
+    "fullName": "net.minecraft.data.DataProvider",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/DataProvider.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.hash.Hashing",
+      "com.google.common.hash.HashingOutputStream",
+      "com.google.gson.JsonElement",
+      "com.google.gson.stream.JsonWriter",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+      "java.io.ByteArrayOutputStream",
+      "java.io.IOException",
+      "java.io.OutputStreamWriter",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Path",
+      "java.util.Comparator",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.ToIntFunction",
+      "net.minecraft.Util",
+      "net.minecraft.util.GsonHelper",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Factory",
+        "fullName": "net.minecraft.data.DataProvider.Factory",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/DataProvider.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.hash.Hashing",
+          "com.google.common.hash.HashingOutputStream",
+          "com.google.gson.JsonElement",
+          "com.google.gson.stream.JsonWriter",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "java.io.ByteArrayOutputStream",
+          "java.io.IOException",
+          "java.io.OutputStreamWriter",
+          "java.nio.charset.StandardCharsets",
+          "java.nio.file.Path",
+          "java.util.Comparator",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.function.ToIntFunction",
+          "net.minecraft.Util",
+          "net.minecraft.util.GsonHelper",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "create",
+            "returnType": "T",
+            "parameters": [
+              {
+                "name": "pOutput",
+                "type": "PackOutput",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 61,
+              "end": 61
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/DataProvider/Factory.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 63
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/DataProvider.java"
+  },
+  "net.minecraft.data.HashCache": {
+    "className": "HashCache",
+    "fullName": "net.minecraft.data.HashCache",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/HashCache.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.hash.HashCode",
+      "com.google.common.hash.Hashing",
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.io.BufferedWriter",
+      "java.io.IOException",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.time.LocalDateTime",
+      "java.time.format.DateTimeFormatter",
+      "java.util.Collection",
+      "java.util.HashMap",
+      "java.util.HashSet",
+      "java.util.Map",
+      "java.util.Objects",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.ConcurrentHashMap",
+      "java.util.concurrent.ConcurrentMap",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.WorldVersion",
+      "org.apache.commons.lang3.mutable.MutableInt",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getProviderCachePath",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "HashCache",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRootDir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProviders",
+            "type": "Collection<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersion",
+            "type": "WorldVersion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 48,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "shouldRunInThisVersion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateUpdate",
+        "returnType": "CompletableFuture<HashCache.UpdateResult>",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUpdateFunction",
+            "type": "HashCache.UpdateFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyUpdate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUpdateResult",
+            "type": "HashCache.UpdateResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "purgeStaleAndWrite",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 107,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ProviderCache",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "version",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "data",
+            "type": "HashCode>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ProviderCacheBuilder",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "version",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "data",
+            "type": "HashCode>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 232,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "UpdateResult",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "providerId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "cache",
+            "type": "HashCache.ProviderCache",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "writes",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 251,
+          "end": 252
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "HEADER_MARKER",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"// \"",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "rootDir",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "cacheDir",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "versionId",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "caches",
+        "type": "Map<String, HashCache.ProviderCache>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "originalCaches",
+        "type": "Map<String, HashCache.ProviderCache>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "initialCount",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "writes",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "CacheUpdater",
+        "fullName": "net.minecraft.data.HashCache.CacheUpdater",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/HashCache.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "CachedOutput"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.hash.HashCode",
+          "com.google.common.hash.Hashing",
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.BufferedWriter",
+          "java.io.IOException",
+          "java.nio.charset.StandardCharsets",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.time.LocalDateTime",
+          "java.time.format.DateTimeFormatter",
+          "java.util.Collection",
+          "java.util.HashMap",
+          "java.util.HashSet",
+          "java.util.Map",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.ConcurrentHashMap",
+          "java.util.concurrent.ConcurrentMap",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.WorldVersion",
+          "org.apache.commons.lang3.mutable.MutableInt",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "CacheUpdater",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProvider",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVersion",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOldCache",
+                "type": "HashCache.ProviderCache",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 152,
+              "end": 156
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "shouldWrite",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pKey",
+                "type": "Path",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pValue",
+                "type": "HashCode",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 158,
+              "end": 160
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "writeIfNeeded",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pFilePath",
+                "type": "Path",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "byte[]",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHashCode",
+                "type": "HashCode",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 162,
+              "end": 174
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "provider",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 146,
+              "end": 146
+            }
+          },
+          {
+            "name": "oldCache",
+            "type": "HashCache.ProviderCache",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 147,
+              "end": 147
+            }
+          },
+          {
+            "name": "newCache",
+            "type": "HashCache.ProviderCacheBuilder",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 148,
+              "end": 148
+            }
+          },
+          {
+            "name": "closed",
+            "type": "volatile boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 150,
+              "end": 150
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 145,
+          "end": 180
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/HashCache/CacheUpdater.java"
+      },
+      {
+        "className": "UpdateFunction",
+        "fullName": "net.minecraft.data.HashCache.UpdateFunction",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/HashCache.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.hash.HashCode",
+          "com.google.common.hash.Hashing",
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.BufferedWriter",
+          "java.io.IOException",
+          "java.nio.charset.StandardCharsets",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.time.LocalDateTime",
+          "java.time.format.DateTimeFormatter",
+          "java.util.Collection",
+          "java.util.HashMap",
+          "java.util.HashSet",
+          "java.util.Map",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.ConcurrentHashMap",
+          "java.util.concurrent.ConcurrentMap",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.WorldVersion",
+          "org.apache.commons.lang3.mutable.MutableInt",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 247,
+          "end": 249
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/HashCache/UpdateFunction.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 253
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/HashCache.java"
+  },
+  "net.minecraft.data.Main": {
+    "className": "Main",
+    "fullName": "net.minecraft.data.Main",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/Main.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.nio.file.Paths",
+      "java.util.Collection",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.BiFunction",
+      "java.util.stream.Collectors",
+      "joptsimple.OptionParser",
+      "joptsimple.OptionSet",
+      "joptsimple.OptionSpec",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "net.minecraft.WorldVersion",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.data.advancements.packs.VanillaAdvancementProvider",
+      "net.minecraft.data.info.BiomeParametersDumpReport",
+      "net.minecraft.data.info.BlockListReport",
+      "net.minecraft.data.info.CommandsReport",
+      "net.minecraft.data.info.RegistryDumpReport",
+      "net.minecraft.data.loot.packs.VanillaLootTableProvider",
+      "net.minecraft.data.metadata.PackMetadataGenerator",
+      "net.minecraft.data.models.ModelProvider",
+      "net.minecraft.data.recipes.packs.BundleRecipeProvider",
+      "net.minecraft.data.recipes.packs.VanillaRecipeProvider",
+      "net.minecraft.data.registries.RegistriesDatapackGenerator",
+      "net.minecraft.data.registries.VanillaRegistries",
+      "net.minecraft.data.structures.NbtToSnbt",
+      "net.minecraft.data.structures.SnbtToNbt",
+      "net.minecraft.data.structures.StructureUpdater",
+      "net.minecraft.data.tags.BannerPatternTagsProvider",
+      "net.minecraft.data.tags.BiomeTagsProvider",
+      "net.minecraft.data.tags.CatVariantTagsProvider",
+      "net.minecraft.data.tags.DamageTypeTagsProvider",
+      "net.minecraft.data.tags.EntityTypeTagsProvider",
+      "net.minecraft.data.tags.FlatLevelGeneratorPresetTagsProvider",
+      "net.minecraft.data.tags.FluidTagsProvider",
+      "net.minecraft.data.tags.GameEventTagsProvider",
+      "net.minecraft.data.tags.InstrumentTagsProvider",
+      "net.minecraft.data.tags.PaintingVariantTagsProvider",
+      "net.minecraft.data.tags.PoiTypeTagsProvider",
+      "net.minecraft.data.tags.StructureTagsProvider",
+      "net.minecraft.data.tags.TagsProvider",
+      "net.minecraft.data.tags.VanillaBlockTagsProvider",
+      "net.minecraft.data.tags.VanillaItemTagsProvider",
+      "net.minecraft.data.tags.WorldPresetTagsProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.obfuscate.DontObfuscate",
+      "net.minecraft.world.flag.FeatureFlagSet",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.level.block.Block"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "main",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pArgs",
+            "type": "String[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 57,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createStandardGenerator",
+        "returnType": "DataGenerator",
+        "parameters": [
+          {
+            "name": "pOutputFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputFolders",
+            "type": "Collection<Path>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClient",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServer",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDev",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReports",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValidate",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersion",
+            "type": "WorldVersion",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlwaysGenerate",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 150
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 55,
+      "end": 151
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/Main.java"
+  },
+  "net.minecraft.data.PackOutput": {
+    "className": "PackOutput",
+    "fullName": "net.minecraft.data.PackOutput",
+    "packageName": "net.minecraft.data",
+    "filePath": "/net/minecraft/data/PackOutput.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.nio.file.Path",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PackOutput",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOutputFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getOutputFolder",
+        "returnType": "Path",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOutputFolder",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "PackOutput.Target",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "outputFolder",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PathProvider",
+        "fullName": "net.minecraft.data.PackOutput.PathProvider",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/PackOutput.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.nio.file.Path",
+          "net.minecraft.resources.ResourceLocation"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PathProvider",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOutput",
+                "type": "PackOutput",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTarget",
+                "type": "PackOutput.Target",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pKind",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 29,
+              "end": 32
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "file",
+            "returnType": "Path",
+            "parameters": [
+              {
+                "name": "pLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pExtension",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 34,
+              "end": 36
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "json",
+            "returnType": "Path",
+            "parameters": [
+              {
+                "name": "pLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 38,
+              "end": 40
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "root",
+            "type": "Path",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 26,
+              "end": 26
+            }
+          },
+          {
+            "name": "kind",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 27,
+              "end": 27
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 25,
+          "end": 41
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/PackOutput/PathProvider.java"
+      },
+      {
+        "className": "Target",
+        "fullName": "net.minecraft.data.PackOutput.Target",
+        "packageName": "net.minecraft.data",
+        "filePath": "/net/minecraft/data/PackOutput.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.nio.file.Path",
+          "net.minecraft.resources.ResourceLocation"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "DATA_PACK",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 44,
+              "end": 46
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "RESOURCE_PACK",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 45,
+              "end": 46
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "REPORTS",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 46,
+              "end": 46
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Target",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pDirectory",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 50,
+              "end": 52
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "directory",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 48,
+              "end": 48
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 43,
+          "end": 53
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/PackOutput/Target.java"
+      }
+    ],
+    "lineRange": {
+      "start": 6,
+      "end": 54
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/PackOutput.java"
+  }
+}

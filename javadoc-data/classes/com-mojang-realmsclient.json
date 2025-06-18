@@ -1,0 +1,5209 @@
+{
+  "com.mojang.realmsclient.KeyCombo": {
+    "className": "KeyCombo",
+    "fullName": "com.mojang.realmsclient.KeyCombo",
+    "packageName": "com.mojang.realmsclient",
+    "filePath": "/com/mojang/realmsclient/KeyCombo.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Arrays",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "KeyCombo",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pChars",
+            "type": "char[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnCompletion",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "KeyCombo",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pChars",
+            "type": "char[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "keyPressed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "chars",
+        "type": "char[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "matchIndex",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "onCompletion",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/KeyCombo.java"
+  },
+  "com.mojang.realmsclient.RealmsMainScreen": {
+    "className": "RealmsMainScreen",
+    "fullName": "com.mojang.realmsclient.RealmsMainScreen",
+    "packageName": "com.mojang.realmsclient",
+    "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RealmsScreen",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Lists",
+      "com.google.common.util.concurrent.RateLimiter",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.math.Axis",
+      "com.mojang.realmsclient.client.Ping",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.PingResult",
+      "com.mojang.realmsclient.dto.RealmsNotification",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+      "com.mojang.realmsclient.dto.RegionPingResult",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.gui.RealmsDataFetcher",
+      "com.mojang.realmsclient.gui.RealmsNewsManager",
+      "com.mojang.realmsclient.gui.RealmsServerList",
+      "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+      "com.mojang.realmsclient.gui.task.DataFetcher",
+      "com.mojang.realmsclient.util.RealmsPersistence",
+      "com.mojang.realmsclient.util.RealmsUtil",
+      "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.HashSet",
+      "java.util.List",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.TimeUnit",
+      "java.util.concurrent.locks.ReentrantLock",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.Util",
+      "net.minecraft.client.GameNarrator",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.AbstractWidget",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.ImageButton",
+      "net.minecraft.client.gui.components.ImageWidget",
+      "net.minecraft.client.gui.components.MultiLineLabel",
+      "net.minecraft.client.gui.components.MultiLineTextWidget",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraft.client.gui.components.Tooltip",
+      "net.minecraft.client.gui.layouts.FrameLayout",
+      "net.minecraft.client.gui.layouts.GridLayout",
+      "net.minecraft.client.gui.layouts.LinearLayout",
+      "net.minecraft.client.gui.layouts.SpacerElement",
+      "net.minecraft.client.gui.navigation.CommonInputs",
+      "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.realms.RealmsObjectSelectionList",
+      "net.minecraft.realms.RealmsScreen",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.CommonLinks",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsMainScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 176
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "shouldShowMessageInList",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldShowPopup",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 261
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasParentalConsent",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 265
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addTopButtons",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 267,
+          "end": 273
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addMiddleButtons",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 275,
+          "end": 286
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addFooterButtons",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 288,
+          "end": 321
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateButtonStates",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 323,
+          "end": 348
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldShowPopupButton",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 350,
+          "end": 352
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldPlayButtonBeActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 354,
+          "end": 356
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRenewButtonBeActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 358,
+          "end": 360
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldConfigureButtonBeActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 362,
+          "end": 364
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldLeaveButtonBeActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 366,
+          "end": 368
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 370,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "refreshRealmsSelectionList",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 478,
+          "end": 520
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEntriesForNotification",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSelectionList",
+            "type": "RealmsMainScreen.RealmSelectionList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNotification",
+            "type": "RealmsNotification",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 522,
+          "end": 528
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "refreshFetcher",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 530,
+          "end": 535
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pingRegions",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 537,
+          "end": 552
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOwnedNonExpiredWorldIds",
+        "returnType": "List<Long>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 554,
+          "end": 564
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCreatedTrial",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCreatedTrial",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 566,
+          "end": 568
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onRenew",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 570,
+          "end": 577
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkClientCompatability",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 579,
+          "end": 616
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkParentalConsent",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 618,
+          "end": 646
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToStage",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 648,
+          "end": 669
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToLocal",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 671,
+          "end": 692
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToProd",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 694,
+          "end": 697
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "configureClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 699,
+          "end": 705
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "leaveClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 707,
+          "end": 717
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveListScrollPosition",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 719,
+          "end": 721
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSelectedServer",
+        "returnType": "RealmsServer",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 724,
+          "end": 731
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "leaveServer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pConfirmed",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 733,
+          "end": 755
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeServer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 757,
+          "end": 766
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dismissNotification",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 768,
+          "end": 778
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetScreen",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 780,
+          "end": 785
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "keyPressed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pKeyCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pScanCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModifiers",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 795,
+          "end": 803
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClosePopup",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 805,
+          "end": 812
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "charTyped",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCodePoint",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModifiers",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 821,
+          "end": 826
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 835,
+          "end": 881
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mouseClicked",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMouseX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButton",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 891,
+          "end": 899
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOutsidePopup",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMouseX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 901,
+          "end": 905
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawPopup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 907,
+          "end": 949
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popupX0",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 951,
+          "end": 953
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popupY0",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 955,
+          "end": 957
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "play",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 959,
+          "end": 977
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSelfOwnedServer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 979,
+          "end": 981
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSelfOwnedNonExpiredServer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 983,
+          "end": 985
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawExpired",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 987,
+          "end": 993
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawExpiring",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDaysLeft",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 995,
+          "end": 1012
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawOpen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1014,
+          "end": 1020
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawClose",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1022,
+          "end": 1028
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderNews",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHasUnreadNews",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsHoveredOrFocused",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pActive",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1030,
+          "end": 1053
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderLocal",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1055,
+          "end": 1063
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderStage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1065,
+          "end": 1073
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "newScreen",
+        "returnType": "RealmsMainScreen",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1075,
+          "end": 1079
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateTeaserImages",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1081,
+          "end": 1088
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BUTTON_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 112,
+          "end": 112
+        }
+      },
+      {
+        "name": "BUTTON_TOP_ROW_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "308",
+        "lineRange": {
+          "start": 113,
+          "end": 113
+        }
+      },
+      {
+        "name": "BUTTON_BOTTOM_ROW_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "204",
+        "lineRange": {
+          "start": 114,
+          "end": 114
+        }
+      },
+      {
+        "name": "FOOTER_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 115,
+          "end": 115
+        }
+      },
+      {
+        "name": "LOGO_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "128",
+        "lineRange": {
+          "start": 116,
+          "end": 116
+        }
+      },
+      {
+        "name": "LOGO_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "34",
+        "lineRange": {
+          "start": 117,
+          "end": 117
+        }
+      },
+      {
+        "name": "LOGO_TEXTURE_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "128",
+        "lineRange": {
+          "start": 118,
+          "end": 118
+        }
+      },
+      {
+        "name": "LOGO_TEXTURE_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 119,
+          "end": 119
+        }
+      },
+      {
+        "name": "LOGO_PADDING",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 120,
+          "end": 120
+        }
+      },
+      {
+        "name": "HEADER_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "44",
+        "lineRange": {
+          "start": 121,
+          "end": 121
+        }
+      },
+      {
+        "name": "dataSubscription",
+        "type": "DataFetcher.Subscription",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 124,
+          "end": 124
+        }
+      },
+      {
+        "name": "serverList",
+        "type": "RealmsServerList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 125,
+          "end": 125
+        }
+      },
+      {
+        "name": "overrideConfigure",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 127,
+          "end": 127
+        }
+      },
+      {
+        "name": "lastScrollYPosition",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 128,
+          "end": 128
+        }
+      },
+      {
+        "name": "hasParentalConsent",
+        "type": "volatile boolean",
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 129,
+          "end": 129
+        }
+      },
+      {
+        "name": "checkedParentalConsent",
+        "type": "volatile boolean",
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 130,
+          "end": 130
+        }
+      },
+      {
+        "name": "checkedClientCompatability",
+        "type": "volatile boolean",
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 131,
+          "end": 131
+        }
+      },
+      {
+        "name": "realmsGenericErrorScreen",
+        "type": "Screen",
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 133,
+          "end": 133
+        }
+      },
+      {
+        "name": "regionsPinged",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 134,
+          "end": 134
+        }
+      },
+      {
+        "name": "inviteNarrationLimiter",
+        "type": "RateLimiter",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 135,
+          "end": 135
+        }
+      },
+      {
+        "name": "dontSetConnectedToRealms",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 136,
+          "end": 136
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 137,
+          "end": 137
+        }
+      },
+      {
+        "name": "realmSelectionList",
+        "type": "RealmsMainScreen.RealmSelectionList",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 138,
+          "end": 138
+        }
+      },
+      {
+        "name": "realmsSelectionListAdded",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 139,
+          "end": 139
+        }
+      },
+      {
+        "name": "playButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 140,
+          "end": 140
+        }
+      },
+      {
+        "name": "backButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 141,
+          "end": 141
+        }
+      },
+      {
+        "name": "renewButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 142,
+          "end": 142
+        }
+      },
+      {
+        "name": "configureButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 143,
+          "end": 143
+        }
+      },
+      {
+        "name": "leaveButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 144,
+          "end": 144
+        }
+      },
+      {
+        "name": "numberOfPendingInvites",
+        "type": "volatile int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 146,
+          "end": 146
+        }
+      },
+      {
+        "name": "animTick",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 147,
+          "end": 147
+        }
+      },
+      {
+        "name": "hasFetchedServers",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 148,
+          "end": 148
+        }
+      },
+      {
+        "name": "popupOpenedByUser",
+        "type": "boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 149,
+          "end": 149
+        }
+      },
+      {
+        "name": "justClosedPopup",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 150,
+          "end": 150
+        }
+      },
+      {
+        "name": "trialsAvailable",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 151,
+          "end": 151
+        }
+      },
+      {
+        "name": "createdTrial",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 152,
+          "end": 152
+        }
+      },
+      {
+        "name": "showingPopup",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 153,
+          "end": 153
+        }
+      },
+      {
+        "name": "hasUnreadNews",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 154,
+          "end": 154
+        }
+      },
+      {
+        "name": "newsLink",
+        "type": "volatile String",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 156,
+          "end": 156
+        }
+      },
+      {
+        "name": "carouselIndex",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 157,
+          "end": 157
+        }
+      },
+      {
+        "name": "carouselTick",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 158,
+          "end": 158
+        }
+      },
+      {
+        "name": "hasSwitchedCarouselImage",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 159,
+          "end": 159
+        }
+      },
+      {
+        "name": "keyCombos",
+        "type": "List<KeyCombo>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 160,
+          "end": 160
+        }
+      },
+      {
+        "name": "lastClickTime",
+        "type": "long",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 161,
+          "end": 161
+        }
+      },
+      {
+        "name": "formattedPopup",
+        "type": "MultiLineLabel",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "MultiLineLabel.EMPTY",
+        "lineRange": {
+          "start": 163,
+          "end": 163
+        }
+      },
+      {
+        "name": "showPopupButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 165,
+          "end": 165
+        }
+      },
+      {
+        "name": "pendingInvitesButton",
+        "type": "RealmsMainScreen.PendingInvitesButton",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 166,
+          "end": 166
+        }
+      },
+      {
+        "name": "newsButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 167,
+          "end": 167
+        }
+      },
+      {
+        "name": "createTrialButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 168,
+          "end": 168
+        }
+      },
+      {
+        "name": "buyARealmButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 169,
+          "end": 169
+        }
+      },
+      {
+        "name": "closeButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 170,
+          "end": 170
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ButtonEntry",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.ButtonEntry",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsMainScreen.Entry",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ButtonEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pButton",
+                "type": "Button",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1095,
+              "end": 1097
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "mouseClicked",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pMouseX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pButton",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1107,
+              "end": 1110
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyPressed",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pKeyCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pScanCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pModifiers",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1120,
+              "end": 1122
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "render",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHovering",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1124,
+              "end": 1127
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getNarration",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1129,
+              "end": 1131
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "button",
+            "type": "Button",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1092,
+              "end": 1092
+            }
+          },
+          {
+            "name": "xPos",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "RealmsMainScreen.this.width / 2 - 75",
+            "lineRange": {
+              "start": 1093,
+              "end": 1093
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1091,
+          "end": 1132
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/ButtonEntry.java"
+      },
+      {
+        "className": "CloseButton",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.CloseButton",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsMainScreen.CrossButton",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "CloseButton",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1136,
+              "end": 1140
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1135,
+          "end": 1141
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/CloseButton.java"
+      },
+      {
+        "className": "CrossButton",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.CrossButton",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Button",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "CrossButton",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOnPress",
+                "type": "Button.OnPress",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMessage",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1145,
+              "end": 1147
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CrossButton",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOnPress",
+                "type": "Button.OnPress",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMessage",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1149,
+              "end": 1152
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "renderWidget",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1154,
+              "end": 1157
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1144,
+          "end": 1158
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/CrossButton.java"
+      },
+      {
+        "className": "Entry",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.Entry",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [
+          "abstract"
+        ],
+        "superClass": "ObjectSelectionList.Entry<RealmsMainScreen.Entry>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getServer",
+            "returnType": "RealmsServer",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1163,
+              "end": 1165
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1161,
+          "end": 1166
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/Entry.java"
+      },
+      {
+        "className": "NewsButton",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.NewsButton",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "Button",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "NewsButton",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1172,
+              "end": 1185
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "renderWidget",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_281287_",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_282698_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_282096_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_283518_",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1187,
+              "end": 1189
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SIDE",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "20",
+            "lineRange": {
+              "start": 1170,
+              "end": 1170
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1169,
+          "end": 1190
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/NewsButton.java"
+      },
+      {
+        "className": "NotificationMessageEntry",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.NotificationMessageEntry",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsMainScreen.Entry",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "NotificationMessageEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pText",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNotification",
+                "type": "RealmsNotification",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1206,
+              "end": 1224
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "keyPressed",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pKeyCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pScanCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pModifiers",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1234,
+              "end": 1236
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "updateEntryWidth",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pEntryWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1238,
+              "end": 1244
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "refreshLayout",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1246,
+              "end": 1251
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderBack",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIsMouseOver",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1253,
+              "end": 1256
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "render",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHovering",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1258,
+              "end": 1264
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "mouseClicked",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pMouseX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pButton",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1274,
+              "end": 1280
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getNarration",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1282,
+              "end": 1284
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SIDE_MARGINS",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "40",
+            "lineRange": {
+              "start": 1194,
+              "end": 1194
+            }
+          },
+          {
+            "name": "ITEM_HEIGHT",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "36",
+            "lineRange": {
+              "start": 1195,
+              "end": 1195
+            }
+          },
+          {
+            "name": "OUTLINE_COLOR",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "-12303292",
+            "lineRange": {
+              "start": 1196,
+              "end": 1196
+            }
+          },
+          {
+            "name": "text",
+            "type": "Component",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1197,
+              "end": 1197
+            }
+          },
+          {
+            "name": "dismissButton",
+            "type": "RealmsMainScreen.CrossButton",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1200,
+              "end": 1200
+            }
+          },
+          {
+            "name": "textWidget",
+            "type": "MultiLineTextWidget",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1201,
+              "end": 1201
+            }
+          },
+          {
+            "name": "gridLayout",
+            "type": "GridLayout",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1202,
+              "end": 1202
+            }
+          },
+          {
+            "name": "textFrame",
+            "type": "FrameLayout",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1203,
+              "end": 1203
+            }
+          },
+          {
+            "name": "lastEntryWidth",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "-1",
+            "lineRange": {
+              "start": 1204,
+              "end": 1204
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1193,
+          "end": 1285
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/NotificationMessageEntry.java"
+      },
+      {
+        "className": "PendingInvitesButton",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.PendingInvitesButton",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "ImageButton",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PendingInvitesButton",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1299,
+              "end": 1304
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1306,
+              "end": 1308
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderWidget",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1310,
+              "end": 1313
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "drawInvitations",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1315,
+              "end": 1324
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "WIDTH",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "18",
+            "lineRange": {
+              "start": 1292,
+              "end": 1292
+            }
+          },
+          {
+            "name": "HEIGHT",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "15",
+            "lineRange": {
+              "start": 1293,
+              "end": 1293
+            }
+          },
+          {
+            "name": "X_OFFSET",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "10",
+            "lineRange": {
+              "start": 1294,
+              "end": 1294
+            }
+          },
+          {
+            "name": "INVITES_WIDTH",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "8",
+            "lineRange": {
+              "start": 1295,
+              "end": 1295
+            }
+          },
+          {
+            "name": "INVITES_HEIGHT",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "8",
+            "lineRange": {
+              "start": 1296,
+              "end": 1296
+            }
+          },
+          {
+            "name": "INVITES_OFFSET",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "11",
+            "lineRange": {
+              "start": 1297,
+              "end": 1297
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1288,
+          "end": 1325
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/PendingInvitesButton.java"
+      },
+      {
+        "className": "RealmSelectionList",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.RealmSelectionList",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsObjectSelectionList<RealmsMainScreen.Entry>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RealmSelectionList",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1329,
+              "end": 1331
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "setSelected",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_86849_",
+                "type": "RealmsMainScreen.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1333,
+              "end": 1341
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getMaxPosition",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1343,
+              "end": 1345
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getRowWidth",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1347,
+              "end": 1349
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1328,
+          "end": 1350
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/RealmSelectionList.java"
+      },
+      {
+        "className": "RealmsCall",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.RealmsCall",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "interface",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "request",
+            "returnType": "T",
+            "parameters": [
+              {
+                "name": "pRealmsClient",
+                "type": "RealmsClient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "RealmsServiceException"
+            ],
+            "lineRange": {
+              "start": 1354,
+              "end": 1354
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1353,
+          "end": 1355
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/RealmsCall.java"
+      },
+      {
+        "className": "ServerEntry",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.ServerEntry",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsMainScreen.Entry",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ServerEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pServerData",
+                "type": "RealmsServer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1362,
+              "end": 1364
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "render",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHovering",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1366,
+              "end": 1368
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "mouseClicked",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pMouseX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pButton",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1378,
+              "end": 1391
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyPressed",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pKeyCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pScanCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pModifiers",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1401,
+              "end": 1409
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderMcoServerItem",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pRealmsServer",
+                "type": "RealmsServer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1411,
+              "end": 1413
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderLegacy",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pRealmsServer",
+                "type": "RealmsServer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1415,
+              "end": 1455
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderStatusLights",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pRealmsServer",
+                "type": "RealmsServer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1457,
+              "end": 1469
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getNarration",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1471,
+              "end": 1473
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getServer",
+            "returnType": "RealmsServer",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1476,
+              "end": 1478
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SKIN_HEAD_LARGE_WIDTH",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "36",
+            "lineRange": {
+              "start": 1359,
+              "end": 1359
+            }
+          },
+          {
+            "name": "serverData",
+            "type": "RealmsServer",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1360,
+              "end": 1360
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1358,
+          "end": 1479
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/ServerEntry.java"
+      },
+      {
+        "className": "TrialEntry",
+        "fullName": "com.mojang.realmsclient.RealmsMainScreen.TrialEntry",
+        "packageName": "com.mojang.realmsclient",
+        "filePath": "/com/mojang/realmsclient/RealmsMainScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "RealmsMainScreen.Entry",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.util.concurrent.RateLimiter",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.math.Axis",
+          "com.mojang.realmsclient.client.Ping",
+          "com.mojang.realmsclient.client.RealmsClient",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerList",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.gui.RealmsDataFetcher",
+          "com.mojang.realmsclient.gui.RealmsNewsManager",
+          "com.mojang.realmsclient.gui.RealmsServerList",
+          "com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsCreateRealmScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsParentalConsentScreen",
+          "com.mojang.realmsclient.gui.screens.RealmsPendingInvitesScreen",
+          "com.mojang.realmsclient.gui.task.DataFetcher",
+          "com.mojang.realmsclient.util.RealmsPersistence",
+          "com.mojang.realmsclient.util.RealmsUtil",
+          "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashSet",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.locks.ReentrantLock",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.AbstractWidget",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ImageButton",
+          "net.minecraft.client.gui.components.ImageWidget",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.MultiLineTextWidget",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.layouts.FrameLayout",
+          "net.minecraft.client.gui.layouts.GridLayout",
+          "net.minecraft.client.gui.layouts.LinearLayout",
+          "net.minecraft.client.gui.layouts.SpacerElement",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.realms.RealmsObjectSelectionList",
+          "net.minecraft.realms.RealmsScreen",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.util.CommonLinks",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "render",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHovering",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1483,
+              "end": 1485
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "mouseClicked",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pMouseX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pButton",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1495,
+              "end": 1498
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderTrialItem",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1500,
+              "end": 1518
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getNarration",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1520,
+              "end": 1522
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1482,
+          "end": 1523
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen/TrialEntry.java"
+      }
+    ],
+    "lineRange": {
+      "start": 78,
+      "end": 1524
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/RealmsMainScreen.java"
+  },
+  "com.mojang.realmsclient.Unit": {
+    "className": "Unit",
+    "fullName": "com.mojang.realmsclient.Unit",
+    "packageName": "com.mojang.realmsclient",
+    "filePath": "/com/mojang/realmsclient/Unit.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Locale",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getLargest",
+        "returnType": "Unit",
+        "parameters": [
+          {
+            "name": "pBytes",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertTo",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pBytes",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUnit",
+            "type": "Unit",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "humanReadable",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pBytes",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "humanReadable",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pBytes",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUnit",
+            "type": "Unit",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BASE_UNIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1024",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/Unit.java"
+  }
+}

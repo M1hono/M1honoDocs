@@ -1,0 +1,678 @@
+{
+  "net.minecraft.world.level.levelgen.presets.WorldPreset": {
+    "className": "WorldPreset",
+    "fullName": "net.minecraft.world.level.levelgen.presets.WorldPreset",
+    "packageName": "net.minecraft.world.level.levelgen.presets",
+    "filePath": "/net/minecraft/world/level/levelgen/presets/WorldPreset.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.Lifecycle",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Map",
+      "java.util.Optional",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.MappedRegistry",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.WritableRegistry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.RegistryFileCodec",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.world.level.dimension.LevelStem",
+      "net.minecraft.world.level.levelgen.WorldDimensions"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WorldPreset",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226419_",
+            "type": "LevelStem>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createRegistry",
+        "returnType": "Registry<LevelStem>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createWorldDimensions",
+        "returnType": "WorldDimensions",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overworld",
+        "returnType": "Optional<LevelStem>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requireOverworld",
+        "returnType": "DataResult<WorldPreset>",
+        "parameters": [
+          {
+            "name": "p_238379_",
+            "type": "WorldPreset",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 57
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "dimensions",
+        "type": "Map<ResourceKey<LevelStem>, LevelStem>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/levelgen/presets/WorldPreset.java"
+  },
+  "net.minecraft.world.level.levelgen.presets.WorldPresets": {
+    "className": "WorldPresets",
+    "fullName": "net.minecraft.world.level.levelgen.presets.WorldPresets",
+    "packageName": "net.minecraft.world.level.levelgen.presets",
+    "filePath": "/net/minecraft/world/level/levelgen/presets/WorldPresets.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Map",
+      "java.util.Optional",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderGetter",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.data.worldgen.BootstapContext",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.BiomeSource",
+      "net.minecraft.world.level.biome.Biomes",
+      "net.minecraft.world.level.biome.FixedBiomeSource",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSource",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterList",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists",
+      "net.minecraft.world.level.biome.TheEndBiomeSource",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.dimension.BuiltinDimensionTypes",
+      "net.minecraft.world.level.dimension.DimensionType",
+      "net.minecraft.world.level.dimension.LevelStem",
+      "net.minecraft.world.level.levelgen.DebugLevelSource",
+      "net.minecraft.world.level.levelgen.FlatLevelSource",
+      "net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator",
+      "net.minecraft.world.level.levelgen.NoiseGeneratorSettings",
+      "net.minecraft.world.level.levelgen.WorldDimensions",
+      "net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings",
+      "net.minecraft.world.level.levelgen.placement.PlacedFeature",
+      "net.minecraft.world.level.levelgen.structure.StructureSet"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "bootstrap",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BootstapContext<WorldPreset>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "register",
+        "returnType": "ResourceKey<WorldPreset>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromSettings",
+        "returnType": "Optional<ResourceKey<WorldPreset>>",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "Registry<LevelStem>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createNormalWorldDimensions",
+        "returnType": "WorldDimensions",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNormalOverworld",
+        "returnType": "LevelStem",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Bootstrap",
+        "fullName": "net.minecraft.world.level.levelgen.presets.WorldPresets.Bootstrap",
+        "packageName": "net.minecraft.world.level.levelgen.presets",
+        "filePath": "/net/minecraft/world/level/levelgen/presets/WorldPresets.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.Map",
+          "java.util.Optional",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderGetter",
+          "net.minecraft.core.Registry",
+          "net.minecraft.core.RegistryAccess",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.data.worldgen.BootstapContext",
+          "net.minecraft.resources.ResourceKey",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.world.level.biome.Biome",
+          "net.minecraft.world.level.biome.BiomeSource",
+          "net.minecraft.world.level.biome.Biomes",
+          "net.minecraft.world.level.biome.FixedBiomeSource",
+          "net.minecraft.world.level.biome.MultiNoiseBiomeSource",
+          "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterList",
+          "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists",
+          "net.minecraft.world.level.biome.TheEndBiomeSource",
+          "net.minecraft.world.level.chunk.ChunkGenerator",
+          "net.minecraft.world.level.dimension.BuiltinDimensionTypes",
+          "net.minecraft.world.level.dimension.DimensionType",
+          "net.minecraft.world.level.dimension.LevelStem",
+          "net.minecraft.world.level.levelgen.DebugLevelSource",
+          "net.minecraft.world.level.levelgen.FlatLevelSource",
+          "net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator",
+          "net.minecraft.world.level.levelgen.NoiseGeneratorSettings",
+          "net.minecraft.world.level.levelgen.WorldDimensions",
+          "net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings",
+          "net.minecraft.world.level.levelgen.placement.PlacedFeature",
+          "net.minecraft.world.level.levelgen.structure.StructureSet"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Bootstrap",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pContext",
+                "type": "BootstapContext<WorldPreset>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 96
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "makeOverworld",
+            "returnType": "LevelStem",
+            "parameters": [
+              {
+                "name": "pGenerator",
+                "type": "ChunkGenerator",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 100
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "makeNoiseBasedOverworld",
+            "returnType": "LevelStem",
+            "parameters": [
+              {
+                "name": "pBiomeSource",
+                "type": "BiomeSource",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSettings",
+                "type": "Holder<NoiseGeneratorSettings>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 102,
+              "end": 104
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "createPresetWithCustomOverworld",
+            "returnType": "WorldPreset",
+            "parameters": [
+              {
+                "name": "pOverworldStem",
+                "type": "LevelStem",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 106,
+              "end": 108
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "registerCustomOverworldPreset",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pDimensionKey",
+                "type": "ResourceKey<WorldPreset>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevelStem",
+                "type": "LevelStem",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 110,
+              "end": 112
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "registerOverworlds",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBiomeSource",
+                "type": "BiomeSource",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 114,
+              "end": 121
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "bootstrap",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 123,
+              "end": 131
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "context",
+            "type": "BootstapContext<WorldPreset>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 70,
+              "end": 70
+            }
+          },
+          {
+            "name": "noiseSettings",
+            "type": "HolderGetter<NoiseGeneratorSettings>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            }
+          },
+          {
+            "name": "biomes",
+            "type": "HolderGetter<Biome>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 72,
+              "end": 72
+            }
+          },
+          {
+            "name": "placedFeatures",
+            "type": "HolderGetter<PlacedFeature>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 73,
+              "end": 73
+            }
+          },
+          {
+            "name": "structureSets",
+            "type": "HolderGetter<StructureSet>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 74,
+              "end": 74
+            }
+          },
+          {
+            "name": "multiNoiseBiomeSourceParameterLists",
+            "type": "HolderGetter<MultiNoiseBiomeSourceParameterList>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 75,
+              "end": 75
+            }
+          },
+          {
+            "name": "overworldDimensionType",
+            "type": "Holder<DimensionType>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 76,
+              "end": 76
+            }
+          },
+          {
+            "name": "netherStem",
+            "type": "LevelStem",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 77,
+              "end": 77
+            }
+          },
+          {
+            "name": "endStem",
+            "type": "LevelStem",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 78,
+              "end": 78
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 69,
+          "end": 132
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/levelgen/presets/WorldPresets/Bootstrap.java"
+      }
+    ],
+    "lineRange": {
+      "start": 34,
+      "end": 133
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/levelgen/presets/WorldPresets.java"
+  }
+}

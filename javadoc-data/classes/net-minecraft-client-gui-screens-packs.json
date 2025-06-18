@@ -1,0 +1,2702 @@
+{
+  "net.minecraft.client.gui.screens.packs.PackSelectionModel": {
+    "className": "PackSelectionModel",
+    "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionModel",
+    "packageName": "net.minecraft.client.gui.screens.packs",
+    "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionModel.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Lists",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.function.Consumer",
+      "java.util.function.Function",
+      "java.util.stream.Stream",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.OptionInstance",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.repository.Pack",
+      "net.minecraft.server.packs.repository.PackCompatibility",
+      "net.minecraft.server.packs.repository.PackRepository",
+      "net.minecraft.server.packs.repository.PackSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PackSelectionModel",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOnListChanged",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIconGetter",
+            "type": "ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRepository",
+            "type": "PackRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "Consumer<PackRepository>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getUnselected",
+        "returnType": "Stream<PackSelectionModel.Entry>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSelected",
+        "returnType": "Stream<PackSelectionModel.Entry>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateRepoSelectedList",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "commit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findNewPacks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 68
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "repository",
+        "type": "PackRepository",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "selected",
+        "type": "List<Pack>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "unselected",
+        "type": "List<Pack>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "iconGetter",
+        "type": "Function<Pack, ResourceLocation>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "onListChanged",
+        "type": "Runnable",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "output",
+        "type": "Consumer<PackRepository>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Entry",
+        "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionModel.Entry",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionModel.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "java.util.stream.Stream",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.OptionInstance",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.repository.Pack",
+          "net.minecraft.server.packs.repository.PackCompatibility",
+          "net.minecraft.server.packs.repository.PackRepository",
+          "net.minecraft.server.packs.repository.PackSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getIconTexture",
+            "returnType": "ResourceLocation",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 72,
+              "end": 72
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCompatibility",
+            "returnType": "PackCompatibility",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 74,
+              "end": 74
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getId",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 76,
+              "end": 76
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getTitle",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 78,
+              "end": 78
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getDescription",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 80
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPackSource",
+            "returnType": "PackSource",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 82,
+              "end": 82
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isFixedPosition",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 88,
+              "end": 88
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isRequired",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 90
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "select",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 92,
+              "end": 92
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unselect",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 94,
+              "end": 94
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "moveUp",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 96,
+              "end": 96
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "moveDown",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 98
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isSelected",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 100,
+              "end": 100
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canMoveUp",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 110,
+              "end": 110
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canMoveDown",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 112
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 71,
+          "end": 115
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionModel/Entry.java"
+      },
+      {
+        "className": "EntryBase",
+        "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionModel.EntryBase",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionModel.java",
+        "classType": "class",
+        "modifiers": [
+          "abstract"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "PackSelectionModel.Entry"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "java.util.stream.Stream",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.OptionInstance",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.repository.Pack",
+          "net.minecraft.server.packs.repository.PackCompatibility",
+          "net.minecraft.server.packs.repository.PackRepository",
+          "net.minecraft.server.packs.repository.PackSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "EntryBase",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPack",
+                "type": "Pack",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 123
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSelfList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected",
+              "abstract"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 125,
+              "end": 125
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getOtherList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected",
+              "abstract"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 127,
+              "end": 127
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getIconTexture",
+            "returnType": "ResourceLocation",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 129,
+              "end": 131
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCompatibility",
+            "returnType": "PackCompatibility",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 133,
+              "end": 135
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getId",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 137,
+              "end": 139
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getTitle",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 141,
+              "end": 143
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getDescription",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 145,
+              "end": 147
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPackSource",
+            "returnType": "PackSource",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 149,
+              "end": 151
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isFixedPosition",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 153,
+              "end": 155
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isRequired",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 157,
+              "end": 159
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toggleSelection",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 161,
+              "end": 167
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "updateHighContrastOptionInstance",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 169,
+              "end": 175
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "move",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pOffset",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 177,
+              "end": 183
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canMoveUp",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 185,
+              "end": 189
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "moveUp",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 191,
+              "end": 193
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canMoveDown",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 195,
+              "end": 199
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "moveDown",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 201,
+              "end": 203
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "notHidden",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 208
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "pack",
+            "type": "Pack",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 119,
+              "end": 119
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 118,
+          "end": 209
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionModel/EntryBase.java"
+      },
+      {
+        "className": "SelectedPackEntry",
+        "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionModel.SelectedPackEntry",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionModel.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "PackSelectionModel.EntryBase",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "java.util.stream.Stream",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.OptionInstance",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.repository.Pack",
+          "net.minecraft.server.packs.repository.PackCompatibility",
+          "net.minecraft.server.packs.repository.PackRepository",
+          "net.minecraft.server.packs.repository.PackSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SelectedPackEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p_99954_",
+                "type": "Pack",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 213,
+              "end": 215
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSelfList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 217,
+              "end": 219
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getOtherList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 221,
+              "end": 223
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isSelected",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 225,
+              "end": 227
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "select",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 229,
+              "end": 230
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unselect",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 232,
+              "end": 234
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 212,
+          "end": 235
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionModel/SelectedPackEntry.java"
+      },
+      {
+        "className": "UnselectedPackEntry",
+        "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionModel.UnselectedPackEntry",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionModel.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "PackSelectionModel.EntryBase",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "java.util.stream.Stream",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.OptionInstance",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.repository.Pack",
+          "net.minecraft.server.packs.repository.PackCompatibility",
+          "net.minecraft.server.packs.repository.PackRepository",
+          "net.minecraft.server.packs.repository.PackSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "UnselectedPackEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p_99963_",
+                "type": "Pack",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 239,
+              "end": 241
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSelfList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 243,
+              "end": 245
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getOtherList",
+            "returnType": "List<Pack>",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 247,
+              "end": 249
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isSelected",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 251,
+              "end": 253
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "select",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 255,
+              "end": 257
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unselect",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 259,
+              "end": 260
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 238,
+          "end": 261
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionModel/UnselectedPackEntry.java"
+      }
+    ],
+    "lineRange": {
+      "start": 22,
+      "end": 262
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionModel.java"
+  },
+  "net.minecraft.client.gui.screens.packs.PackSelectionScreen": {
+    "className": "PackSelectionScreen",
+    "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionScreen",
+    "packageName": "net.minecraft.client.gui.screens.packs",
+    "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Screen",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.hash.Hashing",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.file.DirectoryStream",
+      "java.nio.file.Files",
+      "java.nio.file.LinkOption",
+      "java.nio.file.Path",
+      "java.nio.file.StandardWatchEventKinds",
+      "java.nio.file.WatchEvent",
+      "java.nio.file.WatchKey",
+      "java.nio.file.WatchService",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.Consumer",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.Util",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.ComponentPath",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.Tooltip",
+      "net.minecraft.client.gui.components.toasts.SystemToast",
+      "net.minecraft.client.gui.screens.ConfirmScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.renderer.texture.DynamicTexture",
+      "net.minecraft.client.renderer.texture.TextureManager",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.repository.Pack",
+      "net.minecraft.server.packs.repository.PackRepository",
+      "net.minecraft.server.packs.resources.IoSupplier",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.lang3.mutable.MutableBoolean",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PackSelectionScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRepository",
+            "type": "PackRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "Consumer<PackRepository>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackDir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 70
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "onClose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "closeWatcher",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "populateLists",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateList",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSelection",
+            "type": "TransferableSelectionList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModels",
+            "type": "Stream<PackSelectionModel.Entry>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateFocus",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSelection",
+            "type": "TransferableSelectionList",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearSelected",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copyPacks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPacks",
+            "type": "List<Path>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutDir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onFilesDrop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPacks",
+            "type": "List<Path>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadPackIcon",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pTextureManager",
+            "type": "TextureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPack",
+            "type": "Pack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPackIcon",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "p_99990_",
+            "type": "Pack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 238
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "LIST_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "200",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "RELOAD_COOLDOWN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "model",
+        "type": "PackSelectionModel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "watcher",
+        "type": "PackSelectionScreen.Watcher",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "ticksToReload",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "availablePackList",
+        "type": "TransferableSelectionList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "selectedPackList",
+        "type": "TransferableSelectionList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      },
+      {
+        "name": "packDir",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "doneButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Watcher",
+        "fullName": "net.minecraft.client.gui.screens.packs.PackSelectionScreen.Watcher",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/PackSelectionScreen.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "AutoCloseable"
+        ],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.common.hash.Hashing",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.file.DirectoryStream",
+          "java.nio.file.Files",
+          "java.nio.file.LinkOption",
+          "java.nio.file.Path",
+          "java.nio.file.StandardWatchEventKinds",
+          "java.nio.file.WatchEvent",
+          "java.nio.file.WatchKey",
+          "java.nio.file.WatchService",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Consumer",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Util",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.ComponentPath",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.components.toasts.SystemToast",
+          "net.minecraft.client.gui.screens.ConfirmScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.renderer.texture.DynamicTexture",
+          "net.minecraft.client.renderer.texture.TextureManager",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.PackResources",
+          "net.minecraft.server.packs.repository.Pack",
+          "net.minecraft.server.packs.repository.PackRepository",
+          "net.minecraft.server.packs.resources.IoSupplier",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.lang3.mutable.MutableBoolean",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Watcher",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPackPath",
+                "type": "Path",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 245,
+              "end": 264
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "watchDir",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pPath",
+                "type": "Path",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 276,
+              "end": 278
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "pollForChanges",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 280,
+              "end": 299
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 301,
+              "end": 303
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "watcher",
+            "type": "WatchService",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 242,
+              "end": 242
+            }
+          },
+          {
+            "name": "packPath",
+            "type": "Path",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 243,
+              "end": 243
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 241,
+          "end": 304
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionScreen/Watcher.java"
+      }
+    ],
+    "lineRange": {
+      "start": 48,
+      "end": 305
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/PackSelectionScreen.java"
+  },
+  "net.minecraft.client.gui.screens.packs.TransferableSelectionList": {
+    "className": "TransferableSelectionList",
+    "fullName": "net.minecraft.client.gui.screens.packs.TransferableSelectionList",
+    "packageName": "net.minecraft.client.gui.screens.packs",
+    "filePath": "/net/minecraft/client/gui/screens/packs/TransferableSelectionList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ObjectSelectionList<TransferableSelectionList.PackEntry>",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.MultiLineLabel",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraft.client.gui.screens.ConfirmScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.locale.Language",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.FormattedText",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.repository.PackCompatibility",
+      "net.minecraft.util.FormattedCharSequence",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TransferableSelectionList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pScreen",
+            "type": "PackSelectionScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "renderHeader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRowWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getScrollbarPosition",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "keyPressed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pKeyCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pScanCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModifiers",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 78
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "title",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "screen",
+        "type": "PackSelectionScreen",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PackEntry",
+        "fullName": "net.minecraft.client.gui.screens.packs.TransferableSelectionList.PackEntry",
+        "packageName": "net.minecraft.client.gui.screens.packs",
+        "filePath": "/net/minecraft/client/gui/screens/packs/TransferableSelectionList.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "ObjectSelectionList.Entry<TransferableSelectionList.PackEntry>",
+        "interfaces": [],
+        "imports": [
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.screens.ConfirmScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.locale.Language",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.FormattedText",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.repository.PackCompatibility",
+          "net.minecraft.util.FormattedCharSequence",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PackEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinecraft",
+                "type": "Minecraft",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pParent",
+                "type": "TransferableSelectionList",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPack",
+                "type": "PackSelectionModel.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 107
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "cacheName",
+            "returnType": "FormattedCharSequence",
+            "parameters": [
+              {
+                "name": "pMinecraft",
+                "type": "Minecraft",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pName",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 109,
+              "end": 117
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "cacheDescription",
+            "returnType": "MultiLineLabel",
+            "parameters": [
+              {
+                "name": "pMinecraft",
+                "type": "Minecraft",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pText",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 121
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getNarration",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 123,
+              "end": 125
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "render",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHovering",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 127,
+              "end": 180
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPackId",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 182,
+              "end": 184
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "showHoverOverlay",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 186,
+              "end": 188
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyboardSelection",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 190,
+              "end": 198
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyboardMoveUp",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 200,
+              "end": 205
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyboardMoveDown",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 207,
+              "end": 212
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "handlePackSelection",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 214,
+              "end": 229
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "mouseClicked",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pMouseX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pButton",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 239,
+              "end": 270
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "ICON_OVERLAY_X_MOVE_RIGHT",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "0",
+            "lineRange": {
+              "start": 82,
+              "end": 82
+            }
+          },
+          {
+            "name": "ICON_OVERLAY_X_MOVE_LEFT",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "32",
+            "lineRange": {
+              "start": 83,
+              "end": 83
+            }
+          },
+          {
+            "name": "ICON_OVERLAY_X_MOVE_DOWN",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "64",
+            "lineRange": {
+              "start": 84,
+              "end": 84
+            }
+          },
+          {
+            "name": "ICON_OVERLAY_X_MOVE_UP",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "96",
+            "lineRange": {
+              "start": 85,
+              "end": 85
+            }
+          },
+          {
+            "name": "ICON_OVERLAY_Y_UNSELECTED",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "0",
+            "lineRange": {
+              "start": 86,
+              "end": 86
+            }
+          },
+          {
+            "name": "ICON_OVERLAY_Y_SELECTED",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "32",
+            "lineRange": {
+              "start": 87,
+              "end": 87
+            }
+          },
+          {
+            "name": "MAX_DESCRIPTION_WIDTH_PIXELS",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "157",
+            "lineRange": {
+              "start": 88,
+              "end": 88
+            }
+          },
+          {
+            "name": "MAX_NAME_WIDTH_PIXELS",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "157",
+            "lineRange": {
+              "start": 89,
+              "end": 89
+            }
+          },
+          {
+            "name": "TOO_LONG_NAME_SUFFIX",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "\"...\"",
+            "lineRange": {
+              "start": 90,
+              "end": 90
+            }
+          },
+          {
+            "name": "parent",
+            "type": "TransferableSelectionList",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 91,
+              "end": 91
+            }
+          },
+          {
+            "name": "minecraft",
+            "type": "Minecraft",
+            "modifiers": [
+              "protected",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 92,
+              "end": 92
+            }
+          },
+          {
+            "name": "pack",
+            "type": "PackSelectionModel.Entry",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 93,
+              "end": 93
+            }
+          },
+          {
+            "name": "nameDisplayCache",
+            "type": "FormattedCharSequence",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 94,
+              "end": 94
+            }
+          },
+          {
+            "name": "descriptionDisplayCache",
+            "type": "MultiLineLabel",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 95,
+              "end": 95
+            }
+          },
+          {
+            "name": "incompatibleNameDisplayCache",
+            "type": "FormattedCharSequence",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 96,
+              "end": 96
+            }
+          },
+          {
+            "name": "incompatibleDescriptionDisplayCache",
+            "type": "MultiLineLabel",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 97,
+              "end": 97
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 81,
+          "end": 271
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/TransferableSelectionList/PackEntry.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 272
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/gui/screens/packs/TransferableSelectionList.java"
+  }
+}

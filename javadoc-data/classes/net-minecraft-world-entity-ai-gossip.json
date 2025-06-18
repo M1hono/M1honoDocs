@@ -1,0 +1,1090 @@
+{
+  "net.minecraft.world.entity.ai.gossip.GossipContainer": {
+    "className": "GossipContainer",
+    "fullName": "net.minecraft.world.entity.ai.gossip.GossipContainer",
+    "packageName": "net.minecraft.world.entity.ai.gossip",
+    "filePath": "/net/minecraft/world/entity/ai/gossip/GossipContainer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.Dynamic",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.objects.Object2IntMap",
+      "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+      "it.unimi.dsi.fastutil.objects.ObjectIterator",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.function.DoublePredicate",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.VisibleForDebug",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getGossipEntries",
+        "returnType": "Map<UUID, Object2IntMap<GossipType>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "decay",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpack",
+        "returnType": "Stream<GossipContainer.GossipEntry>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectGossipsForTransfer",
+        "returnType": "Collection<GossipContainer.GossipEntry>",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "transferFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContainer",
+            "type": "GossipContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandomSource",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getReputation",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossip",
+            "type": "Predicate<GossipType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCountForType",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipPredicate",
+            "type": "DoublePredicate",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "update",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDynamic",
+            "type": "Dynamic<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mergeValuesForTransfer",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "p_26159_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_26160_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mergeValuesForAddition",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pGossipType",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExisting",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAdditive",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "GossipEntry",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "GossipType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "value",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 248
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DISCARD_THRESHOLD",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "EntityGossips",
+        "fullName": "net.minecraft.world.entity.ai.gossip.GossipContainer.EntityGossips",
+        "packageName": "net.minecraft.world.entity.ai.gossip",
+        "filePath": "/net/minecraft/world/entity/ai/gossip/GossipContainer.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Dynamic",
+          "com.mojang.serialization.DynamicOps",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.objects.Object2IntMap",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "it.unimi.dsi.fastutil.objects.ObjectIterator",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.Collections",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.function.DoublePredicate",
+          "java.util.function.Predicate",
+          "java.util.stream.Stream",
+          "net.minecraft.core.UUIDUtil",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.VisibleForDebug",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "weightedValue",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pGossipType",
+                "type": "Predicate<GossipType>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 189,
+              "end": 195
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unpack",
+            "returnType": "Stream<GossipContainer.GossipEntry>",
+            "parameters": [
+              {
+                "name": "pIdentifier",
+                "type": "UUID",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 197,
+              "end": 201
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "decay",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 203,
+              "end": 216
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEmpty",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 218,
+              "end": 220
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "makeSureValueIsntTooLowOrTooHigh",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGossipType",
+                "type": "GossipType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 222,
+              "end": 232
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "remove",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGossipType",
+                "type": "GossipType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 234,
+              "end": 236
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 186,
+          "end": 237
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/gossip/GossipContainer/EntityGossips.java"
+      }
+    ],
+    "lineRange": {
+      "start": 30,
+      "end": 249
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/gossip/GossipContainer.java"
+  },
+  "net.minecraft.world.entity.ai.gossip.GossipType": {
+    "className": "GossipType",
+    "fullName": "net.minecraft.world.entity.ai.gossip.GossipType",
+    "packageName": "net.minecraft.world.entity.ai.gossip",
+    "filePath": "/net/minecraft/world/entity/ai/gossip/GossipType.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MAJOR_NEGATIVE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "MINOR_NEGATIVE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "MINOR_POSITIVE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "MAJOR_POSITIVE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "TRADING",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "GossipType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecayPerDay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecayPerTransfer",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "REPUTATION_CHANGE_PER_EVENT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "25",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "REPUTATION_CHANGE_PER_EVERLASTING_MEMORY",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "REPUTATION_CHANGE_PER_TRADE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "weight",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "max",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "decayPerDay",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "decayPerTransfer",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/gossip/GossipType.java"
+  }
+}

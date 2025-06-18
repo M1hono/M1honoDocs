@@ -1,0 +1,645 @@
+{
+  "net.minecraft.server.chase.ChaseClient": {
+    "className": "ChaseClient",
+    "fullName": "net.minecraft.server.chase.ChaseClient",
+    "packageName": "net.minecraft.server.chase",
+    "filePath": "/net/minecraft/server/chase/ChaseClient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Charsets",
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.io.IOException",
+      "java.io.InputStreamReader",
+      "java.io.StringReader",
+      "java.net.Socket",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.NoSuchElementException",
+      "java.util.Optional",
+      "java.util.Scanner",
+      "javax.annotation.Nullable",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.commands.ChaseCommand",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.phys.Vec2",
+      "net.minecraft.world.phys.Vec3",
+      "org.apache.commons.io.IOUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChaseClient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerHost",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerPort",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleTeleport",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pScanner",
+            "type": "Scanner",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseTarget",
+        "returnType": "Optional<ChaseClient.TeleportTarget>",
+        "parameters": [
+          {
+            "name": "pScanner",
+            "type": "Scanner",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executeCommand",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCommand",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "TeleportTarget",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "rot",
+            "type": "Vec2",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 151
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RECONNECT_INTERVAL_SECONDS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "serverHost",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "serverPort",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "server",
+        "type": "MinecraftServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "wantsToRun",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "socket",
+        "type": "Socket",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "thread",
+        "type": "Thread",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 152
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/chase/ChaseClient.java"
+  },
+  "net.minecraft.server.chase.ChaseServer": {
+    "className": "ChaseServer",
+    "fullName": "net.minecraft.server.chase.ChaseServer",
+    "packageName": "net.minecraft.server.chase",
+    "filePath": "/net/minecraft/server/chase/ChaseServer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.OutputStream",
+      "java.net.InetAddress",
+      "java.net.ServerSocket",
+      "java.net.Socket",
+      "java.nio.channels.ClosedByInterruptException",
+      "java.nio.charset.StandardCharsets",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.concurrent.CopyOnWriteArrayList",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.server.commands.ChaseCommand",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.players.PlayerList",
+      "org.apache.commons.io.IOUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChaseServer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerBindAddress",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerPort",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerList",
+            "type": "PlayerList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBroadcastIntervalMs",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 41,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runSender",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runAcceptor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PlayerPosition",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "dimensionName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "yRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "xRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 145
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serverBindAddress",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "serverPort",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "playerList",
+        "type": "PlayerList",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "broadcastIntervalMs",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "wantsToRun",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "serverSocket",
+        "type": "ServerSocket",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 146
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/chase/ChaseServer.java"
+  }
+}

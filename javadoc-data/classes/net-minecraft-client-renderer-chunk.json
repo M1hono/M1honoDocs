@@ -1,0 +1,3612 @@
+{
+  "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher": {
+    "className": "ChunkRenderDispatcher",
+    "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Queues",
+      "com.google.common.collect.Sets",
+      "com.google.common.primitives.Doubles",
+      "com.mojang.blaze3d.vertex.BufferBuilder",
+      "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexBuffer",
+      "com.mojang.blaze3d.vertex.VertexFormat",
+      "com.mojang.blaze3d.vertex.VertexSorting",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+      "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+      "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Queue",
+      "java.util.Set",
+      "java.util.concurrent.CancellationException",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.PriorityBlockingQueue",
+      "java.util.concurrent.atomic.AtomicBoolean",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "java.util.concurrent.atomic.AtomicReference",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.Util",
+      "net.minecraft.client.Camera",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.multiplayer.ClientLevel",
+      "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+      "net.minecraft.client.renderer.ItemBlockRenderTypes",
+      "net.minecraft.client.renderer.LevelRenderer",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+      "net.minecraft.client.renderer.block.ModelBlockRenderer",
+      "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.thread.ProcessorMailbox",
+      "net.minecraft.world.level.block.RenderShape",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.chunk.ChunkStatus",
+      "net.minecraft.world.level.material.FluidState",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChunkRenderDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRenderer",
+            "type": "LevelRenderer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIs64Bit",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixedBuffers",
+            "type": "ChunkBufferBuilderPack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ChunkRenderDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRenderer",
+            "type": "LevelRenderer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIs64Bit",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixedBuffers",
+            "type": "ChunkBufferBuilderPack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "countRenderBuilders",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 114
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "setLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runTask",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStats",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getToBatchCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getToUpload",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFreeBufferCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCamera",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCamera",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCameraPosition",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uploadAllPendingUploads",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rebuildChunkSync",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunk",
+            "type": "ChunkRenderDispatcher.RenderChunk",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionCache",
+            "type": "RenderRegionCache",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blockUntilClear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "schedule",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "ChunkRenderDispatcher.RenderChunk.ChunkCompileTask",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uploadChunkLayer",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "VertexBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 225,
+          "end": 233
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearBatchQueue",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 251
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isQueueEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 253,
+          "end": 255
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dispose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 261
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_WORKERS_32_BIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "VERTEX_FORMAT",
+        "type": "VertexFormat",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "DefaultVertexFormat.BLOCK",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "MAX_HIGH_PRIORITY_QUOTA",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "highPriorityQuota",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "freeBuffers",
+        "type": "Queue<ChunkBufferBuilderPack>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "toBatchCount",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "freeBufferCount",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "fixedBuffers",
+        "type": "ChunkBufferBuilderPack",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "mailbox",
+        "type": "ProcessorMailbox<Runnable>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "executor",
+        "type": "Executor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "level",
+        "type": "ClientLevel",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "renderer",
+        "type": "LevelRenderer",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "camera",
+        "type": "Vec3",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Vec3.ZERO",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ChunkTaskResult",
+        "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.ChunkTaskResult",
+        "packageName": "net.minecraft.client.renderer.chunk",
+        "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Queues",
+          "com.google.common.collect.Sets",
+          "com.google.common.primitives.Doubles",
+          "com.mojang.blaze3d.vertex.BufferBuilder",
+          "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.VertexBuffer",
+          "com.mojang.blaze3d.vertex.VertexFormat",
+          "com.mojang.blaze3d.vertex.VertexSorting",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+          "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+          "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Queue",
+          "java.util.Set",
+          "java.util.concurrent.CancellationException",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.PriorityBlockingQueue",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "java.util.concurrent.atomic.AtomicReference",
+          "java.util.stream.Collectors",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.Util",
+          "net.minecraft.client.Camera",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.multiplayer.ClientLevel",
+          "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+          "net.minecraft.client.renderer.ItemBlockRenderTypes",
+          "net.minecraft.client.renderer.LevelRenderer",
+          "net.minecraft.client.renderer.RenderType",
+          "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+          "net.minecraft.client.renderer.block.ModelBlockRenderer",
+          "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.thread.ProcessorMailbox",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.chunk.ChunkStatus",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 264,
+          "end": 267
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/ChunkTaskResult.java"
+      },
+      {
+        "className": "CompiledChunk",
+        "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.CompiledChunk",
+        "packageName": "net.minecraft.client.renderer.chunk",
+        "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Queues",
+          "com.google.common.collect.Sets",
+          "com.google.common.primitives.Doubles",
+          "com.mojang.blaze3d.vertex.BufferBuilder",
+          "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.VertexBuffer",
+          "com.mojang.blaze3d.vertex.VertexFormat",
+          "com.mojang.blaze3d.vertex.VertexSorting",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+          "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+          "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Queue",
+          "java.util.Set",
+          "java.util.concurrent.CancellationException",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.PriorityBlockingQueue",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "java.util.concurrent.atomic.AtomicReference",
+          "java.util.stream.Collectors",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.Util",
+          "net.minecraft.client.Camera",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.multiplayer.ClientLevel",
+          "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+          "net.minecraft.client.renderer.ItemBlockRenderTypes",
+          "net.minecraft.client.renderer.LevelRenderer",
+          "net.minecraft.client.renderer.RenderType",
+          "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+          "net.minecraft.client.renderer.block.ModelBlockRenderer",
+          "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.thread.ProcessorMailbox",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.chunk.ChunkStatus",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "hasNoRenderableLayers",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 282,
+              "end": 284
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEmpty",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pRenderType",
+                "type": "RenderType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 286,
+              "end": 288
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getRenderableBlockEntities",
+            "returnType": "List<BlockEntity>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 290,
+              "end": 292
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "facesCanSeeEachother",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pFace",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOtherFace",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 294,
+              "end": 296
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "transparencyState",
+            "type": "BufferBuilder.SortState",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 280,
+              "end": 280
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 270,
+          "end": 297
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/CompiledChunk.java"
+      },
+      {
+        "className": "RenderChunk",
+        "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.RenderChunk",
+        "packageName": "net.minecraft.client.renderer.chunk",
+        "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Queues",
+          "com.google.common.collect.Sets",
+          "com.google.common.primitives.Doubles",
+          "com.mojang.blaze3d.vertex.BufferBuilder",
+          "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.VertexBuffer",
+          "com.mojang.blaze3d.vertex.VertexFormat",
+          "com.mojang.blaze3d.vertex.VertexSorting",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+          "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+          "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Queue",
+          "java.util.Set",
+          "java.util.concurrent.CancellationException",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.PriorityBlockingQueue",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "java.util.concurrent.atomic.AtomicReference",
+          "java.util.stream.Collectors",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.Util",
+          "net.minecraft.client.Camera",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.multiplayer.ClientLevel",
+          "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+          "net.minecraft.client.renderer.ItemBlockRenderTypes",
+          "net.minecraft.client.renderer.LevelRenderer",
+          "net.minecraft.client.renderer.RenderType",
+          "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+          "net.minecraft.client.renderer.block.ModelBlockRenderer",
+          "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.thread.ProcessorMailbox",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.chunk.ChunkStatus",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RenderChunk",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 326,
+              "end": 329
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "doesChunkExistAt",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 331,
+              "end": 333
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasAllNeighbors",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 335,
+              "end": 342
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getBoundingBox",
+            "returnType": "AABB",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 344,
+              "end": 346
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getBuffer",
+            "returnType": "VertexBuffer",
+            "parameters": [
+              {
+                "name": "pRenderType",
+                "type": "RenderType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 348,
+              "end": 350
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setOrigin",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 352,
+              "end": 361
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getDistToPlayerSqr",
+            "returnType": "double",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 363,
+              "end": 369
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "beginLayer",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBuilder",
+                "type": "BufferBuilder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 371,
+              "end": 373
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "reset",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 379,
+              "end": 383
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "releaseBuffers",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 385,
+              "end": 388
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getOrigin",
+            "returnType": "BlockPos",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 390,
+              "end": 392
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setDirty",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pReRenderOnMainThread",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 394,
+              "end": 398
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setNotDirty",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 400,
+              "end": 403
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isDirty",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 405,
+              "end": 407
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isDirtyFromPlayer",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 409,
+              "end": 411
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getRelativeOrigin",
+            "returnType": "BlockPos",
+            "parameters": [
+              {
+                "name": "pDirection",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 413,
+              "end": 415
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "resortTransparency",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pType",
+                "type": "RenderType",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDispatcher",
+                "type": "ChunkRenderDispatcher",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 417,
+              "end": 430
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "cancelTasks",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 432,
+              "end": 446
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "rebuildChunkAsync",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pDispatcher",
+                "type": "ChunkRenderDispatcher",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegionCache",
+                "type": "RenderRegionCache",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 462,
+              "end": 465
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "updateGlobalBlockEntities",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBlockEntities",
+                "type": "Collection<BlockEntity>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 467,
+              "end": 479
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "compileSync",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pRegionCache",
+                "type": "RenderRegionCache",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 481,
+              "end": 484
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SIZE",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "16",
+            "lineRange": {
+              "start": 301,
+              "end": 301
+            }
+          },
+          {
+            "name": "index",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 302,
+              "end": 302
+            }
+          },
+          {
+            "name": "lastRebuildTask",
+            "type": "ChunkRenderDispatcher.RenderChunk.RebuildTask",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 306,
+              "end": 306
+            }
+          },
+          {
+            "name": "lastResortTransparencyTask",
+            "type": "ChunkRenderDispatcher.RenderChunk.ResortTransparencyTask",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 308,
+              "end": 308
+            }
+          },
+          {
+            "name": "bb",
+            "type": "AABB",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 315,
+              "end": 315
+            }
+          },
+          {
+            "name": "dirty",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 316,
+              "end": 316
+            }
+          },
+          {
+            "name": "playerChanged",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 324,
+              "end": 324
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "ChunkCompileTask",
+            "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.RenderChunk.ChunkCompileTask",
+            "packageName": "net.minecraft.client.renderer.chunk",
+            "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+            "classType": "class",
+            "modifiers": [
+              "abstract"
+            ],
+            "superClass": "",
+            "interfaces": [
+              "Comparable<ChunkRenderDispatcher.RenderChunk.ChunkCompileTask>"
+            ],
+            "imports": [
+              "com.google.common.collect.Lists",
+              "com.google.common.collect.Queues",
+              "com.google.common.collect.Sets",
+              "com.google.common.primitives.Doubles",
+              "com.mojang.blaze3d.vertex.BufferBuilder",
+              "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+              "com.mojang.blaze3d.vertex.PoseStack",
+              "com.mojang.blaze3d.vertex.VertexBuffer",
+              "com.mojang.blaze3d.vertex.VertexFormat",
+              "com.mojang.blaze3d.vertex.VertexSorting",
+              "com.mojang.logging.LogUtils",
+              "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+              "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+              "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+              "java.util.ArrayList",
+              "java.util.Collection",
+              "java.util.List",
+              "java.util.Locale",
+              "java.util.Map",
+              "java.util.Queue",
+              "java.util.Set",
+              "java.util.concurrent.CancellationException",
+              "java.util.concurrent.CompletableFuture",
+              "java.util.concurrent.Executor",
+              "java.util.concurrent.PriorityBlockingQueue",
+              "java.util.concurrent.atomic.AtomicBoolean",
+              "java.util.concurrent.atomic.AtomicInteger",
+              "java.util.concurrent.atomic.AtomicReference",
+              "java.util.stream.Collectors",
+              "javax.annotation.Nullable",
+              "net.minecraft.CrashReport",
+              "net.minecraft.Util",
+              "net.minecraft.client.Camera",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.multiplayer.ClientLevel",
+              "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+              "net.minecraft.client.renderer.ItemBlockRenderTypes",
+              "net.minecraft.client.renderer.LevelRenderer",
+              "net.minecraft.client.renderer.RenderType",
+              "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+              "net.minecraft.client.renderer.block.ModelBlockRenderer",
+              "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+              "net.minecraft.core.BlockPos",
+              "net.minecraft.core.Direction",
+              "net.minecraft.core.SectionPos",
+              "net.minecraft.util.RandomSource",
+              "net.minecraft.util.thread.ProcessorMailbox",
+              "net.minecraft.world.level.block.RenderShape",
+              "net.minecraft.world.level.block.entity.BlockEntity",
+              "net.minecraft.world.level.block.state.BlockState",
+              "net.minecraft.world.level.chunk.ChunkStatus",
+              "net.minecraft.world.level.material.FluidState",
+              "net.minecraft.world.phys.AABB",
+              "net.minecraft.world.phys.Vec3",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn",
+              "org.slf4j.Logger"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "ChunkCompileTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIsHighPriority",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 493,
+                  "end": 495
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "ChunkCompileTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pos",
+                    "type": "net.minecraft.world.level.ChunkPos",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIsHighPriority",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 497,
+                  "end": 505
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "doTask",
+                "returnType": "CompletableFuture<ChunkRenderDispatcher.ChunkTaskResult>",
+                "parameters": [
+                  {
+                    "name": "pBuffers",
+                    "type": "ChunkBufferBuilderPack",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public",
+                  "abstract"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 507,
+                  "end": 507
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "cancel",
+                "returnType": "void",
+                "parameters": [],
+                "modifiers": [
+                  "public",
+                  "abstract"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 509,
+                  "end": 509
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "name",
+                "returnType": "String",
+                "parameters": [],
+                "modifiers": [
+                  "protected",
+                  "abstract"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 511,
+                  "end": 511
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "compareTo",
+                "returnType": "int",
+                "parameters": [
+                  {
+                    "name": "pOther",
+                    "type": "ChunkRenderDispatcher.RenderChunk.ChunkCompileTask",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 513,
+                  "end": 515
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "distAtCreation",
+                "type": "double",
+                "modifiers": [
+                  "protected",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 488,
+                  "end": 488
+                }
+              },
+              {
+                "name": "isHighPriority",
+                "type": "boolean",
+                "modifiers": [
+                  "protected",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 490,
+                  "end": 490
+                }
+              },
+              {
+                "name": "modelData",
+                "type": "java.util.Map<net.minecraft.core.BlockPos, net.minecraftforge.client.model.data.ModelData>",
+                "modifiers": [
+                  "protected"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 491,
+                  "end": 491
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 487,
+              "end": 520
+            },
+            "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/RenderChunk/ChunkCompileTask.java"
+          },
+          {
+            "className": "RebuildTask",
+            "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.RenderChunk.RebuildTask",
+            "packageName": "net.minecraft.client.renderer.chunk",
+            "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+            "classType": "class",
+            "modifiers": [],
+            "superClass": "ChunkRenderDispatcher.RenderChunk.ChunkCompileTask",
+            "interfaces": [],
+            "imports": [
+              "com.google.common.collect.Lists",
+              "com.google.common.collect.Queues",
+              "com.google.common.collect.Sets",
+              "com.google.common.primitives.Doubles",
+              "com.mojang.blaze3d.vertex.BufferBuilder",
+              "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+              "com.mojang.blaze3d.vertex.PoseStack",
+              "com.mojang.blaze3d.vertex.VertexBuffer",
+              "com.mojang.blaze3d.vertex.VertexFormat",
+              "com.mojang.blaze3d.vertex.VertexSorting",
+              "com.mojang.logging.LogUtils",
+              "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+              "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+              "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+              "java.util.ArrayList",
+              "java.util.Collection",
+              "java.util.List",
+              "java.util.Locale",
+              "java.util.Map",
+              "java.util.Queue",
+              "java.util.Set",
+              "java.util.concurrent.CancellationException",
+              "java.util.concurrent.CompletableFuture",
+              "java.util.concurrent.Executor",
+              "java.util.concurrent.PriorityBlockingQueue",
+              "java.util.concurrent.atomic.AtomicBoolean",
+              "java.util.concurrent.atomic.AtomicInteger",
+              "java.util.concurrent.atomic.AtomicReference",
+              "java.util.stream.Collectors",
+              "javax.annotation.Nullable",
+              "net.minecraft.CrashReport",
+              "net.minecraft.Util",
+              "net.minecraft.client.Camera",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.multiplayer.ClientLevel",
+              "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+              "net.minecraft.client.renderer.ItemBlockRenderTypes",
+              "net.minecraft.client.renderer.LevelRenderer",
+              "net.minecraft.client.renderer.RenderType",
+              "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+              "net.minecraft.client.renderer.block.ModelBlockRenderer",
+              "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+              "net.minecraft.core.BlockPos",
+              "net.minecraft.core.Direction",
+              "net.minecraft.core.SectionPos",
+              "net.minecraft.util.RandomSource",
+              "net.minecraft.util.thread.ProcessorMailbox",
+              "net.minecraft.world.level.block.RenderShape",
+              "net.minecraft.world.level.block.entity.BlockEntity",
+              "net.minecraft.world.level.block.state.BlockState",
+              "net.minecraft.world.level.chunk.ChunkStatus",
+              "net.minecraft.world.level.material.FluidState",
+              "net.minecraft.world.phys.AABB",
+              "net.minecraft.world.phys.Vec3",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn",
+              "org.slf4j.Logger"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "RebuildTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pRegion",
+                    "type": "RenderChunkRegion",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIsHighPriority",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 528,
+                  "end": 530
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "RebuildTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pos",
+                    "type": "net.minecraft.world.level.ChunkPos",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pRegion",
+                    "type": "RenderChunkRegion",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIsHighPriority",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 532,
+                  "end": 535
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "name",
+                "returnType": "String",
+                "parameters": [],
+                "modifiers": [
+                  "protected"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 537,
+                  "end": 539
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "doTask",
+                "returnType": "CompletableFuture<ChunkRenderDispatcher.ChunkTaskResult>",
+                "parameters": [
+                  {
+                    "name": "pBuffers",
+                    "type": "ChunkBufferBuilderPack",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 541,
+                  "end": 587
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "cancel",
+                "returnType": "void",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 680,
+                  "end": 686
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "region",
+                "type": "RenderChunkRegion",
+                "modifiers": [
+                  "protected"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 525,
+                  "end": 525
+                }
+              }
+            ],
+            "innerClasses": [
+              {
+                "className": "CompileResults",
+                "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.RenderChunk.RebuildTask.CompileResults",
+                "packageName": "net.minecraft.client.renderer.chunk",
+                "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+                "classType": "class",
+                "modifiers": [
+                  "static",
+                  "final"
+                ],
+                "superClass": "",
+                "interfaces": [],
+                "imports": [
+                  "com.google.common.collect.Lists",
+                  "com.google.common.collect.Queues",
+                  "com.google.common.collect.Sets",
+                  "com.google.common.primitives.Doubles",
+                  "com.mojang.blaze3d.vertex.BufferBuilder",
+                  "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+                  "com.mojang.blaze3d.vertex.PoseStack",
+                  "com.mojang.blaze3d.vertex.VertexBuffer",
+                  "com.mojang.blaze3d.vertex.VertexFormat",
+                  "com.mojang.blaze3d.vertex.VertexSorting",
+                  "com.mojang.logging.LogUtils",
+                  "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+                  "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+                  "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+                  "java.util.ArrayList",
+                  "java.util.Collection",
+                  "java.util.List",
+                  "java.util.Locale",
+                  "java.util.Map",
+                  "java.util.Queue",
+                  "java.util.Set",
+                  "java.util.concurrent.CancellationException",
+                  "java.util.concurrent.CompletableFuture",
+                  "java.util.concurrent.Executor",
+                  "java.util.concurrent.PriorityBlockingQueue",
+                  "java.util.concurrent.atomic.AtomicBoolean",
+                  "java.util.concurrent.atomic.AtomicInteger",
+                  "java.util.concurrent.atomic.AtomicReference",
+                  "java.util.stream.Collectors",
+                  "javax.annotation.Nullable",
+                  "net.minecraft.CrashReport",
+                  "net.minecraft.Util",
+                  "net.minecraft.client.Camera",
+                  "net.minecraft.client.Minecraft",
+                  "net.minecraft.client.multiplayer.ClientLevel",
+                  "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+                  "net.minecraft.client.renderer.ItemBlockRenderTypes",
+                  "net.minecraft.client.renderer.LevelRenderer",
+                  "net.minecraft.client.renderer.RenderType",
+                  "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+                  "net.minecraft.client.renderer.block.ModelBlockRenderer",
+                  "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+                  "net.minecraft.core.BlockPos",
+                  "net.minecraft.core.Direction",
+                  "net.minecraft.core.SectionPos",
+                  "net.minecraft.util.RandomSource",
+                  "net.minecraft.util.thread.ProcessorMailbox",
+                  "net.minecraft.world.level.block.RenderShape",
+                  "net.minecraft.world.level.block.entity.BlockEntity",
+                  "net.minecraft.world.level.block.state.BlockState",
+                  "net.minecraft.world.level.chunk.ChunkStatus",
+                  "net.minecraft.world.level.material.FluidState",
+                  "net.minecraft.world.phys.AABB",
+                  "net.minecraft.world.phys.Vec3",
+                  "net.minecraftforge.api.distmarker.Dist",
+                  "net.minecraftforge.api.distmarker.OnlyIn",
+                  "org.slf4j.Logger"
+                ],
+                "classComment": "",
+                "methods": [],
+                "fields": [
+                  {
+                    "name": "transparencyState",
+                    "type": "BufferBuilder.SortState",
+                    "modifiers": [
+                      "public"
+                    ],
+                    "comment": "",
+                    "initialValue": "",
+                    "lineRange": {
+                      "start": 695,
+                      "end": 695
+                    }
+                  }
+                ],
+                "innerClasses": [],
+                "lineRange": {
+                  "start": 689,
+                  "end": 696
+                },
+                "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/RenderChunk/RebuildTask/CompileResults.java"
+              }
+            ],
+            "lineRange": {
+              "start": 523,
+              "end": 697
+            },
+            "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/RenderChunk/RebuildTask.java"
+          },
+          {
+            "className": "ResortTransparencyTask",
+            "fullName": "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher.RenderChunk.ResortTransparencyTask",
+            "packageName": "net.minecraft.client.renderer.chunk",
+            "filePath": "/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java",
+            "classType": "class",
+            "modifiers": [],
+            "superClass": "ChunkRenderDispatcher.RenderChunk.ChunkCompileTask",
+            "interfaces": [],
+            "imports": [
+              "com.google.common.collect.Lists",
+              "com.google.common.collect.Queues",
+              "com.google.common.collect.Sets",
+              "com.google.common.primitives.Doubles",
+              "com.mojang.blaze3d.vertex.BufferBuilder",
+              "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+              "com.mojang.blaze3d.vertex.PoseStack",
+              "com.mojang.blaze3d.vertex.VertexBuffer",
+              "com.mojang.blaze3d.vertex.VertexFormat",
+              "com.mojang.blaze3d.vertex.VertexSorting",
+              "com.mojang.logging.LogUtils",
+              "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+              "it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap",
+              "it.unimi.dsi.fastutil.objects.ReferenceArraySet",
+              "java.util.ArrayList",
+              "java.util.Collection",
+              "java.util.List",
+              "java.util.Locale",
+              "java.util.Map",
+              "java.util.Queue",
+              "java.util.Set",
+              "java.util.concurrent.CancellationException",
+              "java.util.concurrent.CompletableFuture",
+              "java.util.concurrent.Executor",
+              "java.util.concurrent.PriorityBlockingQueue",
+              "java.util.concurrent.atomic.AtomicBoolean",
+              "java.util.concurrent.atomic.AtomicInteger",
+              "java.util.concurrent.atomic.AtomicReference",
+              "java.util.stream.Collectors",
+              "javax.annotation.Nullable",
+              "net.minecraft.CrashReport",
+              "net.minecraft.Util",
+              "net.minecraft.client.Camera",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.multiplayer.ClientLevel",
+              "net.minecraft.client.renderer.ChunkBufferBuilderPack",
+              "net.minecraft.client.renderer.ItemBlockRenderTypes",
+              "net.minecraft.client.renderer.LevelRenderer",
+              "net.minecraft.client.renderer.RenderType",
+              "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+              "net.minecraft.client.renderer.block.ModelBlockRenderer",
+              "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+              "net.minecraft.core.BlockPos",
+              "net.minecraft.core.Direction",
+              "net.minecraft.core.SectionPos",
+              "net.minecraft.util.RandomSource",
+              "net.minecraft.util.thread.ProcessorMailbox",
+              "net.minecraft.world.level.block.RenderShape",
+              "net.minecraft.world.level.block.entity.BlockEntity",
+              "net.minecraft.world.level.block.state.BlockState",
+              "net.minecraft.world.level.chunk.ChunkStatus",
+              "net.minecraft.world.level.material.FluidState",
+              "net.minecraft.world.phys.AABB",
+              "net.minecraft.world.phys.Vec3",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn",
+              "org.slf4j.Logger"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "ResortTransparencyTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pCompiledChunk",
+                    "type": "ChunkRenderDispatcher.CompiledChunk",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 704,
+                  "end": 706
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "ResortTransparencyTask",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pos",
+                    "type": "net.minecraft.world.level.ChunkPos",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pDistAtCreation",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pCompiledChunk",
+                    "type": "ChunkRenderDispatcher.CompiledChunk",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 708,
+                  "end": 711
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "name",
+                "returnType": "String",
+                "parameters": [],
+                "modifiers": [
+                  "protected"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 713,
+                  "end": 715
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "doTask",
+                "returnType": "CompletableFuture<ChunkRenderDispatcher.ChunkTaskResult>",
+                "parameters": [
+                  {
+                    "name": "pBuffers",
+                    "type": "ChunkBufferBuilderPack",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 717,
+                  "end": 757
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "cancel",
+                "returnType": "void",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 759,
+                  "end": 761
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "compiledChunk",
+                "type": "ChunkRenderDispatcher.CompiledChunk",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 701,
+                  "end": 701
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 700,
+              "end": 762
+            },
+            "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/RenderChunk/ResortTransparencyTask.java"
+          }
+        ],
+        "lineRange": {
+          "start": 300,
+          "end": 763
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher/RenderChunk.java"
+      }
+    ],
+    "lineRange": {
+      "start": 62,
+      "end": 764
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/ChunkRenderDispatcher.java"
+  },
+  "net.minecraft.client.renderer.chunk.RenderChunk": {
+    "className": "RenderChunk",
+    "fullName": "net.minecraft.client.renderer.chunk.RenderChunk",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/RenderChunk.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.chunk.EmptyLevelChunk",
+      "net.minecraft.world.level.chunk.LevelChunk",
+      "net.minecraft.world.level.chunk.LevelChunkSection",
+      "net.minecraft.world.level.chunk.PalettedContainer",
+      "net.minecraft.world.level.levelgen.DebugLevelSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RenderChunk",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWrapped",
+            "type": "LevelChunk",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getBlockEntity",
+        "returnType": "BlockEntity",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 90
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blockEntities",
+        "type": "Map<BlockPos, BlockEntity>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "sections",
+        "type": "List<PalettedContainer<BlockState>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "debug",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "wrapped",
+        "type": "LevelChunk",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 91
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/RenderChunk.java"
+  },
+  "net.minecraft.client.renderer.chunk.RenderChunkRegion": {
+    "className": "RenderChunkRegion",
+    "fullName": "net.minecraft.client.renderer.chunk.RenderChunkRegion",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/RenderChunkRegion.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockAndTintGetter"
+    ],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.world.level.BlockAndTintGetter",
+      "net.minecraft.world.level.ColorResolver",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.lighting.LevelLightEngine",
+      "net.minecraft.world.level.material.FluidState",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RenderChunkRegion",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCenterX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCenterZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunks",
+            "type": "RenderChunk[][]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getBlockState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFluidState",
+        "returnType": "FluidState",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShade",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShade",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLightEngine",
+        "returnType": "LevelLightEngine",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockEntity",
+        "returnType": "BlockEntity",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockTint",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pColorResolver",
+            "type": "ColorResolver",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMinBuildHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShade",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "normalX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "normalY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "normalZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "shade",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "centerX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "centerZ",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "chunks",
+        "type": "RenderChunk[][]",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "level",
+        "type": "Level",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 79
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/RenderChunkRegion.java"
+  },
+  "net.minecraft.client.renderer.chunk.RenderRegionCache": {
+    "className": "RenderRegionCache",
+    "fullName": "net.minecraft.client.renderer.chunk.RenderRegionCache",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/RenderRegionCache.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.chunk.LevelChunk",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createRegion",
+        "returnType": "RenderChunkRegion",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStart",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEnd",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPadding",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAllEmpty",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStart",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEnd",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStartX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStartZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInfos",
+            "type": "RenderRegionCache.ChunkInfo[][]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 65
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "ChunkInfo",
+        "fullName": "net.minecraft.client.renderer.chunk.RenderRegionCache.ChunkInfo",
+        "packageName": "net.minecraft.client.renderer.chunk",
+        "filePath": "/net/minecraft/client/renderer/chunk/RenderRegionCache.java",
+        "classType": "class",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
+          "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.chunk.LevelChunk",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ChunkInfo",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pChunk",
+                "type": "LevelChunk",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 73,
+              "end": 75
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "chunk",
+            "returnType": "LevelChunk",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 77,
+              "end": 79
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderChunk",
+            "returnType": "RenderChunk",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 81,
+              "end": 87
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "chunk",
+            "type": "LevelChunk",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 69,
+              "end": 69
+            }
+          },
+          {
+            "name": "renderChunk",
+            "type": "RenderChunk",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 68,
+          "end": 88
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/RenderRegionCache/ChunkInfo.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 89
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/RenderRegionCache.java"
+  },
+  "net.minecraft.client.renderer.chunk.VisGraph": {
+    "className": "VisGraph",
+    "fullName": "net.minecraft.client.renderer.chunk.VisGraph",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/VisGraph.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.ints.IntArrayFIFOQueue",
+      "it.unimi.dsi.fastutil.ints.IntPriorityQueue",
+      "java.util.BitSet",
+      "java.util.EnumSet",
+      "java.util.Set",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "setOpaque",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIndex",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIndex",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resolve",
+        "returnType": "VisibilitySet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "floodFill",
+        "returnType": "Set<Direction>",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEdges",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFaces",
+            "type": "Set<Direction>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNeighborIndexAtFace",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFace",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 164
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SIZE_IN_BITS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "LEN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "MASK",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "15",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4096",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "X_SHIFT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "Z_SHIFT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "Y_SHIFT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "INVALID_INDEX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "empty",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "4096",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 165
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/VisGraph.java"
+  },
+  "net.minecraft.client.renderer.chunk.VisibilitySet": {
+    "className": "VisibilitySet",
+    "fullName": "net.minecraft.client.renderer.chunk.VisibilitySet",
+    "packageName": "net.minecraft.client.renderer.chunk",
+    "filePath": "/net/minecraft/client/renderer/chunk/VisibilitySet.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.BitSet",
+      "java.util.Set",
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFaces",
+            "type": "Set<Direction>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "set",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFace",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherFace",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVisible",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAll",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pVisible",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "visibilityBetween",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFace",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherFace",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 62
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 63
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/chunk/VisibilitySet.java"
+  }
+}

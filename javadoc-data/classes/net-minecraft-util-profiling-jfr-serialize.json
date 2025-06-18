@@ -1,0 +1,366 @@
+{
+  "net.minecraft.util.profiling.jfr.serialize.JfrResultJsonSerializer": {
+    "className": "JfrResultJsonSerializer",
+    "fullName": "net.minecraft.util.profiling.jfr.serialize.JfrResultJsonSerializer",
+    "packageName": "net.minecraft.util.profiling.jfr.serialize",
+    "filePath": "/net/minecraft/util/profiling/jfr/serialize/JfrResultJsonSerializer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.Gson",
+      "com.google.gson.GsonBuilder",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonNull",
+      "com.google.gson.JsonObject",
+      "com.google.gson.LongSerializationPolicy",
+      "com.mojang.datafixers.util.Pair",
+      "java.time.Duration",
+      "java.util.DoubleSummaryStatistics",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.BiFunction",
+      "java.util.function.Function",
+      "java.util.function.ToDoubleFunction",
+      "java.util.stream.DoubleStream",
+      "net.minecraft.Util",
+      "net.minecraft.util.profiling.jfr.Percentiles",
+      "net.minecraft.util.profiling.jfr.parse.JfrStatsResult",
+      "net.minecraft.util.profiling.jfr.stats.ChunkGenStat",
+      "net.minecraft.util.profiling.jfr.stats.CpuLoadStat",
+      "net.minecraft.util.profiling.jfr.stats.FileIOStat",
+      "net.minecraft.util.profiling.jfr.stats.GcHeapStat",
+      "net.minecraft.util.profiling.jfr.stats.NetworkPacketSummary",
+      "net.minecraft.util.profiling.jfr.stats.ThreadAllocationStat",
+      "net.minecraft.util.profiling.jfr.stats.TickTimeStat",
+      "net.minecraft.util.profiling.jfr.stats.TimedStatSummary",
+      "net.minecraft.world.level.chunk.ChunkStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "format",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pResult",
+            "type": "JfrStatsResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "heap",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pSummary",
+            "type": "GcHeapStat.Summary",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "chunkGen",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSummary",
+            "type": "TimedStatSummary<ChunkGenStat>>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "threadAllocations",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pSummary",
+            "type": "ThreadAllocationStat.Summary",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serverTicks",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pStats",
+            "type": "List<TickTimeStat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fileIO",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pResult",
+            "type": "JfrStatsResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fileIoSummary",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pSummary",
+            "type": "FileIOStat.Summary",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "network",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pResult",
+            "type": "JfrStatsResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "packets",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pSummary",
+            "type": "NetworkPacketSummary",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cpu",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pStats",
+            "type": "List<CpuLoadStat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 207
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BYTES_PER_SECOND",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"bytesPerSecond\"",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "COUNT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"count\"",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "DURATION_NANOS_TOTAL",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"durationNanosTotal\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "TOTAL_BYTES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"totalBytes\"",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "COUNT_PER_SECOND",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"countPerSecond\"",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 208
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/jfr/serialize/JfrResultJsonSerializer.java"
+  }
+}

@@ -1,0 +1,5227 @@
+{
+  "net.minecraft.server.players.BanListEntry": {
+    "className": "BanListEntry",
+    "fullName": "net.minecraft.server.players.BanListEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/BanListEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "java.text.ParseException",
+      "java.text.SimpleDateFormat",
+      "java.util.Date",
+      "java.util.Locale",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.chat.Component"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCreated",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExpires",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getCreated",
+        "returnType": "Date",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSource",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExpires",
+        "returnType": "Date",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getReason",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDisplayName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasExpired",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 80
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "EXPIRES_NEVER",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"forever\"",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "created",
+        "type": "Date",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "source",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "expires",
+        "type": "Date",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "reason",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 81
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/BanListEntry.java"
+  },
+  "net.minecraft.server.players.GameProfileCache": {
+    "className": "GameProfileCache",
+    "fullName": "net.minecraft.server.players.GameProfileCache",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/GameProfileCache.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.common.io.Files",
+      "com.google.gson.Gson",
+      "com.google.gson.GsonBuilder",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParseException",
+      "com.mojang.authlib.Agent",
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.GameProfileRepository",
+      "com.mojang.authlib.ProfileLookupCallback",
+      "com.mojang.logging.LogUtils",
+      "java.io.File",
+      "java.io.FileNotFoundException",
+      "java.io.IOException",
+      "java.io.Reader",
+      "java.io.Writer",
+      "java.nio.charset.StandardCharsets",
+      "java.text.DateFormat",
+      "java.text.ParseException",
+      "java.text.SimpleDateFormat",
+      "java.util.Calendar",
+      "java.util.Comparator",
+      "java.util.Date",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.UUID",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.atomic.AtomicLong",
+      "java.util.concurrent.atomic.AtomicReference",
+      "java.util.function.Consumer",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.core.UUIDUtil",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "GameProfileCache",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProfileRepository",
+            "type": "GameProfileRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "safeAdd",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_10980_",
+            "type": "GameProfileCache.GameProfileInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lookupGameProfile",
+        "returnType": "Optional<GameProfile>",
+        "parameters": [
+          {
+            "name": "pProfileRepo",
+            "type": "GameProfileRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUsesAuthentication",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOnlineMode",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "usesAuthentication",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNextOperation",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Optional<GameProfile>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAsync",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "Consumer<Optional<GameProfile>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Optional<GameProfile>",
+        "parameters": [
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 190,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setExecutor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pExectutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 200,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearExecutor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createDateFormat",
+        "returnType": "DateFormat",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "List<GameProfileCache.GameProfileInfo>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 231
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 236,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTopMRUProfiles",
+        "returnType": "Stream<GameProfileCache.GameProfileInfo>",
+        "parameters": [
+          {
+            "name": "pLimit",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 251,
+          "end": 253
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "writeGameProfile",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pProfileInfo",
+            "type": "GameProfileCache.GameProfileInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDateFormat",
+            "type": "DateFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 255,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readGameProfile",
+        "returnType": "Optional<GameProfileCache.GameProfileInfo>",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDateFormat",
+            "type": "DateFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 264,
+          "end": 299
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "GAMEPROFILES_MRU_LIMIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1000",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "GAMEPROFILES_EXPIRATION_MONTHS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "usesAuthentication",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "profileRepository",
+        "type": "GameProfileRepository",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "file",
+        "type": "File",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "executor",
+        "type": "Executor",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "GameProfileInfo",
+        "fullName": "net.minecraft.server.players.GameProfileCache.GameProfileInfo",
+        "packageName": "net.minecraft.server.players",
+        "filePath": "/net/minecraft/server/players/GameProfileCache.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.google.common.io.Files",
+          "com.google.gson.Gson",
+          "com.google.gson.GsonBuilder",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonParseException",
+          "com.mojang.authlib.Agent",
+          "com.mojang.authlib.GameProfile",
+          "com.mojang.authlib.GameProfileRepository",
+          "com.mojang.authlib.ProfileLookupCallback",
+          "com.mojang.logging.LogUtils",
+          "java.io.File",
+          "java.io.FileNotFoundException",
+          "java.io.IOException",
+          "java.io.Reader",
+          "java.io.Writer",
+          "java.nio.charset.StandardCharsets",
+          "java.text.DateFormat",
+          "java.text.ParseException",
+          "java.text.SimpleDateFormat",
+          "java.util.Calendar",
+          "java.util.Comparator",
+          "java.util.Date",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.UUID",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.atomic.AtomicLong",
+          "java.util.concurrent.atomic.AtomicReference",
+          "java.util.function.Consumer",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.core.UUIDUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "GameProfileInfo",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProfile",
+                "type": "GameProfile",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pExpirationDate",
+                "type": "Date",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 308,
+              "end": 311
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getProfile",
+            "returnType": "GameProfile",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 316,
+              "end": 318
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getExpirationDate",
+            "returnType": "Date",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 323,
+              "end": 325
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setLastAccess",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLastAccess",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 327,
+              "end": 329
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getLastAccess",
+            "returnType": "long",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 331,
+              "end": 333
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "The player's GameProfile ",
+            "initialValue": "",
+            "lineRange": {
+              "start": 303,
+              "end": 303
+            }
+          },
+          {
+            "name": "expirationDate",
+            "type": "Date",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "The date that this entry will expire ",
+            "initialValue": "",
+            "lineRange": {
+              "start": 305,
+              "end": 305
+            }
+          },
+          {
+            "name": "lastAccess",
+            "type": "volatile long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 306,
+              "end": 306
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 301,
+          "end": 334
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/server/players/GameProfileCache/GameProfileInfo.java"
+      }
+    ],
+    "lineRange": {
+      "start": 46,
+      "end": 335
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/GameProfileCache.java"
+  },
+  "net.minecraft.server.players.IpBanList": {
+    "className": "IpBanList",
+    "fullName": "net.minecraft.server.players.IpBanList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/IpBanList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserList<String",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "java.io.File",
+      "java.net.SocketAddress",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IpBanList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createEntry",
+        "returnType": "StoredUserEntry<String>",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBanned",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBanned",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "IpBanListEntry",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIpFromAddress",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 43
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 44
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/IpBanList.java"
+  },
+  "net.minecraft.server.players.IpBanListEntry": {
+    "className": "IpBanListEntry",
+    "fullName": "net.minecraft.server.players.IpBanListEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/IpBanListEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BanListEntry<String>",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "java.util.Date",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.chat.Component"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IpBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pIp",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "IpBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pIp",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCreated",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExpires",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getDisplayName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "IpBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createIpInfo",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 34
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/IpBanListEntry.java"
+  },
+  "net.minecraft.server.players.OldUsersConverter": {
+    "className": "OldUsersConverter",
+    "fullName": "net.minecraft.server.players.OldUsersConverter",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/OldUsersConverter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.common.io.Files",
+      "com.mojang.authlib.Agent",
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.ProfileLookupCallback",
+      "com.mojang.authlib.yggdrasil.ProfileNotFoundException",
+      "com.mojang.logging.LogUtils",
+      "java.io.File",
+      "java.io.IOException",
+      "java.nio.charset.StandardCharsets",
+      "java.text.ParseException",
+      "java.util.Collection",
+      "java.util.Date",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.dedicated.DedicatedServer",
+      "net.minecraft.util.StringUtil",
+      "net.minecraft.world.level.storage.LevelResource",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "readOldListFormat",
+        "returnType": "List<String>",
+        "parameters": [
+          {
+            "name": "pInFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRead",
+            "type": "String[]>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 37,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lookupPlayers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNames",
+            "type": "Collection<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCallback",
+            "type": "ProfileLookupCallback",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertUserBanlist",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertIpBanlist",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertOpsList",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 158,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertWhiteList",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 200,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertMobOwnerIfNecessary",
+        "returnType": "UUID",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "pUsername",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 272
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertPlayers",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "DedicatedServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 274,
+          "end": 350
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ensureDirectoryExists",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDir",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 352,
+          "end": 360
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serverReadyAfterUserconversion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 362,
+          "end": 365
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areOldUserlistsRemoved",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 367,
+          "end": 411
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areOldPlayersConverted",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 413,
+          "end": 423
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWorldPlayersDirectory",
+        "returnType": "File",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 425,
+          "end": 427
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renameOldFile",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pConvertedFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 429,
+          "end": 432
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseDate",
+        "returnType": "Date",
+        "parameters": [
+          {
+            "name": "pInput",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultValue",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 434,
+          "end": 443
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "ConversionError",
+        "fullName": "net.minecraft.server.players.OldUsersConverter.ConversionError",
+        "packageName": "net.minecraft.server.players",
+        "filePath": "/net/minecraft/server/players/OldUsersConverter.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "RuntimeException",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.google.common.io.Files",
+          "com.mojang.authlib.Agent",
+          "com.mojang.authlib.GameProfile",
+          "com.mojang.authlib.ProfileLookupCallback",
+          "com.mojang.authlib.yggdrasil.ProfileNotFoundException",
+          "com.mojang.logging.LogUtils",
+          "java.io.File",
+          "java.io.IOException",
+          "java.nio.charset.StandardCharsets",
+          "java.text.ParseException",
+          "java.util.Collection",
+          "java.util.Date",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.UUID",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.UUIDUtil",
+          "net.minecraft.server.MinecraftServer",
+          "net.minecraft.server.dedicated.DedicatedServer",
+          "net.minecraft.util.StringUtil",
+          "net.minecraft.world.level.storage.LevelResource",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ConversionError",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMessage",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCause",
+                "type": "Throwable",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 446,
+              "end": 448
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "ConversionError",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMessage",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 450,
+              "end": 452
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 445,
+          "end": 453
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/server/players/OldUsersConverter/ConversionError.java"
+      }
+    ],
+    "lineRange": {
+      "start": 30,
+      "end": 454
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/OldUsersConverter.java"
+  },
+  "net.minecraft.server.players.PlayerList": {
+    "className": "PlayerList",
+    "fullName": "net.minecraft.server.players.PlayerList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/PlayerList.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Dynamic",
+      "io.netty.buffer.Unpooled",
+      "java.io.File",
+      "java.net.SocketAddress",
+      "java.nio.file.Path",
+      "java.text.SimpleDateFormat",
+      "java.time.Instant",
+      "java.util.EnumSet",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.function.Function",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.FileUtil",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.LayeredRegistryAccess",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.RegistrySynchronization",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.network.Connection",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.chat.ChatType",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.network.chat.OutgoingChatMessage",
+      "net.minecraft.network.chat.PlayerChatMessage",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket",
+      "net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket",
+      "net.minecraft.network.protocol.game.ClientboundEntityEventPacket",
+      "net.minecraft.network.protocol.game.ClientboundGameEventPacket",
+      "net.minecraft.network.protocol.game.ClientboundInitializeBorderPacket",
+      "net.minecraft.network.protocol.game.ClientboundLoginPacket",
+      "net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket",
+      "net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket",
+      "net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket",
+      "net.minecraft.network.protocol.game.ClientboundRespawnPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetBorderLerpSizePacket",
+      "net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket",
+      "net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket",
+      "net.minecraft.network.protocol.game.ClientboundSetCarriedItemPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetDefaultSpawnPositionPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetExperiencePacket",
+      "net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket",
+      "net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket",
+      "net.minecraft.network.protocol.game.ClientboundSetTimePacket",
+      "net.minecraft.network.protocol.game.ClientboundSoundPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateEnabledFeaturesPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket",
+      "net.minecraft.network.protocol.status.ServerStatus",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.PlayerAdvancements",
+      "net.minecraft.server.RegistryLayer",
+      "net.minecraft.server.ServerScoreboard",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.network.ServerGamePacketListenerImpl",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.stats.ServerStatsCounter",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.TagNetworkSerialization",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.biome.BiomeManager",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.border.BorderChangeListener",
+      "net.minecraft.world.level.border.WorldBorder",
+      "net.minecraft.world.level.dimension.DimensionType",
+      "net.minecraft.world.level.storage.LevelData",
+      "net.minecraft.world.level.storage.LevelResource",
+      "net.minecraft.world.level.storage.PlayerDataStorage",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraft.world.scores.Objective",
+      "net.minecraft.world.scores.PlayerTeam",
+      "net.minecraft.world.scores.Team",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PlayerList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistries",
+            "type": "LayeredRegistryAccess<RegistryLayer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerIo",
+            "type": "PlayerDataStorage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxPlayers",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 144
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "placeNewPlayer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNetManager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateEntireScoreboard",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pScoreboard",
+            "type": "ServerScoreboard",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 265,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addWorldborderListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 285,
+          "end": 313
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 319,
+          "end": 332
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 337,
+          "end": 350
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 355,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlayerLogin",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pSocketAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 388,
+          "end": 410
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerForLogin",
+        "returnType": "ServerPlayer",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 412,
+          "end": 433
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "respawn",
+        "returnType": "ServerPlayer",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pKeepEverything",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 435,
+          "end": 504
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendPlayerPermissionLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 506,
+          "end": 510
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 512,
+          "end": 518
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastAll",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPacket",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 520,
+          "end": 525
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastAll",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPacket",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimension",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 527,
+          "end": 534
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastSystemToTeam",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 536,
+          "end": 547
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastSystemToAllExceptTeam",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 549,
+          "end": 562
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerNamesArray",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 567,
+          "end": 575
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBans",
+        "returnType": "UserBanList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 577,
+          "end": 579
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIpBans",
+        "returnType": "IpBanList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 581,
+          "end": 583
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "op",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 585,
+          "end": 593
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 595,
+          "end": 603
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendPlayerPermissionLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPermLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 605,
+          "end": 620
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isWhiteListed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 622,
+          "end": 624
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOp",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 626,
+          "end": 628
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerByName",
+        "returnType": "ServerPlayer",
+        "parameters": [
+          {
+            "name": "pUsername",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 631,
+          "end": 639
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcast",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pExcept",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRadius",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimension",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPacket",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 641,
+          "end": 654
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveAll",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 659,
+          "end": 664
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWhiteList",
+        "returnType": "UserWhiteList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 666,
+          "end": 668
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWhiteListNames",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 670,
+          "end": 672
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOps",
+        "returnType": "ServerOpList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 674,
+          "end": 676
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOpNames",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 678,
+          "end": 680
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadWhiteList",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 682,
+          "end": 683
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendLevelInfo",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 688,
+          "end": 699
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendAllPlayerInfo",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 704,
+          "end": 708
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 713,
+          "end": 715
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxPlayers",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 720,
+          "end": 722
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isUsingWhitelist",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 724,
+          "end": 726
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUsingWhiteList",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWhitelistEnabled",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 728,
+          "end": 730
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayersWithAddress",
+        "returnType": "List<ServerPlayer>",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 732,
+          "end": 742
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 747,
+          "end": 749
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSimulationDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 751,
+          "end": 753
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getServer",
+        "returnType": "MinecraftServer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 755,
+          "end": 757
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSingleplayerData",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 763,
+          "end": 765
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAllowCheatsForAllPlayers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAllowCheatsForAllPlayers",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 770,
+          "end": 772
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAll",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 777,
+          "end": 782
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBypassHiddenChat",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 784,
+          "end": 788
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServerMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerMessageFactory",
+            "type": "Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBypassHiddenChat",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 790,
+          "end": 800
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSender",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 802,
+          "end": 804
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSender",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 806,
+          "end": 808
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShouldFilterMessageTo",
+            "type": "Predicate<ServerPlayer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSender",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 810,
+          "end": 826
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "verifyChatTrusted",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 828,
+          "end": 830
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerStats",
+        "returnType": "ServerStatsCounter",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 832,
+          "end": 844
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerAdvancements",
+        "returnType": "PlayerAdvancements",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 846,
+          "end": 859
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setViewDistance",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pViewDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 861,
+          "end": 871
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSimulationDistance",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSimulationDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 873,
+          "end": 883
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayers",
+        "returnType": "List<ServerPlayer>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 885,
+          "end": 887
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayer",
+        "returnType": "ServerPlayer",
+        "parameters": [
+          {
+            "name": "pPlayerUUID",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 893,
+          "end": 895
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBypassPlayerLimit",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 897,
+          "end": 899
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadResources",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 901,
+          "end": 915
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAllowCheatsForAllPlayers",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 917,
+          "end": 919
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SEND_PLAYER_INFO_INTERVAL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 114,
+          "end": 114
+        }
+      },
+      {
+        "name": "server",
+        "type": "MinecraftServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 116,
+          "end": 116
+        }
+      },
+      {
+        "name": "playerIo",
+        "type": "PlayerDataStorage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 126,
+          "end": 126
+        }
+      },
+      {
+        "name": "doWhiteList",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 127,
+          "end": 127
+        }
+      },
+      {
+        "name": "registries",
+        "type": "LayeredRegistryAccess<RegistryLayer>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 128,
+          "end": 128
+        }
+      },
+      {
+        "name": "synchronizedRegistries",
+        "type": "RegistryAccess.Frozen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 129,
+          "end": 129
+        }
+      },
+      {
+        "name": "maxPlayers",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 130,
+          "end": 130
+        }
+      },
+      {
+        "name": "viewDistance",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 131,
+          "end": 131
+        }
+      },
+      {
+        "name": "simulationDistance",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 132,
+          "end": 132
+        }
+      },
+      {
+        "name": "allowCheatsForAllPlayers",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 133,
+          "end": 133
+        }
+      },
+      {
+        "name": "ALLOW_LOGOUTIVATOR",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 134,
+          "end": 134
+        }
+      },
+      {
+        "name": "sendAllPlayerInfoIn",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 135,
+          "end": 135
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 107,
+      "end": 920
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/PlayerList.java"
+  },
+  "net.minecraft.server.players.ServerOpList": {
+    "className": "ServerOpList",
+    "fullName": "net.minecraft.server.players.ServerOpList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/ServerOpList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserList<GameProfile",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.io.File",
+      "java.util.Objects"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerOpList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createEntry",
+        "returnType": "StoredUserEntry<GameProfile>",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUserList",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBypassPlayerLimit",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKeyForUser",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pObj",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/ServerOpList.java"
+  },
+  "net.minecraft.server.players.ServerOpListEntry": {
+    "className": "ServerOpListEntry",
+    "fullName": "net.minecraft.server.players.ServerOpListEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/ServerOpListEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserEntry<GameProfile>",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.util.UUID",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerOpListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBypassesPlayerLimit",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ServerOpListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBypassesPlayerLimit",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createGameProfile",
+        "returnType": "GameProfile",
+        "parameters": [
+          {
+            "name": "pProfileData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 60
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "level",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "bypassesPlayerLimit",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 61
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/ServerOpListEntry.java"
+  },
+  "net.minecraft.server.players.SleepStatus": {
+    "className": "SleepStatus",
+    "fullName": "net.minecraft.server.players.SleepStatus",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/SleepStatus.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.player.Player"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "areEnoughSleeping",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRequiredSleepPercentage",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areEnoughDeepSleeping",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRequiredSleepPercentage",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSleepingPlayers",
+            "type": "List<ServerPlayer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sleepersNeeded",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pRequiredSleepPercentage",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllSleepers",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "amountSleeping",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "update",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPlayers",
+            "type": "List<ServerPlayer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 49
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "activePlayers",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "sleepingPlayers",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 50
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/SleepStatus.java"
+  },
+  "net.minecraft.server.players.StoredUserEntry": {
+    "className": "StoredUserEntry",
+    "fullName": "net.minecraft.server.players.StoredUserEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/StoredUserEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StoredUserEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getUser",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasExpired",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "user",
+        "type": "T",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/StoredUserEntry.java"
+  },
+  "net.minecraft.server.players.StoredUserList": {
+    "className": "StoredUserList",
+    "fullName": "net.minecraft.server.players.StoredUserList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/StoredUserList.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.common.io.Files",
+      "com.google.gson.Gson",
+      "com.google.gson.GsonBuilder",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.io.BufferedWriter",
+      "java.io.File",
+      "java.io.IOException",
+      "java.nio.charset.StandardCharsets",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.util.GsonHelper",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StoredUserList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getFile",
+        "returnType": "File",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "V",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "V",
+        "parameters": [
+          {
+            "name": "pObj",
+            "type": "K",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "K",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "StoredUserEntry<K>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUserList",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKeyForUser",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pObj",
+            "type": "K",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contains",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "K",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeExpired",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createEntry",
+        "returnType": "StoredUserEntry<K>",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntries",
+        "returnType": "Collection<V>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 117,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 129,
+          "end": 145
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "file",
+        "type": "File",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 146
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/StoredUserList.java"
+  },
+  "net.minecraft.server.players.UserBanList": {
+    "className": "UserBanList",
+    "fullName": "net.minecraft.server.players.UserBanList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/UserBanList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserList<GameProfile",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.io.File",
+      "java.util.Objects"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "UserBanList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createEntry",
+        "returnType": "StoredUserEntry<GameProfile>",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBanned",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUserList",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKeyForUser",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pObj",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/UserBanList.java"
+  },
+  "net.minecraft.server.players.UserBanListEntry": {
+    "className": "UserBanListEntry",
+    "fullName": "net.minecraft.server.players.UserBanListEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/UserBanListEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BanListEntry<GameProfile>",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.util.Date",
+      "java.util.Objects",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.chat.Component"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "UserBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "UserBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCreated",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExpires",
+            "type": "Date",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "UserBanListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDisplayName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createGameProfile",
+        "returnType": "GameProfile",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/UserBanListEntry.java"
+  },
+  "net.minecraft.server.players.UserWhiteList": {
+    "className": "UserWhiteList",
+    "fullName": "net.minecraft.server.players.UserWhiteList",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/UserWhiteList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserList<GameProfile",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.io.File",
+      "java.util.Objects"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "UserWhiteList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createEntry",
+        "returnType": "StoredUserEntry<GameProfile>",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isWhiteListed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUserList",
+        "returnType": "String[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKeyForUser",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pObj",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/UserWhiteList.java"
+  },
+  "net.minecraft.server.players.UserWhiteListEntry": {
+    "className": "UserWhiteListEntry",
+    "fullName": "net.minecraft.server.players.UserWhiteListEntry",
+    "packageName": "net.minecraft.server.players",
+    "filePath": "/net/minecraft/server/players/UserWhiteListEntry.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StoredUserEntry<GameProfile>",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.authlib.GameProfile",
+      "java.util.UUID"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "UserWhiteListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUser",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "UserWhiteListEntry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntryData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "serialize",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createGameProfile",
+        "returnType": "GameProfile",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 38
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/server/players/UserWhiteListEntry.java"
+  }
+}

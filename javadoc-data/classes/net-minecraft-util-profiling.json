@@ -1,0 +1,2896 @@
+{
+  "net.minecraft.util.profiling.ActiveProfiler": {
+    "className": "ActiveProfiler",
+    "fullName": "net.minecraft.util.profiling.ActiveProfiler",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ActiveProfiler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ProfileCollector"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.longs.LongArrayList",
+      "it.unimi.dsi.fastutil.longs.LongList",
+      "it.unimi.dsi.fastutil.objects.Object2LongMap",
+      "it.unimi.dsi.fastutil.objects.Object2LongMaps",
+      "it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap",
+      "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+      "java.time.Duration",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.function.IntSupplier",
+      "java.util.function.LongSupplier",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "org.apache.commons.lang3.tuple.Pair",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ActiveProfiler",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pStartTimeNano",
+            "type": "LongSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStartTimeTicks",
+            "type": "IntSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWarn",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 48
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "startTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "markForCharting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "MetricCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResults",
+        "returnType": "ProfileResults",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 163
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChartedPaths",
+        "returnType": "Set<Pair<String, MetricCategory>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 170,
+          "end": 172
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "getTickTime",
+        "type": "IntSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "getRealTime",
+        "type": "LongSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "startTimeNano",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "startTimeTicks",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "path",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "\"\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "started",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "currentEntry",
+        "type": "ActiveProfiler.PathEntry",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "warn",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PathEntry",
+        "fullName": "net.minecraft.util.profiling.ActiveProfiler.PathEntry",
+        "packageName": "net.minecraft.util.profiling",
+        "filePath": "/net/minecraft/util/profiling/ActiveProfiler.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "ProfilerPathEntry"
+        ],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.longs.LongArrayList",
+          "it.unimi.dsi.fastutil.longs.LongList",
+          "it.unimi.dsi.fastutil.objects.Object2LongMap",
+          "it.unimi.dsi.fastutil.objects.Object2LongMaps",
+          "it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap",
+          "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+          "java.time.Duration",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.function.IntSupplier",
+          "java.util.function.LongSupplier",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.util.profiling.metrics.MetricCategory",
+          "org.apache.commons.lang3.tuple.Pair",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getDuration",
+            "returnType": "long",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 181,
+              "end": 183
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getMaxDuration",
+            "returnType": "long",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 185,
+              "end": 187
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCount",
+            "returnType": "long",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 189,
+              "end": 191
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCounters",
+            "returnType": "Object2LongMap<String>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 193,
+              "end": 195
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "maxDuration",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "Long.MIN_VALUE",
+            "lineRange": {
+              "start": 175,
+              "end": 175
+            }
+          },
+          {
+            "name": "minDuration",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "Long.MAX_VALUE",
+            "lineRange": {
+              "start": 176,
+              "end": 176
+            }
+          },
+          {
+            "name": "accumulatedDuration",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 177,
+              "end": 177
+            }
+          },
+          {
+            "name": "count",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 178,
+              "end": 178
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 174,
+          "end": 196
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ActiveProfiler/PathEntry.java"
+      }
+    ],
+    "lineRange": {
+      "start": 25,
+      "end": 197
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ActiveProfiler.java"
+  },
+  "net.minecraft.util.profiling.ContinuousProfiler": {
+    "className": "ContinuousProfiler",
+    "fullName": "net.minecraft.util.profiling.ContinuousProfiler",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ContinuousProfiler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.IntSupplier",
+      "java.util.function.LongSupplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ContinuousProfiler",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRealTime",
+            "type": "LongSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTickCount",
+            "type": "IntSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disable",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enable",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFiller",
+        "returnType": "ProfilerFiller",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResults",
+        "returnType": "ProfileResults",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "realTime",
+        "type": "LongSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "tickCount",
+        "type": "IntSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "profiler",
+        "type": "ProfileCollector",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "InactiveProfiler.INSTANCE",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ContinuousProfiler.java"
+  },
+  "net.minecraft.util.profiling.EmptyProfileResults": {
+    "className": "EmptyProfileResults",
+    "fullName": "net.minecraft.util.profiling.EmptyProfileResults",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/EmptyProfileResults.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ProfileResults"
+    ],
+    "imports": [
+      "java.nio.file.Path",
+      "java.util.Collections",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EmptyProfileResults",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getTimes",
+        "returnType": "List<ResultField>",
+        "parameters": [
+          {
+            "name": "pSectionPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveResults",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProfilerResults",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/EmptyProfileResults.java"
+  },
+  "net.minecraft.util.profiling.FilledProfileResults": {
+    "className": "FilledProfileResults",
+    "fullName": "net.minecraft.util.profiling.FilledProfileResults",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/FilledProfileResults.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ProfileResults"
+    ],
+    "imports": [
+      "com.google.common.base.Splitter",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.objects.Object2LongMap",
+      "it.unimi.dsi.fastutil.objects.Object2LongMaps",
+      "java.io.Writer",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.Collections",
+      "java.util.Comparator",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Map.Entry",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "org.apache.commons.io.IOUtils",
+      "org.apache.commons.lang3.ObjectUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FilledProfileResults",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStartTimeNano",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStartTimeTicks",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEndTimeNano",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEndTimeTicks",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 63
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getEntry",
+        "returnType": "ProfilerPathEntry",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTimes",
+        "returnType": "List<ResultField>",
+        "parameters": [
+          {
+            "name": "pSectionPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDirectChild",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSectionPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntry",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCounterValues",
+        "returnType": "Map<String, FilledProfileResults.CounterCollector>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveResults",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProfilerResults",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pTimeSpan",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTickSpan",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProfilerResults",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "indentLine",
+        "returnType": "StringBuilder",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndents",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 212
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendProfilerResults",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectionPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 234
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendCounterResults",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndents",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCollector",
+            "type": "FilledProfileResults.CounterCollector",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTickSpan",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 236,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendCounters",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCounters",
+            "type": "FilledProfileResults.CounterCollector>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTickSpan",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getComment",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 251,
+          "end": 259
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTickDuration",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 263
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "startTimeNano",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "startTimeTicks",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "endTimeNano",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "endTimeTicks",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "tickDuration",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "CounterCollector",
+        "fullName": "net.minecraft.util.profiling.FilledProfileResults.CounterCollector",
+        "packageName": "net.minecraft.util.profiling",
+        "filePath": "/net/minecraft/util/profiling/FilledProfileResults.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Splitter",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.Object2LongMap",
+          "it.unimi.dsi.fastutil.objects.Object2LongMaps",
+          "java.io.Writer",
+          "java.nio.charset.StandardCharsets",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Map.Entry",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.Util",
+          "org.apache.commons.io.IOUtils",
+          "org.apache.commons.lang3.ObjectUtils",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "addValue",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_18548_",
+                "type": "Iterator<String>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_18549_",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 270,
+              "end": 280
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "selfValue",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 266,
+              "end": 266
+            }
+          },
+          {
+            "name": "totalValue",
+            "type": "long",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 267,
+              "end": 267
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 265,
+          "end": 281
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/util/profiling/FilledProfileResults/CounterCollector.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 282
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/FilledProfileResults.java"
+  },
+  "net.minecraft.util.profiling.InactiveProfiler": {
+    "className": "InactiveProfiler",
+    "fullName": "net.minecraft.util.profiling.InactiveProfiler",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/InactiveProfiler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ProfileCollector"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "java.util.Set",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "org.apache.commons.lang3.tuple.Pair"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "InactiveProfiler",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "startTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "markForCharting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "MetricCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResults",
+        "returnType": "ProfileResults",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChartedPaths",
+        "returnType": "Set<Pair<String, MetricCategory>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/InactiveProfiler.java"
+  },
+  "net.minecraft.util.profiling.ProfileCollector": {
+    "className": "ProfileCollector",
+    "fullName": "net.minecraft.util.profiling.ProfileCollector",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ProfileCollector.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ProfilerFiller",
+    "interfaces": [],
+    "imports": [
+      "java.util.Set",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "org.apache.commons.lang3.tuple.Pair"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getResults",
+        "returnType": "ProfileResults",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChartedPaths",
+        "returnType": "Set<Pair<String, MetricCategory>>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 15
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ProfileCollector.java"
+  },
+  "net.minecraft.util.profiling.ProfileResults": {
+    "className": "ProfileResults",
+    "fullName": "net.minecraft.util.profiling.ProfileResults",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ProfileResults.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.nio.file.Path",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getTimes",
+        "returnType": "List<ResultField>",
+        "parameters": [
+          {
+            "name": "pSectionPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveResults",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeNano",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEndTimeTicks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProfilerResults",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "demanglePath",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PATH_SEPARATOR",
+        "type": "char",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "'\\u001e'",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ProfileResults.java"
+  },
+  "net.minecraft.util.profiling.ProfilerFiller": {
+    "className": "ProfilerFiller",
+    "fullName": "net.minecraft.util.profiling.ProfilerFiller",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ProfilerFiller.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.Supplier",
+      "net.minecraft.util.profiling.metrics.MetricCategory"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "startTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "markForCharting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "MetricCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementCounter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCounterNameSupplier",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tee",
+        "returnType": "ProfilerFiller",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "pSecond",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 105
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ROOT",
+        "type": "String",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "\"root\"",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 106
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ProfilerFiller.java"
+  },
+  "net.minecraft.util.profiling.ProfilerPathEntry": {
+    "className": "ProfilerPathEntry",
+    "fullName": "net.minecraft.util.profiling.ProfilerPathEntry",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ProfilerPathEntry.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.objects.Object2LongMap"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getDuration",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxDuration",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCount",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCounters",
+        "returnType": "Object2LongMap<String>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ProfilerPathEntry.java"
+  },
+  "net.minecraft.util.profiling.ResultField": {
+    "className": "ResultField",
+    "fullName": "net.minecraft.util.profiling.ResultField",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/ResultField.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Comparable<ResultField>"
+    ],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResultField",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPercentage",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGlobalPercentage",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCount",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "compareTo",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "p_18618_",
+            "type": "ResultField",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getColor",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "percentage",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        }
+      },
+      {
+        "name": "globalPercentage",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 5,
+          "end": 5
+        }
+      },
+      {
+        "name": "count",
+        "type": "long",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/ResultField.java"
+  },
+  "net.minecraft.util.profiling.SingleTickProfiler": {
+    "className": "SingleTickProfiler",
+    "fullName": "net.minecraft.util.profiling.SingleTickProfiler",
+    "packageName": "net.minecraft.util.profiling",
+    "filePath": "/net/minecraft/util/profiling/SingleTickProfiler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.File",
+      "java.util.function.LongSupplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SingleTickProfiler",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRealTime",
+            "type": "LongSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSaveThreshold",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "startTick",
+        "returnType": "ProfilerFiller",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTickProfiler",
+        "returnType": "SingleTickProfiler",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "decorateFiller",
+        "returnType": "ProfilerFiller",
+        "parameters": [
+          {
+            "name": "pProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSingleTickProfiler",
+            "type": "SingleTickProfiler",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "realTime",
+        "type": "LongSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "saveThreshold",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "tick",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "location",
+        "type": "File",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "profiler",
+        "type": "ProfileCollector",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "InactiveProfiler.INSTANCE",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 53
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/SingleTickProfiler.java"
+  }
+}

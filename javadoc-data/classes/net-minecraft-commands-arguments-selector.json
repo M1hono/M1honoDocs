@@ -1,0 +1,2796 @@
+{
+  "net.minecraft.commands.arguments.selector.EntitySelector": {
+    "className": "EntitySelector",
+    "fullName": "net.minecraft.commands.arguments.selector.EntitySelector",
+    "packageName": "net.minecraft.commands.arguments.selector",
+    "filePath": "/net/minecraft/commands/arguments/selector/EntitySelector.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.UUID",
+      "java.util.function.BiConsumer",
+      "java.util.function.Function",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.arguments.EntityArgument",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.ComponentUtils",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.level.entity.EntityTypeTest",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EntitySelector",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMaxResults",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncludeEntities",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldLimited",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPredicate",
+            "type": "Predicate<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRange",
+            "type": "MinMaxBounds.Doubles",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPositions",
+            "type": "Vec3>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAabb",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentEntity",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntityUUID",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "EntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUsesSelector",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 69
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getMaxResults",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "includesEntities",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSelfSelector",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isWorldLimited",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "usesSelector",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkPermissions",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 91,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findSingleEntity",
+        "returnType": "Entity",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 97,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResult",
+            "type": "List<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPredicate",
+            "type": "Predicate<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResultLimit",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 168
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findSinglePlayer",
+        "returnType": "ServerPlayer",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 170,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findPlayers",
+        "returnType": "List<ServerPlayer>",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 180,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPredicate",
+        "returnType": "Predicate<Entity>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 226,
+          "end": 242
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "joinNames",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 252,
+          "end": 254
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "INFINITE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "Integer.MAX_VALUE",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "maxResults",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "includesEntities",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "worldLimited",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "predicate",
+        "type": "Predicate<Entity>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "range",
+        "type": "MinMaxBounds.Doubles",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "position",
+        "type": "Function<Vec3, Vec3>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "aabb",
+        "type": "AABB",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "currentEntity",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "playerName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "entityUUID",
+        "type": "UUID",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "usesSelector",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 255
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/selector/EntitySelector.java"
+  },
+  "net.minecraft.commands.arguments.selector.EntitySelectorParser": {
+    "className": "EntitySelectorParser",
+    "fullName": "net.minecraft.commands.arguments.selector.EntitySelectorParser",
+    "packageName": "net.minecraft.commands.arguments.selector",
+    "filePath": "/net/minecraft/commands/arguments/selector/EntitySelectorParser.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.primitives.Doubles",
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.exceptions.DynamicCommandExceptionType",
+      "com.mojang.brigadier.exceptions.SimpleCommandExceptionType",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.UUID",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.BiConsumer",
+      "java.util.function.BiFunction",
+      "java.util.function.Consumer",
+      "java.util.function.Function",
+      "java.util.function.Predicate",
+      "java.util.function.ToDoubleFunction",
+      "javax.annotation.Nullable",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.WrappedMinMaxBounds",
+      "net.minecraft.commands.arguments.selector.options.EntitySelectorOptions",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EntitySelectorParser",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 120
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "EntitySelectorParser",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowSelectors",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 125
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSelector",
+        "returnType": "EntitySelector",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createAabb",
+        "returnType": "AABB",
+        "parameters": [
+          {
+            "name": "pSizeX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSizeY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSizeZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizePredicates",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createRotationPredicate",
+        "returnType": "Predicate<Entity>",
+        "parameters": [
+          {
+            "name": "pAngleBounds",
+            "type": "WrappedMinMaxBounds",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAngleFunction",
+            "type": "ToDoubleFunction<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 195
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseSelector",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 197,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseNameOrUUID",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 246,
+          "end": 268
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseOptions",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 270,
+          "end": 315
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldInvertValue",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 317,
+          "end": 326
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTag",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 328,
+          "end": 337
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getReader",
+        "returnType": "StringReader",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 339,
+          "end": 341
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addPredicate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPredicate",
+            "type": "Predicate<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 343,
+          "end": 345
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setWorldLimited",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 349
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDistance",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDistance",
+            "type": "MinMaxBounds.Doubles",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 355,
+          "end": 357
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "MinMaxBounds.Ints",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 363,
+          "end": 365
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRotX",
+        "returnType": "WrappedMinMaxBounds",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 367,
+          "end": 369
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setRotX",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRotX",
+            "type": "WrappedMinMaxBounds",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 371,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRotY",
+        "returnType": "WrappedMinMaxBounds",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 375,
+          "end": 377
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setRotY",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRotY",
+            "type": "WrappedMinMaxBounds",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 379,
+          "end": 381
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getX",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 384,
+          "end": 386
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getY",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 389,
+          "end": 391
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getZ",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 394,
+          "end": 396
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setX",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 398,
+          "end": 400
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setY",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 402,
+          "end": 404
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setZ",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 406,
+          "end": 408
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDeltaX",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDeltaX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 410,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDeltaY",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDeltaY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDeltaZ",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDeltaZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 418,
+          "end": 420
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeltaX",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 425
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeltaY",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 428,
+          "end": 430
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeltaZ",
+        "returnType": "Double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 433,
+          "end": 435
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setMaxResults",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMaxResults",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 437,
+          "end": 439
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setIncludesEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIncludesEntities",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 441,
+          "end": 443
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setOrder",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 449,
+          "end": 451
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "EntitySelector",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 453,
+          "end": 472
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillSelectorSuggestions",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 474,
+          "end": 481
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestNameOrSelector",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121287_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121288_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 483,
+          "end": 490
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestName",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121310_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121311_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 492,
+          "end": 496
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestSelector",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121323_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121324_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 498,
+          "end": 503
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOpenOptions",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121334_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121335_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 505,
+          "end": 508
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOptionsKeyOrClose",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121342_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121343_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 510,
+          "end": 514
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOptionsKey",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121348_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121349_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 516,
+          "end": 519
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOptionsNextOrClose",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_121354_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_121355_",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 521,
+          "end": 525
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestEquals",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 527,
+          "end": 530
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCurrentEntity",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 532,
+          "end": 534
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSuggestions",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSuggestionHandler",
+            "type": "CompletableFuture<Suggestions>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 536,
+          "end": 538
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillSuggestions",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "Consumer<SuggestionsBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 540,
+          "end": 542
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasNameEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 544,
+          "end": 546
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasNameEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasNameEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 548,
+          "end": 550
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasNameNotEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 552,
+          "end": 554
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasNameNotEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasNameNotEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 556,
+          "end": 558
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isLimited",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 560,
+          "end": 562
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLimited",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsLimited",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 564,
+          "end": 566
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSorted",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 568,
+          "end": 570
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSorted",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsSorted",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 572,
+          "end": 574
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasGamemodeEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 576,
+          "end": 578
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasGamemodeEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasGamemodeEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 580,
+          "end": 582
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasGamemodeNotEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 584,
+          "end": 586
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasGamemodeNotEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasGamemodeNotEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 588,
+          "end": 590
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTeamEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 592,
+          "end": 594
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasTeamEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasTeamEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 596,
+          "end": 598
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTeamNotEquals",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 600,
+          "end": 602
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasTeamNotEquals",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasTeamNotEquals",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 604,
+          "end": 606
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "limitToType",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "EntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 608,
+          "end": 610
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTypeLimitedInversely",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 612,
+          "end": 614
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTypeLimited",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 616,
+          "end": 618
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTypeLimitedInversely",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 620,
+          "end": 622
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasScores",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 624,
+          "end": 626
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasScores",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasScores",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 628,
+          "end": 630
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasAdvancements",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 632,
+          "end": 634
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasAdvancements",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasAdvancements",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 636,
+          "end": 638
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SYNTAX_SELECTOR_START",
+        "type": "char",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'@'",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "SYNTAX_OPTIONS_START",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'['",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "SYNTAX_OPTIONS_END",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "']'",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "SYNTAX_OPTIONS_KEY_VALUE_SEPARATOR",
+        "type": "char",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'='",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "SYNTAX_OPTIONS_SEPARATOR",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "','",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "SYNTAX_NOT",
+        "type": "char",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'!'",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "SYNTAX_TAG",
+        "type": "char",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'#'",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "SELECTOR_NEAREST_PLAYER",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'p'",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "SELECTOR_ALL_PLAYERS",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'a'",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "SELECTOR_RANDOM_PLAYERS",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'r'",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "SELECTOR_CURRENT_ENTITY",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'s'",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "SELECTOR_ALL_ENTITIES",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'e'",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "reader",
+        "type": "StringReader",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "allowSelectors",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "maxResults",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "includesEntities",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "worldLimited",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "distance",
+        "type": "MinMaxBounds.Doubles",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "MinMaxBounds.Doubles.ANY",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "level",
+        "type": "MinMaxBounds.Ints",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "MinMaxBounds.Ints.ANY",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "x",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "y",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "z",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      },
+      {
+        "name": "deltaX",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      },
+      {
+        "name": "deltaY",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 87,
+          "end": 87
+        }
+      },
+      {
+        "name": "deltaZ",
+        "type": "Double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "rotX",
+        "type": "WrappedMinMaxBounds",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "WrappedMinMaxBounds.ANY",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "rotY",
+        "type": "WrappedMinMaxBounds",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "WrappedMinMaxBounds.ANY",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "currentEntity",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        }
+      },
+      {
+        "name": "playerName",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        }
+      },
+      {
+        "name": "startPosition",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 99,
+          "end": 99
+        }
+      },
+      {
+        "name": "entityUUID",
+        "type": "UUID",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 101,
+          "end": 101
+        }
+      },
+      {
+        "name": "suggestions",
+        "type": "BiFunction<SuggestionsBuilder, Consumer<SuggestionsBuilder>, CompletableFuture<Suggestions>>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "SUGGEST_NOTHING",
+        "lineRange": {
+          "start": 102,
+          "end": 102
+        }
+      },
+      {
+        "name": "hasNameEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 103,
+          "end": 103
+        }
+      },
+      {
+        "name": "hasNameNotEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 104,
+          "end": 104
+        }
+      },
+      {
+        "name": "isLimited",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 105,
+          "end": 105
+        }
+      },
+      {
+        "name": "isSorted",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 106,
+          "end": 106
+        }
+      },
+      {
+        "name": "hasGamemodeEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 107,
+          "end": 107
+        }
+      },
+      {
+        "name": "hasGamemodeNotEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 108,
+          "end": 108
+        }
+      },
+      {
+        "name": "hasTeamEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 109,
+          "end": 109
+        }
+      },
+      {
+        "name": "hasTeamNotEquals",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 110,
+          "end": 110
+        }
+      },
+      {
+        "name": "typeInverse",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 113,
+          "end": 113
+        }
+      },
+      {
+        "name": "hasScores",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 114,
+          "end": 114
+        }
+      },
+      {
+        "name": "hasAdvancements",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 115,
+          "end": 115
+        }
+      },
+      {
+        "name": "usesSelectors",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 116,
+          "end": 116
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 639
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/selector/EntitySelectorParser.java"
+  }
+}

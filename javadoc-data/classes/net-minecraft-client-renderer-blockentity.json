@@ -1,0 +1,7029 @@
+{
+  "net.minecraft.client.renderer.blockentity.BannerRenderer": {
+    "className": "BannerRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BannerRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BannerRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<BannerBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.math.Axis",
+      "java.util.List",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.client.resources.model.ModelBakery",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.level.block.BannerBlock",
+      "net.minecraft.world.level.block.WallBannerBlock",
+      "net.minecraft.world.level.block.entity.BannerBlockEntity",
+      "net.minecraft.world.level.block.entity.BannerPattern",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.RotationSegment",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BannerRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createBodyLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BannerBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderPatterns",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlagPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlagMaterial",
+            "type": "Material",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBanner",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPatterns",
+            "type": "DyeColor>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderPatterns",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlagPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlagMaterial",
+            "type": "Material",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBanner",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPatterns",
+            "type": "DyeColor>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGlint",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 127
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BANNER_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "BANNER_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "40",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "MAX_PATTERNS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "FLAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"flag\"",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "POLE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"pole\"",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "BAR",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"bar\"",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "flag",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "pole",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "bar",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 34,
+      "end": 128
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BannerRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BeaconRenderer": {
+    "className": "BeaconRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BeaconRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BeaconRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<BeaconBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "java.util.List",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.texture.OverlayTexture",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.level.block.entity.BeaconBlockEntity",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BeaconRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BeaconBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderBeaconBeam",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameTime",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pColors",
+            "type": "float[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderBeaconBeam",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBeamLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureScale",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameTime",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pColors",
+            "type": "float[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBeamRadius",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGlowRadius",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderPart",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX0",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ0",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX1",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ1",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX2",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ2",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX3",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ3",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderQuad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormal",
+            "type": "Matrix3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addVertex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormal",
+            "type": "Matrix3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRenderOffScreen",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BeaconBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRender",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BeaconBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCameraPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 111
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_RENDER_Y",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1024",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 112
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BeaconRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BedRenderer": {
+    "className": "BedRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BedRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BedRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<BedBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.BedBlock",
+      "net.minecraft.world.level.block.ChestBlock",
+      "net.minecraft.world.level.block.DoubleBlockCombiner",
+      "net.minecraft.world.level.block.entity.BedBlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BedPart",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BedRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createHeadLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createFootLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BedBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderPiece",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModelPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaterial",
+            "type": "Material",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFoot",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 89
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "headRoot",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "footRoot",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 90
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BedRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BellRenderer": {
+    "className": "BellRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BellRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BellRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<BellBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.texture.TextureAtlas",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.Direction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.level.block.entity.BellBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BellRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createBodyLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BellBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BELL_BODY",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"bell_body\"",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "bellBody",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BellRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher": {
+    "className": "BlockEntityRenderDispatcher",
+    "fullName": "net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ResourceManagerReloadListener"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "java.util.Map",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.client.Camera",
+      "net.minecraft.client.gui.Font",
+      "net.minecraft.client.model.geom.EntityModelSet",
+      "net.minecraft.client.renderer.LevelRenderer",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+      "net.minecraft.client.renderer.entity.EntityRenderDispatcher",
+      "net.minecraft.client.renderer.entity.ItemRenderer",
+      "net.minecraft.client.renderer.texture.OverlayTexture",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.server.packs.resources.ResourceManagerReloadListener",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.phys.HitResult",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockEntityRenderDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFont",
+            "type": "Font",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntityModelSet",
+            "type": "EntityModelSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockRenderDispatcher",
+            "type": "Supplier<BlockRenderDispatcher>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pItemRenderer",
+            "type": "Supplier<ItemRenderer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntityRenderer",
+            "type": "Supplier<EntityRenderDispatcher>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "prepare",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCamera",
+            "type": "Camera",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCameraHitResult",
+            "type": "HitResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryRender",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRenderer",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onResourceManagerReload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 125
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "font",
+        "type": "Font",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "entityModelSet",
+        "type": "EntityModelSet",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "level",
+        "type": "Level",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "camera",
+        "type": "Camera",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "cameraHitResult",
+        "type": "HitResult",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "blockRenderDispatcher",
+        "type": "Supplier<BlockRenderDispatcher>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "itemRenderer",
+        "type": "Supplier<ItemRenderer>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "entityRenderer",
+        "type": "Supplier<EntityRenderDispatcher>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 126
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BlockEntityRenderer": {
+    "className": "BlockEntityRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BlockEntityRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BlockEntityRenderer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BlockEntityRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider": {
+    "className": "BlockEntityRendererProvider",
+    "fullName": "net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.gui.Font",
+      "net.minecraft.client.model.geom.EntityModelSet",
+      "net.minecraft.client.model.geom.ModelLayerLocation",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+      "net.minecraft.client.renderer.entity.EntityRenderDispatcher",
+      "net.minecraft.client.renderer.entity.ItemRenderer",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BlockEntityRenderer<T>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Context",
+        "fullName": "net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context",
+        "packageName": "net.minecraft.client.renderer.blockentity",
+        "filePath": "/net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "net.minecraft.client.gui.Font",
+          "net.minecraft.client.model.geom.EntityModelSet",
+          "net.minecraft.client.model.geom.ModelLayerLocation",
+          "net.minecraft.client.model.geom.ModelPart",
+          "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+          "net.minecraft.client.renderer.entity.EntityRenderDispatcher",
+          "net.minecraft.client.renderer.entity.ItemRenderer",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Context",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pBlockEntityRenderDispatcher",
+                "type": "BlockEntityRenderDispatcher",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlockRenderDispatcher",
+                "type": "BlockRenderDispatcher",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pItemRenderer",
+                "type": "ItemRenderer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntityRenderer",
+                "type": "EntityRenderDispatcher",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pModelSet",
+                "type": "EntityModelSet",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pFont",
+                "type": "Font",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 28,
+              "end": 35
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getBlockEntityRenderDispatcher",
+            "returnType": "BlockEntityRenderDispatcher",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 37,
+              "end": 39
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getBlockRenderDispatcher",
+            "returnType": "BlockRenderDispatcher",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 41,
+              "end": 43
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getEntityRenderer",
+            "returnType": "EntityRenderDispatcher",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 45,
+              "end": 47
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getItemRenderer",
+            "returnType": "ItemRenderer",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 49,
+              "end": 51
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getModelSet",
+            "returnType": "EntityModelSet",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 53,
+              "end": 55
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "bakeLayer",
+            "returnType": "ModelPart",
+            "parameters": [
+              {
+                "name": "pLayerLocation",
+                "type": "ModelLayerLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 57,
+              "end": 59
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getFont",
+            "returnType": "Font",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 61,
+              "end": 63
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "blockEntityRenderDispatcher",
+            "type": "BlockEntityRenderDispatcher",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 21,
+              "end": 21
+            }
+          },
+          {
+            "name": "blockRenderDispatcher",
+            "type": "BlockRenderDispatcher",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 22,
+              "end": 22
+            }
+          },
+          {
+            "name": "itemRenderer",
+            "type": "ItemRenderer",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 23,
+              "end": 23
+            }
+          },
+          {
+            "name": "entityRenderer",
+            "type": "EntityRenderDispatcher",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 24,
+              "end": 24
+            }
+          },
+          {
+            "name": "modelSet",
+            "type": "EntityModelSet",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 25,
+              "end": 25
+            }
+          },
+          {
+            "name": "font",
+            "type": "Font",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 26,
+              "end": 26
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 20,
+          "end": 64
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider/Context.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 65
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BlockEntityRenderers": {
+    "className": "BlockEntityRenderers",
+    "fullName": "net.minecraft.client.renderer.blockentity.BlockEntityRenderers",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "java.util.Map",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BrightnessCombiner": {
+    "className": "BrightnessCombiner",
+    "fullName": "net.minecraft.client.renderer.blockentity.BrightnessCombiner",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BrightnessCombiner.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.ints.Int2IntFunction",
+      "net.minecraft.client.renderer.LevelRenderer",
+      "net.minecraft.client.renderer.LightTexture",
+      "net.minecraft.world.level.block.DoubleBlockCombiner",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "acceptDouble",
+        "returnType": "Int2IntFunction",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSecond",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acceptSingle",
+        "returnType": "Int2IntFunction",
+        "parameters": [
+          {
+            "name": "pSingle",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acceptNone",
+        "returnType": "Int2IntFunction",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BrightnessCombiner.java"
+  },
+  "net.minecraft.client.renderer.blockentity.BrushableBlockRenderer": {
+    "className": "BrushableBlockRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.BrushableBlockRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/BrushableBlockRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<BrushableBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.renderer.LevelRenderer",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.entity.ItemRenderer",
+      "net.minecraft.client.renderer.texture.OverlayTexture",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.item.ItemDisplayContext",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.block.entity.BrushableBlockEntity",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BrushableBlockRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "BrushableBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translations",
+        "returnType": "float[]",
+        "parameters": [
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDustedLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 74
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "itemRenderer",
+        "type": "ItemRenderer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 75
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/BrushableBlockRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.CampfireRenderer": {
+    "className": "CampfireRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.CampfireRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/CampfireRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<CampfireBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.entity.ItemRenderer",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.NonNullList",
+      "net.minecraft.world.item.ItemDisplayContext",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.block.CampfireBlock",
+      "net.minecraft.world.level.block.entity.CampfireBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CampfireRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "CampfireBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 46
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SIZE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.375F",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "itemRenderer",
+        "type": "ItemRenderer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 47
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/CampfireRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.ChestRenderer": {
+    "className": "ChestRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.ChestRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/ChestRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "java.util.Calendar",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.AbstractChestBlock",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.ChestBlock",
+      "net.minecraft.world.level.block.DoubleBlockCombiner",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.ChestBlockEntity",
+      "net.minecraft.world.level.block.entity.LidBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.ChestType",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChestRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createSingleBodyLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createDoubleBodyRightLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createDoubleBodyLeftLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLidPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLockPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBottomPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLidAngle",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "blockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "chestType",
+            "type": "ChestType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BOTTOM",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"bottom\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "LID",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"lid\"",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "LOCK",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"lock\"",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "lid",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "bottom",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "lock",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "doubleLeftLid",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "doubleLeftBottom",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "doubleLeftLock",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "doubleRightLid",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "doubleRightBottom",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "doubleRightLock",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "xmasTextures",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 34,
+      "end": 147
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/ChestRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.ConduitRenderer": {
+    "className": "ConduitRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.ConduitRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/ConduitRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<ConduitBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.Camera",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeDeformation",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.texture.TextureAtlas",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.level.block.entity.ConduitBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Quaternionf",
+      "org.joml.Vector3f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ConduitRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createEyeLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createWindLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createShellLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createCageLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "ConduitBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 125
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "eye",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "wind",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "shell",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "cage",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "renderer",
+        "type": "BlockEntityRenderDispatcher",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 27,
+      "end": 126
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/ConduitRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.DecoratedPotRenderer": {
+    "className": "DecoratedPotRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.DecoratedPotRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<DecoratedPotBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "java.util.EnumSet",
+      "java.util.Objects",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeDeformation",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.block.entity.DecoratedPotBlockEntity",
+      "net.minecraft.world.level.block.entity.DecoratedPotPatterns",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DecoratedPotRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 57
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createBaseLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createSidesLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "pItem",
+            "type": "Item",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "DecoratedPotBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSide",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModelPart",
+            "type": "ModelPart",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaterial",
+            "type": "Material",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 119
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NECK",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"neck\"",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "FRONT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"front\"",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "BACK",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"back\"",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "LEFT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"left\"",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "RIGHT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"right\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "TOP",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"top\"",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "BOTTOM",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"bottom\"",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "neck",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "frontSide",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "backSide",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "leftSide",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "rightSide",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "top",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "bottom",
+        "type": "ModelPart",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 120
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.EnchantTableRenderer": {
+    "className": "EnchantTableRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.EnchantTableRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/EnchantTableRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<EnchantmentTableBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.model.BookModel",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.texture.TextureAtlas",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.level.block.entity.EnchantmentTableBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EnchantTableRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "EnchantmentTableBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 53
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "bookModel",
+        "type": "BookModel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 54
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/EnchantTableRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.HangingSignRenderer": {
+    "className": "HangingSignRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.HangingSignRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SignRenderer",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "java.util.Map",
+      "net.minecraft.client.model.Model",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.world.level.block.CeilingHangingSignBlock",
+      "net.minecraft.world.level.block.SignBlock",
+      "net.minecraft.world.level.block.entity.SignBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.block.state.properties.WoodType",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "HangingSignRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 52
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSignModelRenderScale",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignTextRenderScale",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "SignBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translateSign",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSignModel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModel",
+            "type": "Model",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVertexConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "pWoodType",
+            "type": "WoodType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTextOffset",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createHangingSignLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PLANK",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"plank\"",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "V_CHAINS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"vChains\"",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "NORMAL_CHAINS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"normalChains\"",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "CHAIN_L_1",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"chainL1\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "CHAIN_L_2",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"chainL2\"",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "CHAIN_R_1",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"chainR1\"",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "CHAIN_R_2",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"chainR2\"",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "BOARD",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"board\"",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "MODEL_RENDER_SCALE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "TEXT_RENDER_SCALE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.9F",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "hangingSignModels",
+        "type": "Map<WoodType, HangingSignRenderer.HangingSignModel>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "HangingSignModel",
+        "fullName": "net.minecraft.client.renderer.blockentity.HangingSignRenderer.HangingSignModel",
+        "packageName": "net.minecraft.client.renderer.blockentity",
+        "filePath": "/net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "Model",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.VertexConsumer",
+          "com.mojang.math.Axis",
+          "java.util.Map",
+          "net.minecraft.client.model.Model",
+          "net.minecraft.client.model.geom.ModelLayers",
+          "net.minecraft.client.model.geom.ModelPart",
+          "net.minecraft.client.model.geom.PartPose",
+          "net.minecraft.client.model.geom.builders.CubeListBuilder",
+          "net.minecraft.client.model.geom.builders.LayerDefinition",
+          "net.minecraft.client.model.geom.builders.MeshDefinition",
+          "net.minecraft.client.model.geom.builders.PartDefinition",
+          "net.minecraft.client.renderer.MultiBufferSource",
+          "net.minecraft.client.renderer.RenderType",
+          "net.minecraft.client.renderer.Sheets",
+          "net.minecraft.client.resources.model.Material",
+          "net.minecraft.world.level.block.CeilingHangingSignBlock",
+          "net.minecraft.world.level.block.SignBlock",
+          "net.minecraft.world.level.block.entity.SignBlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+          "net.minecraft.world.level.block.state.properties.WoodType",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "HangingSignModel",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pRoot",
+                "type": "ModelPart",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 111,
+              "end": 117
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "evaluateVisibleParts",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 130
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderToBuffer",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pPoseStack",
+                "type": "PoseStack",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBuffer",
+                "type": "VertexConsumer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPackedLight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPackedOverlay",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRed",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 132,
+              "end": 134
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "root",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 106,
+              "end": 106
+            }
+          },
+          {
+            "name": "plank",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 107,
+              "end": 107
+            }
+          },
+          {
+            "name": "vChains",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 108,
+              "end": 108
+            }
+          },
+          {
+            "name": "normalChains",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 109,
+              "end": 109
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 105,
+          "end": 135
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/HangingSignRenderer/HangingSignModel.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 136
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/HangingSignRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.LecternRenderer": {
+    "className": "LecternRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.LecternRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/LecternRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<LecternBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.model.BookModel",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.world.level.block.LecternBlock",
+      "net.minecraft.world.level.block.entity.LecternBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LecternRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "LecternBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 38
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "bookModel",
+        "type": "BookModel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/LecternRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.PistonHeadRenderer": {
+    "className": "PistonHeadRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.PistonHeadRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/PistonHeadRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<PistonMovingBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.renderer.ItemBlockRenderTypes",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.block.BlockRenderDispatcher",
+      "net.minecraft.client.renderer.block.ModelBlockRenderer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.piston.PistonBaseBlock",
+      "net.minecraft.world.level.block.piston.PistonHeadBlock",
+      "net.minecraft.world.level.block.piston.PistonMovingBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.PistonType",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PistonHeadRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "PistonMovingBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtended",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blockRenderer",
+        "type": "BlockRenderDispatcher",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 81
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/PistonHeadRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer": {
+    "className": "ShulkerBoxRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<ShulkerBoxBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.model.ShulkerModel",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.level.block.ShulkerBoxBlock",
+      "net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ShulkerBoxRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "ShulkerBoxBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.SignRenderer": {
+    "className": "SignRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.SignRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/SignRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<SignBlockEntity>"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Axis",
+      "java.util.List",
+      "java.util.Map",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.Font",
+      "net.minecraft.client.model.Model",
+      "net.minecraft.client.model.geom.EntityModelSet",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.model.geom.ModelPart",
+      "net.minecraft.client.model.geom.PartPose",
+      "net.minecraft.client.model.geom.builders.CubeListBuilder",
+      "net.minecraft.client.model.geom.builders.LayerDefinition",
+      "net.minecraft.client.model.geom.builders.MeshDefinition",
+      "net.minecraft.client.model.geom.builders.PartDefinition",
+      "net.minecraft.client.player.LocalPlayer",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.Sheets",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.FastColor",
+      "net.minecraft.util.FormattedCharSequence",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.level.block.SignBlock",
+      "net.minecraft.world.level.block.StandingSignBlock",
+      "net.minecraft.world.level.block.entity.SignBlockEntity",
+      "net.minecraft.world.level.block.entity.SignText",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.WoodType",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SignRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "SignBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignModelRenderScale",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignTextRenderScale",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSignWithText",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSignEntity",
+            "type": "SignBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSignBlock",
+            "type": "SignBlock",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWoodType",
+            "type": "WoodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModel",
+            "type": "Model",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translateSign",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSign",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWoodType",
+            "type": "WoodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModel",
+            "type": "Model",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSignModel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModel",
+            "type": "Model",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVertexConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "pWoodType",
+            "type": "WoodType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSignText",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pText",
+            "type": "SignText",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLineHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsFrontText",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translateSignText",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsFrontText",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffset",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTextOffset",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOutlineVisible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextColor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 163,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDarkColor",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pSignText",
+            "type": "SignText",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createSignLayer",
+        "returnType": "LayerDefinition",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 201
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "STICK",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"stick\"",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "BLACK_TEXT_OUTLINE_COLOR",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-988212",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "RENDER_SCALE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6666667F",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "signModels",
+        "type": "Map<WoodType, SignRenderer.SignModel>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "font",
+        "type": "Font",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "SignModel",
+        "fullName": "net.minecraft.client.renderer.blockentity.SignRenderer.SignModel",
+        "packageName": "net.minecraft.client.renderer.blockentity",
+        "filePath": "/net/minecraft/client/renderer/blockentity/SignRenderer.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "Model",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.VertexConsumer",
+          "com.mojang.math.Axis",
+          "java.util.List",
+          "java.util.Map",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.Font",
+          "net.minecraft.client.model.Model",
+          "net.minecraft.client.model.geom.EntityModelSet",
+          "net.minecraft.client.model.geom.ModelLayers",
+          "net.minecraft.client.model.geom.ModelPart",
+          "net.minecraft.client.model.geom.PartPose",
+          "net.minecraft.client.model.geom.builders.CubeListBuilder",
+          "net.minecraft.client.model.geom.builders.LayerDefinition",
+          "net.minecraft.client.model.geom.builders.MeshDefinition",
+          "net.minecraft.client.model.geom.builders.PartDefinition",
+          "net.minecraft.client.player.LocalPlayer",
+          "net.minecraft.client.renderer.MultiBufferSource",
+          "net.minecraft.client.renderer.RenderType",
+          "net.minecraft.client.renderer.Sheets",
+          "net.minecraft.client.resources.model.Material",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.util.FastColor",
+          "net.minecraft.util.FormattedCharSequence",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.level.block.SignBlock",
+          "net.minecraft.world.level.block.StandingSignBlock",
+          "net.minecraft.world.level.block.entity.SignBlockEntity",
+          "net.minecraft.world.level.block.entity.SignText",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.properties.WoodType",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SignModel",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pRoot",
+                "type": "ModelPart",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 208,
+              "end": 212
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "renderToBuffer",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pPoseStack",
+                "type": "PoseStack",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBuffer",
+                "type": "VertexConsumer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPackedLight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPackedOverlay",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRed",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 214,
+              "end": 216
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "root",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 205,
+              "end": 205
+            }
+          },
+          {
+            "name": "stick",
+            "type": "ModelPart",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 206,
+              "end": 206
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 204,
+          "end": 217
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/SignRenderer/SignModel.java"
+      }
+    ],
+    "lineRange": {
+      "start": 42,
+      "end": 218
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/SignRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.SkullBlockRenderer": {
+    "className": "SkullBlockRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.SkullBlockRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/SkullBlockRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<SkullBlockEntity>"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.minecraft.MinecraftProfileTexture",
+      "com.mojang.authlib.minecraft.MinecraftProfileTexture.Type",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.model.PiglinHeadModel",
+      "net.minecraft.client.model.SkullModel",
+      "net.minecraft.client.model.SkullModelBase",
+      "net.minecraft.client.model.dragon.DragonHeadModel",
+      "net.minecraft.client.model.geom.EntityModelSet",
+      "net.minecraft.client.model.geom.ModelLayers",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.client.renderer.texture.OverlayTexture",
+      "net.minecraft.client.resources.DefaultPlayerSkin",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.block.AbstractSkullBlock",
+      "net.minecraft.world.level.block.SkullBlock",
+      "net.minecraft.world.level.block.WallSkullBlock",
+      "net.minecraft.world.level.block.entity.SkullBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.RotationSegment",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createSkullRenderers",
+        "returnType": "Map<SkullBlock.Type, SkullModelBase>",
+        "parameters": [
+          {
+            "name": "pEntityModelSet",
+            "type": "EntityModelSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "SkullBlockRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "SkullBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderSkull",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouthAnimation",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBufferSource",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pModel",
+            "type": "SkullModelBase",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRenderType",
+            "type": "RenderType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRenderType",
+        "returnType": "RenderType",
+        "parameters": [
+          {
+            "name": "pSkullType",
+            "type": "SkullBlock.Type",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 104
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "modelByType",
+        "type": "Map<SkullBlock.Type, SkullModelBase>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 37,
+      "end": 105
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/SkullBlockRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.SpawnerRenderer": {
+    "className": "SpawnerRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.SpawnerRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/SpawnerRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<SpawnerBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.math.Axis",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.entity.EntityRenderDispatcher",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.BaseSpawner",
+      "net.minecraft.world.level.block.entity.SpawnerBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SpawnerRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "SpawnerBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 43
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "entityRenderer",
+        "type": "EntityRenderDispatcher",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 44
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/SpawnerRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.StructureBlockRenderer": {
+    "className": "StructureBlockRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.StructureBlockRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/StructureBlockRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockEntityRenderer<StructureBlockEntity>"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.renderer.LevelRenderer",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.StructureBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.StructureMode",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructureBlockRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "StructureBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderInvisibleBlocks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "StructureBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRenderOffScreen",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "StructureBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 137
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 138
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/StructureBlockRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.TheEndGatewayRenderer": {
+    "className": "TheEndGatewayRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.TheEndGatewayRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/TheEndGatewayRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "TheEndPortalRenderer<TheEndGatewayBlockEntity>",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TheEndGatewayRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_173683_",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_112613_",
+            "type": "TheEndGatewayBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_112614_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_112615_",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_112616_",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_112617_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_112618_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOffsetUp",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOffsetDown",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderType",
+        "returnType": "RenderType",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewDistance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 50
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/TheEndGatewayRenderer.java"
+  },
+  "net.minecraft.client.renderer.blockentity.TheEndPortalRenderer": {
+    "className": "TheEndPortalRenderer",
+    "fullName": "net.minecraft.client.renderer.blockentity.TheEndPortalRenderer",
+    "packageName": "net.minecraft.client.renderer.blockentity",
+    "filePath": "/net/minecraft/client/renderer/blockentity/TheEndPortalRenderer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "net.minecraft.client.renderer.MultiBufferSource",
+      "net.minecraft.client.renderer.RenderType",
+      "net.minecraft.core.Direction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.block.entity.TheEndPortalBlockEntity",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TheEndPortalRenderer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockEntityRendererProvider.Context",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoseStack",
+            "type": "PoseStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "MultiBufferSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedLight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedOverlay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderCube",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPose",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderFace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlockEntity",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPose",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX0",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX1",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY0",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY1",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ0",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ1",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ2",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ3",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOffsetUp",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOffsetDown",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderType",
+        "returnType": "RenderType",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/renderer/blockentity/TheEndPortalRenderer.java"
+  }
+}

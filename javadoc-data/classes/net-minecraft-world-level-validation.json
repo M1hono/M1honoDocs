@@ -1,0 +1,530 @@
+{
+  "net.minecraft.world.level.validation.ContentValidationException": {
+    "className": "ContentValidationException",
+    "fullName": "net.minecraft.world.level.validation.ContentValidationException",
+    "packageName": "net.minecraft.world.level.validation",
+    "filePath": "/net/minecraft/world/level/validation/ContentValidationException.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Exception",
+    "interfaces": [],
+    "imports": [
+      "java.nio.file.Path",
+      "java.util.List",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ContentValidationException",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDirectory",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntries",
+            "type": "List<ForbiddenSymlinkInfo>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getMessage",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMessage",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pDirectory",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntries",
+            "type": "List<ForbiddenSymlinkInfo>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "directory",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "entries",
+        "type": "List<ForbiddenSymlinkInfo>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/validation/ContentValidationException.java"
+  },
+  "net.minecraft.world.level.validation.DirectoryValidator": {
+    "className": "DirectoryValidator",
+    "fullName": "net.minecraft.world.level.validation.DirectoryValidator",
+    "packageName": "net.minecraft.world.level.validation",
+    "filePath": "/net/minecraft/world/level/validation/DirectoryValidator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.IOException",
+      "java.nio.file.FileVisitResult",
+      "java.nio.file.Files",
+      "java.nio.file.LinkOption",
+      "java.nio.file.NoSuchFileException",
+      "java.nio.file.Path",
+      "java.nio.file.SimpleFileVisitor",
+      "java.nio.file.attribute.BasicFileAttributes",
+      "java.util.ArrayList",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DirectoryValidator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSymlinkTargetAllowList",
+            "type": "PathAllowList",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "validateSymlink",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDirectory",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntries",
+            "type": "List<ForbiddenSymlinkInfo>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 21,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validateSave",
+        "returnType": "List<ForbiddenSymlinkInfo>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pForceAllowSymlink",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 29,
+          "end": 71
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "symlinkTargetAllowList",
+        "type": "PathAllowList",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 72
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/validation/DirectoryValidator.java"
+  },
+  "net.minecraft.world.level.validation.PathAllowList": {
+    "className": "PathAllowList",
+    "fullName": "net.minecraft.world.level.validation.PathAllowList",
+    "packageName": "net.minecraft.world.level.validation",
+    "filePath": "/net/minecraft/world/level/validation/PathAllowList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "PathMatcher"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.nio.file.FileSystem",
+      "java.nio.file.Path",
+      "java.nio.file.PathMatcher",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.concurrent.ConcurrentHashMap",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PathAllowList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntries",
+            "type": "List<PathAllowList.ConfigEntry>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getForFileSystem",
+        "returnType": "PathMatcher",
+        "parameters": [
+          {
+            "name": "pFileSystem",
+            "type": "FileSystem",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "matches",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readPlain",
+        "returnType": "PathAllowList",
+        "parameters": [
+          {
+            "name": "pReader",
+            "type": "BufferedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ConfigEntry",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PathAllowList.EntryType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pattern",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 122
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "COMMENT_PREFIX",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"#\"",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "entries",
+        "type": "List<PathAllowList.ConfigEntry>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "EntryType",
+        "fullName": "net.minecraft.world.level.validation.PathAllowList.EntryType",
+        "packageName": "net.minecraft.world.level.validation",
+        "filePath": "/net/minecraft/world/level/validation/PathAllowList.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.nio.file.FileSystem",
+          "java.nio.file.Path",
+          "java.nio.file.PathMatcher",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.concurrent.ConcurrentHashMap",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "compile",
+            "returnType": "PathMatcher",
+            "parameters": [
+              {
+                "name": "pFileSystem",
+                "type": "FileSystem",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPattern",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 133,
+              "end": 133
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "FILESYSTEM",
+            "type": "PathAllowList.EntryType",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "FileSystem::getPathMatcher",
+            "lineRange": {
+              "start": 126,
+              "end": 126
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 125,
+          "end": 134
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/validation/PathAllowList/EntryType.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 135
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/validation/PathAllowList.java"
+  }
+}

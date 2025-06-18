@@ -1,0 +1,907 @@
+{
+  "net.minecraft.commands.synchronization.ArgumentTypeInfo": {
+    "className": "ArgumentTypeInfo",
+    "fullName": "net.minecraft.commands.synchronization.ArgumentTypeInfo",
+    "packageName": "net.minecraft.commands.synchronization",
+    "filePath": "/net/minecraft/commands/synchronization/ArgumentTypeInfo.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.network.FriendlyByteBuf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTemplate",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deserializeFromNetwork",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTemplate",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpack",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pArgument",
+            "type": "A",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Template",
+        "fullName": "net.minecraft.commands.synchronization.ArgumentTypeInfo.Template",
+        "packageName": "net.minecraft.commands.synchronization",
+        "filePath": "/net/minecraft/commands/synchronization/ArgumentTypeInfo.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.network.FriendlyByteBuf"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "instantiate",
+            "returnType": "A",
+            "parameters": [
+              {
+                "name": "pContext",
+                "type": "CommandBuildContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 18,
+              "end": 18
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 17,
+          "end": 21
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/ArgumentTypeInfo/Template.java"
+      }
+    ],
+    "lineRange": {
+      "start": 8,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/ArgumentTypeInfo.java"
+  },
+  "net.minecraft.commands.synchronization.ArgumentTypeInfos": {
+    "className": "ArgumentTypeInfos",
+    "fullName": "net.minecraft.commands.synchronization.ArgumentTypeInfos",
+    "packageName": "net.minecraft.commands.synchronization",
+    "filePath": "/net/minecraft/commands/synchronization/ArgumentTypeInfos.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.arguments.BoolArgumentType",
+      "com.mojang.brigadier.arguments.DoubleArgumentType",
+      "com.mojang.brigadier.arguments.FloatArgumentType",
+      "com.mojang.brigadier.arguments.IntegerArgumentType",
+      "com.mojang.brigadier.arguments.LongArgumentType",
+      "com.mojang.brigadier.arguments.StringArgumentType",
+      "java.util.Locale",
+      "java.util.Map",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.commands.arguments.AngleArgument",
+      "net.minecraft.commands.arguments.ColorArgument",
+      "net.minecraft.commands.arguments.ComponentArgument",
+      "net.minecraft.commands.arguments.CompoundTagArgument",
+      "net.minecraft.commands.arguments.DimensionArgument",
+      "net.minecraft.commands.arguments.EntityAnchorArgument",
+      "net.minecraft.commands.arguments.EntityArgument",
+      "net.minecraft.commands.arguments.GameModeArgument",
+      "net.minecraft.commands.arguments.GameProfileArgument",
+      "net.minecraft.commands.arguments.HeightmapTypeArgument",
+      "net.minecraft.commands.arguments.MessageArgument",
+      "net.minecraft.commands.arguments.NbtPathArgument",
+      "net.minecraft.commands.arguments.NbtTagArgument",
+      "net.minecraft.commands.arguments.ObjectiveArgument",
+      "net.minecraft.commands.arguments.ObjectiveCriteriaArgument",
+      "net.minecraft.commands.arguments.OperationArgument",
+      "net.minecraft.commands.arguments.ParticleArgument",
+      "net.minecraft.commands.arguments.RangeArgument",
+      "net.minecraft.commands.arguments.ResourceArgument",
+      "net.minecraft.commands.arguments.ResourceKeyArgument",
+      "net.minecraft.commands.arguments.ResourceLocationArgument",
+      "net.minecraft.commands.arguments.ResourceOrTagArgument",
+      "net.minecraft.commands.arguments.ResourceOrTagKeyArgument",
+      "net.minecraft.commands.arguments.ScoreHolderArgument",
+      "net.minecraft.commands.arguments.ScoreboardSlotArgument",
+      "net.minecraft.commands.arguments.SlotArgument",
+      "net.minecraft.commands.arguments.TeamArgument",
+      "net.minecraft.commands.arguments.TemplateMirrorArgument",
+      "net.minecraft.commands.arguments.TemplateRotationArgument",
+      "net.minecraft.commands.arguments.TimeArgument",
+      "net.minecraft.commands.arguments.UuidArgument",
+      "net.minecraft.commands.arguments.blocks.BlockPredicateArgument",
+      "net.minecraft.commands.arguments.blocks.BlockStateArgument",
+      "net.minecraft.commands.arguments.coordinates.BlockPosArgument",
+      "net.minecraft.commands.arguments.coordinates.ColumnPosArgument",
+      "net.minecraft.commands.arguments.coordinates.RotationArgument",
+      "net.minecraft.commands.arguments.coordinates.SwizzleArgument",
+      "net.minecraft.commands.arguments.coordinates.Vec2Argument",
+      "net.minecraft.commands.arguments.coordinates.Vec3Argument",
+      "net.minecraft.commands.arguments.item.FunctionArgument",
+      "net.minecraft.commands.arguments.item.ItemArgument",
+      "net.minecraft.commands.arguments.item.ItemPredicateArgument",
+      "net.minecraft.commands.synchronization.brigadier.DoubleArgumentInfo",
+      "net.minecraft.commands.synchronization.brigadier.FloatArgumentInfo",
+      "net.minecraft.commands.synchronization.brigadier.IntegerArgumentInfo",
+      "net.minecraft.commands.synchronization.brigadier.LongArgumentInfo",
+      "net.minecraft.commands.synchronization.brigadier.StringArgumentSerializer",
+      "net.minecraft.core.Registry",
+      "net.minecraft.gametest.framework.TestClassNameArgument",
+      "net.minecraft.gametest.framework.TestFunctionArgument"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "isClassRecognized",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pClazz",
+            "type": "Class<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 152
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 65,
+      "end": 166
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/ArgumentTypeInfos.java"
+  },
+  "net.minecraft.commands.synchronization.ArgumentUtils": {
+    "className": "ArgumentUtils",
+    "fullName": "net.minecraft.commands.synchronization.ArgumentUtils",
+    "packageName": "net.minecraft.commands.synchronization",
+    "filePath": "/net/minecraft/commands/synchronization/ArgumentUtils.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Sets",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonObject",
+      "com.mojang.brigadier.CommandDispatcher",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.tree.ArgumentCommandNode",
+      "com.mojang.brigadier.tree.CommandNode",
+      "com.mojang.brigadier.tree.LiteralCommandNode",
+      "com.mojang.brigadier.tree.RootCommandNode",
+      "com.mojang.logging.LogUtils",
+      "java.util.Collection",
+      "java.util.Set",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createNumberFlags",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pMin",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMax",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "numberHasMin",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pNumber",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "numberHasMax",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pNumber",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NUMBER_FLAG_MIN",
+        "type": "byte",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "NUMBER_FLAG_MAX",
+        "type": "byte",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 132
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/ArgumentUtils.java"
+  },
+  "net.minecraft.commands.synchronization.SingletonArgumentInfo": {
+    "className": "SingletonArgumentInfo",
+    "fullName": "net.minecraft.commands.synchronization.SingletonArgumentInfo",
+    "packageName": "net.minecraft.commands.synchronization",
+    "filePath": "/net/minecraft/commands/synchronization/SingletonArgumentInfo.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "java.util.function.Function",
+      "java.util.function.Supplier",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.network.FriendlyByteBuf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SingletonArgumentInfo",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConstructor",
+            "type": "A>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTemplate",
+            "type": "SingletonArgumentInfo<A>.Template",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTemplate",
+            "type": "SingletonArgumentInfo<A>.Template",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 31
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "template",
+        "type": "SingletonArgumentInfo<A>.Template",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Template",
+        "fullName": "net.minecraft.commands.synchronization.SingletonArgumentInfo.Template",
+        "packageName": "net.minecraft.commands.synchronization",
+        "filePath": "/net/minecraft/commands/synchronization/SingletonArgumentInfo.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "ArgumentTypeInfo.Template<A>"
+        ],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "java.util.function.Function",
+          "java.util.function.Supplier",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.network.FriendlyByteBuf"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Template",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pConstructor",
+                "type": "A>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 44,
+              "end": 46
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "instantiate",
+            "returnType": "A",
+            "parameters": [
+              {
+                "name": "pContext",
+                "type": "CommandBuildContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 48,
+              "end": 50
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "constructor",
+            "type": "Function<CommandBuildContext, A>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 42,
+              "end": 42
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 41,
+          "end": 55
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/SingletonArgumentInfo/Template.java"
+      }
+    ],
+    "lineRange": {
+      "start": 10,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/SingletonArgumentInfo.java"
+  },
+  "net.minecraft.commands.synchronization.SuggestionProviders": {
+    "className": "SuggestionProviders",
+    "fullName": "net.minecraft.commands.synchronization.SuggestionProviders",
+    "packageName": "net.minecraft.commands.synchronization",
+    "filePath": "/net/minecraft/commands/synchronization/SuggestionProviders.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.suggestion.SuggestionProvider",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "java.util.Map",
+      "java.util.concurrent.CompletableFuture",
+      "net.minecraft.Util",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.entity.EntityType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getProvider",
+        "returnType": "SuggestionProvider<SharedSuggestionProvider>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "SuggestionProvider<SharedSuggestionProvider>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "safelySwap",
+        "returnType": "SuggestionProvider<SharedSuggestionProvider>",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "SuggestionProvider<SharedSuggestionProvider>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Wrapper",
+        "fullName": "net.minecraft.commands.synchronization.SuggestionProviders.Wrapper",
+        "packageName": "net.minecraft.commands.synchronization",
+        "filePath": "/net/minecraft/commands/synchronization/SuggestionProviders.java",
+        "classType": "class",
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "SuggestionProvider<SharedSuggestionProvider>"
+        ],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.mojang.brigadier.context.CommandContext",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.suggestion.SuggestionProvider",
+          "com.mojang.brigadier.suggestion.Suggestions",
+          "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+          "java.util.Map",
+          "java.util.concurrent.CompletableFuture",
+          "net.minecraft.Util",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.SharedSuggestionProvider",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.world.entity.EntityType"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Wrapper",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDelegate",
+                "type": "SuggestionProvider<SharedSuggestionProvider>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 73,
+              "end": 76
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSuggestions",
+            "returnType": "CompletableFuture<Suggestions>",
+            "parameters": [
+              {
+                "name": "pContext",
+                "type": "CommandContext<SharedSuggestionProvider>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBuilder",
+                "type": "SuggestionsBuilder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "CommandSyntaxException"
+            ],
+            "lineRange": {
+              "start": 78,
+              "end": 80
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "delegate",
+            "type": "SuggestionProvider<SharedSuggestionProvider>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 70,
+              "end": 70
+            }
+          },
+          {
+            "name": "name",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 69,
+          "end": 81
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/SuggestionProviders/Wrapper.java"
+      }
+    ],
+    "lineRange": {
+      "start": 19,
+      "end": 82
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/synchronization/SuggestionProviders.java"
+  }
+}

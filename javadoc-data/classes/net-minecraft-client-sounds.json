@@ -1,0 +1,3280 @@
+{
+  "net.minecraft.client.sounds.AudioStream": {
+    "className": "AudioStream",
+    "fullName": "net.minecraft.client.sounds.AudioStream",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/AudioStream.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Closeable",
+    "interfaces": [],
+    "imports": [
+      "java.io.Closeable",
+      "java.io.IOException",
+      "java.nio.ByteBuffer",
+      "javax.sound.sampled.AudioFormat",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getFormat",
+        "returnType": "AudioFormat",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "ByteBuffer",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 26
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/AudioStream.java"
+  },
+  "net.minecraft.client.sounds.ChannelAccess": {
+    "className": "ChannelAccess",
+    "fullName": "net.minecraft.client.sounds.ChannelAccess",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/ChannelAccess.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Sets",
+      "com.mojang.blaze3d.audio.Channel",
+      "com.mojang.blaze3d.audio.Library",
+      "java.util.Iterator",
+      "java.util.Objects",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.function.Consumer",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChannelAccess",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLibrary",
+            "type": "Library",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createHandle",
+        "returnType": "CompletableFuture<ChannelAccess.ChannelHandle>",
+        "parameters": [
+          {
+            "name": "pSystemMode",
+            "type": "Library.Pool",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executeOnChannels",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSourceStreamConsumer",
+            "type": "Consumer<Stream<Channel>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scheduleTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 86
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "library",
+        "type": "Library",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "executor",
+        "type": "Executor",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ChannelHandle",
+        "fullName": "net.minecraft.client.sounds.ChannelAccess.ChannelHandle",
+        "packageName": "net.minecraft.client.sounds",
+        "filePath": "/net/minecraft/client/sounds/ChannelAccess.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Sets",
+          "com.mojang.blaze3d.audio.Channel",
+          "com.mojang.blaze3d.audio.Library",
+          "java.util.Iterator",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.function.Consumer",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "isStopped",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 100,
+              "end": 102
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "ChannelHandle",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pChannel",
+                "type": "Channel",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 104,
+              "end": 106
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "execute",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pSoundConsumer",
+                "type": "Consumer<Channel>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 108,
+              "end": 115
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "release",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 117,
+              "end": 121
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "channel",
+            "type": "Channel",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 94,
+              "end": 94
+            }
+          },
+          {
+            "name": "stopped",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 95,
+              "end": 95
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 92,
+          "end": 122
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/sounds/ChannelAccess/ChannelHandle.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/ChannelAccess.java"
+  },
+  "net.minecraft.client.sounds.LoopingAudioStream": {
+    "className": "LoopingAudioStream",
+    "fullName": "net.minecraft.client.sounds.LoopingAudioStream",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/LoopingAudioStream.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AudioStream"
+    ],
+    "imports": [
+      "java.io.BufferedInputStream",
+      "java.io.FilterInputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.ByteBuffer",
+      "javax.sound.sampled.AudioFormat",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LoopingAudioStream",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "LoopingAudioStream.AudioStreamProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 21,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getFormat",
+        "returnType": "AudioFormat",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "ByteBuffer",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 43,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 55,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "provider",
+        "type": "LoopingAudioStream.AudioStreamProvider",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "stream",
+        "type": "AudioStream",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "bufferedInputStream",
+        "type": "BufferedInputStream",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AudioStreamProvider",
+        "fullName": "net.minecraft.client.sounds.LoopingAudioStream.AudioStreamProvider",
+        "packageName": "net.minecraft.client.sounds",
+        "filePath": "/net/minecraft/client/sounds/LoopingAudioStream.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.io.BufferedInputStream",
+          "java.io.FilterInputStream",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.ByteBuffer",
+          "javax.sound.sampled.AudioFormat",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "create",
+            "returnType": "AudioStream",
+            "parameters": [
+              {
+                "name": "pInputStream",
+                "type": "InputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 72,
+              "end": 72
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 65,
+          "end": 73
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/sounds/LoopingAudioStream/AudioStreamProvider.java"
+      },
+      {
+        "className": "NoCloseBuffer",
+        "fullName": "net.minecraft.client.sounds.LoopingAudioStream.NoCloseBuffer",
+        "packageName": "net.minecraft.client.sounds",
+        "filePath": "/net/minecraft/client/sounds/LoopingAudioStream.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "FilterInputStream",
+        "interfaces": [],
+        "imports": [
+          "java.io.BufferedInputStream",
+          "java.io.FilterInputStream",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.nio.ByteBuffer",
+          "javax.sound.sampled.AudioFormat",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "NoCloseBuffer",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pInputStream",
+                "type": "InputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 82
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 84,
+              "end": 85
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 79,
+          "end": 86
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/sounds/LoopingAudioStream/NoCloseBuffer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 87
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/LoopingAudioStream.java"
+  },
+  "net.minecraft.client.sounds.MusicManager": {
+    "className": "MusicManager",
+    "fullName": "net.minecraft.client.sounds.MusicManager",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/MusicManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+      "net.minecraft.client.resources.sounds.SoundInstance",
+      "net.minecraft.sounds.Music",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MusicManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startPlaying",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSelector",
+            "type": "Music",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopPlaying",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMusic",
+            "type": "Music",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopPlaying",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlayingMusic",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSelector",
+            "type": "Music",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "STARTING_DELAY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "The delay before starting to play the next song. ",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "currentMusic",
+        "type": "SoundInstance",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "nextSongDelay",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "The delay until the next song starts. ",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 98
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/MusicManager.java"
+  },
+  "net.minecraft.client.sounds.SoundBufferLibrary": {
+    "className": "SoundBufferLibrary",
+    "fullName": "net.minecraft.client.sounds.SoundBufferLibrary",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/SoundBufferLibrary.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.blaze3d.audio.OggAudioStream",
+      "com.mojang.blaze3d.audio.SoundBuffer",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.ByteBuffer",
+      "java.util.Collection",
+      "java.util.Map",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.CompletionException",
+      "net.minecraft.Util",
+      "net.minecraft.client.resources.sounds.Sound",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceProvider",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SoundBufferLibrary",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getCompleteBuffer",
+        "returnType": "CompletableFuture<SoundBuffer>",
+        "parameters": [
+          {
+            "name": "pSoundID",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStream",
+        "returnType": "CompletableFuture<AudioStream>",
+        "parameters": [
+          {
+            "name": "pResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsWrapper",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 80
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resourceManager",
+        "type": "ResourceProvider",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "The {@linkplain ResourceProvider} used for loading sound resources. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 95
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundBufferLibrary.java"
+  },
+  "net.minecraft.client.sounds.SoundEngine": {
+    "className": "SoundEngine",
+    "fullName": "net.minecraft.client.sounds.SoundEngine",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/SoundEngine.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.HashMultimap",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Multimap",
+      "com.google.common.collect.Sets",
+      "com.mojang.blaze3d.audio.Channel",
+      "com.mojang.blaze3d.audio.Library",
+      "com.mojang.blaze3d.audio.Listener",
+      "com.mojang.logging.LogUtils",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.atomic.AtomicReference",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "net.minecraft.client.Camera",
+      "net.minecraft.client.Options",
+      "net.minecraft.client.resources.sounds.Sound",
+      "net.minecraft.client.resources.sounds.SoundInstance",
+      "net.minecraft.client.resources.sounds.TickableSoundInstance",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceProvider",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Vector3f",
+      "org.slf4j.Logger",
+      "org.slf4j.Marker",
+      "org.slf4j.MarkerFactory"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SoundEngine",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSoundManager",
+            "type": "SoundManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOptions",
+            "type": "Options",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 95
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "reload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadLibrary",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVolume",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateCategoryVolume",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVolume",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 162,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopAll",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 226
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEventListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "SoundEventListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 228,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeEventListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "SoundEventListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 232,
+          "end": 234
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldChangeDevice",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 290
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsGamePaused",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 295,
+          "end": 305
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickNonPaused",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 324,
+          "end": 400
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requiresManualLooping",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 406,
+          "end": 408
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldLoopManually",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldLoopAutomatically",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 422,
+          "end": 424
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 430,
+          "end": 436
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "play",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_120313_",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 457,
+          "end": 560
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "queueTickingSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTickableSound",
+            "type": "TickableSoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 566,
+          "end": 568
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requestPreload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "Sound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 573,
+          "end": 575
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculatePitch",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 583,
+          "end": 585
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateVolume",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 592,
+          "end": 594
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateVolume",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pVolumeMultiplier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 601,
+          "end": 603
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pause",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 608,
+          "end": 615
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resume",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 620,
+          "end": 627
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playDelayed",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 632,
+          "end": 634
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSource",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRenderInfo",
+            "type": "Camera",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 636,
+          "end": 646
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSoundName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCategory",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 648,
+          "end": 665
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDebugString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 667,
+          "end": 669
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAvailableSoundDevices",
+        "returnType": "List<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 671,
+          "end": 673
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PITCH_MIN",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.5F",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "PITCH_MAX",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.0F",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "VOLUME_MIN",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.0F",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "VOLUME_MAX",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "MIN_SOURCE_LIFETIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "DEFAULT_DEVICE_CHECK_INTERVAL_MS",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "The default interval in milliseconds for checking the audio device state ",
+        "initialValue": "1000L",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "MISSING_SOUND",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"FOR THE DEBUG!\"",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "OPEN_AL_SOFT_PREFIX",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"OpenAL Soft on \"",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "soundManager",
+        "type": "SoundManager",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "A reference to the sound handler. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "options",
+        "type": "Options",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "Reference to the GameSettings object. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "loaded",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "Set to true when the SoundManager has been initialised. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "soundBuffers",
+        "type": "SoundBufferLibrary",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "tickCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "A counter for how long the sound manager has been running ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "lastDeviceCheckTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "DeviceCheckState",
+        "fullName": "net.minecraft.client.sounds.SoundEngine.DeviceCheckState",
+        "packageName": "net.minecraft.client.sounds",
+        "filePath": "/net/minecraft/client/sounds/SoundEngine.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.HashMultimap",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Multimap",
+          "com.google.common.collect.Sets",
+          "com.mojang.blaze3d.audio.Channel",
+          "com.mojang.blaze3d.audio.Library",
+          "com.mojang.blaze3d.audio.Listener",
+          "com.mojang.logging.LogUtils",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.atomic.AtomicReference",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.Util",
+          "net.minecraft.client.Camera",
+          "net.minecraft.client.Options",
+          "net.minecraft.client.resources.sounds.Sound",
+          "net.minecraft.client.resources.sounds.SoundInstance",
+          "net.minecraft.client.resources.sounds.TickableSoundInstance",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.ResourceProvider",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.joml.Vector3f",
+          "org.slf4j.Logger",
+          "org.slf4j.Marker",
+          "org.slf4j.MarkerFactory"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 676,
+          "end": 680
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundEngine/DeviceCheckState.java"
+      }
+    ],
+    "lineRange": {
+      "start": 45,
+      "end": 682
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundEngine.java"
+  },
+  "net.minecraft.client.sounds.SoundEngineExecutor": {
+    "className": "SoundEngineExecutor",
+    "fullName": "net.minecraft.client.sounds.SoundEngineExecutor",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/SoundEngineExecutor.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockableEventLoop<Runnable>",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.locks.LockSupport",
+      "net.minecraft.util.thread.BlockableEventLoop",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SoundEngineExecutor",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createThread",
+        "returnType": "Thread",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrapRunnable",
+        "returnType": "Runnable",
+        "parameters": [
+          {
+            "name": "pRunnable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRun",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRunnable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRunningThread",
+        "returnType": "Thread",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "waitForTasks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flush",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "shutdown",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 103
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundEngineExecutor.java"
+  },
+  "net.minecraft.client.sounds.SoundEventListener": {
+    "className": "SoundEventListener",
+    "fullName": "net.minecraft.client.sounds.SoundEventListener",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/SoundEventListener.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.resources.sounds.SoundInstance",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "onPlaySound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAccessor",
+            "type": "WeighedSoundEvents",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 19
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundEventListener.java"
+  },
+  "net.minecraft.client.sounds.SoundManager": {
+    "className": "SoundManager",
+    "fullName": "net.minecraft.client.sounds.SoundManager",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/SoundManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SimplePreparableReloadListener<SoundManager.Preparations>",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.gson.Gson",
+      "com.google.gson.GsonBuilder",
+      "com.google.gson.reflect.TypeToken",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.Reader",
+      "java.util.Collection",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.client.Camera",
+      "net.minecraft.client.Options",
+      "net.minecraft.client.resources.sounds.Sound",
+      "net.minecraft.client.resources.sounds.SoundEventRegistration",
+      "net.minecraft.client.resources.sounds.SoundEventRegistrationSerializer",
+      "net.minecraft.client.resources.sounds.SoundInstance",
+      "net.minecraft.client.resources.sounds.TickableSoundInstance",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.ComponentUtils",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.server.packs.resources.ResourceProvider",
+      "net.minecraft.server.packs.resources.SimplePreparableReloadListener",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "net.minecraft.util.valueproviders.ConstantFloat",
+      "net.minecraft.util.valueproviders.MultipliedFloats",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SoundManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOptions",
+            "type": "Options",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "apply",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pObject",
+            "type": "SoundManager.Preparations",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAvailableSoundDevices",
+        "returnType": "List<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validateSoundResource",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "Sound",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceProvider",
+            "type": "ResourceProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundEvent",
+        "returnType": "WeighedSoundEvents",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 165,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAvailableSounds",
+        "returnType": "Collection<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "queueTickingSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTickableSound",
+            "type": "TickableSoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "play",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playDelayed",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSource",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActiveRenderInfo",
+            "type": "Camera",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pause",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 214
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 216,
+          "end": 218
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsGamePaused",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 224,
+          "end": 226
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resume",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 228,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSourceVolume",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVolume",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 237,
+          "end": 243
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 245,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 256
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "SoundEventListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 258,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "SoundEventListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 262,
+          "end": 264
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCategory",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 271,
+          "end": 273
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDebugString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 275,
+          "end": 277
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 279,
+          "end": 281
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SOUNDS_PATH",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"sounds.json\"",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "soundEngine",
+        "type": "SoundEngine",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Preparations",
+        "fullName": "net.minecraft.client.sounds.SoundManager.Preparations",
+        "packageName": "net.minecraft.client.sounds",
+        "filePath": "/net/minecraft/client/sounds/SoundManager.java",
+        "classType": "class",
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.gson.Gson",
+          "com.google.gson.GsonBuilder",
+          "com.google.gson.reflect.TypeToken",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.io.Reader",
+          "java.util.Collection",
+          "java.util.HashMap",
+          "java.util.List",
+          "java.util.Map",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Camera",
+          "net.minecraft.client.Options",
+          "net.minecraft.client.resources.sounds.Sound",
+          "net.minecraft.client.resources.sounds.SoundEventRegistration",
+          "net.minecraft.client.resources.sounds.SoundEventRegistrationSerializer",
+          "net.minecraft.client.resources.sounds.SoundInstance",
+          "net.minecraft.client.resources.sounds.TickableSoundInstance",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.ComponentUtils",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.Resource",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.server.packs.resources.ResourceProvider",
+          "net.minecraft.server.packs.resources.SimplePreparableReloadListener",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.profiling.ProfilerFiller",
+          "net.minecraft.util.valueproviders.ConstantFloat",
+          "net.minecraft.util.valueproviders.MultipliedFloats",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "listResources",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pResourceManager",
+                "type": "ResourceManager",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 292,
+              "end": 294
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "handleRegistration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegistration",
+                "type": "SoundEventRegistration",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 296,
+              "end": 373
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "apply",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSoundRegistry",
+                "type": "WeighedSoundEvents>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCache",
+                "type": "Resource>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSoundEngine",
+                "type": "SoundEngine",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 381,
+              "end": 391
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 288,
+          "end": 392
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundManager/Preparations.java"
+      }
+    ],
+    "lineRange": {
+      "start": 46,
+      "end": 393
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/SoundManager.java"
+  },
+  "net.minecraft.client.sounds.WeighedSoundEvents": {
+    "className": "WeighedSoundEvents",
+    "fullName": "net.minecraft.client.sounds.WeighedSoundEvents",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/WeighedSoundEvents.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Weighted<Sound>"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.resources.sounds.Sound",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.RandomSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WeighedSoundEvents",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSubtitleKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getWeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSound",
+        "returnType": "Sound",
+        "parameters": [
+          {
+            "name": "pRandomSource",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAccessor",
+            "type": "Weighted<Sound>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSubtitle",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "preloadIfRequired",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEngine",
+            "type": "SoundEngine",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 101
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "subtitle",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 102
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/WeighedSoundEvents.java"
+  },
+  "net.minecraft.client.sounds.Weighted": {
+    "className": "Weighted",
+    "fullName": "net.minecraft.client.sounds.Weighted",
+    "packageName": "net.minecraft.client.sounds",
+    "filePath": "/net/minecraft/client/sounds/Weighted.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.RandomSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getWeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSound",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pRandomSource",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "preloadIfRequired",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEngine",
+            "type": "SoundEngine",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/sounds/Weighted.java"
+  }
+}
