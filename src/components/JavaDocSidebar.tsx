@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Tree, Typography, Badge, Space } from "antd";
-import { 
-    FolderOutlined, 
-    ApiOutlined, 
+import {
+    FolderOutlined,
+    ApiOutlined,
     FolderOpenOutlined,
-    FileTextOutlined
+    FileTextOutlined,
 } from "@ant-design/icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ProjectDocIndex } from "../types";
@@ -23,7 +23,7 @@ interface TreeNode {
     isLeaf?: boolean;
     className?: string;
     packageName?: string;
-    type: 'package' | 'class';
+    type: "package" | "class";
 }
 
 /**
@@ -81,7 +81,9 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                         title: (
                             <div className="sidebar-package-item">
                                 <div className="package-info">
-                                    <Text strong className="package-name">{part}</Text>
+                                    <Text strong className="package-name">
+                                        {part}
+                                    </Text>
                                     {isLeaf && classCount > 0 && (
                                         <Badge
                                             count={classCount}
@@ -92,10 +94,14 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                                 </div>
                             </div>
                         ),
-                        icon: isLeaf ? <FolderOpenOutlined className="package-icon-open" /> : <FolderOutlined className="package-icon" />,
+                        icon: isLeaf ? (
+                            <FolderOpenOutlined className="package-icon-open" />
+                        ) : (
+                            <FolderOutlined className="package-icon" />
+                        ),
                         children: [],
                         packageName: currentPath,
-                        type: 'package',
+                        type: "package",
                     };
 
                     packageMap.set(currentPath, node);
@@ -120,22 +126,27 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
             if (packageNode) {
                 if (!packageNode.children) packageNode.children = [];
                 classes.forEach((fullClassName, index) => {
-                    const className = fullClassName.split('.').pop() || '';
+                    const className = fullClassName.split(".").pop() || "";
                     // 使用包名+类名+索引确保key唯一
                     const classKey = `cls_${packageName}_${fullClassName}_${index}`;
-                    
+
                     // 检查key是否重复
                     if (keySet.has(classKey)) {
                         console.warn(`Duplicate key detected: ${classKey}`);
                         return;
                     }
                     keySet.add(classKey);
-                    
+
                     const classNode: TreeNode = {
                         key: classKey,
                         title: (
                             <div className="sidebar-class-item">
-                                <Text className="class-name" title={fullClassName}>{className}</Text>
+                                <Text
+                                    className="class-name"
+                                    title={fullClassName}
+                                >
+                                    {className}
+                                </Text>
                                 <div className="class-info">
                                     <FileTextOutlined className="class-icon-small" />
                                 </div>
@@ -144,15 +155,15 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                         icon: <ApiOutlined className="class-icon" />,
                         isLeaf: true,
                         className: fullClassName,
-                        type: 'class',
+                        type: "class",
                     };
                     packageNode.children!.push(classNode);
                 });
 
                 // 对类进行排序
                 packageNode.children!.sort((a, b) => {
-                    if (a.type === 'package' && b.type === 'class') return -1;
-                    if (a.type === 'class' && b.type === 'package') return 1;
+                    if (a.type === "package" && b.type === "class") return -1;
+                    if (a.type === "class" && b.type === "package") return 1;
                     const aTitle = a.className || a.packageName || "";
                     const bTitle = b.className || b.packageName || "";
                     return aTitle.localeCompare(bTitle);
@@ -184,21 +195,26 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                 }
                 return null;
             };
-            
+
             const classKey = findClassKey(treeData);
             if (classKey) {
                 setSelectedKeys([classKey]);
-                
+
                 // 展开包含该类的包
                 if (docIndex) {
-                    for (const [packageName, classes] of docIndex.packages.entries()) {
+                    for (const [
+                        packageName,
+                        classes,
+                    ] of docIndex.packages.entries()) {
                         if (classes.includes(className)) {
                             const packageParts = packageName.split(".");
                             const keysToExpand: string[] = [];
                             let currentPath = "";
 
                             for (const part of packageParts) {
-                                currentPath = currentPath ? `${currentPath}.${part}` : part;
+                                currentPath = currentPath
+                                    ? `${currentPath}.${part}`
+                                    : part;
                                 keysToExpand.push(`pkg_${currentPath}`);
                             }
 
@@ -211,7 +227,9 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                 }
             }
         } else if (path.startsWith("/package/")) {
-            const packageName = decodeURIComponent(path.replace("/package/", ""));
+            const packageName = decodeURIComponent(
+                path.replace("/package/", "")
+            );
             setSelectedKeys([`pkg_${packageName}`]);
         } else {
             setSelectedKeys([]);
@@ -226,7 +244,10 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
 
         if (key?.startsWith("cls_")) {
             // 从树节点中找到对应的类名
-            const findClassByKey = (nodes: TreeNode[], targetKey: string): string | null => {
+            const findClassByKey = (
+                nodes: TreeNode[],
+                targetKey: string
+            ): string | null => {
                 for (const node of nodes) {
                     if (node.key === targetKey && node.className) {
                         return node.className;
@@ -238,7 +259,7 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                 }
                 return null;
             };
-            
+
             const className = findClassByKey(treeData, key);
             if (className) {
                 navigate(`/class/${encodeURIComponent(className)}`);
@@ -253,7 +274,7 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
         return (
             <div className="sidebar-loading">
                 <Space direction="vertical" align="center">
-                    <ApiOutlined style={{ fontSize: 24, color: '#d9d9d9' }} />
+                    <ApiOutlined style={{ fontSize: 24, color: "#d9d9d9" }} />
                     <Text type="secondary">Loading...</Text>
                 </Space>
             </div>
@@ -277,7 +298,9 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
             </div>
 
             {/* 简洁样式 */}
-            <style dangerouslySetInnerHTML={{__html: `
+            <style
+                dangerouslySetInnerHTML={{
+                    __html: `
                 .clean-sidebar {
                     height: 100%;
                     display: flex;
@@ -406,8 +429,9 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                     align-items: center;
                     justify-content: center;
                 }
-            `}} />
+            `,
+                }}
+            />
         </div>
     );
 };
- 

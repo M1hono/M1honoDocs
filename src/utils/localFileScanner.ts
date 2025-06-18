@@ -2,29 +2,42 @@ import { FileNode, ProjectInfo } from "../types";
 
 // 项目根路径
 const PROJECT_PATHS = {
-    FORGE: 'forge-1.20.1-47.1.99',
-    KUBEJS: 'KubeJS-2001'
+    FORGE: "forge-1.20.1-47.1.99",
+    KUBEJS: "KubeJS-2001",
 };
 
 // 忽略的文件和文件夹
 const IGNORE_PATTERNS = [
-    '.git', '.idea', '.vscode', '.eclipse', '.settings',
-    'node_modules', 'target', 'build', 'out', 'dist',
-    '.gradle', '.class', '.jar', '.war',
-    '.DS_Store', 'Thumbs.db'
+    ".git",
+    ".idea",
+    ".vscode",
+    ".eclipse",
+    ".settings",
+    "node_modules",
+    "target",
+    "build",
+    "out",
+    "dist",
+    ".gradle",
+    ".class",
+    ".jar",
+    ".war",
+    ".DS_Store",
+    "Thumbs.db",
 ];
 
 // 检查是否应该忽略
 const shouldIgnore = (name: string): boolean => {
-    return IGNORE_PATTERNS.some(pattern => 
-        name === pattern || name.startsWith('.') && name !== '.gitignore'
+    return IGNORE_PATTERNS.some(
+        (pattern) =>
+            name === pattern || (name.startsWith(".") && name !== ".gitignore")
     );
 };
 
 // 获取文件扩展名
 const getExtension = (fileName: string): string => {
-    const lastDot = fileName.lastIndexOf('.');
-    return lastDot === -1 ? '' : fileName.substring(lastDot + 1);
+    const lastDot = fileName.lastIndexOf(".");
+    return lastDot === -1 ? "" : fileName.substring(lastDot + 1);
 };
 
 /**
@@ -46,7 +59,9 @@ export const readFileFromServer = async (filePath: string): Promise<string> => {
 /**
  * 扫描目录结构（基于已知的文件结构）
  */
-export const scanProjectDirectory = async (projectPath: string): Promise<FileNode[]> => {
+export const scanProjectDirectory = async (
+    projectPath: string
+): Promise<FileNode[]> => {
     if (projectPath === PROJECT_PATHS.FORGE) {
         return await scanForgeProject();
     } else if (projectPath === PROJECT_PATHS.KUBEJS) {
@@ -60,183 +75,183 @@ export const scanProjectDirectory = async (projectPath: string): Promise<FileNod
  */
 const scanForgeProject = async (): Promise<FileNode[]> => {
     const basePath = PROJECT_PATHS.FORGE;
-    
+
     return [
         {
-            name: 'com',
+            name: "com",
             path: `${basePath}/com`,
-            type: 'directory',
+            type: "directory",
             level: 0,
             isExpanded: false,
             children: [
                 {
-                    name: 'mojang',
+                    name: "mojang",
                     path: `${basePath}/com/mojang`,
-                    type: 'directory',
+                    type: "directory",
                     level: 1,
                     isExpanded: false,
                     children: [
                         {
-                            name: 'authlib',
+                            name: "authlib",
                             path: `${basePath}/com/mojang/authlib`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'Agent.java',
+                                    name: "Agent.java",
                                     path: `${basePath}/com/mojang/authlib/Agent.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
                                 },
                                 {
-                                    name: 'AuthenticationService.java',
+                                    name: "AuthenticationService.java",
                                     path: `${basePath}/com/mojang/authlib/AuthenticationService.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
                                 },
                                 {
-                                    name: 'BaseAuthenticationService.java',
+                                    name: "BaseAuthenticationService.java",
                                     path: `${basePath}/com/mojang/authlib/BaseAuthenticationService.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
                                 },
                                 {
-                                    name: 'exceptions',
+                                    name: "exceptions",
                                     path: `${basePath}/com/mojang/authlib/exceptions`,
-                                    type: 'directory',
+                                    type: "directory",
                                     level: 3,
                                     isExpanded: false,
-                                    children: []
-                                }
-                            ]
+                                    children: [],
+                                },
+                            ],
                         },
                         {
-                            name: 'blaze3d',
+                            name: "blaze3d",
                             path: `${basePath}/com/mojang/blaze3d`,
-                            type: 'directory',
+                            type: "directory",
                             level: 1,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'Blaze3D.java',
+                                    name: "Blaze3D.java",
                                     path: `${basePath}/com/mojang/blaze3d/Blaze3D.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 2
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+                                    type: "file",
+                                    extension: "java",
+                                    level: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
         },
         {
-            name: 'net',
+            name: "net",
             path: `${basePath}/net`,
-            type: 'directory',
+            type: "directory",
             level: 0,
             isExpanded: false,
             children: [
                 {
-                    name: 'minecraft',
+                    name: "minecraft",
                     path: `${basePath}/net/minecraft`,
-                    type: 'directory',
+                    type: "directory",
                     level: 1,
                     isExpanded: false,
                     children: [
                         {
-                            name: 'BlockUtil.java',
+                            name: "BlockUtil.java",
                             path: `${basePath}/net/minecraft/BlockUtil.java`,
-                            type: 'file',
-                            extension: 'java',
-                            level: 2
+                            type: "file",
+                            extension: "java",
+                            level: 2,
                         },
                         {
-                            name: 'ChatFormatting.java',
+                            name: "ChatFormatting.java",
                             path: `${basePath}/net/minecraft/ChatFormatting.java`,
-                            type: 'file',
-                            extension: 'java',
-                            level: 2
+                            type: "file",
+                            extension: "java",
+                            level: 2,
                         },
                         {
-                            name: 'CrashReport.java',
+                            name: "CrashReport.java",
                             path: `${basePath}/net/minecraft/CrashReport.java`,
-                            type: 'file',
-                            extension: 'java',
-                            level: 2
+                            type: "file",
+                            extension: "java",
+                            level: 2,
                         },
                         {
-                            name: 'client',
+                            name: "client",
                             path: `${basePath}/net/minecraft/client`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'Camera.java',
+                                    name: "Camera.java",
                                     path: `${basePath}/net/minecraft/client/Camera.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
                                 },
                                 {
-                                    name: 'CameraType.java',
+                                    name: "CameraType.java",
                                     path: `${basePath}/net/minecraft/client/CameraType.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
-                                }
-                            ]
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
+                                },
+                            ],
                         },
                         {
-                            name: 'server',
+                            name: "server",
                             path: `${basePath}/net/minecraft/server`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'Bootstrap.java',
+                                    name: "Bootstrap.java",
                                     path: `${basePath}/net/minecraft/server/Bootstrap.java`,
-                                    type: 'file',
-                                    extension: 'java',
-                                    level: 3
-                                }
-                            ]
-                        }
-                    ]
+                                    type: "file",
+                                    extension: "java",
+                                    level: 3,
+                                },
+                            ],
+                        },
+                    ],
                 },
                 {
-                    name: 'minecraftforge',
+                    name: "minecraftforge",
                     path: `${basePath}/net/minecraftforge`,
-                    type: 'directory',
+                    type: "directory",
                     level: 1,
                     isExpanded: false,
                     children: [
                         {
-                            name: 'client',
+                            name: "client",
                             path: `${basePath}/net/minecraftforge/client`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
-                            children: []
+                            children: [],
                         },
                         {
-                            name: 'common',
+                            name: "common",
                             path: `${basePath}/net/minecraftforge/common`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
-                            children: []
-                        }
-                    ]
-                }
-            ]
-        }
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
     ];
 };
 
@@ -245,93 +260,93 @@ const scanForgeProject = async (): Promise<FileNode[]> => {
  */
 const scanKubeJSProject = async (): Promise<FileNode[]> => {
     const basePath = PROJECT_PATHS.KUBEJS;
-    
+
     return [
         {
-            name: 'common',
+            name: "common",
             path: `${basePath}/common`,
-            type: 'directory',
+            type: "directory",
             level: 0,
             isExpanded: false,
             children: [
                 {
-                    name: 'build.gradle',
+                    name: "build.gradle",
                     path: `${basePath}/common/build.gradle`,
-                    type: 'file',
-                    extension: 'gradle',
-                    level: 1
+                    type: "file",
+                    extension: "gradle",
+                    level: 1,
                 },
                 {
-                    name: 'src',
+                    name: "src",
                     path: `${basePath}/common/src`,
-                    type: 'directory',
+                    type: "directory",
                     level: 1,
                     isExpanded: false,
                     children: [
                         {
-                            name: 'main',
+                            name: "main",
                             path: `${basePath}/common/src/main`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'java',
+                                    name: "java",
                                     path: `${basePath}/common/src/main/java`,
-                                    type: 'directory',
+                                    type: "directory",
                                     level: 3,
                                     isExpanded: false,
-                                    children: []
+                                    children: [],
                                 },
                                 {
-                                    name: 'resources',
+                                    name: "resources",
                                     path: `${basePath}/common/src/main/resources`,
-                                    type: 'directory',
+                                    type: "directory",
                                     level: 3,
                                     isExpanded: false,
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
         },
         {
-            name: 'forge',
+            name: "forge",
             path: `${basePath}/forge`,
-            type: 'directory',
+            type: "directory",
             level: 0,
             isExpanded: false,
             children: [
                 {
-                    name: 'src',
+                    name: "src",
                     path: `${basePath}/forge/src`,
-                    type: 'directory',
+                    type: "directory",
                     level: 1,
                     isExpanded: false,
                     children: [
                         {
-                            name: 'main',
+                            name: "main",
                             path: `${basePath}/forge/src/main`,
-                            type: 'directory',
+                            type: "directory",
                             level: 2,
                             isExpanded: false,
                             children: [
                                 {
-                                    name: 'java',
+                                    name: "java",
                                     path: `${basePath}/forge/src/main/java`,
-                                    type: 'directory',
+                                    type: "directory",
                                     level: 3,
                                     isExpanded: false,
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
+                                    children: [],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
     ];
 };
 
@@ -340,42 +355,43 @@ const scanKubeJSProject = async (): Promise<FileNode[]> => {
  */
 export const initializeProjects = async (): Promise<ProjectInfo[]> => {
     const projects: ProjectInfo[] = [];
-    
+
     try {
         // Forge 项目
         const forgeFiles = await scanForgeProject();
         projects.push({
-            name: 'Minecraft Forge',
+            name: "Minecraft Forge",
             path: PROJECT_PATHS.FORGE,
-            description: 'Minecraft Forge 1.20.1 源代码',
-            files: forgeFiles
+            description: "Minecraft Forge 1.20.1 源代码",
+            files: forgeFiles,
         });
-        
+
         // KubeJS 项目
         const kubeJSFiles = await scanKubeJSProject();
         projects.push({
-            name: 'KubeJS',
+            name: "KubeJS",
             path: PROJECT_PATHS.KUBEJS,
-            description: 'KubeJS Mod 源代码',
-            files: kubeJSFiles
+            description: "KubeJS Mod 源代码",
+            files: kubeJSFiles,
         });
-        
     } catch (error) {
-        console.error('Error initializing projects:', error);
+        console.error("Error initializing projects:", error);
     }
-    
+
     return projects;
 };
 
 /**
  * 动态加载目录内容（这里可以扩展以支持更深层的目录）
  */
-export const loadDirectoryContents = async (node: FileNode): Promise<FileNode[]> => {
+export const loadDirectoryContents = async (
+    node: FileNode
+): Promise<FileNode[]> => {
     // 如果已经有children，直接返回
     if (node.children && node.children.length > 0) {
         return node.children;
     }
-    
+
     // 这里可以根据路径动态加载更多内容
     // 暂时返回空数组，表示没有更多子项
     return [];
@@ -384,22 +400,25 @@ export const loadDirectoryContents = async (node: FileNode): Promise<FileNode[]>
 /**
  * 搜索文件
  */
-export const searchFiles = (projects: ProjectInfo[], searchTerm: string): FileNode[] => {
+export const searchFiles = (
+    projects: ProjectInfo[],
+    searchTerm: string
+): FileNode[] => {
     const results: FileNode[] = [];
-    
+
     const searchInNode = (node: FileNode) => {
         if (node.name.toLowerCase().includes(searchTerm.toLowerCase())) {
             results.push(node);
         }
-        
+
         if (node.children) {
             node.children.forEach(searchInNode);
         }
     };
-    
-    projects.forEach(project => {
+
+    projects.forEach((project) => {
         project.files.forEach(searchInNode);
     });
-    
+
     return results;
-}; 
+};

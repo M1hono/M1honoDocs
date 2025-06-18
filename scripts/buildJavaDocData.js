@@ -9,23 +9,17 @@ const __dirname = path.dirname(__filename);
 
 console.log("🚀 开始构建JavaDoc数据...");
 
-/**
- * JavaDoc数据构建器 - 使用内置的改进解析器
- * 扫描Java源码，解析类、方法、字段信息，生成结构化数据
- */
 class JavaDocDataBuilder {
     constructor() {
         this.sourceDir = path.join(__dirname, "../forge-1.20.1-47.1.99");
         this.outputDir = path.join(__dirname, "../public/javadoc-data");
         this.sourceOutputDir = path.join(__dirname, "../public/java-sources");
 
-        // 数据存储
-        this.classes = new Map(); // className -> classDoc
-        this.packages = new Map(); // packageName -> [classNames]
-        this.classHierarchy = new Map(); // className -> {parent, children}
-        this.references = new Map(); // className -> {uses: [], usedBy: []}
+        this.classes = new Map(); 
+        this.packages = new Map();
+        this.classHierarchy = new Map();
+        this.references = new Map();
 
-        // 创建输出目录
         if (!fs.existsSync(this.outputDir)) {
             fs.mkdirSync(this.outputDir, { recursive: true });
         }
@@ -34,13 +28,9 @@ class JavaDocDataBuilder {
         }
     }
 
-    /**
-     * 开始构建
-     */
     async build() {
         console.log("🔨 开始预构建 JavaDoc 数据...");
 
-        // 确保输出目录存在
         if (!fs.existsSync(this.outputDir)) {
             fs.mkdirSync(this.outputDir, { recursive: true });
         }
@@ -48,14 +38,12 @@ class JavaDocDataBuilder {
             fs.mkdirSync(this.sourceOutputDir, { recursive: true });
         }
 
-        // 扫描所有Java文件
         const javaFiles = this.scanJavaFiles();
         console.log(`📁 发现 ${javaFiles.length} 个Java文件`);
 
-        // 解析所有文件
         let processedFiles = 0;
         let totalClasses = 0;
-        
+
         for (const filePath of javaFiles) {
             try {
                 const classCount = await this.parseJavaFile(filePath);
@@ -76,18 +64,12 @@ class JavaDocDataBuilder {
             `✅ 解析完成: ${this.classes.size} 个类（包括内部类）, ${this.packages.size} 个包`
         );
 
-        // 建立继承关系和引用关系
         this.buildRelationships();
-
-        // 生成优化的数据文件
         await this.generateDataFiles();
 
         console.log("🎉 预构建完成!");
     }
 
-    /**
-     * 扫描Java文件
-     */
     scanJavaFiles() {
         const javaFiles = [];
 
@@ -116,14 +98,11 @@ class JavaDocDataBuilder {
         return javaFiles;
     }
 
-    /**
-     * 解析单个Java文件
-     */
     async parseJavaFile(filePath) {
         try {
             const sourceCode = fs.readFileSync(filePath, "utf8");
             const relativePath = path.relative(this.sourceDir, filePath);
-            
+
             const classCount = this.parseJavaSource(relativePath, sourceCode);
             return classCount;
         } catch (error) {
@@ -132,35 +111,31 @@ class JavaDocDataBuilder {
         }
     }
 
-    /**
-     * 解析Java源码 - 使用改进的解析逻辑
-     */
     parseJavaSource(filePath, sourceCode) {
         try {
-            // 使用改进的解析逻辑解析所有类（包括内部类）
-            const allClasses = this.parseFileWithInnerClasses(sourceCode, filePath);
-            
+            const allClasses = this.parseFileWithInnerClasses(
+                sourceCode,
+                filePath
+            );
+
             for (const classDoc of allClasses) {
                 const { fullName, packageName } = classDoc;
-                
+
                 console.log(`📋 解析类: ${fullName}`);
 
-                // 存储类信息
                 this.classes.set(fullName, {
                     ...classDoc,
-                    sourceCode, // 保存源码用于跳转
+                    sourceCode,
                 });
 
-                // 更新包信息
                 if (!this.packages.has(packageName)) {
                     this.packages.set(packageName, []);
                 }
                 this.packages.get(packageName).push(fullName);
 
-                // 保存源码文件（为所有类共享同一个源码文件）
                 this.saveSourceFile(fullName, sourceCode);
             }
-            
+
             return allClasses.length;
         } catch (error) {
             console.error(`❌ 解析失败 ${filePath}:`, error.message);
@@ -168,60 +143,74 @@ class JavaDocDataBuilder {
         }
     }
 
-    /**
-     * 解析Java文件，包括内部类 - 改进版
-     */
     parseFileWithInnerClasses(sourceCode, filePath) {
-        const lines = sourceCode.split('\n');
+        const lines = sourceCode.split("\n");
         const packageName = this.extractPackageName(sourceCode);
         const imports = this.extractImports(sourceCode);
-        
+
         const allClasses = [];
-        this.findAllClasses(lines, packageName, '', 0, lines.length - 1, allClasses, imports, filePath);
-        
+        this.findAllClasses(
+            lines,
+            packageName,
+            "",
+            0,
+            lines.length - 1,
+            allClasses,
+            imports,
+            filePath
+        );
+
         return allClasses;
     }
 
-    /**
-     * 递归查找所有类（包括内部类）
-     */
-    findAllClasses(lines, packageName, parentClassName, startLine, endLine, allClasses, imports, filePath) {
+    findAllClasses(
+        lines,
+        packageName,
+        parentClassName,
+        startLine,
+        endLine,
+        allClasses,
+        imports,
+        filePath
+    ) {
         let i = startLine;
-        
+
         while (i <= endLine) {
             const line = lines[i].trim();
-            
-            // 查找类声明 - 改进的正则表达式
-            const classMatch = line.match(/^\s*(public|private|protected)?\s*(static)?\s*(final|abstract)?\s*(class|interface|enum)\s+(\w+)(?:\s+extends\s+([\w<>\.]+))?(?:\s+implements\s+([\w\s,<>\.]+))?\s*\{?/);
-            
+
+            const classMatch = line.match(
+                /^\s*(public|private|protected)?\s*(static)?\s*(final|abstract)?\s*(class|interface|enum)\s+(\w+)(?:\s+extends\s+([\w<>\.]+))?(?:\s+implements\s+([\w\s,<>\.]+))?\s*\{?/
+            );
+
             if (classMatch) {
                 const modifiers = [];
                 if (classMatch[1]) modifiers.push(classMatch[1]);
                 if (classMatch[2]) modifiers.push(classMatch[2]);
                 if (classMatch[3]) modifiers.push(classMatch[3]);
-                
+
                 const classType = classMatch[4];
                 const className = classMatch[5];
-                const superClass = classMatch[6] || '';
-                const interfaces = classMatch[7] ? classMatch[7].split(',').map(i => i.trim()) : [];
-                
-                // 构造完整类名
-                const fullClassName = parentClassName 
+                const superClass = classMatch[6] || "";
+                const interfaces = classMatch[7]
+                    ? classMatch[7].split(",").map((i) => i.trim())
+                    : [];
+
+                const fullClassName = parentClassName
                     ? `${parentClassName}.${className}`
                     : className;
-                
+
                 const fullName = `${packageName}.${fullClassName}`;
-                
-                // 查找类的结束位置
                 const classEndLine = this.findClassEndStrict(lines, i);
-                
-                // 解析字段和方法 - 只解析当前类级别的成员
+
                 const fields = this.extractFieldsStrict(lines, i, classEndLine);
-                const methods = this.extractMethodsStrict(lines, i, classEndLine);
-                
-                // 解析类注释
+                const methods = this.extractMethodsStrict(
+                    lines,
+                    i,
+                    classEndLine
+                );
+
                 const classComment = this.extractClassComment(lines, i);
-                
+
                 const classDoc = {
                     className,
                     fullName,
@@ -237,14 +226,25 @@ class JavaDocDataBuilder {
                     fields,
                     innerClasses: [],
                     lineRange: { start: i + 1, end: classEndLine + 1 },
-                    sourceFilePath: `/java-sources/${fullName.replace(/\./g, '/')}.java`,
+                    sourceFilePath: `/java-sources/${fullName.replace(
+                        /\./g,
+                        "/"
+                    )}.java`,
                 };
-                
-                // 递归查找内部类
-                this.findAllClasses(lines, packageName, fullClassName, i + 1, classEndLine - 1, classDoc.innerClasses, imports, filePath);
-                
+
+                this.findAllClasses(
+                    lines,
+                    packageName,
+                    fullClassName,
+                    i + 1,
+                    classEndLine - 1,
+                    classDoc.innerClasses,
+                    imports,
+                    filePath
+                );
+
                 allClasses.push(classDoc);
-                
+
                 i = classEndLine + 1;
             } else {
                 i++;
@@ -252,21 +252,18 @@ class JavaDocDataBuilder {
         }
     }
 
-    /**
-     * 严格查找类结束位置
-     */
     findClassEndStrict(lines, startLine) {
         let braceCount = 0;
         let foundFirstBrace = false;
-        
+
         for (let i = startLine; i < lines.length; i++) {
             const line = lines[i];
-            
+
             for (const char of line) {
-                if (char === '{') {
+                if (char === "{") {
                     braceCount++;
                     foundFirstBrace = true;
-                } else if (char === '}') {
+                } else if (char === "}") {
                     braceCount--;
                     if (foundFirstBrace && braceCount === 0) {
                         return i;
@@ -274,13 +271,10 @@ class JavaDocDataBuilder {
                 }
             }
         }
-        
+
         return lines.length - 1;
     }
 
-    /**
-     * 严格提取字段 - 只提取指定类范围内的字段
-     */
     extractFieldsStrict(lines, classStart, classEnd) {
         const fields = [];
         const classIndent = this.getLineIndent(lines[classStart]);
@@ -291,23 +285,26 @@ class JavaDocDataBuilder {
             const lineIndent = this.getLineIndent(line);
             const trimmed = line.trim();
 
-            // 只处理正确缩进级别的行（类的直接成员）
             if (lineIndent !== memberIndent) {
                 continue;
             }
-
-            // 跳过注释、方法和内部类
-            if (trimmed.startsWith('//') || trimmed.startsWith('/*') || 
-                trimmed.startsWith('*') || trimmed.includes('(') || 
-                trimmed.startsWith('@') || 
-                trimmed.includes('class ') || trimmed.includes('interface ') ||
-                trimmed.includes('enum ')) {
+            if (
+                trimmed.startsWith("//") ||
+                trimmed.startsWith("/*") ||
+                trimmed.startsWith("*") ||
+                trimmed.includes("(") ||
+                trimmed.startsWith("@") ||
+                trimmed.includes("class ") ||
+                trimmed.includes("interface ") ||
+                trimmed.includes("enum ")
+            ) {
                 continue;
             }
 
-            // 字段声明模式
-            const fieldMatch = trimmed.match(/^\s*(public|private|protected)?\s*(static)?\s*(final)?\s*([\w<>\[\],\s\.]+)\s+(\w+)(?:\s*=.*)?(?:\s*;)?$/);
-            
+            const fieldMatch = trimmed.match(
+                /^\s*(public|private|protected)?\s*(static)?\s*(final)?\s*([\w<>\[\],\s\.]+)\s+(\w+)(?:\s*=.*)?(?:\s*;)?$/
+            );
+
             if (fieldMatch) {
                 const modifiers = [];
                 if (fieldMatch[1]) modifiers.push(fieldMatch[1]);
@@ -316,11 +313,15 @@ class JavaDocDataBuilder {
 
                 const type = fieldMatch[4].trim();
                 const name = fieldMatch[5];
-                
-                // 提取初始值
-                const equalIndex = trimmed.indexOf('=');
-                const initialValue = equalIndex !== -1 ? 
-                    trimmed.substring(equalIndex + 1).replace(/;$/, '').trim() : '';
+
+                const equalIndex = trimmed.indexOf("=");
+                const initialValue =
+                    equalIndex !== -1
+                        ? trimmed
+                              .substring(equalIndex + 1)
+                              .replace(/;$/, "")
+                              .trim()
+                        : "";
 
                 const comment = this.extractFieldComment(lines, i);
 
@@ -338,9 +339,6 @@ class JavaDocDataBuilder {
         return fields;
     }
 
-    /**
-     * 严格提取方法 - 只提取指定类范围内的方法
-     */
     extractMethodsStrict(lines, classStart, classEnd) {
         const methods = [];
         const classIndent = this.getLineIndent(lines[classStart]);
@@ -350,39 +348,48 @@ class JavaDocDataBuilder {
             const line = lines[i];
             const lineIndent = this.getLineIndent(line);
             const trimmed = line.trim();
-
-            // 只处理正确缩进级别的行（类的直接成员）
             if (lineIndent !== memberIndent) {
                 continue;
             }
 
-            // 方法声明模式
-            const methodMatch = trimmed.match(/^\s*(public|private|protected)?\s*(static|final|abstract|synchronized)?\s*(static|final|abstract|synchronized)?\s*(?:(\w+(?:<[\w\s,<>\.]+>)?(?:\[\])*)\s+)?(\w+)\s*\(([^)]*)\)(?:\s*throws\s+([\w\s,\.]+))?\s*[{;]?/);
+            const methodMatch = trimmed.match(
+                /^\s*(public|private|protected)?\s*(static|final|abstract|synchronized)?\s*(static|final|abstract|synchronized)?\s*(?:(\w+(?:<[\w\s,<>\.]+>)?(?:\[\])*)\s+)?(\w+)\s*\(([^)]*)\)(?:\s*throws\s+([\w\s,\.]+))?\s*[{;]?/
+            );
 
-            if (methodMatch && !trimmed.includes('class ') && !trimmed.includes('interface ')) {
+            if (
+                methodMatch &&
+                !trimmed.includes("class ") &&
+                !trimmed.includes("interface ")
+            ) {
                 const modifiers = [];
                 if (methodMatch[1]) modifiers.push(methodMatch[1]);
                 if (methodMatch[2]) modifiers.push(methodMatch[2]);
-                if (methodMatch[3] && methodMatch[3] !== methodMatch[2]) modifiers.push(methodMatch[3]);
+                if (methodMatch[3] && methodMatch[3] !== methodMatch[2])
+                    modifiers.push(methodMatch[3]);
 
-                const returnType = methodMatch[4] || '';
+                const returnType = methodMatch[4] || "";
                 const methodName = methodMatch[5];
                 const paramString = methodMatch[6];
                 const throwsString = methodMatch[7];
 
                 const parameters = this.parseParameters(paramString);
-                const exceptions = throwsString ? throwsString.split(',').map(e => e.trim()) : [];
-                const { comment, javadocTags } = this.extractMethodComment(lines, i);
-                
-                // 判断是否是构造函数
-                const isConstructor = returnType === '' && 
+                const exceptions = throwsString
+                    ? throwsString.split(",").map((e) => e.trim())
+                    : [];
+                const { comment, javadocTags } = this.extractMethodComment(
+                    lines,
+                    i
+                );
+
+                const isConstructor =
+                    returnType === "" &&
                     methodName.charAt(0) === methodName.charAt(0).toUpperCase();
-                
+
                 const methodEnd = this.findMethodEnd(lines, i);
 
                 methods.push({
                     name: methodName,
-                    returnType: isConstructor ? '' : returnType,
+                    returnType: isConstructor ? "" : returnType,
                     parameters,
                     modifiers,
                     comment,
@@ -397,26 +404,20 @@ class JavaDocDataBuilder {
         return methods;
     }
 
-    /**
-     * 获取行的缩进级别
-     */
     getLineIndent(line) {
         let indent = 0;
         for (const char of line) {
-            if (char === ' ') {
+            if (char === " ") {
                 indent++;
-            } else if (char === '\t') {
-                indent += 4; // tab = 4 spaces
+            } else if (char === "\t") {
+                indent += 4;
             } else {
                 break;
             }
         }
-        return Math.floor(indent / 3); // 假设缩进为3个空格
+        return Math.floor(indent / 3);
     }
 
-    /**
-     * 保存源码文件
-     */
     saveSourceFile(fullName, sourceCode) {
         const sourcePath = path.join(
             this.sourceOutputDir,
@@ -431,17 +432,11 @@ class JavaDocDataBuilder {
         fs.writeFileSync(sourcePath, sourceCode, "utf-8");
     }
 
-    /**
-     * 提取包名
-     */
     extractPackageName(sourceCode) {
         const packageMatch = sourceCode.match(/package\s+([\w\.]+)\s*;/);
         return packageMatch ? packageMatch[1] : "";
     }
 
-    /**
-     * 提取导入语句
-     */
     extractImports(sourceCode) {
         const importRegex = /import\s+(static\s+)?([\w\.\*]+)\s*;/g;
         const imports = [];
@@ -609,14 +604,10 @@ class JavaDocDataBuilder {
         return startLine + 1;
     }
 
-    /**
-     * 建立继承关系和引用关系
-     */
     buildRelationships() {
         console.log("🔗 建立继承关系和引用关系...");
 
         for (const [className, classDoc] of this.classes) {
-            // 建立继承关系
             if (classDoc.superClass && classDoc.superClass !== "Object") {
                 const superClassName = this.resolveClassName(
                     classDoc.superClass,
@@ -644,34 +635,26 @@ class JavaDocDataBuilder {
                 }
             }
 
-            // 建立引用关系
             this.buildReferences(classDoc);
         }
     }
 
-    /**
-     * 解析类名
-     */
     resolveClassName(className, imports, packageName) {
-        // 如果是完全限定名
         if (className.includes(".")) {
             return className;
         }
 
-        // 查找导入
         for (const imp of imports) {
             if (imp.endsWith("." + className)) {
                 return imp;
             }
         }
 
-        // 同包类
         const samePackageClass = `${packageName}.${className}`;
         if (this.classes.has(samePackageClass)) {
             return samePackageClass;
         }
 
-        // java.lang包
         const javaLangClass = `java.lang.${className}`;
         if (this.classes.has(javaLangClass)) {
             return javaLangClass;
@@ -680,9 +663,6 @@ class JavaDocDataBuilder {
         return null;
     }
 
-    /**
-     * 建立引用关系
-     */
     buildReferences(classDoc) {
         if (!this.references.has(classDoc.fullName)) {
             this.references.set(classDoc.fullName, {
@@ -693,7 +673,6 @@ class JavaDocDataBuilder {
 
         const refs = this.references.get(classDoc.fullName);
 
-        // 分析字段类型引用
         for (const field of classDoc.fields) {
             const referencedClass = this.resolveClassName(
                 field.type,
@@ -708,7 +687,6 @@ class JavaDocDataBuilder {
                     line: field.lineRange.start,
                 });
 
-                // 添加反向引用
                 if (!this.references.has(referencedClass)) {
                     this.references.set(referencedClass, {
                         usedBy: [],
@@ -724,9 +702,7 @@ class JavaDocDataBuilder {
             }
         }
 
-        // 分析方法参数和返回类型引用
         for (const method of classDoc.methods) {
-            // 返回类型
             if (method.returnType) {
                 const referencedClass = this.resolveClassName(
                     method.returnType,
@@ -743,7 +719,6 @@ class JavaDocDataBuilder {
                 }
             }
 
-            // 参数类型
             for (const param of method.parameters) {
                 const referencedClass = this.resolveClassName(
                     param.type,
@@ -762,9 +737,6 @@ class JavaDocDataBuilder {
         }
     }
 
-    /**
-     * 生成数据文件
-     */
     async generateDataFiles() {
         console.log("📄 生成数据文件...");
 
@@ -773,7 +745,6 @@ class JavaDocDataBuilder {
             packageFileNames.push(`${packageName.replace(/\./g, "-")}.json`);
         }
 
-        // 主索引文件
         const mainIndex = {
             totalClasses: this.classes.size,
             totalPackages: this.packages.size,
@@ -786,7 +757,6 @@ class JavaDocDataBuilder {
             JSON.stringify(mainIndex, null, 2)
         );
 
-        // 包索引
         const packageIndex = {};
         for (const [packageName, classes] of this.packages) {
             packageIndex[packageName] = {
@@ -800,7 +770,6 @@ class JavaDocDataBuilder {
             JSON.stringify(packageIndex, null, 2)
         );
 
-        // 类层次结构
         const hierarchyData = {};
         for (const [className, hierarchy] of this.classHierarchy) {
             hierarchyData[className] = hierarchy;
@@ -811,7 +780,6 @@ class JavaDocDataBuilder {
             JSON.stringify(hierarchyData, null, 2)
         );
 
-        // 引用关系
         const referencesData = {};
         for (const [className, refs] of this.references) {
             referencesData[className] = refs;
@@ -822,7 +790,6 @@ class JavaDocDataBuilder {
             JSON.stringify(referencesData, null, 2)
         );
 
-        // 分包保存类数据（避免单文件过大）
         const classesDir = path.join(this.outputDir, "classes");
         if (!fs.existsSync(classesDir)) {
             fs.mkdirSync(classesDir, { recursive: true });
@@ -832,7 +799,6 @@ class JavaDocDataBuilder {
             const packageData = {};
             for (const className of classes) {
                 const classDoc = this.classes.get(className);
-                // 移除sourceCode以减小文件大小
                 const { sourceCode, ...classDocWithoutSource } = classDoc;
                 packageData[className] = classDocWithoutSource;
             }
@@ -853,7 +819,6 @@ class JavaDocDataBuilder {
     }
 }
 
-// 运行构建
 const builder = new JavaDocDataBuilder();
 builder.build().catch((error) => {
     console.error("❌ 构建失败:", error);

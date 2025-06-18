@@ -3,19 +3,20 @@
  * 处理Java文件的读取和目录扫描
  */
 export class FileReader {
-    
     /**
      * 递归扫描目录获取所有Java文件
      */
-    static async scanJavaFiles(baseDir: string = 'forge-1.20.1-47.1.99'): Promise<string[]> {
+    static async scanJavaFiles(
+        baseDir: string = "forge-1.20.1-47.1.99"
+    ): Promise<string[]> {
         const javaFiles: string[] = [];
-        
+
         try {
             // 使用预定义的文件列表（从项目结构中提取）
             const knownJavaFiles = this.getKnownJavaFiles();
             return knownJavaFiles;
         } catch (error) {
-            console.warn('无法扫描文件，使用预定义列表', error);
+            console.warn("无法扫描文件，使用预定义列表", error);
             return this.getKnownJavaFiles();
         }
     }
@@ -33,7 +34,7 @@ export class FileReader {
         } catch (error) {
             console.warn(`无法读取文件: ${filePath}`, error);
         }
-        
+
         return null;
     }
 
@@ -44,25 +45,25 @@ export class FileReader {
     private static getKnownJavaFiles(): string[] {
         return [
             // Mojang AuthLib
-            'forge-1.20.1-47.1.99/com/mojang/authlib/Agent.java',
-            'forge-1.20.1-47.1.99/com/mojang/authlib/AuthenticationService.java',
-            'forge-1.20.1-47.1.99/com/mojang/authlib/BaseAuthenticationService.java',
-            
+            "forge-1.20.1-47.1.99/com/mojang/authlib/Agent.java",
+            "forge-1.20.1-47.1.99/com/mojang/authlib/AuthenticationService.java",
+            "forge-1.20.1-47.1.99/com/mojang/authlib/BaseAuthenticationService.java",
+
             // Blaze3D
-            'forge-1.20.1-47.1.99/com/mojang/blaze3d/Blaze3D.java',
-            'forge-1.20.1-47.1.99/com/mojang/blaze3d/DontObfuscate.java',
-            'forge-1.20.1-47.1.99/com/mojang/blaze3d/FieldsAreNonnullByDefault.java',
-            
+            "forge-1.20.1-47.1.99/com/mojang/blaze3d/Blaze3D.java",
+            "forge-1.20.1-47.1.99/com/mojang/blaze3d/DontObfuscate.java",
+            "forge-1.20.1-47.1.99/com/mojang/blaze3d/FieldsAreNonnullByDefault.java",
+
             // Minecraft Core
-            'forge-1.20.1-47.1.99/net/minecraft/client/Minecraft.java',
-            'forge-1.20.1-47.1.99/net/minecraft/ChatFormatting.java',
-            'forge-1.20.1-47.1.99/net/minecraft/BlockUtil.java',
-            'forge-1.20.1-47.1.99/net/minecraft/CharPredicate.java',
-            
-            // Minecraft Server  
-            'forge-1.20.1-47.1.99/net/minecraft/server/MinecraftServer.java',
-            'forge-1.20.1-47.1.99/net/minecraft/server/Bootstrap.java',
-            
+            "forge-1.20.1-47.1.99/net/minecraft/client/Minecraft.java",
+            "forge-1.20.1-47.1.99/net/minecraft/ChatFormatting.java",
+            "forge-1.20.1-47.1.99/net/minecraft/BlockUtil.java",
+            "forge-1.20.1-47.1.99/net/minecraft/CharPredicate.java",
+
+            // Minecraft Server
+            "forge-1.20.1-47.1.99/net/minecraft/server/MinecraftServer.java",
+            "forge-1.20.1-47.1.99/net/minecraft/server/Bootstrap.java",
+
             // 添加更多已知的Java文件...
             // 可以通过脚本自动生成这个列表
         ];
@@ -74,6 +75,6 @@ export class FileReader {
      */
     static async generateFileList(): Promise<void> {
         // 这个方法用于生成文件列表，在构建时运行
-        console.log('使用 Node.js 脚本来生成完整的文件列表');
+        console.log("使用 Node.js 脚本来生成完整的文件列表");
     }
-} 
+}

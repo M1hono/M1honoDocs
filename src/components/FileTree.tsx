@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { Input, Typography, Collapse } from "antd";
 import {
     Search,
@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import { FileNode, ProjectInfo } from "../types";
 import { getFileIcon, searchFiles, flattenFileTree } from "../utils/fileUtils";
-import { Tree } from 'antd';
-import { loadDirectoryContent } from '../utils/fileSystemAPI';
+import { Tree } from "antd";
+import { loadDirectoryContent } from "../utils/fileSystemAPI";
 
 const { Search: AntSearch } = Input;
 const { Panel } = Collapse;

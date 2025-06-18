@@ -25,10 +25,20 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
             <div className="code-area">
                 <div className="welcome-container">
                     <div className="welcome-content">
-                        <Title level={3} style={{ marginBottom: 16, color: "#1890ff" }}>
+                        <Title
+                            level={3}
+                            style={{ marginBottom: 16, color: "#1890ff" }}
+                        >
                             🎮 Minecraft 代码浏览器
                         </Title>
-                        <Text style={{ fontSize: 16, color: "#666", display: "block", marginBottom: 20 }}>
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                color: "#666",
+                                display: "block",
+                                marginBottom: 20,
+                            }}
+                        >
                             探索 Minecraft Forge 和 KubeJS 的源代码世界
                         </Text>
                         <Text type="secondary" style={{ fontSize: 14 }}>
@@ -151,4 +161,3 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         </div>
     );
 };
- 

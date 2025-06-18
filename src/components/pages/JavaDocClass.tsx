@@ -165,9 +165,9 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                         behavior: "smooth",
                         block: "center",
                     });
-                    methodElement.style.background = "#fff566";
+                    methodElement.classList.add("highlighted-method");
                     setTimeout(() => {
-                        methodElement.style.background = "";
+                        methodElement.classList.remove("highlighted-method");
                     }, 2000);
                 }
             }, 500);
@@ -641,11 +641,6 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                 );
                                             }}
                                             className="action-button kubejs-button"
-                                            style={{
-                                                background: "#fa8c16",
-                                                borderColor: "#fa8c16",
-                                                color: "white",
-                                            }}
                                         >
                                             KubeJS
                                         </Button>

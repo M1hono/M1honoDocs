@@ -1,6 +1,6 @@
-import { ProjectDocIndex, JavaClassDoc } from '../types';
-import { RealFileScanner } from './realFileScanner';
-import { EnhancedJavaParser } from './enhancedJavaParser';
+import { ProjectDocIndex, JavaClassDoc } from "../types";
+import { RealFileScanner } from "./realFileScanner";
+import { EnhancedJavaParser } from "./enhancedJavaParser";
 
 /**
  * 真实文档生成器
@@ -17,14 +17,14 @@ export class RealDocumentGenerator {
      * 生成项目文档索引
      */
     async generateDocumentation(): Promise<ProjectDocIndex> {
-        console.log('🚀 开始生成 JavaDoc 文档...');
+        console.log("🚀 开始生成 JavaDoc 文档...");
 
         // 1. 扫描所有 Java 文件
         const javaFiles = await this.fileScanner.scanAllJavaFiles();
         console.log(`✅ 找到 ${javaFiles.length} 个 Java 文件`);
 
         if (javaFiles.length === 0) {
-            console.warn('⚠️ 没有找到任何 Java 文件');
+            console.warn("⚠️ 没有找到任何 Java 文件");
             return this.createEmptyIndex();
         }
 
@@ -32,7 +32,7 @@ export class RealDocumentGenerator {
         const docIndex: ProjectDocIndex = {
             classes: new Map(),
             packages: new Map(),
-            fileToClasses: new Map()
+            fileToClasses: new Map(),
         };
 
         let processedFiles = 0;
@@ -41,7 +41,7 @@ export class RealDocumentGenerator {
         for (const file of javaFiles) {
             try {
                 console.log(`📄 处理文件: ${file.path}`);
-                
+
                 // 读取文件内容
                 const sourceCode = await this.fileScanner.readFile(file.path);
                 if (!sourceCode) {
@@ -50,14 +50,17 @@ export class RealDocumentGenerator {
                 }
 
                 // 解析 Java 文件
-                const classes = EnhancedJavaParser.parseJavaFile(sourceCode, file.path);
-                
+                const classes = EnhancedJavaParser.parseJavaFile(
+                    sourceCode,
+                    file.path
+                );
+
                 if (classes.length > 0) {
                     processedFiles++;
                     totalClasses += classes.length;
 
                     // 记录文件到类的映射
-                    const classNames = classes.map(cls => cls.fullName);
+                    const classNames = classes.map((cls) => cls.fullName);
                     docIndex.fileToClasses.set(file.path, classNames);
 
                     // 处理每个类
@@ -66,17 +69,20 @@ export class RealDocumentGenerator {
                         docIndex.classes.set(classDoc.fullName, classDoc);
 
                         // 更新包映射
-                        const packageName = classDoc.packageName || '';
+                        const packageName = classDoc.packageName || "";
                         if (!docIndex.packages.has(packageName)) {
                             docIndex.packages.set(packageName, []);
                         }
-                        const packageClasses = docIndex.packages.get(packageName)!;
+                        const packageClasses =
+                            docIndex.packages.get(packageName)!;
                         if (!packageClasses.includes(classDoc.fullName)) {
                             packageClasses.push(classDoc.fullName);
                         }
                     }
 
-                    console.log(`✅ 解析完成: ${classes.length} 个类 (${file.path})`);
+                    console.log(
+                        `✅ 解析完成: ${classes.length} 个类 (${file.path})`
+                    );
                 } else {
                     console.warn(`⚠️ 没有找到类定义: ${file.path}`);
                 }
@@ -87,7 +93,7 @@ export class RealDocumentGenerator {
 
         // 3. 生成统计信息
         const stats = this.generateStats(docIndex);
-        console.log('📊 生成统计信息:');
+        console.log("📊 生成统计信息:");
         console.log(`   - 处理文件: ${processedFiles}/${javaFiles.length}`);
         console.log(`   - 总类数: ${stats.totalClasses}`);
         console.log(`   - 总包数: ${stats.totalPackages}`);
@@ -96,11 +102,13 @@ export class RealDocumentGenerator {
 
         // 4. 验证结果
         if (stats.totalClasses === 0) {
-            console.warn('⚠️ 警告: 没有解析到任何类');
+            console.warn("⚠️ 警告: 没有解析到任何类");
         } else if (stats.totalClasses < 50) {
-            console.warn(`⚠️ 警告: 类数量偏少 (${stats.totalClasses})，可能存在扫描不完整的问题`);
+            console.warn(
+                `⚠️ 警告: 类数量偏少 (${stats.totalClasses})，可能存在扫描不完整的问题`
+            );
         } else {
-            console.log('✅ 文档生成完成！');
+            console.log("✅ 文档生成完成！");
         }
 
         return docIndex;
@@ -113,7 +121,7 @@ export class RealDocumentGenerator {
         return {
             classes: new Map(),
             packages: new Map(),
-            fileToClasses: new Map()
+            fileToClasses: new Map(),
         };
     }
 
@@ -134,7 +142,7 @@ export class RealDocumentGenerator {
             totalPackages: docIndex.packages.size,
             totalMethods,
             totalFields,
-            totalFiles: docIndex.fileToClasses.size
+            totalFiles: docIndex.fileToClasses.size,
         };
     }
 
@@ -142,22 +150,22 @@ export class RealDocumentGenerator {
      * 生成已知测试类（用于测试）
      */
     async generateTestClasses(): Promise<ProjectDocIndex> {
-        console.log('🧪 生成测试类数据...');
-        
+        console.log("🧪 生成测试类数据...");
+
         const docIndex: ProjectDocIndex = {
             classes: new Map(),
             packages: new Map(),
-            fileToClasses: new Map()
+            fileToClasses: new Map(),
         };
 
         // 创建一些测试类
         const testClasses = [
-            this.createTestClass('com.mojang.authlib', 'Agent'),
-            this.createTestClass('com.mojang.authlib', 'AuthenticationService'),
-            this.createTestClass('com.mojang.blaze3d', 'Blaze3D'),
-            this.createTestClass('net.minecraft.client', 'Minecraft'),
-            this.createTestClass('net.minecraft.server', 'MinecraftServer'),
-            this.createTestClass('net.minecraftforge.common', 'ForgeConfig')
+            this.createTestClass("com.mojang.authlib", "Agent"),
+            this.createTestClass("com.mojang.authlib", "AuthenticationService"),
+            this.createTestClass("com.mojang.blaze3d", "Blaze3D"),
+            this.createTestClass("net.minecraft.client", "Minecraft"),
+            this.createTestClass("net.minecraft.server", "MinecraftServer"),
+            this.createTestClass("net.minecraftforge.common", "ForgeConfig"),
         ];
 
         for (const classDoc of testClasses) {
@@ -165,7 +173,7 @@ export class RealDocumentGenerator {
             docIndex.classes.set(classDoc.fullName, classDoc);
 
             // 更新包映射
-            const packageName = classDoc.packageName || '';
+            const packageName = classDoc.packageName || "";
             if (!docIndex.packages.has(packageName)) {
                 docIndex.packages.set(packageName, []);
             }
@@ -180,57 +188,67 @@ export class RealDocumentGenerator {
     /**
      * 创建测试类
      */
-    private createTestClass(packageName: string, className: string): JavaClassDoc {
+    private createTestClass(
+        packageName: string,
+        className: string
+    ): JavaClassDoc {
         const fullName = `${packageName}.${className}`;
-        
+
         return {
             className,
             fullName,
             packageName,
-            filePath: `/test/${packageName.replace(/\./g, '/')}/${className}.java`,
-            classType: 'class',
-            modifiers: ['public'],
-            superClass: 'Object',
+            filePath: `/test/${packageName.replace(
+                /\./g,
+                "/"
+            )}/${className}.java`,
+            classType: "class",
+            modifiers: ["public"],
+            superClass: "Object",
             interfaces: [],
             imports: [],
             classComment: `Test class for ${className}.\n\nThis is a generated test class for demonstration purposes.`,
             methods: [
                 {
-                    name: 'getName',
-                    returnType: 'String',
+                    name: "getName",
+                    returnType: "String",
                     parameters: [],
-                    modifiers: ['public'],
-                    comment: 'Returns the name of this object.',
+                    modifiers: ["public"],
+                    comment: "Returns the name of this object.",
                     javadocTags: [
-                        { tag: '@return', paramName: '', value: 'the name as a String' }
+                        {
+                            tag: "@return",
+                            paramName: "",
+                            value: "the name as a String",
+                        },
                     ],
                     exceptions: [],
                     lineRange: { start: 10, end: 15 },
-                    isConstructor: false
+                    isConstructor: false,
                 },
                 {
                     name: className,
-                    returnType: '',
+                    returnType: "",
                     parameters: [],
-                    modifiers: ['public'],
+                    modifiers: ["public"],
                     comment: `Constructor for ${className}.`,
                     javadocTags: [],
                     exceptions: [],
                     lineRange: { start: 5, end: 8 },
-                    isConstructor: true
-                }
+                    isConstructor: true,
+                },
             ],
             fields: [
                 {
-                    name: 'name',
-                    type: 'String',
-                    modifiers: ['private'],
-                    comment: 'The name field.',
-                    initialValue: '',
-                    lineRange: { start: 3, end: 3 }
-                }
+                    name: "name",
+                    type: "String",
+                    modifiers: ["private"],
+                    comment: "The name field.",
+                    initialValue: "",
+                    lineRange: { start: 3, end: 3 },
+                },
             ],
-            lineRange: { start: 1, end: 20 }
+            lineRange: { start: 1, end: 20 },
         };
     }
-} 
+}

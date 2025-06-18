@@ -204,7 +204,9 @@ export class EnhancedJavaParser {
                 fullName,
                 packageName,
                 filePath,
-                classType: isValidClassType(classTypeRaw) ? classTypeRaw : 'class',
+                classType: isValidClassType(classTypeRaw)
+                    ? classTypeRaw
+                    : "class",
                 modifiers,
                 superClass,
                 interfaces,

@@ -105,19 +105,59 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
     }
 
     const classes = docIndex.packages.get(packageName);
+    const subPackages = Array.from(docIndex.packages.keys()).filter((p) =>
+        p.startsWith(packageName + ".")
+    );
+    const classesInScope = Array.from(docIndex.classes.values()).filter(
+        (c) => c.fullName.startsWith(packageName + ".") && !c.fullName.substring(packageName.length + 1).includes(".")
+    );
 
-    if (!classes) {
+    if (!classes && subPackages.length === 0 && classesInScope.length === 0) {
         return (
             <Alert
                 type="error"
                 message="包不存在"
-                description={`找不到包: ${packageName}`}
+                description={`找不到包: ${packageName}，也找不到任何相关的子包或类。`}
                 action={
                     <Link to="/">
                         <span>返回首页</span>
                     </Link>
                 }
             />
+        );
+    }
+    
+    if (!classes) {
+        // 包本身不存在，但有子包或子类，显示一个引导页面
+        return (
+            <Card>
+                <Title level={3}>包 "{packageName}" 不存在</Title>
+                <Text type="secondary">但您可能正在寻找以下内容：</Text>
+                
+                {subPackages.length > 0 && (
+                    <Card title="子包" style={{ marginTop: 20 }}>
+                        <Space direction="vertical">
+                            {subPackages.map(pkg => (
+                                <Link key={pkg} to={`/package/${encodeURIComponent(pkg)}`}>
+                                    <Tag icon={<FolderOutlined />}>{pkg}</Tag>
+                                </Link>
+                            ))}
+                        </Space>
+                    </Card>
+                )}
+
+                {classesInScope.length > 0 && (
+                    <Card title="该路径下的类" style={{ marginTop: 20 }}>
+                        <Space direction="vertical">
+                            {classesInScope.map(cls => (
+                                <Link key={cls.fullName} to={`/class/${encodeURIComponent(cls.fullName)}`}>
+                                    <Tag icon={<ApiOutlined />}>{cls.className}</Tag>
+                                </Link>
+                            ))}
+                        </Space>
+                    </Card>
+                )}
+            </Card>
         );
     }
 
@@ -145,7 +185,7 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
             {
                 title: (
                     <Link to="/">
-                        <HomeOutlined /> 首页
+                        <HomeOutlined /> Home
                     </Link>
                 ),
             },

@@ -127,7 +127,7 @@ export interface JavaClassDoc {
     /** 包名 */
     packageName: string;
     /** 类类型 (class, interface, enum, record, @interface) */
-    classType: 'class' | 'interface' | 'enum';
+    classType: "class" | "interface" | "enum";
     /** 类的 JavaDoc 注释 */
     classComment?: string;
     /** 类修饰符 (public, abstract, final 等) */
@@ -174,7 +174,14 @@ export interface ProjectDocIndex {
  * 交叉引用信息
  */
 export interface CrossReference {
-    type: 'import' | 'extends' | 'implements' | 'field' | 'method_call' | 'parameter' | 'return_type';
+    type:
+        | "import"
+        | "extends"
+        | "implements"
+        | "field"
+        | "method_call"
+        | "parameter"
+        | "return_type";
     source: string;
     target: string;
     lineNumber?: number;
@@ -188,4 +195,3 @@ export interface UsageAnalysis {
     uses: string[];
     references: CrossReference[];
 }
- 

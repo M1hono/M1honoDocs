@@ -119,8 +119,17 @@ export const JavaDocNavigation: React.FC<JavaDocNavigationProps> = ({
                     const classDoc = docIndex.classes.get(className);
                     if (classDoc) {
                         // 只添加顶级类（不包含 $ 或 . 表示内部类的类名）
-                        if (!classDoc.fullName.includes('.', packageName.length + 1)) {
-                            const classNode = createClassNode(classDoc, packageName, i);
+                        if (
+                            !classDoc.fullName.includes(
+                                ".",
+                                packageName.length + 1
+                            )
+                        ) {
+                            const classNode = createClassNode(
+                                classDoc,
+                                packageName,
+                                i
+                            );
                             packageNode.children.push(classNode);
                         }
                     }
@@ -152,29 +161,41 @@ export const JavaDocNavigation: React.FC<JavaDocNavigationProps> = ({
     /**
      * 创建类节点（包括其内部类）
      */
-    const createClassNode = (classDoc: JavaClassDoc, packageName: string, index: number): PackageTreeNode => {
-        const hasInnerClasses = classDoc.innerClasses && classDoc.innerClasses.length > 0;
-        
+    const createClassNode = (
+        classDoc: JavaClassDoc,
+        packageName: string,
+        index: number
+    ): PackageTreeNode => {
+        const hasInnerClasses =
+            classDoc.innerClasses && classDoc.innerClasses.length > 0;
+
         const classNode: PackageTreeNode = {
             key: `class_${packageName}_${classDoc.fullName}_${index}`,
             title: (
                 <Space>
-                    <ApiOutlined style={{ 
-                        color: classDoc.classType === 'enum' ? '#fa8c16' : 
-                               classDoc.classType === 'interface' ? '#1890ff' : '#52c41a' 
-                    }} />
+                    <ApiOutlined
+                        style={{
+                            color:
+                                classDoc.classType === "enum"
+                                    ? "#fa8c16"
+                                    : classDoc.classType === "interface"
+                                    ? "#1890ff"
+                                    : "#52c41a",
+                        }}
+                    />
                     <Text>{classDoc.className}</Text>
-                    {classDoc.classType && classDoc.classType !== 'class' && (
+                    {classDoc.classType && classDoc.classType !== "class" && (
                         <Text type="secondary" style={{ fontSize: "10px" }}>
                             ({classDoc.classType})
                         </Text>
                     )}
-                    <Text
-                        type="secondary"
-                        style={{ fontSize: "12px" }}
-                    >
-                        ({classDoc.methods?.length || 0}m, {classDoc.fields?.length || 0}f
-                        {hasInnerClasses ? `, ${classDoc.innerClasses?.length || 0}i` : ''})
+                    <Text type="secondary" style={{ fontSize: "12px" }}>
+                        ({classDoc.methods?.length || 0}m,{" "}
+                        {classDoc.fields?.length || 0}f
+                        {hasInnerClasses
+                            ? `, ${classDoc.innerClasses?.length || 0}i`
+                            : ""}
+                        )
                     </Text>
                 </Space>
             ),
@@ -187,13 +208,19 @@ export const JavaDocNavigation: React.FC<JavaDocNavigationProps> = ({
         // 添加内部类节点
         if (hasInnerClasses && classNode.children && classDoc.innerClasses) {
             classDoc.innerClasses.forEach((innerClass, innerIndex) => {
-                const innerClassNode = createInnerClassNode(innerClass, classDoc.fullName, innerIndex);
+                const innerClassNode = createInnerClassNode(
+                    innerClass,
+                    classDoc.fullName,
+                    innerIndex
+                );
                 classNode.children!.push(innerClassNode);
             });
 
             // 对内部类进行排序
-            classNode.children.sort((a, b) => 
-                (a.classDoc?.className || "").localeCompare(b.classDoc?.className || "")
+            classNode.children.sort((a, b) =>
+                (a.classDoc?.className || "").localeCompare(
+                    b.classDoc?.className || ""
+                )
             );
         }
 
@@ -203,30 +230,45 @@ export const JavaDocNavigation: React.FC<JavaDocNavigationProps> = ({
     /**
      * 创建内部类节点（递归支持嵌套内部类）
      */
-    const createInnerClassNode = (innerClass: JavaClassDoc, parentFullName: string, index: number): PackageTreeNode => {
-        const hasInnerClasses = innerClass.innerClasses && innerClass.innerClasses.length > 0;
-        
+    const createInnerClassNode = (
+        innerClass: JavaClassDoc,
+        parentFullName: string,
+        index: number
+    ): PackageTreeNode => {
+        const hasInnerClasses =
+            innerClass.innerClasses && innerClass.innerClasses.length > 0;
+
         const innerClassNode: PackageTreeNode = {
             key: `inner_class_${parentFullName}_${innerClass.fullName}_${index}`,
             title: (
                 <Space>
-                    <ApiOutlined style={{ 
-                        color: innerClass.classType === 'enum' ? '#fa8c16' : 
-                               innerClass.classType === 'interface' ? '#1890ff' : '#52c41a',
-                        fontSize: '12px'
-                    }} />
-                    <Text style={{ fontSize: '13px' }}>{innerClass.className}</Text>
-                    {innerClass.classType && innerClass.classType !== 'class' && (
-                        <Text type="secondary" style={{ fontSize: "10px" }}>
-                            ({innerClass.classType})
-                        </Text>
-                    )}
-                    <Text
-                        type="secondary"
-                        style={{ fontSize: "11px" }}
-                    >
-                        ({innerClass.methods?.length || 0}m, {innerClass.fields?.length || 0}f
-                        {hasInnerClasses ? `, ${innerClass.innerClasses?.length || 0}i` : ''})
+                    <ApiOutlined
+                        style={{
+                            color:
+                                innerClass.classType === "enum"
+                                    ? "#fa8c16"
+                                    : innerClass.classType === "interface"
+                                    ? "#1890ff"
+                                    : "#52c41a",
+                            fontSize: "12px",
+                        }}
+                    />
+                    <Text style={{ fontSize: "13px" }}>
+                        {innerClass.className}
+                    </Text>
+                    {innerClass.classType &&
+                        innerClass.classType !== "class" && (
+                            <Text type="secondary" style={{ fontSize: "10px" }}>
+                                ({innerClass.classType})
+                            </Text>
+                        )}
+                    <Text type="secondary" style={{ fontSize: "11px" }}>
+                        ({innerClass.methods?.length || 0}m,{" "}
+                        {innerClass.fields?.length || 0}f
+                        {hasInnerClasses
+                            ? `, ${innerClass.innerClasses?.length || 0}i`
+                            : ""}
+                        )
                     </Text>
                 </Space>
             ),
@@ -237,15 +279,25 @@ export const JavaDocNavigation: React.FC<JavaDocNavigationProps> = ({
         };
 
         // 递归添加嵌套的内部类
-        if (hasInnerClasses && innerClassNode.children && innerClass.innerClasses) {
+        if (
+            hasInnerClasses &&
+            innerClassNode.children &&
+            innerClass.innerClasses
+        ) {
             innerClass.innerClasses.forEach((nestedInnerClass, nestedIndex) => {
-                const nestedInnerClassNode = createInnerClassNode(nestedInnerClass, innerClass.fullName, nestedIndex);
+                const nestedInnerClassNode = createInnerClassNode(
+                    nestedInnerClass,
+                    innerClass.fullName,
+                    nestedIndex
+                );
                 innerClassNode.children!.push(nestedInnerClassNode);
             });
 
             // 对嵌套内部类进行排序
-            innerClassNode.children.sort((a, b) => 
-                (a.classDoc?.className || "").localeCompare(b.classDoc?.className || "")
+            innerClassNode.children.sort((a, b) =>
+                (a.classDoc?.className || "").localeCompare(
+                    b.classDoc?.className || ""
+                )
             );
         }
 

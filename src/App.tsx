@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Layout } from 'antd';
+import React, { useState, useEffect, useMemo } from "react";
+import { Layout } from "antd";
 import { JavaDocRouter } from "./components/JavaDocRouter";
 import { PrebuiltDataLoader } from "./utils/prebuiltDataLoader";
 import { ProjectDocIndex } from "./types";
-import './index.css';
+import "./index.css";
 
 /**
  * 主应用程序
@@ -39,9 +39,12 @@ function App() {
             (result as any).dataLoader = loader;
             setDocIndex(result);
 
-            console.log(`✅ Prebuilt data loaded successfully: ${result.totalPackages} packages, ${result.totalClasses} classes`);
+            console.log(
+                `✅ Prebuilt data loaded successfully: ${result.totalPackages} packages, ${result.totalClasses} classes`
+            );
         } catch (err) {
-            const errorMessage = err instanceof Error ? err.message : "Unknown error";
+            const errorMessage =
+                err instanceof Error ? err.message : "Unknown error";
             console.error("❌ Failed to load prebuilt data:", err);
             setError(errorMessage);
         } finally {
@@ -62,4 +65,3 @@ function App() {
 }
 
 export default App;
- 

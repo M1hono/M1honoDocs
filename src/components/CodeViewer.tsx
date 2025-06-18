@@ -1,16 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Editor from '@monaco-editor/react';
-import { Card, Button, Space, Spin, Alert, Tooltip, Badge, message } from 'antd';
-import { 
-    CopyOutlined, 
-    ExpandOutlined, 
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import Editor from "@monaco-editor/react";
+import {
+    Card,
+    Button,
+    Space,
+    Spin,
+    Alert,
+    Tooltip,
+    Badge,
+    message,
+} from "antd";
+import {
+    CopyOutlined,
+    ExpandOutlined,
     CompressOutlined,
     LineHeightOutlined,
     SearchOutlined,
-    BookOutlined
-} from '@ant-design/icons';
-import { JavaClassDoc, ProjectDocIndex } from '../types';
+    BookOutlined,
+} from "@ant-design/icons";
+import { JavaClassDoc, ProjectDocIndex } from "../types";
 
 interface CodeViewerProps {
     sourceCode: string | null;
@@ -59,32 +68,32 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
         readOnly: true,
         minimap: {
             enabled: true,
-            side: 'right' as const
+            side: "right" as const,
         },
         scrollBeyondLastLine: false,
         automaticLayout: true,
         fontSize: 14,
-        lineNumbers: 'on' as const,
+        lineNumbers: "on" as const,
         glyphMargin: true,
         folding: true,
         lineDecorationsWidth: 10,
         lineNumbersMinChars: 4,
-        renderWhitespace: 'selection' as const,
-        wordWrap: 'off' as const,
-        theme: 'vs',
+        renderWhitespace: "selection" as const,
+        wordWrap: "off" as const,
+        theme: "vs",
         bracketPairColorization: {
-            enabled: true
+            enabled: true,
         },
-        showFoldingControls: 'always' as const,
+        showFoldingControls: "always" as const,
         smoothScrolling: true,
-        cursorBlinking: 'blink' as const,
+        cursorBlinking: "blink" as const,
         contextmenu: true,
         quickSuggestions: false,
         parameterHints: {
-            enabled: false
+            enabled: false,
         },
         suggestOnTriggerCharacters: false,
-        acceptSuggestionOnEnter: 'off' as const,
+        acceptSuggestionOnEnter: "off" as const,
     };
 
     /**
@@ -94,50 +103,55 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
         editorRef.current = editor;
 
         // 设置语言为Java
-        monaco.languages.setLanguageConfiguration('java', {
+        monaco.languages.setLanguageConfiguration("java", {
             comments: {
-                lineComment: '//',
-                blockComment: ['/*', '*/']
+                lineComment: "//",
+                blockComment: ["/*", "*/"],
             },
             brackets: [
-                ['{', '}'],
-                ['[', ']'],
-                ['(', ')']
+                ["{", "}"],
+                ["[", "]"],
+                ["(", ")"],
             ],
             autoClosingPairs: [
-                { open: '{', close: '}' },
-                { open: '[', close: ']' },
-                { open: '(', close: ')' },
+                { open: "{", close: "}" },
+                { open: "[", close: "]" },
+                { open: "(", close: ")" },
                 { open: '"', close: '"' },
-                { open: "'", close: "'" }
-            ]
+                { open: "'", close: "'" },
+            ],
         });
 
         // 注册Ctrl+点击跳转提供者
-        monaco.languages.registerDefinitionProvider('java', {
+        monaco.languages.registerDefinitionProvider("java", {
             provideDefinition: (model: any, position: any) => {
                 const word = model.getWordAtPosition(position);
                 if (word) {
                     const selectedText = word.word;
-                    if (isJavaClassName(selectedText) || isJavaMethodName(selectedText)) {
+                    if (
+                        isJavaClassName(selectedText) ||
+                        isJavaMethodName(selectedText)
+                    ) {
                         // 返回一个虚拟位置，实际跳转在下面的点击事件中处理
-                        return [{
-                            uri: model.uri,
-                            range: {
-                                startLineNumber: position.lineNumber,
-                                startColumn: word.startColumn,
-                                endLineNumber: position.lineNumber,
-                                endColumn: word.endColumn
-                            }
-                        }];
+                        return [
+                            {
+                                uri: model.uri,
+                                range: {
+                                    startLineNumber: position.lineNumber,
+                                    startColumn: word.startColumn,
+                                    endLineNumber: position.lineNumber,
+                                    endColumn: word.endColumn,
+                                },
+                            },
+                        ];
                     }
                 }
                 return [];
-            }
+            },
         });
 
         // 注册悬停提示
-        monaco.languages.registerHoverProvider('java', {
+        monaco.languages.registerHoverProvider("java", {
             provideHover: (model: any, position: any) => {
                 const word = model.getWordAtPosition(position);
                 if (word) {
@@ -148,12 +162,12 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                                 startLineNumber: position.lineNumber,
                                 startColumn: word.startColumn,
                                 endLineNumber: position.lineNumber,
-                                endColumn: word.endColumn
+                                endColumn: word.endColumn,
                             },
                             contents: [
                                 { value: `**${selectedText}**` },
-                                { value: `Ctrl+Click 跳转到类文档` }
-                            ]
+                                { value: `Ctrl+Click 跳转到类文档` },
+                            ],
                         };
                     } else if (isJavaMethodName(selectedText)) {
                         return {
@@ -161,17 +175,17 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                                 startLineNumber: position.lineNumber,
                                 startColumn: word.startColumn,
                                 endLineNumber: position.lineNumber,
-                                endColumn: word.endColumn
+                                endColumn: word.endColumn,
                             },
                             contents: [
                                 { value: `**${selectedText}()**` },
-                                { value: `Ctrl+Click 跳转到方法文档` }
-                            ]
+                                { value: `Ctrl+Click 跳转到方法文档` },
+                            ],
                         };
                     }
                 }
                 return null;
-            }
+            },
         });
 
         // 注册Ctrl+点击事件
@@ -189,10 +203,10 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
 
         // 注册右键菜单
         editor.addAction({
-            id: 'jump-to-definition',
-            label: 'Go to Definition',
+            id: "jump-to-definition",
+            label: "Go to Definition",
             keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.F12],
-            contextMenuGroupId: 'navigation',
+            contextMenuGroupId: "navigation",
             contextMenuOrder: 1.5,
             run: () => {
                 const position = editor.getPosition();
@@ -201,12 +215,12 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                 if (word) {
                     handleSmartJump(word.word);
                 }
-            }
+            },
         });
 
         // 注册快捷键
         editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyG, () => {
-            const lineNumber = prompt('跳转到行号:');
+            const lineNumber = prompt("跳转到行号:");
             if (lineNumber && !isNaN(Number(lineNumber))) {
                 jumpToLine(Number(lineNumber));
             }
@@ -232,35 +246,41 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
 
         // 添加新的右键菜单动作
         editor.addAction({
-            id: 'copy-link-to-selection',
-            label: 'Copy Link to Selection',
-            contextMenuGroupId: 'navigation',
+            id: "copy-link-to-selection",
+            label: "Copy Link to Selection",
+            contextMenuGroupId: "navigation",
             contextMenuOrder: 1.6,
-            precondition: 'editorHasSelection', // Only show when text is selected
+            precondition: "editorHasSelection", // Only show when text is selected
             run: (editor: any) => {
                 const selection = editor.getSelection();
                 if (selection && !selection.isEmpty()) {
                     const startLine = selection.startLineNumber;
                     const endLine = selection.endLineNumber;
-                    const lineRange = startLine === endLine ? startLine : `${startLine}-${endLine}`;
-                    
+                    const lineRange =
+                        startLine === endLine
+                            ? startLine
+                            : `${startLine}-${endLine}`;
+
                     const url = new URL(window.location.href);
                     const params = new URLSearchParams(url.search);
-                    params.set('tab', 'source');
-                    params.set('lines', String(lineRange));
-                    
+                    params.set("tab", "source");
+                    params.set("lines", String(lineRange));
+
                     // Preserve existing params like 'line' if needed, but 'lines' should take precedence
-                    params.delete('line'); 
-                    
+                    params.delete("line");
+
                     url.search = params.toString();
-                    
-                    navigator.clipboard.writeText(url.toString()).then(() => {
-                        message.success('Link with line selection copied!');
-                    }, () => {
-                        message.error('Failed to copy link.');
-                    });
+
+                    navigator.clipboard.writeText(url.toString()).then(
+                        () => {
+                            message.success("Link with line selection copied!");
+                        },
+                        () => {
+                            message.error("Failed to copy link.");
+                        }
+                    );
                 }
-            }
+            },
         });
     };
 
@@ -269,19 +289,64 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
      */
     const isJavaClassName = (text: string): boolean => {
         // 改进类名识别：必须以大写字母开头，且不能是Java关键字
-        const javaKeywords = ['public', 'private', 'protected', 'static', 'final', 'abstract', 
-                             'void', 'int', 'boolean', 'long', 'double', 'float', 'char', 
-                             'byte', 'short', 'class', 'interface', 'enum', 'extends', 
-                             'implements', 'return', 'this', 'super', 'new', 'if', 'else',
-                             'for', 'while', 'do', 'try', 'catch', 'finally', 'throw',
-                             'throws', 'import', 'package', 'synchronized', 'volatile',
-                             'transient', 'native', 'strictfp', 'assert', 'break',
-                             'continue', 'default', 'goto', 'instanceof', 'switch', 'case'];
-        
-        return /^[A-Z][a-zA-Z0-9_]*$/.test(text) && 
-               text.length > 1 && 
-               text.length < 50 &&
-               !javaKeywords.includes(text.toLowerCase());
+        const javaKeywords = [
+            "public",
+            "private",
+            "protected",
+            "static",
+            "final",
+            "abstract",
+            "void",
+            "int",
+            "boolean",
+            "long",
+            "double",
+            "float",
+            "char",
+            "byte",
+            "short",
+            "class",
+            "interface",
+            "enum",
+            "extends",
+            "implements",
+            "return",
+            "this",
+            "super",
+            "new",
+            "if",
+            "else",
+            "for",
+            "while",
+            "do",
+            "try",
+            "catch",
+            "finally",
+            "throw",
+            "throws",
+            "import",
+            "package",
+            "synchronized",
+            "volatile",
+            "transient",
+            "native",
+            "strictfp",
+            "assert",
+            "break",
+            "continue",
+            "default",
+            "goto",
+            "instanceof",
+            "switch",
+            "case",
+        ];
+
+        return (
+            /^[A-Z][a-zA-Z0-9_]*$/.test(text) &&
+            text.length > 1 &&
+            text.length < 50 &&
+            !javaKeywords.includes(text.toLowerCase())
+        );
     };
 
     /**
@@ -289,26 +354,102 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
      */
     const isJavaMethodName = (text: string): boolean => {
         // 改进方法名识别：必须以小写字母开头，不能是关键字，不能是常见的非方法词汇
-        const javaKeywords = ['public', 'private', 'protected', 'static', 'final', 'abstract', 
-                             'void', 'int', 'boolean', 'long', 'double', 'float', 'char', 
-                             'byte', 'short', 'class', 'interface', 'enum', 'extends', 
-                             'implements', 'return', 'this', 'super', 'new', 'if', 'else',
-                             'for', 'while', 'do', 'try', 'catch', 'finally', 'throw',
-                             'throws', 'import', 'package', 'synchronized', 'volatile',
-                             'transient', 'native', 'strictfp', 'assert', 'break',
-                             'continue', 'default', 'goto', 'instanceof', 'switch', 'case'];
-        
-        const commonNonMethods = ['param', 'params', 'args', 'arg', 'value', 'values', 'data',
-                                 'config', 'settings', 'options', 'result', 'results', 'list',
-                                 'map', 'set', 'array', 'string', 'object', 'number', 'count',
-                                 'size', 'length', 'width', 'height', 'name', 'type', 'kind',
-                                 'sort', 'order', 'level', 'state', 'status', 'flag', 'flags'];
-        
-        return /^[a-z][a-zA-Z0-9_]*$/.test(text) && 
-               text.length > 2 && 
-               text.length < 30 &&
-               !javaKeywords.includes(text.toLowerCase()) &&
-               !commonNonMethods.includes(text.toLowerCase());
+        const javaKeywords = [
+            "public",
+            "private",
+            "protected",
+            "static",
+            "final",
+            "abstract",
+            "void",
+            "int",
+            "boolean",
+            "long",
+            "double",
+            "float",
+            "char",
+            "byte",
+            "short",
+            "class",
+            "interface",
+            "enum",
+            "extends",
+            "implements",
+            "return",
+            "this",
+            "super",
+            "new",
+            "if",
+            "else",
+            "for",
+            "while",
+            "do",
+            "try",
+            "catch",
+            "finally",
+            "throw",
+            "throws",
+            "import",
+            "package",
+            "synchronized",
+            "volatile",
+            "transient",
+            "native",
+            "strictfp",
+            "assert",
+            "break",
+            "continue",
+            "default",
+            "goto",
+            "instanceof",
+            "switch",
+            "case",
+        ];
+
+        const commonNonMethods = [
+            "param",
+            "params",
+            "args",
+            "arg",
+            "value",
+            "values",
+            "data",
+            "config",
+            "settings",
+            "options",
+            "result",
+            "results",
+            "list",
+            "map",
+            "set",
+            "array",
+            "string",
+            "object",
+            "number",
+            "count",
+            "size",
+            "length",
+            "width",
+            "height",
+            "name",
+            "type",
+            "kind",
+            "sort",
+            "order",
+            "level",
+            "state",
+            "status",
+            "flag",
+            "flags",
+        ];
+
+        return (
+            /^[a-z][a-zA-Z0-9_]*$/.test(text) &&
+            text.length > 2 &&
+            text.length < 30 &&
+            !javaKeywords.includes(text.toLowerCase()) &&
+            !commonNonMethods.includes(text.toLowerCase())
+        );
     };
 
     /**
@@ -319,7 +460,9 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
             onSmartJump(selectedText);
         } else if (isJavaMethodName(selectedText)) {
             const encodedClassName = encodeURIComponent(className);
-            navigate(`/class/${encodedClassName}?tab=overview&method=${selectedText}`);
+            navigate(
+                `/class/${encodedClassName}?tab=overview&method=${selectedText}`
+            );
         }
     };
 
@@ -329,13 +472,13 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
     const highlightLines = (lines: number[]) => {
         if (!editorRef.current) return;
 
-        const decorations = lines.map(line => ({
+        const decorations = lines.map((line) => ({
             range: new (window as any).monaco.Range(line, 1, line, 1),
             options: {
                 isWholeLine: true,
-                className: 'highlighted-line',
-                glyphMarginClassName: 'highlighted-line-glyph'
-            }
+                className: "highlighted-line",
+                glyphMarginClassName: "highlighted-line-glyph",
+            },
         }));
 
         editorRef.current.deltaDecorations([], decorations);
@@ -349,7 +492,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
 
         editorRef.current.revealLineInCenter(line);
         editorRef.current.setPosition({ lineNumber: line, column: 1 });
-        
+
         if (onJumpToLine) {
             onJumpToLine(line);
         }
@@ -364,7 +507,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                 await navigator.clipboard.writeText(sourceCode);
                 // 可以添加成功提示
             } catch (error) {
-                console.error('复制失败:', error);
+                console.error("复制失败:", error);
             }
         }
     };
@@ -381,7 +524,7 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
      */
     const showSearch = () => {
         if (editorRef.current) {
-            editorRef.current.getAction('actions.find').run();
+            editorRef.current.getAction("actions.find").run();
         }
     };
 
@@ -396,9 +539,9 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
     if (loading) {
         return (
             <Card title="源码加载中...">
-                <div style={{ textAlign: 'center', padding: '48px' }}>
+                <div style={{ textAlign: "center", padding: "48px" }}>
                     <Spin size="large" />
-                    <div style={{ marginTop: '16px' }}>加载源码文件...</div>
+                    <div style={{ marginTop: "16px" }}>加载源码文件...</div>
                 </div>
             </Card>
         );
@@ -415,16 +558,18 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
         );
     }
 
-    const cardStyle = isFullscreen ? {
-        position: 'fixed' as const,
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 1000,
-        margin: 0,
-        borderRadius: 0
-    } : {};
+    const cardStyle = isFullscreen
+        ? {
+              position: "fixed" as const,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1000,
+              margin: 0,
+              borderRadius: 0,
+          }
+        : {};
 
     return (
         <Card
@@ -433,32 +578,35 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                 <Space>
                     <BookOutlined />
                     {title || `源码: ${className}`}
-                    <Badge count={sourceCode.split('\n').length} title="总行数" />
+                    <Badge
+                        count={sourceCode.split("\n").length}
+                        title="总行数"
+                    />
                     <Badge count={currentLine} color="blue" title="当前行" />
                 </Space>
             }
             extra={
                 <Space>
                     <Tooltip title="跳转到文档">
-                        <Button 
-                            icon={<BookOutlined />} 
+                        <Button
+                            icon={<BookOutlined />}
                             onClick={jumpToClassDoc}
                             size="small"
                             type="primary"
                         />
                     </Tooltip>
                     <Tooltip title="搜索 (Ctrl+F)">
-                        <Button 
-                            icon={<SearchOutlined />} 
+                        <Button
+                            icon={<SearchOutlined />}
                             onClick={showSearch}
                             size="small"
                         />
                     </Tooltip>
                     <Tooltip title="跳转到行 (Ctrl+G)">
-                        <Button 
-                            icon={<LineHeightOutlined />} 
+                        <Button
+                            icon={<LineHeightOutlined />}
                             onClick={() => {
-                                const lineNumber = prompt('跳转到行号:');
+                                const lineNumber = prompt("跳转到行号:");
                                 if (lineNumber && !isNaN(Number(lineNumber))) {
                                     jumpToLine(Number(lineNumber));
                                 }
@@ -467,15 +615,21 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                         />
                     </Tooltip>
                     <Tooltip title="复制源码">
-                        <Button 
-                            icon={<CopyOutlined />} 
+                        <Button
+                            icon={<CopyOutlined />}
                             onClick={copySourceCode}
                             size="small"
                         />
                     </Tooltip>
                     <Tooltip title={isFullscreen ? "退出全屏" : "全屏显示"}>
-                        <Button 
-                            icon={isFullscreen ? <CompressOutlined /> : <ExpandOutlined />} 
+                        <Button
+                            icon={
+                                isFullscreen ? (
+                                    <CompressOutlined />
+                                ) : (
+                                    <ExpandOutlined />
+                                )
+                            }
                             onClick={toggleFullscreen}
                             size="small"
                         />
@@ -483,7 +637,11 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                 </Space>
             }
         >
-            <div style={{ height: isFullscreen ? 'calc(100vh - 100px)' : '600px' }}>
+            <div
+                style={{
+                    height: isFullscreen ? "calc(100vh - 100px)" : "600px",
+                }}
+            >
                 <Editor
                     height="100%"
                     language="java"
@@ -493,14 +651,15 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                     theme="vs"
                 />
             </div>
-            
+
             {/* 自定义样式注入 */}
-            {typeof window !== 'undefined' && (() => {
-                const styleId = 'code-viewer-styles';
-                if (!document.getElementById(styleId)) {
-                    const style = document.createElement('style');
-                    style.id = styleId;
-                    style.textContent = `
+            {typeof window !== "undefined" &&
+                (() => {
+                    const styleId = "code-viewer-styles";
+                    if (!document.getElementById(styleId)) {
+                        const style = document.createElement("style");
+                        style.id = styleId;
+                        style.textContent = `
                         .highlighted-line {
                             background-color: #ffeb3b33;
                         }
@@ -510,10 +669,10 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
                             margin-left: 3px;
                         }
                     `;
-                    document.head.appendChild(style);
-                }
-                return null;
-            })()}
+                        document.head.appendChild(style);
+                    }
+                    return null;
+                })()}
         </Card>
     );
-}; 
+};

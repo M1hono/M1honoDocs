@@ -101,7 +101,7 @@ export class JavaParser {
         const innerClasses: JavaClassDoc[] = [];
 
         // 为内部类传递正确的外部类名
-        const currentClassName = outerClassName 
+        const currentClassName = outerClassName
             ? `${outerClassName}.${classInfo.className}`
             : classInfo.className;
 
@@ -113,7 +113,7 @@ export class JavaParser {
             innerClasses,
             packageName,
             filePath,
-            classInfo.classType === 'enum',
+            classInfo.classType === "enum",
             classInfo.className,
             currentClassName
         );
@@ -146,7 +146,7 @@ export class JavaParser {
         modifiers: string[];
         superClass?: string;
         interfaces: string[];
-        classType: 'class' | 'interface' | 'enum';
+        classType: "class" | "interface" | "enum";
     } | null {
         const trimmed = line.trim();
 
@@ -178,7 +178,9 @@ export class JavaParser {
         }
 
         const classTypeMatch = trimmed.match(/\b(class|interface|enum)\b/);
-        const classType = classTypeMatch ? (classTypeMatch[1] as 'class' | 'interface' | 'enum') : 'class';
+        const classType = classTypeMatch
+            ? (classTypeMatch[1] as "class" | "interface" | "enum")
+            : "class";
 
         return {
             className,
@@ -265,8 +267,12 @@ export class JavaParser {
             const currentIndent = this.getIndentLevel(line);
 
             // 跳过空行、注释行
-            if (!trimmedLine || trimmedLine.startsWith("//") || 
-                trimmedLine.startsWith("/*") || trimmedLine.startsWith("*")) {
+            if (
+                !trimmedLine ||
+                trimmedLine.startsWith("//") ||
+                trimmedLine.startsWith("/*") ||
+                trimmedLine.startsWith("*")
+            ) {
                 i++;
                 continue;
             }
@@ -277,7 +283,11 @@ export class JavaParser {
                 if (this.isClassDeclaration(trimmedLine)) {
                     const innerClassEnd = this.findClassEndLine(i);
                     this.currentLine = i;
-                    const innerClass = this.parseClass(packageName, filePath, outerClassName);
+                    const innerClass = this.parseClass(
+                        packageName,
+                        filePath,
+                        outerClassName
+                    );
                     if (innerClass) {
                         innerClasses.push(innerClass);
                     }
@@ -297,7 +307,11 @@ export class JavaParser {
 
                 // 检查是否是字段或枚举常量
                 if (this.isFieldDeclarationStrict(line, isEnum)) {
-                    const members = this.parseFieldOrEnumConstant(i, isEnum, className);
+                    const members = this.parseFieldOrEnumConstant(
+                        i,
+                        isEnum,
+                        className
+                    );
                     if (members.length > 0) {
                         fields.push(...members);
                         // 字段/枚举可能跨多行，找到结束位置
@@ -317,9 +331,9 @@ export class JavaParser {
     private getIndentLevel(line: string): number {
         let spaces = 0;
         for (const char of line) {
-            if (char === ' ') {
+            if (char === " ") {
                 spaces++;
-            } else if (char === '\t') {
+            } else if (char === "\t") {
                 spaces += 3; // 制表符当作3个空格
             } else {
                 break;
@@ -332,13 +346,18 @@ export class JavaParser {
      * 严格检查是否是类声明
      */
     private isClassDeclaration(line: string): boolean {
-        return /^\s*(public|private|protected|static|final|abstract)?\s*(class|interface|enum)\s+\w+/.test(line);
+        return /^\s*(public|private|protected|static|final|abstract)?\s*(class|interface|enum)\s+\w+/.test(
+            line
+        );
     }
 
     /**
      * 严格检查是否是方法声明
      */
-    private isMethodDeclarationStrict(line: string, lineIndex: number): boolean {
+    private isMethodDeclarationStrict(
+        line: string,
+        lineIndex: number
+    ): boolean {
         const trimmed = line.trim();
 
         // 必须包含括号，但排除字段声明中的方法调用和泛型
@@ -362,8 +381,10 @@ export class JavaParser {
         ];
 
         // 如果匹配方法模式，进一步验证
-        const matchesMethodPattern = methodPatterns.some(pattern => pattern.test(trimmed));
-        
+        const matchesMethodPattern = methodPatterns.some((pattern) =>
+            pattern.test(trimmed)
+        );
+
         if (matchesMethodPattern) {
             // 确保不是字段声明的一部分
             return !this.looksLikeFieldDeclaration(trimmed);
@@ -373,7 +394,9 @@ export class JavaParser {
         if (lineIndex + 1 < this.lines.length) {
             const nextLine = this.lines[lineIndex + 1].trim();
             if (nextLine.startsWith("{") || nextLine.startsWith("throws")) {
-                return methodPatterns.some(pattern => pattern.test(trimmed + " " + nextLine));
+                return methodPatterns.some((pattern) =>
+                    pattern.test(trimmed + " " + nextLine)
+                );
             }
         }
 
@@ -390,8 +413,8 @@ export class JavaParser {
             /^\s*static\s+final\s+[\w<>\[\],\s\.]+\s+\w+\s*=/,
             /^\s*final\s+[\w<>\[\],\s\.]+\s+\w+\s*=/,
         ];
-        
-        return patterns.some(pattern => pattern.test(line));
+
+        return patterns.some((pattern) => pattern.test(line));
     }
 
     /**
@@ -399,7 +422,9 @@ export class JavaParser {
      */
     private looksLikeFieldDeclaration(line: string): boolean {
         // 如果包含字段初始化特征，认为是字段
-        return line.includes("=") && !line.includes("==") && !line.includes("!=");
+        return (
+            line.includes("=") && !line.includes("==") && !line.includes("!=")
+        );
     }
 
     /**
@@ -434,8 +459,10 @@ export class JavaParser {
         ];
 
         // 检查是否匹配字段模式
-        const matchesFieldPattern = fieldPatterns.some(pattern => pattern.test(trimmed));
-        
+        const matchesFieldPattern = fieldPatterns.some((pattern) =>
+            pattern.test(trimmed)
+        );
+
         if (!matchesFieldPattern) {
             return false;
         }
@@ -448,8 +475,10 @@ export class JavaParser {
                 return false;
             }
             // 有等号的情况，检查等号前是否符合字段声明格式
-            const beforeEquals = trimmed.substring(0, trimmed.indexOf("=")).trim();
-            return fieldPatterns.some(pattern => pattern.test(beforeEquals));
+            const beforeEquals = trimmed
+                .substring(0, trimmed.indexOf("="))
+                .trim();
+            return fieldPatterns.some((pattern) => pattern.test(beforeEquals));
         }
 
         return true;
@@ -462,14 +491,14 @@ export class JavaParser {
         const line = this.lines[startLine].trim();
 
         // 如果以分号结尾，就是单行字段
-        if (line.endsWith(';')) {
+        if (line.endsWith(";")) {
             return startLine;
         }
 
         // 否则查找分号结束位置（处理复杂初始化）
         for (let i = startLine; i < this.lines.length; i++) {
             const currentLine = this.lines[i].trim();
-            if (currentLine.endsWith(';')) {
+            if (currentLine.endsWith(";")) {
                 return i;
             }
         }
@@ -615,16 +644,34 @@ export class JavaParser {
 
         // 检查是否是构造函数
         // 构造函数的特征：方法名之前只有访问修饰符，没有返回类型
-        const beforeMethod = declaration.substring(0, declaration.indexOf(methodName));
-        const parts = beforeMethod.trim().split(/\s+/).filter(part => part.length > 0);
-        
+        const beforeMethod = declaration.substring(
+            0,
+            declaration.indexOf(methodName)
+        );
+        const parts = beforeMethod
+            .trim()
+            .split(/\s+/)
+            .filter((part) => part.length > 0);
+
         // 过滤掉修饰符，剩下的应该是返回类型
-        const modifierKeywords = ["public", "private", "protected", "static", "final", "abstract", "synchronized"];
-        const nonModifierParts = parts.filter(part => !modifierKeywords.includes(part));
-        
+        const modifierKeywords = [
+            "public",
+            "private",
+            "protected",
+            "static",
+            "final",
+            "abstract",
+            "synchronized",
+        ];
+        const nonModifierParts = parts.filter(
+            (part) => !modifierKeywords.includes(part)
+        );
+
         // 如果没有非修饰符部分，或者只有泛型声明，则是构造函数
-        const isConstructor = nonModifierParts.length === 0 || 
-            (nonModifierParts.length === 1 && nonModifierParts[0].startsWith("<"));
+        const isConstructor =
+            nonModifierParts.length === 0 ||
+            (nonModifierParts.length === 1 &&
+                nonModifierParts[0].startsWith("<"));
 
         // 提取返回类型
         let returnType = "void";
@@ -710,7 +757,7 @@ export class JavaParser {
         let withoutModifiers = cleaned;
         modifiers.forEach((mod) => {
             withoutModifiers = withoutModifiers
-                .replace(new RegExp(`\\b${mod}\\b`, 'g'), " ")
+                .replace(new RegExp(`\\b${mod}\\b`, "g"), " ")
                 .replace(/\s+/g, " ")
                 .trim();
         });
@@ -729,7 +776,7 @@ export class JavaParser {
 
         // 解析类型和名称，支持复杂泛型
         const { type, name } = this.parseTypeAndName(declarationPart);
-        
+
         if (!type || !name) {
             return null;
         }
@@ -745,39 +792,42 @@ export class JavaParser {
     /**
      * 解析类型和名称，支持复杂泛型
      */
-    private parseTypeAndName(declarationPart: string): { type: string; name: string } {
+    private parseTypeAndName(declarationPart: string): {
+        type: string;
+        name: string;
+    } {
         // 处理泛型：找到最后一个 > 或 ] 或最后一个简单类型单词
         let nameStartIndex = -1;
         let braceCount = 0;
         let angleCount = 0;
-        
+
         for (let i = declarationPart.length - 1; i >= 0; i--) {
             const char = declarationPart[i];
-            
-            if (char === ']') braceCount++;
-            else if (char === '[') braceCount--;
-            else if (char === '>') angleCount++;
-            else if (char === '<') angleCount--;
-            else if (char === ' ' && braceCount === 0 && angleCount === 0) {
+
+            if (char === "]") braceCount++;
+            else if (char === "[") braceCount--;
+            else if (char === ">") angleCount++;
+            else if (char === "<") angleCount--;
+            else if (char === " " && braceCount === 0 && angleCount === 0) {
                 nameStartIndex = i + 1;
                 break;
             }
         }
-        
+
         if (nameStartIndex === -1) {
             // 没有找到空格，尝试简单解析
             const parts = declarationPart.trim().split(/\s+/);
             if (parts.length >= 2) {
                 const name = parts[parts.length - 1];
-                const type = parts.slice(0, -1).join(' ');
+                const type = parts.slice(0, -1).join(" ");
                 return { type, name };
             }
-            return { type: '', name: '' };
+            return { type: "", name: "" };
         }
-        
+
         const type = declarationPart.substring(0, nameStartIndex).trim();
         const name = declarationPart.substring(nameStartIndex).trim();
-        
+
         return { type, name };
     }
 
@@ -881,22 +931,26 @@ export class JavaParser {
     /**
      * 解析字段或枚举常量
      */
-    private parseFieldOrEnumConstant(lineIndex: number, isEnum: boolean, enumName: string): JavaFieldDoc[] {
+    private parseFieldOrEnumConstant(
+        lineIndex: number,
+        isEnum: boolean,
+        enumName: string
+    ): JavaFieldDoc[] {
         const javadocComment = this.extractJavadocComment(lineIndex);
         const declarationLine = this.lines[lineIndex].trim();
         const results: JavaFieldDoc[] = [];
 
         if (isEnum && /^[A-Z_0-9]+/.test(declarationLine)) {
-             // 这是枚举常量列表
+            // 这是枚举常量列表
             const constants = declarationLine.split(/[,;]/);
             for (const constant of constants) {
-                const name = constant.trim().split('(')[0];
+                const name = constant.trim().split("(")[0];
                 if (name) {
                     results.push({
                         name: name,
                         type: enumName,
-                        modifiers: ['public', 'static', 'final'],
-                        comment: '', // Enum constants rarely have preceding Javadoc
+                        modifiers: ["public", "static", "final"],
+                        comment: "", // Enum constants rarely have preceding Javadoc
                         lineRange: { start: lineIndex + 1, end: lineIndex + 1 },
                         isEnumConstant: true,
                     });
@@ -907,7 +961,7 @@ export class JavaParser {
 
         // 否则，作为常规字段解析
         const field = this.parseFieldStrict(lineIndex);
-        if(field) {
+        if (field) {
             results.push(field);
         }
         return results;
