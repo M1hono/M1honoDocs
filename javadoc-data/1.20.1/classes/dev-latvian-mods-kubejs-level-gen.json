@@ -1,0 +1,832 @@
+{
+  "dev.latvian.mods.kubejs.level.gen.AddWorldgenEventJS": {
+    "className": "AddWorldgenEventJS",
+    "fullName": "dev.latvian.mods.kubejs.level.gen.AddWorldgenEventJS",
+    "packageName": "dev.latvian.mods.kubejs.level.gen",
+    "filePath": "/dev/latvian/mods/kubejs/level/gen/AddWorldgenEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StartupEventJS",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Iterables",
+      "dev.architectury.registry.level.biome.BiomeModifications",
+      "dev.latvian.mods.kubejs.event.StartupEventJS",
+      "dev.latvian.mods.kubejs.level.gen.filter.biome.BiomeFilter",
+      "dev.latvian.mods.kubejs.level.gen.properties.AddLakeProperties",
+      "dev.latvian.mods.kubejs.level.gen.properties.AddOreProperties",
+      "dev.latvian.mods.kubejs.level.gen.properties.AddSpawnProperties",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.ClassWrapper",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.MobCategory",
+      "net.minecraft.world.level.biome.MobSpawnSettings",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.levelgen.GenerationStep",
+      "net.minecraft.world.level.levelgen.VerticalAnchor",
+      "net.minecraft.world.level.levelgen.feature.ConfiguredFeature",
+      "net.minecraft.world.level.levelgen.feature.Feature",
+      "net.minecraft.world.level.levelgen.feature.LakeFeature",
+      "net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration",
+      "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider",
+      "net.minecraft.world.level.levelgen.placement.CountPlacement",
+      "net.minecraft.world.level.levelgen.placement.InSquarePlacement",
+      "net.minecraft.world.level.levelgen.placement.PlacedFeature",
+      "net.minecraft.world.level.levelgen.placement.PlacementModifier",
+      "net.minecraft.world.level.levelgen.placement.RarityFilter",
+      "java.util.ArrayList",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Objects",
+      "java.util.function.Consumer",
+      "java.util.regex.Pattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "addFeature",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "step",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "feature",
+            "type": "PlacedFeature",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEntitySpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "category",
+            "type": "MobCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spawnerData",
+            "type": "MobSpawnSettings.SpawnerData",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addOre",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Consumer<AddOreProperties>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addLake",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Consumer<AddLakeProperties>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Consumer<AddSpawnProperties>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "category",
+            "type": "MobCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spawn",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "category",
+            "type": "MobCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spawn",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 178
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 39,
+      "end": 179
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/gen/AddWorldgenEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.gen.RemoveWorldgenEventJS": {
+    "className": "RemoveWorldgenEventJS",
+    "fullName": "dev.latvian.mods.kubejs.level.gen.RemoveWorldgenEventJS",
+    "packageName": "dev.latvian.mods.kubejs.level.gen",
+    "filePath": "/dev/latvian/mods/kubejs/level/gen/RemoveWorldgenEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StartupEventJS",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "dev.architectury.hooks.level.biome.BiomeProperties",
+      "dev.architectury.registry.level.biome.BiomeModifications",
+      "dev.latvian.mods.kubejs.event.StartupEventJS",
+      "dev.latvian.mods.kubejs.level.gen.filter.biome.BiomeFilter",
+      "dev.latvian.mods.kubejs.level.gen.properties.RemoveOresProperties",
+      "dev.latvian.mods.kubejs.level.gen.properties.RemoveSpawnsProperties",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.entity.MobCategory",
+      "net.minecraft.world.level.biome.MobSpawnSettings",
+      "net.minecraft.world.level.levelgen.GenerationStep",
+      "net.minecraft.world.level.levelgen.feature.ConfiguredFeature",
+      "net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration",
+      "net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration",
+      "net.minecraft.world.level.levelgen.feature.configurations.ReplaceBlockConfiguration",
+      "net.minecraft.world.level.levelgen.placement.PlacedFeature",
+      "org.apache.commons.lang3.mutable.MutableInt",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.BiConsumer",
+      "java.util.function.BiPredicate",
+      "java.util.function.Consumer",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "checkTree",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "configuredFeature",
+            "type": "?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "predicate",
+            "type": "Predicate<FeatureConfiguration>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeFeature",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "decoration",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "predicate",
+            "type": "Predicate<FeatureConfiguration>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeSpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "predicate",
+            "type": "MobSpawnSettings.SpawnerData>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFeatures",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFiltered",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFeatures",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFiltered",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFeatures",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFiltered",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printFeaturesForType",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "afterRemoval",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeFeatureById",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "decoration",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ids",
+            "type": "ResourceLocation[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeFeatureById",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ids",
+            "type": "ResourceLocation[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllFeatures",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllFeatures",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "BiomeFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllFeatures",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeOres",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Consumer<RemoveOresProperties>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printSpawns",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "category",
+            "type": "MobCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printSpawns",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeSpawns",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Consumer<RemoveSpawnsProperties>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllSpawns",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 196
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 34,
+      "end": 197
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/gen/RemoveWorldgenEventJS.java"
+  }
+}

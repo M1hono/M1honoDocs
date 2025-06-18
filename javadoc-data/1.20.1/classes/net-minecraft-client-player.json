@@ -1,0 +1,3525 @@
+{
+  "net.minecraft.client.player.AbstractClientPlayer": {
+    "className": "AbstractClientPlayer",
+    "fullName": "net.minecraft.client.player.AbstractClientPlayer",
+    "packageName": "net.minecraft.client.player",
+    "filePath": "/net/minecraft/client/player/AbstractClientPlayer.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Player",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.hash.Hashing",
+      "com.mojang.authlib.GameProfile",
+      "java.io.File",
+      "java.util.Locale",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.multiplayer.ClientLevel",
+      "net.minecraft.client.multiplayer.PlayerInfo",
+      "net.minecraft.client.renderer.texture.AbstractTexture",
+      "net.minecraft.client.renderer.texture.HttpTexture",
+      "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+      "net.minecraft.client.renderer.texture.TextureManager",
+      "net.minecraft.client.resources.DefaultPlayerSkin",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.StringUtil",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.GameType",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AbstractClientPlayer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pClientLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isSpectator",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCreative",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCapeLoaded",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayerInfo",
+        "returnType": "PlayerInfo",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeltaMovementLerped",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pPatialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSkinLoaded",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSkinTextureLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCloakTextureLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isElytraLoaded",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElytraTextureLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerSkinTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTextureLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSkinLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pUsername",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModelName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFieldOfViewModifier",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 172
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SKIN_URL_TEMPLATE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"http://skins.minecraft.net/MinecraftSkins/%s.png\"",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "playerInfo",
+        "type": "PlayerInfo",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "deltaMovementOnPreviousTick",
+        "type": "Vec3",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "Vec3.ZERO",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "elytraRotX",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "elytraRotY",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "elytraRotZ",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "clientLevel",
+        "type": "ClientLevel",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 173
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/player/AbstractClientPlayer.java"
+  },
+  "net.minecraft.client.player.Input": {
+    "className": "Input",
+    "fullName": "net.minecraft.client.player.Input",
+    "packageName": "net.minecraft.client.player",
+    "filePath": "/net/minecraft/client/player/Input.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.phys.Vec2",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsSneaking",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSneakingSpeedMultiplier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMoveVector",
+        "returnType": "Vec2",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasForwardImpulse",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "leftImpulse",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "forwardImpulse",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "up",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "down",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "left",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "right",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "jumping",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "shiftKeyDown",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/player/Input.java"
+  },
+  "net.minecraft.client.player.KeyboardInput": {
+    "className": "KeyboardInput",
+    "fullName": "net.minecraft.client.player.KeyboardInput",
+    "packageName": "net.minecraft.client.player",
+    "filePath": "/net/minecraft/client/player/KeyboardInput.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Input",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.Options",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "KeyboardInput",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOptions",
+            "type": "Options",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 13
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "calculateImpulse",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pInput",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherInput",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsSneaking",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSneakingSpeedMultiplier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "options",
+        "type": "Options",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/player/KeyboardInput.java"
+  },
+  "net.minecraft.client.player.LocalPlayer": {
+    "className": "LocalPlayer",
+    "fullName": "net.minecraft.client.player.LocalPlayer",
+    "packageName": "net.minecraft.client.player",
+    "filePath": "/net/minecraft/client/player/LocalPlayer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractClientPlayer",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Objects",
+      "java.util.stream.StreamSupport",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.ClientRecipeBook",
+      "net.minecraft.client.KeyMapping",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.DeathScreen",
+      "net.minecraft.client.gui.screens.ReceivingLevelScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.gui.screens.inventory.AbstractContainerScreen",
+      "net.minecraft.client.gui.screens.inventory.BookEditScreen",
+      "net.minecraft.client.gui.screens.inventory.CommandBlockEditScreen",
+      "net.minecraft.client.gui.screens.inventory.HangingSignEditScreen",
+      "net.minecraft.client.gui.screens.inventory.JigsawBlockEditScreen",
+      "net.minecraft.client.gui.screens.inventory.MinecartCommandBlockEditScreen",
+      "net.minecraft.client.gui.screens.inventory.SignEditScreen",
+      "net.minecraft.client.gui.screens.inventory.StructureBlockEditScreen",
+      "net.minecraft.client.multiplayer.ClientLevel",
+      "net.minecraft.client.multiplayer.ClientPacketListener",
+      "net.minecraft.client.resources.sounds.AmbientSoundHandler",
+      "net.minecraft.client.resources.sounds.BiomeAmbientSoundsHandler",
+      "net.minecraft.client.resources.sounds.BubbleColumnAmbientSoundHandler",
+      "net.minecraft.client.resources.sounds.ElytraOnPlayerSoundInstance",
+      "net.minecraft.client.resources.sounds.RidingMinecartSoundInstance",
+      "net.minecraft.client.resources.sounds.SimpleSoundInstance",
+      "net.minecraft.client.resources.sounds.UnderwaterAmbientSoundHandler",
+      "net.minecraft.client.resources.sounds.UnderwaterAmbientSoundInstances",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.particles.ParticleTypes",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.protocol.game.ServerboundClientCommandPacket",
+      "net.minecraft.network.protocol.game.ServerboundContainerClosePacket",
+      "net.minecraft.network.protocol.game.ServerboundMovePlayerPacket",
+      "net.minecraft.network.protocol.game.ServerboundMoveVehiclePacket",
+      "net.minecraft.network.protocol.game.ServerboundPlayerAbilitiesPacket",
+      "net.minecraft.network.protocol.game.ServerboundPlayerActionPacket",
+      "net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket",
+      "net.minecraft.network.protocol.game.ServerboundPlayerInputPacket",
+      "net.minecraft.network.protocol.game.ServerboundRecipeBookSeenRecipePacket",
+      "net.minecraft.network.protocol.game.ServerboundSwingPacket",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.stats.StatsCounter",
+      "net.minecraft.tags.FluidTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.effect.MobEffect",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.HumanoidArm",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.entity.PlayerRideableJumping",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.vehicle.AbstractMinecart",
+      "net.minecraft.world.entity.vehicle.Boat",
+      "net.minecraft.world.inventory.ClickAction",
+      "net.minecraft.world.item.ElytraItem",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Recipe",
+      "net.minecraft.world.item.enchantment.EnchantmentHelper",
+      "net.minecraft.world.level.BaseCommandBlock",
+      "net.minecraft.world.level.GameType",
+      "net.minecraft.world.level.block.entity.CommandBlockEntity",
+      "net.minecraft.world.level.block.entity.HangingSignBlockEntity",
+      "net.minecraft.world.level.block.entity.JigsawBlockEntity",
+      "net.minecraft.world.level.block.entity.SignBlockEntity",
+      "net.minecraft.world.level.block.entity.StructureBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec2",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.VoxelShape",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LocalPlayer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClientLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConnection",
+            "type": "ClientPacketListener",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStats",
+            "type": "StatsCounter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecipeBook",
+            "type": "ClientRecipeBook",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWasShiftKeyDown",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWasSprinting",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 165,
+          "end": 176
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "heal",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHealAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startRiding",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pForce",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeVehicle",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewXRot",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 215
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getViewYRot",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 220,
+          "end": 222
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCurrentMood",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 257
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendPosition",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 262,
+          "end": 310
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendIsSprintingIfNeeded",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 312,
+          "end": 320
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drop",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFullStack",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 322,
+          "end": 328
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "swing",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 333
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "respawn",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 335,
+          "end": 338
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "actuallyHurt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDamageSrc",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDamageAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 344,
+          "end": 348
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "closeContainer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 353,
+          "end": 356
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clientSideCloseContainer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 358,
+          "end": 361
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurtTo",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHealth",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 366,
+          "end": 386
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onUpdateAbilities",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 391,
+          "end": 393
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isLocalPlayer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 398,
+          "end": 400
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSuppressingSlidingDownLadder",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 402,
+          "end": 404
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSpawnSprintParticle",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 406,
+          "end": 408
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSpawnSoulSpeedParticle",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 410,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendRidingJump",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendOpenInventory",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 418,
+          "end": 420
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setServerBrand",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServerBrand",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 426,
+          "end": 428
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getServerBrand",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 436,
+          "end": 438
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStats",
+        "returnType": "StatsCounter",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 440,
+          "end": 442
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRecipeBook",
+        "returnType": "ClientRecipeBook",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 444,
+          "end": 446
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeRecipeHighlight",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRecipe",
+            "type": "Recipe<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 448,
+          "end": 454
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPermissionLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 456,
+          "end": 458
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPermissionLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPermissionLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 460,
+          "end": 462
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "displayClientMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChatComponent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pActionBar",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 464,
+          "end": 466
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveTowardsClosestSpace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 468,
+          "end": 496
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suffocatesAt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 498,
+          "end": 502
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setExperienceValues",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCurrentXP",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxXP",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 507,
+          "end": 511
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pComponent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 513,
+          "end": 515
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleEntityEvent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 520,
+          "end": 527
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShowDeathScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShow",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 529,
+          "end": 531
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldShowDeathScreen",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 533,
+          "end": 535
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVolume",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 537,
+          "end": 546
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playNotifySound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSound",
+            "type": "SoundEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "SoundSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVolume",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 548,
+          "end": 550
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEffectiveAi",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 555,
+          "end": 557
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startUsingItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 559,
+          "end": 566
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isUsingItem",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 568,
+          "end": 570
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopUsingItem",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 572,
+          "end": 575
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUsedItemHand",
+        "returnType": "InteractionHand",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 577,
+          "end": 579
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSyncedDataUpdated",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "EntityDataAccessor<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 581,
+          "end": 597
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "jumpableVehicle",
+        "returnType": "PlayerRideableJumping",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 600,
+          "end": 609
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getJumpRidingScale",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 611,
+          "end": 613
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTextFilteringEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 615,
+          "end": 617
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openTextEdit",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSignEntity",
+            "type": "SignBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsFrontText",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 619,
+          "end": 626
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openMinecartCommandBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCommandBlock",
+            "type": "BaseCommandBlock",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 628,
+          "end": 630
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openCommandBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCommandBlock",
+            "type": "CommandBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 632,
+          "end": 634
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openStructureBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStructure",
+            "type": "StructureBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 636,
+          "end": 638
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openJigsawBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pJigsawBlockEntity",
+            "type": "JigsawBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 640,
+          "end": 642
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openItemGui",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 644,
+          "end": 649
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "crit",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntityHit",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 654,
+          "end": 656
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "magicCrit",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntityHit",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 658,
+          "end": 660
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isShiftKeyDown",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 662,
+          "end": 664
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCrouching",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 666,
+          "end": 668
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isMovingSlowly",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 670,
+          "end": 672
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serverAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 674,
+          "end": 686
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isControlledCamera",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 688,
+          "end": 690
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetPos",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 692,
+          "end": 708
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 714,
+          "end": 872
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickDeath",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 877,
+          "end": 883
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleNetherPortalClient",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 885,
+          "end": 911
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rideTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 916,
+          "end": 926
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHandsBusy",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 928,
+          "end": 930
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeEffectNoUpdate",
+        "returnType": "MobEffectInstance",
+        "parameters": [
+          {
+            "name": "pMobEffect",
+            "type": "MobEffect",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 937,
+          "end": 944
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "MoverType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 946,
+          "end": 951
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAutoJumpEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 953,
+          "end": 955
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateAutoJump",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMovementX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovementZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 957,
+          "end": 1054
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHorizontalCollisionMinor",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDeltaMovement",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1056,
+          "end": 1071
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canAutoJump",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1073,
+          "end": 1075
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isMoving",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1077,
+          "end": 1080
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canStartSprinting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1082,
+          "end": 1084
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "vehicleCanSprint",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pVehicle",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1086,
+          "end": 1088
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasEnoughImpulseToStartSprinting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1090,
+          "end": 1093
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasEnoughFoodToStartSprinting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1095,
+          "end": 1097
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWaterVision",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1099,
+          "end": 1113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onGameModeChanged",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGameMode",
+            "type": "GameType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1115,
+          "end": 1120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isUnderWater",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1122,
+          "end": 1124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateIsUnderwater",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1126,
+          "end": 1143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRopeHoldPosition",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1145,
+          "end": 1155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSyncFields",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "LocalPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1157,
+          "end": 1167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateTutorialInventoryAction",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCarried",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClicked",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAction",
+            "type": "ClickAction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1169,
+          "end": 1171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVisualRotationYInDegrees",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1173,
+          "end": 1175
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "POSITION_REMINDER_INTERVAL",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        }
+      },
+      {
+        "name": "WATER_VISION_MAX_TIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      {
+        "name": "WATER_VISION_QUICK_TIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        }
+      },
+      {
+        "name": "WATER_VISION_QUICK_PERCENT",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      },
+      {
+        "name": "SUFFOCATING_COLLISION_CHECK_SCALE",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.35D",
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        }
+      },
+      {
+        "name": "DEFAULT_SNEAKING_MOVEMENT_FACTOR",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.3F",
+        "lineRange": {
+          "start": 100,
+          "end": 100
+        }
+      },
+      {
+        "name": "connection",
+        "type": "ClientPacketListener",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 101,
+          "end": 101
+        }
+      },
+      {
+        "name": "stats",
+        "type": "StatsCounter",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 102,
+          "end": 102
+        }
+      },
+      {
+        "name": "recipeBook",
+        "type": "ClientRecipeBook",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 103,
+          "end": 103
+        }
+      },
+      {
+        "name": "permissionLevel",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 105,
+          "end": 105
+        }
+      },
+      {
+        "name": "xLast",
+        "type": "double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 110,
+          "end": 110
+        }
+      },
+      {
+        "name": "yLast1",
+        "type": "double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 115,
+          "end": 115
+        }
+      },
+      {
+        "name": "zLast",
+        "type": "double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 120,
+          "end": 120
+        }
+      },
+      {
+        "name": "yRotLast",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 125,
+          "end": 125
+        }
+      },
+      {
+        "name": "xRotLast",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 130,
+          "end": 130
+        }
+      },
+      {
+        "name": "lastOnGround",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 131,
+          "end": 131
+        }
+      },
+      {
+        "name": "crouching",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 132,
+          "end": 132
+        }
+      },
+      {
+        "name": "wasShiftKeyDown",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 133,
+          "end": 133
+        }
+      },
+      {
+        "name": "wasSprinting",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "the last sprinting state sent to the server ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 135,
+          "end": 135
+        }
+      },
+      {
+        "name": "positionReminder",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 140,
+          "end": 140
+        }
+      },
+      {
+        "name": "flashOnSetHealth",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 141,
+          "end": 141
+        }
+      },
+      {
+        "name": "serverBrand",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 143,
+          "end": 143
+        }
+      },
+      {
+        "name": "input",
+        "type": "Input",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 144,
+          "end": 144
+        }
+      },
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 145,
+          "end": 145
+        }
+      },
+      {
+        "name": "sprintTriggerTime",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 146,
+          "end": 146
+        }
+      },
+      {
+        "name": "yBob",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 147,
+          "end": 147
+        }
+      },
+      {
+        "name": "xBob",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 148,
+          "end": 148
+        }
+      },
+      {
+        "name": "yBobO",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 149,
+          "end": 149
+        }
+      },
+      {
+        "name": "xBobO",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 150,
+          "end": 150
+        }
+      },
+      {
+        "name": "jumpRidingTicks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 151,
+          "end": 151
+        }
+      },
+      {
+        "name": "jumpRidingScale",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 152,
+          "end": 152
+        }
+      },
+      {
+        "name": "spinningEffectIntensity",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 153,
+          "end": 153
+        }
+      },
+      {
+        "name": "oSpinningEffectIntensity",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 154,
+          "end": 154
+        }
+      },
+      {
+        "name": "startedUsingItem",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 155,
+          "end": 155
+        }
+      },
+      {
+        "name": "usingItemHand",
+        "type": "InteractionHand",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 157,
+          "end": 157
+        }
+      },
+      {
+        "name": "handsBusy",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 158,
+          "end": 158
+        }
+      },
+      {
+        "name": "autoJumpEnabled",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 159,
+          "end": 159
+        }
+      },
+      {
+        "name": "autoJumpTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 160,
+          "end": 160
+        }
+      },
+      {
+        "name": "wasFallFlying",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 161,
+          "end": 161
+        }
+      },
+      {
+        "name": "waterVisionTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 162,
+          "end": 162
+        }
+      },
+      {
+        "name": "showDeathScreen",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 163,
+          "end": 163
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 92,
+      "end": 1176
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/player/LocalPlayer.java"
+  },
+  "net.minecraft.client.player.RemotePlayer": {
+    "className": "RemotePlayer",
+    "fullName": "net.minecraft.client.player.RemotePlayer",
+    "packageName": "net.minecraft.client.player",
+    "filePath": "/net/minecraft/client/player/RemotePlayer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractClientPlayer",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.multiplayer.ClientLevel",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RemotePlayer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pClientLevel",
+            "type": "ClientLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "shouldRenderAtSqrDistance",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDistance",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lerpMotion",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updatePlayerPose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pComponent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 108
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "lerpDeltaMovement",
+        "type": "Vec3",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Vec3.ZERO",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "lerpDeltaMovementSteps",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 109
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/player/RemotePlayer.java"
+  }
+}

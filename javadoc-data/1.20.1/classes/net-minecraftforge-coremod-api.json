@@ -1,0 +1,923 @@
+{
+  "net.minecraftforge.coremod.api.ASMAPI": {
+    "className": "ASMAPI",
+    "fullName": "net.minecraftforge.coremod.api.ASMAPI",
+    "packageName": "net.minecraftforge.coremod.api",
+    "filePath": "/net/minecraftforge/coremod/api/ASMAPI.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "cpw.mods.modlauncher.Launcher",
+      "cpw.mods.modlauncher.api.INameMappingService",
+      "net.minecraftforge.coremod.CoreModTracker",
+      "org.jetbrains.annotations.Nullable",
+      "org.objectweb.asm.Opcodes",
+      "org.objectweb.asm.tree.*",
+      "org.objectweb.asm.util.Textifier",
+      "org.objectweb.asm.util.TraceClassVisitor",
+      "org.objectweb.asm.util.TraceMethodVisitor",
+      "javax.script.ScriptException",
+      "java.io.IOException",
+      "java.io.PrintWriter",
+      "java.io.StringWriter",
+      "java.lang.reflect.Modifier",
+      "java.util.Iterator",
+      "java.util.ListIterator",
+      "java.util.Objects",
+      "java.util.Optional"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getMethodNode",
+        "returnType": "MethodNode",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendMethodCall",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "methodCall",
+            "type": "MethodInsnNode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildMethodCall",
+        "returnType": "MethodInsnNode",
+        "parameters": [
+          {
+            "name": "ownerName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "methodName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "methodDescriptor",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "type",
+            "type": "MethodType",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mapMethod",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mapField",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "map",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "domain",
+            "type": "INameMappingService.Domain",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSystemPropertyFlag",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "propertyName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstInstruction",
+        "returnType": "AbstractInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "opCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstInstructionAfter",
+        "returnType": "AbstractInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "opCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "startIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstInstructionBefore",
+        "returnType": "AbstractInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "opCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "startIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstMethodCall",
+        "returnType": "MethodInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "MethodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "descriptor",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstMethodCallAfter",
+        "returnType": "MethodInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "MethodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "descriptor",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "startIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findFirstMethodCallBefore",
+        "returnType": "MethodInsnNode",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "MethodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "descriptor",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "startIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "insertInsnList",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "method",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "MethodType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "desc",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "list",
+            "type": "InsnList",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mode",
+            "type": "InsertMode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listOf",
+        "returnType": "InsnList",
+        "parameters": [
+          {
+            "name": "nodes",
+            "type": "AbstractInsnNode[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 228
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "redirectFieldToMethod",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "classNode",
+            "type": "ClassNode",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "fieldName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "methodName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 299
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadFile",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "file",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "ScriptException",
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 301,
+          "end": 303
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadData",
+        "returnType": "Object",
+        "parameters": [
+          {
+            "name": "file",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "ScriptException",
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 306,
+          "end": 308
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "log",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "args",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 310,
+          "end": 312
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "classNodeToString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "ClassNode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 314,
+          "end": 318
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fieldNodeToString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "FieldNode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 320,
+          "end": 324
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "methodNodeToString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "MethodNode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 326,
+          "end": 330
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "text",
+            "type": "Textifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 332,
+          "end": 338
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "MethodType",
+        "fullName": "net.minecraftforge.coremod.api.ASMAPI.MethodType",
+        "packageName": "net.minecraftforge.coremod.api",
+        "filePath": "/net/minecraftforge/coremod/api/ASMAPI.java",
+        "classType": "enum",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "cpw.mods.modlauncher.Launcher",
+          "cpw.mods.modlauncher.api.INameMappingService",
+          "net.minecraftforge.coremod.CoreModTracker",
+          "org.jetbrains.annotations.Nullable",
+          "org.objectweb.asm.Opcodes",
+          "org.objectweb.asm.tree.*",
+          "org.objectweb.asm.util.Textifier",
+          "org.objectweb.asm.util.TraceClassVisitor",
+          "org.objectweb.asm.util.TraceMethodVisitor",
+          "javax.script.ScriptException",
+          "java.io.IOException",
+          "java.io.PrintWriter",
+          "java.io.StringWriter",
+          "java.lang.reflect.Modifier",
+          "java.util.Iterator",
+          "java.util.ListIterator",
+          "java.util.Objects",
+          "java.util.Optional"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "toOpcode",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 35,
+              "end": 37
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "INTERFACE",
+            "type": "VIRTUAL, SPECIAL, STATIC,",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 33,
+              "end": 33
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 32,
+          "end": 38
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/coremod/api/ASMAPI/MethodType.java"
+      },
+      {
+        "className": "InsertMode",
+        "fullName": "net.minecraftforge.coremod.api.ASMAPI.InsertMode",
+        "packageName": "net.minecraftforge.coremod.api",
+        "filePath": "/net/minecraftforge/coremod/api/ASMAPI.java",
+        "classType": "enum",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "cpw.mods.modlauncher.Launcher",
+          "cpw.mods.modlauncher.api.INameMappingService",
+          "net.minecraftforge.coremod.CoreModTracker",
+          "org.jetbrains.annotations.Nullable",
+          "org.objectweb.asm.Opcodes",
+          "org.objectweb.asm.tree.*",
+          "org.objectweb.asm.util.Textifier",
+          "org.objectweb.asm.util.TraceClassVisitor",
+          "org.objectweb.asm.util.TraceMethodVisitor",
+          "javax.script.ScriptException",
+          "java.io.IOException",
+          "java.io.PrintWriter",
+          "java.io.StringWriter",
+          "java.lang.reflect.Modifier",
+          "java.util.Iterator",
+          "java.util.ListIterator",
+          "java.util.Objects",
+          "java.util.Optional"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [
+          {
+            "name": "INSERT_AFTER",
+            "type": "REMOVE_ORIGINAL, INSERT_BEFORE,",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 64,
+              "end": 64
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/coremod/api/ASMAPI/InsertMode.java"
+      }
+    ],
+    "lineRange": {
+      "start": 23,
+      "end": 339
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/coremod/api/ASMAPI.java"
+  }
+}

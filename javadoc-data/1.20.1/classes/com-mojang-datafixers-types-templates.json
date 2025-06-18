@@ -1,0 +1,3294 @@
+{
+  "com.mojang.datafixers.types.templates.CheckType": {
+    "className": "CheckType",
+    "fullName": "com.mojang.datafixers.types.templates.CheckType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Check.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.functions.PointFreeRule",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CheckType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "index",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "expectedIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "delegate",
+            "type": "Type<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 92
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<A>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<A>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 197,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 219
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 82,
+          "end": 82
+        }
+      },
+      {
+        "name": "index",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      },
+      {
+        "name": "expectedIndex",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        }
+      },
+      {
+        "name": "delegate",
+        "type": "Type<A>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 81,
+      "end": 220
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/CheckType.java"
+  },
+  "com.mojang.datafixers.types.templates.CompoundListType": {
+    "className": "CompoundListType",
+    "fullName": "com.mojang.datafixers.types.templates.CompoundListType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/CompoundList.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.DataFixUtils",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.profunctors.Cartesian",
+      "com.mojang.datafixers.optics.profunctors.TraversalP",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.List",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CompoundListType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "Type<K>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "element",
+            "type": "Type<V>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 94
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<List<Pair<K, V>>>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<List<Pair<K, V>>>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKey",
+        "returnType": "Type<K>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElement",
+        "returnType": "Type<V>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 190
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "key",
+        "type": "Type<K>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "element",
+        "type": "Type<V>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 87,
+      "end": 191
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/CompoundListType.java"
+  },
+  "com.mojang.datafixers.types.templates.HookFunction": {
+    "className": "HookFunction",
+    "fullName": "com.mojang.datafixers.types.templates.HookFunction",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Hook.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Lifecycle",
+      "javax.annotation.Nullable",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/HookFunction.java"
+  },
+  "com.mojang.datafixers.types.templates.HookType": {
+    "className": "HookType",
+    "fullName": "com.mojang.datafixers.types.templates.HookType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Hook.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Lifecycle",
+      "javax.annotation.Nullable",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "HookType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "delegate",
+            "type": "Type<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "preRead",
+            "type": "HookFunction",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "postWrite",
+            "type": "HookFunction",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 83
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<A>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<A>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 165,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 179
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "delegate",
+        "type": "Type<A>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "preRead",
+        "type": "HookFunction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "postWrite",
+        "type": "HookFunction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 74,
+      "end": 180
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/HookType.java"
+  },
+  "com.mojang.datafixers.types.templates.ListType": {
+    "className": "ListType",
+    "fullName": "com.mojang.datafixers.types.templates.ListType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/List.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.profunctors.TraversalP",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ListType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "Type<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<java.util.List<A>>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<java.util.List<A>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElement",
+        "returnType": "Type<A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 157
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "element",
+        "type": "Type<A>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 88,
+      "end": 158
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/ListType.java"
+  },
+  "com.mojang.datafixers.types.templates.NamedType": {
+    "className": "NamedType",
+    "fullName": "com.mojang.datafixers.types.templates.NamedType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Named.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.profunctors.Cartesian",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Lifecycle",
+      "javax.annotation.Nullable",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NamedType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "element",
+            "type": "Type<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 72
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<Pair<String, A>>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "name",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "element",
+        "returnType": "Type<A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<Pair<String, A>>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 171
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "element",
+        "type": "Type<A>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 67,
+          "end": 67
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 65,
+      "end": 188
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/NamedType.java"
+  },
+  "com.mojang.datafixers.types.templates.PrimitiveType": {
+    "className": "PrimitiveType",
+    "fullName": "com.mojang.datafixers.types.templates.PrimitiveType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Const.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.profunctors.AffineP",
+      "com.mojang.datafixers.optics.profunctors.Profunctor",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "javax.annotation.Nullable",
+      "java.util.Objects",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PrimitiveType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "codec",
+            "type": "Codec<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<A>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Codec<A>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 78,
+      "end": 104
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/PrimitiveType.java"
+  },
+  "com.mojang.datafixers.types.templates.ProductType": {
+    "className": "ProductType",
+    "fullName": "com.mojang.datafixers.types.templates.ProductType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Product.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.google.common.reflect.TypeToken",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.DataFixUtils",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.FunctionType",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.kinds.App",
+      "com.mojang.datafixers.kinds.Applicative",
+      "com.mojang.datafixers.kinds.K1",
+      "com.mojang.datafixers.optics.Optic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.Traversal",
+      "com.mojang.datafixers.optics.profunctors.TraversalP",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ProductType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "first",
+            "type": "Type<F>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "second",
+            "type": "Type<G>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 142
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "first",
+        "returnType": "Type<F>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "second",
+        "returnType": "Type<G>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<Pair<F, G>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 200,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 226
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<Pair<F, G>>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 236
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "first",
+        "type": "Type<F>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 135,
+          "end": 135
+        }
+      },
+      {
+        "name": "second",
+        "type": "Type<G>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 136,
+          "end": 136
+        }
+      },
+      {
+        "name": "hashCode",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 137,
+          "end": 137
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 134,
+      "end": 257
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/ProductType.java"
+  },
+  "com.mojang.datafixers.types.templates.RecursivePointType": {
+    "className": "RecursivePointType",
+    "fullName": "com.mojang.datafixers.types.templates.RecursivePointType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/RecursivePoint.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.View",
+      "com.mojang.datafixers.functions.Functions",
+      "com.mojang.datafixers.functions.PointFreeRule",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Lifecycle",
+      "org.apache.commons.lang3.ObjectUtils",
+      "javax.annotation.Nullable",
+      "java.util.BitSet",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.IntFunction",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RecursivePointType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "family",
+            "type": "RecursiveTypeFamily",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "index",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "delegate",
+            "type": "Supplier<Type<A>>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 101
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "family",
+        "returnType": "RecursiveTypeFamily",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "index",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unfold",
+        "returnType": "Type<A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<A>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<A>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 230,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 244,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "in",
+        "returnType": "View<A, A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "out",
+        "returnType": "View<A, A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 256
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "family",
+        "type": "RecursiveTypeFamily",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "index",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        }
+      },
+      {
+        "name": "delegate",
+        "type": "Supplier<Type<A>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 93,
+          "end": 93
+        }
+      },
+      {
+        "name": "type",
+        "type": "volatile Type<A>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 90,
+      "end": 257
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/RecursivePointType.java"
+  },
+  "com.mojang.datafixers.types.templates.SumType": {
+    "className": "SumType",
+    "fullName": "com.mojang.datafixers.types.templates.SumType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Sum.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.reflect.TypeToken",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.DataFixUtils",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.FunctionType",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.kinds.App",
+      "com.mojang.datafixers.kinds.Applicative",
+      "com.mojang.datafixers.kinds.K1",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.Traversal",
+      "com.mojang.datafixers.optics.profunctors.TraversalP",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SumType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "first",
+            "type": "Type<F>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "second",
+            "type": "Type<G>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 116
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "first",
+        "returnType": "Type<F>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "second",
+        "returnType": "Type<G>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<Either<F, G>>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<Either<F, G>>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 211
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "first",
+        "type": "Type<F>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 109,
+          "end": 109
+        }
+      },
+      {
+        "name": "second",
+        "type": "Type<G>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 110,
+          "end": 110
+        }
+      },
+      {
+        "name": "hashCode",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 111,
+          "end": 111
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 108,
+      "end": 260
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/SumType.java"
+  },
+  "com.mojang.datafixers.types.templates.TagType": {
+    "className": "TagType",
+    "fullName": "com.mojang.datafixers.types.templates.TagType",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/Tag.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "static",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.profunctors.Profunctor",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DynamicOps",
+      "javax.annotation.Nullable",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TagType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "element",
+            "type": "Type<A>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 115
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildTemplate",
+        "returnType": "TypeTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildCodec",
+        "returnType": "Codec<A>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "ignoreRecursionPoints",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "checkIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "point",
+        "returnType": "Optional<A>",
+        "parameters": [
+          {
+            "name": "ops",
+            "type": "DynamicOps<?>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "name",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "element",
+        "returnType": "Type<A>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 210
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 109,
+          "end": 109
+        }
+      },
+      {
+        "name": "element",
+        "type": "Type<A>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 110,
+          "end": 110
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 108,
+      "end": 211
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/TagType.java"
+  },
+  "com.mojang.datafixers.types.templates.TaggedChoice": {
+    "className": "TaggedChoice",
+    "fullName": "com.mojang.datafixers.types.templates.TaggedChoice",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/TaggedChoice.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Joiner",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.google.common.reflect.TypeToken",
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.FunctionType",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.TypeRewriteRule",
+      "com.mojang.datafixers.Typed",
+      "com.mojang.datafixers.TypedOptic",
+      "com.mojang.datafixers.View",
+      "com.mojang.datafixers.functions.Functions",
+      "com.mojang.datafixers.kinds.App",
+      "com.mojang.datafixers.kinds.Applicative",
+      "com.mojang.datafixers.kinds.K1",
+      "com.mojang.datafixers.optics.Affine",
+      "com.mojang.datafixers.optics.Lens",
+      "com.mojang.datafixers.optics.Optic",
+      "com.mojang.datafixers.optics.Optics",
+      "com.mojang.datafixers.optics.Traversal",
+      "com.mojang.datafixers.optics.profunctors.AffineP",
+      "com.mojang.datafixers.optics.profunctors.Cartesian",
+      "com.mojang.datafixers.optics.profunctors.TraversalP",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Encoder",
+      "com.mojang.serialization.codecs.KeyDispatchCodec",
+      "it.unimi.dsi.fastutil.objects.Object2ObjectMap",
+      "it.unimi.dsi.fastutil.objects.Object2ObjectMaps",
+      "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+      "javax.annotation.Nullable",
+      "java.util.Arrays",
+      "java.util.BitSet",
+      "java.util.Map",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.function.Function",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TaggedChoice",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "keyType",
+            "type": "Type<K>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "templates",
+            "type": "TypeTemplate>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 65
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "size",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "apply",
+        "returnType": "TypeFamily",
+        "parameters": [
+          {
+            "name": "family",
+            "type": "TypeFamily",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "keyType",
+        "type": "Type<K>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "templates",
+        "type": "Object2ObjectMap<K, TypeTemplate>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "size",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "TaggedChoiceType",
+        "fullName": "com.mojang.datafixers.types.templates.TaggedChoice.TaggedChoiceType",
+        "packageName": "com.mojang.datafixers.types.templates",
+        "filePath": "/com/mojang/datafixers/types/templates/TaggedChoice.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Joiner",
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.google.common.reflect.TypeToken",
+          "com.mojang.datafixers.DSL",
+          "com.mojang.datafixers.FamilyOptic",
+          "com.mojang.datafixers.FunctionType",
+          "com.mojang.datafixers.RewriteResult",
+          "com.mojang.datafixers.TypeRewriteRule",
+          "com.mojang.datafixers.Typed",
+          "com.mojang.datafixers.TypedOptic",
+          "com.mojang.datafixers.View",
+          "com.mojang.datafixers.functions.Functions",
+          "com.mojang.datafixers.kinds.App",
+          "com.mojang.datafixers.kinds.Applicative",
+          "com.mojang.datafixers.kinds.K1",
+          "com.mojang.datafixers.optics.Affine",
+          "com.mojang.datafixers.optics.Lens",
+          "com.mojang.datafixers.optics.Optic",
+          "com.mojang.datafixers.optics.Optics",
+          "com.mojang.datafixers.optics.Traversal",
+          "com.mojang.datafixers.optics.profunctors.AffineP",
+          "com.mojang.datafixers.optics.profunctors.Cartesian",
+          "com.mojang.datafixers.optics.profunctors.TraversalP",
+          "com.mojang.datafixers.types.Type",
+          "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+          "com.mojang.datafixers.types.families.TypeFamily",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.DynamicOps",
+          "com.mojang.serialization.Encoder",
+          "com.mojang.serialization.codecs.KeyDispatchCodec",
+          "it.unimi.dsi.fastutil.objects.Object2ObjectMap",
+          "it.unimi.dsi.fastutil.objects.Object2ObjectMaps",
+          "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+          "javax.annotation.Nullable",
+          "java.util.Arrays",
+          "java.util.BitSet",
+          "java.util.Map",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "java.util.function.IntFunction"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "TaggedChoiceType",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "name",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": true
+              },
+              {
+                "name": "keyType",
+                "type": "Type<K>",
+                "isVarArgs": false,
+                "isFinal": true
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "types",
+                "type": "Type<?>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 136,
+              "end": 141
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "buildTemplate",
+            "returnType": "TypeTemplate",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 193,
+              "end": 199
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "equals",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "obj",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": true
+              },
+              {
+                "name": "ignoreRecursionPoints",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": true
+              },
+              {
+                "name": "checkIndex",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": true
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 381,
+              "end": 404
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hashCode",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 407,
+              "end": 409
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toString",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 412,
+              "end": 414
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 416,
+              "end": 418
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getKeyType",
+            "returnType": "Type<K>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 420,
+              "end": 422
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasType",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "key",
+                "type": "K",
+                "isVarArgs": false,
+                "isFinal": true
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 424,
+              "end": 426
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 131,
+              "end": 131
+            }
+          },
+          {
+            "name": "keyType",
+            "type": "Type<K>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 132,
+              "end": 132
+            }
+          },
+          {
+            "name": "hashCode",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 134,
+              "end": 134
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "RewriteFunc",
+            "fullName": "com.mojang.datafixers.types.templates.TaggedChoice.TaggedChoiceType.RewriteFunc",
+            "packageName": "com.mojang.datafixers.types.templates",
+            "filePath": "/com/mojang/datafixers/types/templates/TaggedChoice.java",
+            "classType": "class",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "superClass": "",
+            "interfaces": [],
+            "imports": [
+              "com.google.common.base.Joiner",
+              "com.google.common.collect.Maps",
+              "com.google.common.collect.Sets",
+              "com.google.common.reflect.TypeToken",
+              "com.mojang.datafixers.DSL",
+              "com.mojang.datafixers.FamilyOptic",
+              "com.mojang.datafixers.FunctionType",
+              "com.mojang.datafixers.RewriteResult",
+              "com.mojang.datafixers.TypeRewriteRule",
+              "com.mojang.datafixers.Typed",
+              "com.mojang.datafixers.TypedOptic",
+              "com.mojang.datafixers.View",
+              "com.mojang.datafixers.functions.Functions",
+              "com.mojang.datafixers.kinds.App",
+              "com.mojang.datafixers.kinds.Applicative",
+              "com.mojang.datafixers.kinds.K1",
+              "com.mojang.datafixers.optics.Affine",
+              "com.mojang.datafixers.optics.Lens",
+              "com.mojang.datafixers.optics.Optic",
+              "com.mojang.datafixers.optics.Optics",
+              "com.mojang.datafixers.optics.Traversal",
+              "com.mojang.datafixers.optics.profunctors.AffineP",
+              "com.mojang.datafixers.optics.profunctors.Cartesian",
+              "com.mojang.datafixers.optics.profunctors.TraversalP",
+              "com.mojang.datafixers.types.Type",
+              "com.mojang.datafixers.types.families.RecursiveTypeFamily",
+              "com.mojang.datafixers.types.families.TypeFamily",
+              "com.mojang.datafixers.util.Either",
+              "com.mojang.datafixers.util.Pair",
+              "com.mojang.serialization.Codec",
+              "com.mojang.serialization.DataResult",
+              "com.mojang.serialization.DynamicOps",
+              "com.mojang.serialization.Encoder",
+              "com.mojang.serialization.codecs.KeyDispatchCodec",
+              "it.unimi.dsi.fastutil.objects.Object2ObjectMap",
+              "it.unimi.dsi.fastutil.objects.Object2ObjectMaps",
+              "it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap",
+              "javax.annotation.Nullable",
+              "java.util.Arrays",
+              "java.util.BitSet",
+              "java.util.Map",
+              "java.util.Objects",
+              "java.util.Optional",
+              "java.util.Set",
+              "java.util.function.Function",
+              "java.util.function.IntFunction"
+            ],
+            "classComment": "",
+            "methods": [],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 432,
+              "end": 471
+            },
+            "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/TaggedChoice/TaggedChoiceType/RewriteFunc.java"
+          }
+        ],
+        "lineRange": {
+          "start": 130,
+          "end": 472
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/TaggedChoice/TaggedChoiceType.java"
+      }
+    ],
+    "lineRange": {
+      "start": 53,
+      "end": 473
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/TaggedChoice.java"
+  },
+  "com.mojang.datafixers.types.templates.TypeTemplate": {
+    "className": "TypeTemplate",
+    "fullName": "com.mojang.datafixers.types.templates.TypeTemplate",
+    "packageName": "com.mojang.datafixers.types.templates",
+    "filePath": "/com/mojang/datafixers/types/templates/TypeTemplate.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DSL",
+      "com.mojang.datafixers.FamilyOptic",
+      "com.mojang.datafixers.RewriteResult",
+      "com.mojang.datafixers.types.Type",
+      "com.mojang.datafixers.types.families.TypeFamily",
+      "com.mojang.datafixers.util.Either",
+      "javax.annotation.Nullable",
+      "java.util.function.IntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "size",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "apply",
+        "returnType": "TypeFamily",
+        "parameters": [
+          {
+            "name": "family",
+            "type": "TypeFamily",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 49
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/datafixers/types/templates/TypeTemplate.java"
+  }
+}

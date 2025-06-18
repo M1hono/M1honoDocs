@@ -1,0 +1,7423 @@
+{
+  "com.mojang.blaze3d.vertex.BufferBuilder": {
+    "className": "BufferBuilder",
+    "fullName": "com.mojang.blaze3d.vertex.BufferBuilder",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/BufferBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "DefaultedVertexConsumer",
+    "interfaces": [
+      "BufferVertexConsumer"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.blaze3d.platform.MemoryTracker",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.ints.IntConsumer",
+      "java.nio.ByteBuffer",
+      "java.nio.FloatBuffer",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.lang3.mutable.MutableInt",
+      "org.joml.Vector3f",
+      "org.lwjgl.system.MemoryUtil",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BufferBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pCapacity",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ensureVertexCapacity",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ensureCapacity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIncreaseAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "roundUp",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setQuadSorting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pQuadSorting",
+            "type": "VertexSorting",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "restoreSortState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSortState",
+            "type": "BufferBuilder.SortState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "begin",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMode",
+            "type": "VertexFormat.Mode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFormat",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchFormat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFormat",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "intConsumer",
+        "returnType": "IntConsumer",
+        "parameters": [
+          {
+            "name": "pNextElementByte",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndexType",
+            "type": "VertexFormat.IndexType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "makeQuadSortingPoints",
+        "returnType": "Vector3f[]",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putSortedQuadIndices",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndexType",
+            "type": "VertexFormat.IndexType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCurrentBatchEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ensureDrawing",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 209,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 240,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putByte",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pByteValue",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putShort",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShortValue",
+            "type": "short",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 256
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putFloat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFloatValue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 258,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 262,
+          "end": 277
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "nextElement",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 279,
+          "end": 293
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 295,
+          "end": 301
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "vertex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOverlayUV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightmapUV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormalX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormalY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormalZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 303,
+          "end": 335
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "releaseRenderedBuffer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 337,
+          "end": 342
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 344,
+          "end": 350
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "discard",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 352,
+          "end": 356
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "currentElement",
+        "returnType": "VertexFormatElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 358,
+          "end": 364
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "building",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 366,
+          "end": 368
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bufferSlice",
+        "returnType": "ByteBuffer",
+        "parameters": [
+          {
+            "name": "pStartPointer",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEndPointer",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 370,
+          "end": 372
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DrawState",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "format",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "vertexCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "indexCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mode",
+            "type": "VertexFormat.Mode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "indexType",
+            "type": "VertexFormat.IndexType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "indexOnly",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "sequentialIndex",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 375,
+          "end": 403
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putBulkData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "buffer",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "Forge start",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 464,
+          "end": 471
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "GROWTH_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2097152",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "buffer",
+        "type": "ByteBuffer",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "renderedBufferCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "renderedBufferPointer",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "nextElementByte",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "vertices",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "currentElement",
+        "type": "VertexFormatElement",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "elementIndex",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "format",
+        "type": "VertexFormat",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "mode",
+        "type": "VertexFormat.Mode",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "fastFormat",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "fullFormat",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "building",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "sortingPoints",
+        "type": "Vector3f[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "sorting",
+        "type": "VertexSorting",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "indexOnly",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "RenderedBuffer",
+        "fullName": "com.mojang.blaze3d.vertex.BufferBuilder.RenderedBuffer",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/BufferBuilder.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.MemoryTracker",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntConsumer",
+          "java.nio.ByteBuffer",
+          "java.nio.FloatBuffer",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.lang3.mutable.MutableInt",
+          "org.joml.Vector3f",
+          "org.lwjgl.system.MemoryUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RenderedBuffer",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPointer",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDrawState",
+                "type": "BufferBuilder.DrawState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 411,
+              "end": 414
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "vertexBuffer",
+            "returnType": "ByteBuffer",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 416,
+              "end": 420
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "indexBuffer",
+            "returnType": "ByteBuffer",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 422,
+              "end": 426
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEmpty",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 432,
+              "end": 434
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "release",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 436,
+              "end": 443
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "pointer",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 407,
+              "end": 407
+            }
+          },
+          {
+            "name": "drawState",
+            "type": "BufferBuilder.DrawState",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 408,
+              "end": 408
+            }
+          },
+          {
+            "name": "released",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 409,
+              "end": 409
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 406,
+          "end": 444
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/BufferBuilder/RenderedBuffer.java"
+      },
+      {
+        "className": "SortState",
+        "fullName": "com.mojang.blaze3d.vertex.BufferBuilder.SortState",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/BufferBuilder.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.MemoryTracker",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntConsumer",
+          "java.nio.ByteBuffer",
+          "java.nio.FloatBuffer",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.lang3.mutable.MutableInt",
+          "org.joml.Vector3f",
+          "org.lwjgl.system.MemoryUtil",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SortState",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMode",
+                "type": "VertexFormat.Mode",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVertices",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSortingPoints",
+                "type": "Vector3f[]",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSorting",
+                "type": "VertexSorting",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 455,
+              "end": 460
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "mode",
+            "type": "VertexFormat.Mode",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 448,
+              "end": 448
+            }
+          },
+          {
+            "name": "vertices",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 449,
+              "end": 449
+            }
+          },
+          {
+            "name": "sortingPoints",
+            "type": "Vector3f[]",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 451,
+              "end": 451
+            }
+          },
+          {
+            "name": "sorting",
+            "type": "VertexSorting",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 453,
+              "end": 453
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 447,
+          "end": 461
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/BufferBuilder/SortState.java"
+      }
+    ],
+    "lineRange": {
+      "start": 19,
+      "end": 472
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/BufferBuilder.java"
+  },
+  "com.mojang.blaze3d.vertex.BufferUploader": {
+    "className": "BufferUploader",
+    "fullName": "com.mojang.blaze3d.vertex.BufferUploader",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/BufferUploader.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawWithShader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_drawWithShader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "draw",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upload",
+        "returnType": "VertexBuffer",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindImmediateBuffer",
+        "returnType": "VertexBuffer",
+        "parameters": [
+          {
+            "name": "pFormat",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindImmediateBuffer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "VertexBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 77
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "lastImmediateBuffer",
+        "type": "VertexBuffer",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 78
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/BufferUploader.java"
+  },
+  "com.mojang.blaze3d.vertex.BufferVertexConsumer": {
+    "className": "BufferVertexConsumer",
+    "fullName": "com.mojang.blaze3d.vertex.BufferVertexConsumer",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/BufferVertexConsumer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "VertexConsumer",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "currentElement",
+        "returnType": "VertexFormatElement",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "nextElement",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putByte",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pByteValue",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putShort",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShortValue",
+            "type": "short",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putFloat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFloatValue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normalIntValue",
+        "returnType": "byte",
+        "parameters": [
+          {
+            "name": "pNum",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 107
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/BufferVertexConsumer.java"
+  },
+  "com.mojang.blaze3d.vertex.DefaultVertexFormat": {
+    "className": "DefaultVertexFormat",
+    "fullName": "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/DefaultVertexFormat.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [
+      {
+        "name": "ELEMENT_UV",
+        "type": "VertexFormatElement",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "ELEMENT_UV0",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/DefaultVertexFormat.java"
+  },
+  "com.mojang.blaze3d.vertex.DefaultedVertexConsumer": {
+    "className": "DefaultedVertexConsumer",
+    "fullName": "com.mojang.blaze3d.vertex.DefaultedVertexConsumer",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/DefaultedVertexConsumer.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "VertexConsumer"
+    ],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "defaultColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_85830_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_85831_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_85832_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_85833_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unsetDefaultColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "defaultColorSet",
+        "type": "boolean",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "defaultR",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "255",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "defaultG",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "255",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "defaultB",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "255",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "defaultA",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "255",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/DefaultedVertexConsumer.java"
+  },
+  "com.mojang.blaze3d.vertex.PoseStack": {
+    "className": "PoseStack",
+    "fullName": "com.mojang.blaze3d.vertex.PoseStack",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/PoseStack.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "net.minecraftforge.client.extensions.IForgePoseStack"
+    ],
+    "imports": [
+      "com.google.common.collect.Queues",
+      "java.util.Deque",
+      "net.minecraft.Util",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f",
+      "org.joml.Quaternionf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "translate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scale",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mulPose",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pQuaternion",
+            "type": "Quaternionf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotateAround",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pQuaternion",
+            "type": "Quaternionf",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pushPose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popPose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setIdentity",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mulPoseMatrix",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Pose",
+        "fullName": "com.mojang.blaze3d.vertex.PoseStack.Pose",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/PoseStack.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Queues",
+          "java.util.Deque",
+          "net.minecraft.Util",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.joml.Matrix3f",
+          "org.joml.Matrix4f",
+          "org.joml.Quaternionf"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Pose",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPose",
+                "type": "Matrix4f",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormal",
+                "type": "Matrix3f",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 92,
+              "end": 95
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "pose",
+            "returnType": "Matrix4f",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 97,
+              "end": 99
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "normal",
+            "returnType": "Matrix3f",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 101,
+              "end": 103
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "pose",
+            "type": "Matrix4f",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 89,
+              "end": 89
+            }
+          },
+          {
+            "name": "normal",
+            "type": "Matrix3f",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 90,
+              "end": 90
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 88,
+          "end": 104
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/PoseStack/Pose.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 105
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/PoseStack.java"
+  },
+  "com.mojang.blaze3d.vertex.SheetedDecalTextureGenerator": {
+    "className": "SheetedDecalTextureGenerator",
+    "fullName": "com.mojang.blaze3d.vertex.SheetedDecalTextureGenerator",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/SheetedDecalTextureGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "DefaultedVertexConsumer",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f",
+      "org.joml.Vector3f",
+      "org.joml.Vector4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SheetedDecalTextureGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDelegate",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCameraPose",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNormalPose",
+            "type": "Matrix3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureScale",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "resetState",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overlayCoords",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv2",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 91
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "delegate",
+        "type": "VertexConsumer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "cameraInversePose",
+        "type": "Matrix4f",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "normalInversePose",
+        "type": "Matrix3f",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "textureScale",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "x",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "y",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "z",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "overlayU",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "overlayV",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "lightCoords",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "nx",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "ny",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "nz",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 92
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/SheetedDecalTextureGenerator.java"
+  },
+  "com.mojang.blaze3d.vertex.Tesselator": {
+    "className": "Tesselator",
+    "fullName": "com.mojang.blaze3d.vertex.Tesselator",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/Tesselator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getInstance",
+        "returnType": "Tesselator",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Tesselator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pCapacity",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "Tesselator",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "end",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBuilder",
+        "returnType": "BufferBuilder",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_MEMORY_USE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8388608",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "MAX_FLOATS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2097152",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "builder",
+        "type": "BufferBuilder",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 37
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/Tesselator.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexBuffer": {
+    "className": "VertexBuffer",
+    "fullName": "com.mojang.blaze3d.vertex.VertexBuffer",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexBuffer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.platform.Window",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "java.nio.ByteBuffer",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.renderer.ShaderInstance",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VertexBuffer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUsage",
+            "type": "VertexBuffer.Usage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "BufferBuilder.RenderedBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uploadVertexBuffer",
+        "returnType": "VertexFormat",
+        "parameters": [
+          {
+            "name": "pDrawState",
+            "type": "BufferBuilder.DrawState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bind",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unbind",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "draw",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawWithShader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModelViewMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProjectionMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShader",
+            "type": "ShaderInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_drawWithShader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModelViewMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProjectionMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShader",
+            "type": "ShaderInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 204
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFormat",
+        "returnType": "VertexFormat",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isInvalid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 212
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "usage",
+        "type": "VertexBuffer.Usage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "vertexBufferId",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "indexBufferId",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "arrayObjectId",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "format",
+        "type": "VertexFormat",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "sequentialIndices",
+        "type": "RenderSystem.AutoStorageIndexBuffer",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "indexType",
+        "type": "VertexFormat.IndexType",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "indexCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "mode",
+        "type": "VertexFormat.Mode",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Usage",
+        "fullName": "com.mojang.blaze3d.vertex.VertexBuffer.Usage",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexBuffer.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.platform.Window",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "java.nio.ByteBuffer",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.renderer.ShaderInstance",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.joml.Matrix4f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "STATIC",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 216,
+              "end": 217
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "DYNAMIC",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 217,
+              "end": 217
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Usage",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 221,
+              "end": 223
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 219,
+              "end": 219
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 215,
+          "end": 224
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexBuffer/Usage.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 225
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexBuffer.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexConsumer": {
+    "className": "VertexConsumer",
+    "fullName": "com.mojang.blaze3d.vertex.VertexConsumer",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexConsumer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "net.minecraftforge.client.extensions.IForgeVertexConsumer",
+    "interfaces": [],
+    "imports": [
+      "java.nio.ByteBuffer",
+      "java.nio.IntBuffer",
+      "net.minecraft.client.renderer.block.model.BakedQuad",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.util.FastColor",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f",
+      "org.joml.Vector3f",
+      "org.joml.Vector4f",
+      "org.lwjgl.system.MemoryStack"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overlayCoords",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv2",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDefaultR",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultG",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultB",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultA",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unsetDefaultColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 127
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexConsumer.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexFormat": {
+    "className": "VertexFormat",
+    "fullName": "com.mojang.blaze3d.vertex.VertexFormat",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexFormat.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "it.unimi.dsi.fastutil.ints.IntArrayList",
+      "it.unimi.dsi.fastutil.ints.IntList",
+      "java.util.List",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VertexFormat",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pElementMapping",
+            "type": "VertexFormatElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIntegerSize",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVertexSize",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElements",
+        "returnType": "ImmutableList<VertexFormatElement>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElementAttributeNames",
+        "returnType": "ImmutableList<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupBufferState",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setupBufferState",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearBufferState",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_clearBufferState",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getImmediateDrawVertexBuffer",
+        "returnType": "VertexBuffer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElementMapping",
+        "returnType": "ImmutableMap<String, VertexFormatElement>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOffset",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasPosition",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasNormal",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasColor",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasUV",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "which",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 185
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "elements",
+        "type": "ImmutableList<VertexFormatElement>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "elementMapping",
+        "type": "ImmutableMap<String, VertexFormatElement>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "vertexSize",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "immediateDrawVertexBuffer",
+        "type": "VertexBuffer",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "IndexType",
+        "fullName": "com.mojang.blaze3d.vertex.VertexFormat.IndexType",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexFormat.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "it.unimi.dsi.fastutil.ints.IntArrayList",
+          "it.unimi.dsi.fastutil.ints.IntList",
+          "java.util.List",
+          "java.util.stream.Collectors",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SHORT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 118,
+              "end": 119
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "INT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 119
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "IndexType",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pAsGLType",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBytes",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 124,
+              "end": 127
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "asGLType",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 121,
+              "end": 121
+            }
+          },
+          {
+            "name": "bytes",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 122,
+              "end": 122
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 117,
+          "end": 132
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormat/IndexType.java"
+      },
+      {
+        "className": "Mode",
+        "fullName": "com.mojang.blaze3d.vertex.VertexFormat.Mode",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexFormat.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "it.unimi.dsi.fastutil.ints.IntArrayList",
+          "it.unimi.dsi.fastutil.ints.IntList",
+          "java.util.List",
+          "java.util.stream.Collectors",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "LINES",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 136,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LINE_STRIP",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 137,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "DEBUG_LINES",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 138,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "DEBUG_LINE_STRIP",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 139,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "TRIANGLES",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "TRIANGLE_STRIP",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 141,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "TRIANGLE_FAN",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 142,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "QUADS",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 143,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Mode",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pAsGLMode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPrimitiveLength",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPrimitiveStride",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pConnectedPrimitives",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 150,
+              "end": 155
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "indexCount",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pVertices",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 157,
+              "end": 177
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "asGLMode",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 145,
+              "end": 145
+            }
+          },
+          {
+            "name": "primitiveLength",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 146,
+              "end": 146
+            }
+          },
+          {
+            "name": "primitiveStride",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 147,
+              "end": 147
+            }
+          },
+          {
+            "name": "connectedPrimitives",
+            "type": "boolean",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 148,
+              "end": 148
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 135,
+          "end": 178
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormat/Mode.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 186
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormat.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexFormatElement": {
+    "className": "VertexFormatElement",
+    "fullName": "com.mojang.blaze3d.vertex.VertexFormatElement",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexFormatElement.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VertexFormatElement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "VertexFormatElement.Type",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUsage",
+            "type": "VertexFormatElement.Usage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "supportsUsage",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUsage",
+            "type": "VertexFormatElement.Usage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIndex",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getByteSize",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPosition",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupBufferState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStateIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffset",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStride",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearBufferState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pElementIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElementCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 95
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "type",
+        "type": "VertexFormatElement.Type",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "usage",
+        "type": "VertexFormatElement.Usage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "index",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "byteSize",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Type",
+        "fullName": "com.mojang.blaze3d.vertex.VertexFormatElement.Type",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexFormatElement.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FLOAT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "UBYTE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "Byte\"",
+                "type": "\"Unsigned",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 100,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "BYTE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 101,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "USHORT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "Short\"",
+                "type": "\"Unsigned",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 102,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "SHORT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "UINT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "Int\"",
+                "type": "\"Unsigned",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 104,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "INT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 105,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Type",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pSize",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGlType",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 111,
+              "end": 115
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSize",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 117,
+              "end": 119
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 123
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getGlType",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 125,
+              "end": 127
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "size",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 107,
+              "end": 107
+            }
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 108,
+              "end": 108
+            }
+          },
+          {
+            "name": "glType",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 109,
+              "end": 109
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 98,
+          "end": 128
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormatElement/Type.java"
+      },
+      {
+        "className": "Usage",
+        "fullName": "com.mojang.blaze3d.vertex.VertexFormatElement.Usage",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexFormatElement.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "POSITION",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 132,
+              "end": 137
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "NORMAL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 138,
+              "end": 143
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "COLOR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "Color\"",
+                "type": "\"Vertex",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 144,
+              "end": 149
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "UV",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 150,
+              "end": 160
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "PADDING",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 161,
+              "end": 163
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "GENERIC",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 164,
+              "end": 169
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Usage",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSetupState",
+                "type": "VertexFormatElement.Usage.SetupState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pClearState",
+                "type": "VertexFormatElement.Usage.ClearState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 175,
+              "end": 179
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "setupBufferState",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pCount",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGlType",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStride",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOffset",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 181,
+              "end": 183
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "clearBufferState",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pElementIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 185,
+              "end": 187
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 189,
+              "end": 191
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 171,
+              "end": 171
+            }
+          },
+          {
+            "name": "setupState",
+            "type": "VertexFormatElement.Usage.SetupState",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 172,
+              "end": 172
+            }
+          },
+          {
+            "name": "clearState",
+            "type": "VertexFormatElement.Usage.ClearState",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 173,
+              "end": 173
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "ClearState",
+            "fullName": "com.mojang.blaze3d.vertex.VertexFormatElement.Usage.ClearState",
+            "packageName": "com.mojang.blaze3d.vertex",
+            "filePath": "/com/mojang/blaze3d/vertex/VertexFormatElement.java",
+            "classType": "interface",
+            "modifiers": [],
+            "superClass": "",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.blaze3d.platform.GlStateManager",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "clearBufferState",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pElementIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 196,
+                  "end": 196
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 195,
+              "end": 197
+            },
+            "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormatElement/Usage/ClearState.java"
+          },
+          {
+            "className": "SetupState",
+            "fullName": "com.mojang.blaze3d.vertex.VertexFormatElement.Usage.SetupState",
+            "packageName": "com.mojang.blaze3d.vertex",
+            "filePath": "/com/mojang/blaze3d/vertex/VertexFormatElement.java",
+            "classType": "interface",
+            "modifiers": [],
+            "superClass": "",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.blaze3d.platform.GlStateManager",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "setupBufferState",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pCount",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pGlType",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pStride",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pOffset",
+                    "type": "long",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pStateIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 202,
+                  "end": 202
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 201,
+              "end": 203
+            },
+            "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormatElement/Usage/SetupState.java"
+          }
+        ],
+        "lineRange": {
+          "start": 131,
+          "end": 204
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormatElement/Usage.java"
+      }
+    ],
+    "lineRange": {
+      "start": 8,
+      "end": 205
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexFormatElement.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexMultiConsumer": {
+    "className": "VertexMultiConsumer",
+    "fullName": "com.mojang.blaze3d.vertex.VertexMultiConsumer",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexMultiConsumer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.Consumer",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "VertexConsumer",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSecond",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pDelegates",
+            "type": "VertexConsumer[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Double",
+        "fullName": "com.mojang.blaze3d.vertex.VertexMultiConsumer.Double",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexMultiConsumer.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "VertexConsumer"
+        ],
+        "imports": [
+          "java.util.function.Consumer",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Double",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pFirst",
+                "type": "VertexConsumer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSecond",
+                "type": "VertexConsumer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 30,
+              "end": 37
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "vertex",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 39,
+              "end": 43
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "color",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pRed",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 45,
+              "end": 49
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uv",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 51,
+              "end": 55
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "overlayCoords",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 57,
+              "end": 61
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uv2",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 63,
+              "end": 67
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "normal",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 69,
+              "end": 73
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "vertex",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRed",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTexU",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTexV",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOverlayUV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLightmapUV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 75,
+              "end": 78
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "endVertex",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 83
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "defaultColor",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pDefaultR",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultG",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultB",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultA",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 85,
+              "end": 88
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unsetDefaultColor",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 93
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "first",
+            "type": "VertexConsumer",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 27,
+              "end": 27
+            }
+          },
+          {
+            "name": "second",
+            "type": "VertexConsumer",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 28,
+              "end": 28
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 26,
+          "end": 94
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexMultiConsumer/Double.java"
+      },
+      {
+        "className": "Multiple",
+        "fullName": "com.mojang.blaze3d.vertex.VertexMultiConsumer.Multiple",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexMultiConsumer.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "VertexConsumer"
+        ],
+        "imports": [
+          "java.util.function.Consumer",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Multiple",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pDelegates",
+                "type": "VertexConsumer[]",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 100,
+              "end": 110
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "forEach",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pConsumer",
+                "type": "Consumer<VertexConsumer>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 117
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "vertex",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 124
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "color",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pRed",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 131
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uv",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 133,
+              "end": 138
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "overlayCoords",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 145
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uv2",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pU",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 147,
+              "end": 152
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "normal",
+            "returnType": "VertexConsumer",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 154,
+              "end": 159
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "vertex",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRed",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGreen",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBlue",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTexU",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTexV",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOverlayUV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLightmapUV",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalX",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalY",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNormalZ",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 161,
+              "end": 165
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "endVertex",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 167,
+              "end": 169
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "defaultColor",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pDefaultR",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultG",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultB",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDefaultA",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 171,
+              "end": 175
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unsetDefaultColor",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 177,
+              "end": 179
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "delegates",
+            "type": "VertexConsumer[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 98,
+              "end": 98
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 97,
+          "end": 180
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexMultiConsumer/Multiple.java"
+      }
+    ],
+    "lineRange": {
+      "start": 8,
+      "end": 181
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexMultiConsumer.java"
+  },
+  "com.mojang.blaze3d.vertex.VertexSorting": {
+    "className": "VertexSorting",
+    "fullName": "com.mojang.blaze3d.vertex.VertexSorting",
+    "packageName": "com.mojang.blaze3d.vertex",
+    "filePath": "/com/mojang/blaze3d/vertex/VertexSorting.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.primitives.Floats",
+      "it.unimi.dsi.fastutil.ints.IntArrays",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Vector3f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "byDistance",
+        "returnType": "VertexSorting",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "byDistance",
+        "returnType": "VertexSorting",
+        "parameters": [
+          {
+            "name": "pVector",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "byDistance",
+        "returnType": "VertexSorting",
+        "parameters": [
+          {
+            "name": "pDistanceFunction",
+            "type": "VertexSorting.DistanceFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sort",
+        "returnType": "int[]",
+        "parameters": [
+          {
+            "name": "pVectors",
+            "type": "Vector3f[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "DistanceFunction",
+        "fullName": "com.mojang.blaze3d.vertex.VertexSorting.DistanceFunction",
+        "packageName": "com.mojang.blaze3d.vertex",
+        "filePath": "/com/mojang/blaze3d/vertex/VertexSorting.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.primitives.Floats",
+          "it.unimi.dsi.fastutil.ints.IntArrays",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.joml.Vector3f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "apply",
+            "returnType": "float",
+            "parameters": [
+              {
+                "name": "pVector",
+                "type": "Vector3f",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 44,
+              "end": 44
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexSorting/DistanceFunction.java"
+      }
+    ],
+    "lineRange": {
+      "start": 10,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/blaze3d/vertex/VertexSorting.java"
+  }
+}

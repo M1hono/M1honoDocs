@@ -1,0 +1,640 @@
+{
+  "net.minecraft.data.loot.packs.VanillaArchaeologyLoot": {
+    "className": "VanillaArchaeologyLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaArchaeologyLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaArchaeologyLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTableSubProvider"
+    ],
+    "imports": [
+      "java.util.function.BiConsumer",
+      "net.minecraft.data.loot.LootTableSubProvider",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_278066_",
+            "type": "LootTable.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaArchaeologyLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaBlockLoot": {
+    "className": "VanillaBlockLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaBlockLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaBlockLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockLootSubProvider",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.advancements.critereon.ItemPredicate",
+      "net.minecraft.advancements.critereon.StatePropertiesPredicate",
+      "net.minecraft.data.loot.BlockLootSubProvider",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.enchantment.Enchantments",
+      "net.minecraft.world.level.ItemLike",
+      "net.minecraft.world.level.block.BedBlock",
+      "net.minecraft.world.level.block.BeetrootBlock",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.CarrotBlock",
+      "net.minecraft.world.level.block.CocoaBlock",
+      "net.minecraft.world.level.block.ComposterBlock",
+      "net.minecraft.world.level.block.CropBlock",
+      "net.minecraft.world.level.block.DecoratedPotBlock",
+      "net.minecraft.world.level.block.DoublePlantBlock",
+      "net.minecraft.world.level.block.MangrovePropaguleBlock",
+      "net.minecraft.world.level.block.NetherWartBlock",
+      "net.minecraft.world.level.block.PitcherCropBlock",
+      "net.minecraft.world.level.block.PotatoBlock",
+      "net.minecraft.world.level.block.SeaPickleBlock",
+      "net.minecraft.world.level.block.SnowLayerBlock",
+      "net.minecraft.world.level.block.SweetBerryBushBlock",
+      "net.minecraft.world.level.block.TntBlock",
+      "net.minecraft.world.level.block.state.properties.BedPart",
+      "net.minecraft.world.level.block.state.properties.DoubleBlockHalf",
+      "net.minecraft.world.level.storage.loot.IntRange",
+      "net.minecraft.world.level.storage.loot.LootContext",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.AlternativesEntry",
+      "net.minecraft.world.level.storage.loot.entries.DynamicLoot",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer",
+      "net.minecraft.world.level.storage.loot.functions.ApplyBonusCount",
+      "net.minecraft.world.level.storage.loot.functions.CopyNbtFunction",
+      "net.minecraft.world.level.storage.loot.functions.LimitCount",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition",
+      "net.minecraft.world.level.storage.loot.predicates.MatchTool",
+      "net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VanillaBlockLoot",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 1475
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "JUNGLE_LEAVES_SAPLING_CHANGES",
+        "type": "float[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F}",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 59,
+      "end": 1488
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaBlockLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaChestLoot": {
+    "className": "VanillaChestLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaChestLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaChestLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTableSubProvider"
+    ],
+    "imports": [
+      "java.util.function.BiConsumer",
+      "net.minecraft.data.loot.LootTableSubProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.InstrumentTags",
+      "net.minecraft.tags.StructureTags",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.alchemy.Potions",
+      "net.minecraft.world.item.enchantment.Enchantments",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.saveddata.maps.MapDecoration",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.EmptyLootItem",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction",
+      "net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction",
+      "net.minecraft.world.level.storage.loot.functions.ExplorationMapFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetInstrumentFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetNameFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetPotionFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_250931_",
+            "type": "LootTable.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 77
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 142
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaChestLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaEntityLoot": {
+    "className": "VanillaEntityLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaEntityLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaEntityLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "EntityLootSubProvider",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.advancements.critereon.DamageSourcePredicate",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.SlimePredicate",
+      "net.minecraft.advancements.critereon.TagPredicate",
+      "net.minecraft.data.loot.EntityLootSubProvider",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.tags.EntityTypeTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.animal.FrogVariant",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.alchemy.Potions",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootContext",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.EmptyLootItem",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.entries.LootTableReference",
+      "net.minecraft.world.level.storage.loot.entries.TagEntry",
+      "net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetPotionFunction",
+      "net.minecraft.world.level.storage.loot.functions.SmeltItemFunction",
+      "net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithLootingCondition",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VanillaEntityLoot",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 141
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 38,
+      "end": 146
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaEntityLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaFishingLoot": {
+    "className": "VanillaFishingLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaFishingLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaFishingLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTableSubProvider"
+    ],
+    "imports": [
+      "java.util.function.BiConsumer",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.FishingHookPredicate",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.data.loot.LootTableSubProvider",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.alchemy.Potions",
+      "net.minecraft.world.level.biome.Biomes",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootContext",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.entries.LootTableReference",
+      "net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetPotionFunction",
+      "net.minecraft.world.level.storage.loot.predicates.LocationCheck",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_249559_",
+            "type": "LootTable.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 44
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaFishingLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaGiftLoot": {
+    "className": "VanillaGiftLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaGiftLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaGiftLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTableSubProvider"
+    ],
+    "imports": [
+      "java.util.function.BiConsumer",
+      "net.minecraft.data.loot.LootTableSubProvider",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.alchemy.Potions",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetPotionFunction",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_250831_",
+            "type": "LootTable.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 34
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaGiftLoot.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaLootTableProvider": {
+    "className": "VanillaLootTableProvider",
+    "fullName": "net.minecraft.data.loot.packs.VanillaLootTableProvider",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaLootTableProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.data.PackOutput",
+      "net.minecraft.data.loot.LootTableProvider",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "LootTableProvider",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaLootTableProvider.java"
+  },
+  "net.minecraft.data.loot.packs.VanillaPiglinBarterLoot": {
+    "className": "VanillaPiglinBarterLoot",
+    "fullName": "net.minecraft.data.loot.packs.VanillaPiglinBarterLoot",
+    "packageName": "net.minecraft.data.loot.packs",
+    "filePath": "/net/minecraft/data/loot/packs/VanillaPiglinBarterLoot.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTableSubProvider"
+    ],
+    "imports": [
+      "java.util.function.BiConsumer",
+      "net.minecraft.data.loot.LootTableSubProvider",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.alchemy.Potions",
+      "net.minecraft.world.item.enchantment.Enchantments",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootPool",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.entries.LootItem",
+      "net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetItemCountFunction",
+      "net.minecraft.world.level.storage.loot.functions.SetPotionFunction",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.level.storage.loot.providers.number.UniformGenerator"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_250176_",
+            "type": "LootTable.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 23
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/loot/packs/VanillaPiglinBarterLoot.java"
+  }
+}

@@ -1,0 +1,1802 @@
+{
+  "net.minecraft.world.entity.ai.control.BodyRotationControl": {
+    "className": "BodyRotationControl",
+    "fullName": "net.minecraft.world.entity.ai.control.BodyRotationControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/BodyRotationControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Control"
+    ],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Mob"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BodyRotationControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "clientTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotateBodyIfNecessary",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotateHeadIfNecessary",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotateHeadTowardsFront",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "notCarryingMobPassengers",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isMoving",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 67
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mob",
+        "type": "Mob",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "HEAD_STABLE_ANGLE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "15",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "DELAY_UNTIL_STARTING_TO_FACE_FORWARD",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "HOW_LONG_IT_TAKES_TO_FACE_FORWARD",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "headStableTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "lastStableYHeadRot",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 68
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/BodyRotationControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.Control": {
+    "className": "Control",
+    "fullName": "net.minecraft.world.entity.ai.control.Control",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/Control.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 4
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/Control.java"
+  },
+  "net.minecraft.world.entity.ai.control.FlyingMoveControl": {
+    "className": "FlyingMoveControl",
+    "fullName": "net.minecraft.world.entity.ai.control.FlyingMoveControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/FlyingMoveControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "MoveControl",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.attributes.Attributes"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FlyingMoveControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxTurn",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHoversInPlace",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "maxTurn",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "hoversInPlace",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/FlyingMoveControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.JumpControl": {
+    "className": "JumpControl",
+    "fullName": "net.minecraft.world.entity.ai.control.JumpControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/JumpControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Control"
+    ],
+    "imports": [
+      "net.minecraft.world.entity.Mob"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "JumpControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "jump",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mob",
+        "type": "Mob",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      },
+      {
+        "name": "jump",
+        "type": "boolean",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/JumpControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.LookControl": {
+    "className": "LookControl",
+    "fullName": "net.minecraft.world.entity.ai.control.LookControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/LookControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Control"
+    ],
+    "imports": [
+      "java.util.Optional",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LookControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "setLookAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLookVector",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLookAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLookAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaYaw",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaPitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLookAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLookAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaYaw",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaPitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clampHeadRotationToBody",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetXRotOnTick",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isLookingAtTarget",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedX",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedY",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedZ",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getXRotD",
+        "returnType": "Optional<Float>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getYRotD",
+        "returnType": "Optional<Float>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotateTowards",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pFrom",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTo",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxDelta",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedY",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mob",
+        "type": "Mob",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "yMaxRotSpeed",
+        "type": "float",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "xMaxRotAngle",
+        "type": "float",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "lookAtCooldown",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "wantedX",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "wantedY",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "wantedZ",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 136
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/LookControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.MoveControl": {
+    "className": "MoveControl",
+    "fullName": "net.minecraft.world.entity.ai.control.MoveControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/MoveControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Control"
+    ],
+    "imports": [
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.navigation.PathNavigation",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.pathfinder.BlockPathTypes",
+      "net.minecraft.world.level.pathfinder.NodeEvaluator",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MoveControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "hasWanted",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpeedModifier",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setWantedPosition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeed",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "strafe",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pForward",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStrafe",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isWalkable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRelativeX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRelativeZ",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotlerp",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pSourceAngle",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTargetAngle",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaximumChange",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 160
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedX",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 162,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedY",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 168
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWantedZ",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 170,
+          "end": 172
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MIN_SPEED",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5.0E-4F",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "MIN_SPEED_SQR",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.5000003E-7F",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "MAX_TURN",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "90",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "mob",
+        "type": "Mob",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "wantedX",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "wantedY",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "wantedZ",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "speedModifier",
+        "type": "double",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "strafeForwards",
+        "type": "float",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "strafeRight",
+        "type": "float",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "operation",
+        "type": "MoveControl.Operation",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "MoveControl.Operation.WAIT",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Operation",
+        "fullName": "net.minecraft.world.entity.ai.control.MoveControl.Operation",
+        "packageName": "net.minecraft.world.entity.ai.control",
+        "filePath": "/net/minecraft/world/entity/ai/control/MoveControl.java",
+        "classType": "enum",
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.level.pathfinder.NodeEvaluator",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 174,
+          "end": 179
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/MoveControl/Operation.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 180
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/MoveControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl": {
+    "className": "SmoothSwimmingLookControl",
+    "fullName": "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/SmoothSwimmingLookControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LookControl",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Mob"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SmoothSwimmingLookControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxYRotFromCenter",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 43
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "maxYRotFromCenter",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "HEAD_TILT_X",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "HEAD_TILT_Y",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 44
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/SmoothSwimmingLookControl.java"
+  },
+  "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl": {
+    "className": "SmoothSwimmingMoveControl",
+    "fullName": "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+    "packageName": "net.minecraft.world.entity.ai.control",
+    "filePath": "/net/minecraft/world/entity/ai/control/SmoothSwimmingMoveControl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "MoveControl",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.attributes.Attributes"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SmoothSwimmingMoveControl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "Mob",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxTurnX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxTurnY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInWaterSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutsideWaterSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pApplyGravity",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTurningSpeedFactor",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "p_249853_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FULL_SPEED_TURN_THRESHOLD",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10.0F",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "STOP_TURN_THRESHOLD",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "60.0F",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "maxTurnX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "maxTurnY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "inWaterSpeedModifier",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "outsideWaterSpeedModifier",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "applyGravity",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 74
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/control/SmoothSwimmingMoveControl.java"
+  }
+}

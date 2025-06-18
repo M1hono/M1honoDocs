@@ -1,0 +1,3289 @@
+{
+  "net.minecraft.world.damagesource.CombatRules": {
+    "className": "CombatRules",
+    "fullName": "net.minecraft.world.damagesource.CombatRules",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/CombatRules.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getDamageAfterAbsorb",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pDamage",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTotalArmor",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pToughnessAttribute",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDamageAfterMagicAbsorb",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pDamage",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEnchantModifiers",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_ARMOR",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20.0F",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      },
+      {
+        "name": "ARMOR_PROTECTION_DIVIDER",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "25.0F",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "BASE_ARMOR_TOUGHNESS",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.0F",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "MIN_ARMOR_RATIO",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.2F",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "NUM_ARMOR_ITEMS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/CombatRules.java"
+  },
+  "net.minecraft.world.damagesource.CombatTracker": {
+    "className": "CombatTracker",
+    "fullName": "net.minecraft.world.damagesource.CombatTracker",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/CombatTracker.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "java.util.Objects",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.chat.ClickEvent",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.ComponentUtils",
+      "net.minecraft.network.chat.HoverEvent",
+      "net.minecraft.network.chat.Style",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.item.ItemStack"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CombatTracker",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "recordDamage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDamage",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldEnterCombat",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMessageForAssistedFall",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntityDisplayName",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHasWeaponTranslationKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNoWeaponTranslationKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFallMessage",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pCombatEntry",
+            "type": "CombatEntry",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDisplayName",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathMessage",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMostSignificantFall",
+        "returnType": "CombatEntry",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCombatDuration",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "recheckStatus",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 169
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RESET_DAMAGE_STATUS_TIME",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "RESET_COMBAT_STATUS_TIME",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "300",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "mob",
+        "type": "LivingEntity",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "lastDamageTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "combatStartTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "combatEndTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "inCombat",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "takingDamage",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 170
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/CombatTracker.java"
+  },
+  "net.minecraft.world.damagesource.DamageEffects": {
+    "className": "DamageEffects",
+    "fullName": "net.minecraft.world.damagesource.DamageEffects",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DamageEffects.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable",
+      "net.minecraftforge.common.IExtensibleEnum"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "HURT",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "THORNS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DROWNING",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BURNING",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "POKING",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "FREEZING",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageEffects",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSound",
+            "type": "SoundEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DamageEffects",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "sound",
+            "type": "java.util.function.Supplier<SoundEvent>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "DamageEffects",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "sound",
+            "type": "java.util.function.Supplier<SoundEvent>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "sound",
+        "type": "SoundEvent",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "soundSupplier",
+        "type": "java.util.function.Supplier<SoundEvent>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DamageEffects.java"
+  },
+  "net.minecraft.world.damagesource.DamageScaling": {
+    "className": "DamageScaling",
+    "fullName": "net.minecraft.world.damagesource.DamageScaling",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DamageScaling.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable",
+      "net.minecraftforge.common.IExtensibleEnum"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NEVER",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WHEN_CAUSED_BY_LIVING_NON_PLAYER",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ALWAYS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageScaling",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DamageScaling",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "scaling",
+            "type": "net.minecraftforge.common.damagesource.IScalingFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "DamageScaling",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "scaling",
+            "type": "net.minecraftforge.common.damagesource.IScalingFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "scaling",
+        "type": "net.minecraftforge.common.damagesource.IScalingFunction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DamageScaling.java"
+  },
+  "net.minecraft.world.damagesource.DamageSource": {
+    "className": "DamageSource",
+    "fullName": "net.minecraft.world.damagesource.DamageSource",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DamageSource.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.core.Holder",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFoodExhaustion",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isIndirect",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DamageSource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "Holder<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDamageSourcePosition",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageSource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "Holder<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageSource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "Holder<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDamageSourcePosition",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageSource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "Holder<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DamageSource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "Holder<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getDirectEntity",
+        "returnType": "Entity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntity",
+        "returnType": "Entity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLocalizedDeathMessage",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pLivingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMsgId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scalesWithDifficulty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCreativePlayer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSourcePosition",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sourcePositionRaw",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "is",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDamageTypeKey",
+            "type": "TagKey<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "is",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDamageTypeKey",
+            "type": "ResourceKey<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "DamageType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "typeHolder",
+        "returnType": "Holder<DamageType>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 178
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "type",
+        "type": "Holder<DamageType>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "causingEntity",
+        "type": "Entity",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "directEntity",
+        "type": "Entity",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "damageSourcePosition",
+        "type": "Vec3",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 179
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DamageSource.java"
+  },
+  "net.minecraft.world.damagesource.DamageSources": {
+    "className": "DamageSources",
+    "fullName": "net.minecraft.world.damagesource.DamageSources",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DamageSources.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.entity.projectile.AbstractArrow",
+      "net.minecraft.world.entity.projectile.Fireball",
+      "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+      "net.minecraft.world.entity.projectile.WitherSkull",
+      "net.minecraft.world.level.Explosion",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DamageSources",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 69
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "source",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pDamageTypeKey",
+            "type": "ResourceKey<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "source",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pDamageTypeKey",
+            "type": "ResourceKey<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "source",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pDamageTypeKey",
+            "type": "ResourceKey<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "inFire",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lightningBolt",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onFire",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lava",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hotFloor",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "inWall",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cramming",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drown",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "starve",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cactus",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fall",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flyIntoWall",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fellOutOfWorld",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generic",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "magic",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wither",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dragonBreath",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dryOut",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sweetBerryBush",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "freeze",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stalagmite",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 163,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fallingBlock",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "anvil",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fallingStalactite",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sting",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobAttack",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "noAggroMobAttack",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pMob",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playerAttack",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "arrow",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pArrow",
+            "type": "AbstractArrow",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShooter",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 197
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "trident",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pTrident",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pThrower",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 199,
+          "end": 201
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobProjectile",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pProjectile",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pThrower",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 203,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fireworks",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pFirework",
+            "type": "FireworkRocketEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShooter",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 207,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fireball",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pFireball",
+            "type": "Fireball",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pThrower",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "witherSkull",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pWitherSkull",
+            "type": "WitherSkull",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShooter",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "thrown",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "indirectMagic",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "thorns",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "explosion",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pExplosion",
+            "type": "Explosion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 233
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "explosion",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pCausingEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sonicBoom",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "badRespawnPointExplosion",
+        "returnType": "DamageSource",
+        "parameters": [
+          {
+            "name": "pPosition",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 245
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "outOfBorder",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 247,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "genericKill",
+        "returnType": "DamageSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 251,
+          "end": 253
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "damageTypes",
+        "type": "Registry<DamageType>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "inFire",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "lightningBolt",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "onFire",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "lava",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "hotFloor",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "inWall",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "cramming",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "drown",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "starve",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "cactus",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "fall",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "flyIntoWall",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "fellOutOfWorld",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "generic",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "magic",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "wither",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "dragonBreath",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "dryOut",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "sweetBerryBush",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "freeze",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "stalagmite",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "outsideBorder",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "genericKill",
+        "type": "DamageSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 254
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DamageSources.java"
+  },
+  "net.minecraft.world.damagesource.DamageTypes": {
+    "className": "DamageTypes",
+    "fullName": "net.minecraft.world.damagesource.DamageTypes",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DamageTypes.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.data.worldgen.BootstapContext",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "bootstrap",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BootstapContext<DamageType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 99
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 100
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DamageTypes.java"
+  },
+  "net.minecraft.world.damagesource.DeathMessageType": {
+    "className": "DeathMessageType",
+    "fullName": "net.minecraft.world.damagesource.DeathMessageType",
+    "packageName": "net.minecraft.world.damagesource",
+    "filePath": "/net/minecraft/world/damagesource/DeathMessageType.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable",
+      "net.minecraftforge.common.IExtensibleEnum"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DEFAULT",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "FALL_VARIANTS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "INTENTIONAL_GAME_DESIGN",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DeathMessageType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DeathMessageType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "msgFunction",
+            "type": "net.minecraftforge.common.damagesource.IDeathMessageProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "DeathMessageType",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "msgFunction",
+            "type": "net.minecraftforge.common.damagesource.IDeathMessageProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "msgFunction",
+        "type": "net.minecraftforge.common.damagesource.IDeathMessageProvider",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/damagesource/DeathMessageType.java"
+  }
+}

@@ -1,0 +1,1324 @@
+{
+  "net.minecraft.world.entity.animal.goat.Goat": {
+    "className": "Goat",
+    "fullName": "net.minecraft.world.entity.animal.goat.Goat",
+    "packageName": "net.minecraft.world.entity.animal.goat",
+    "filePath": "/net/minecraft/world/entity/animal/goat/Goat.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Animal",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.serialization.Dynamic",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.InstrumentTags",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.AgeableMob",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.animal.Animal",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.Instrument",
+      "net.minecraft.world.item.InstrumentItem",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.ItemUtils",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.pathfinder.BlockPathTypes",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Goat",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 75
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createHorn",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ageBoundaryReached",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateFallDamage",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pFallDistance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDamageMultiplier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playStepSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMilkingSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBreedOffspring",
+        "returnType": "Goat",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherParent",
+            "type": "AgeableMob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<Goat>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 163,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxHeadYRot",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setYHeadRot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRotation",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEatingSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizeSpawn",
+        "returnType": "SpawnGroupData",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnData",
+            "type": "SpawnGroupData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendDebugPackets",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 225,
+          "end": 228
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDimensions",
+        "returnType": "EntityDimensions",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 230,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 239
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 244,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleEntityEvent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 269,
+          "end": 278
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 280,
+          "end": 285
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasLeftHorn",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 287,
+          "end": 289
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasRightHorn",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 291,
+          "end": 293
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropHorn",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 295,
+          "end": 320
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addHorns",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 322,
+          "end": 325
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeHorns",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 327,
+          "end": 330
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isScreamingGoat",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 332,
+          "end": 334
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setScreamingGoat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsScreamingGoat",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 336,
+          "end": 338
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRammingXHeadRot",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 340,
+          "end": 342
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkGoatSpawnRules",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnType",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 344,
+          "end": 346
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ADULT_ATTACK_DAMAGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "BABY_ATTACK_DAMAGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "GOAT_FALL_DAMAGE_REDUCTION",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "GOAT_SCREAMING_CHANCE",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.02D",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "isLoweringHead",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 67,
+          "end": 67
+        }
+      },
+      {
+        "name": "lowerHeadTick",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 55,
+      "end": 347
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/goat/Goat.java"
+  },
+  "net.minecraft.world.entity.animal.goat.GoatAi": {
+    "className": "GoatAi",
+    "fullName": "net.minecraft.world.entity.animal.goat.GoatAi",
+    "packageName": "net.minecraft.world.entity.animal.goat",
+    "filePath": "/net/minecraft/world/entity/animal/goat/GoatAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.util.Pair",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.valueproviders.UniformInt",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+      "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+      "net.minecraft.world.entity.ai.behavior.BabyFollowAdult",
+      "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+      "net.minecraft.world.entity.ai.behavior.DoNothing",
+      "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+      "net.minecraft.world.entity.ai.behavior.LongJumpMidJump",
+      "net.minecraft.world.entity.ai.behavior.LongJumpToRandomPos",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.PrepareRamNearestTarget",
+      "net.minecraft.world.entity.ai.behavior.RamTarget",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTargetSometimes",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+      "net.minecraft.world.entity.ai.behavior.Swim",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus",
+      "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Ingredient"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initMemories",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGoat",
+            "type": "Goat",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Goat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Goat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initLongJumpActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Goat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initRamActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Goat>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Goat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTemptations",
+        "returnType": "Ingredient",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RAM_PREPARE_TIME",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "RAM_MAX_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "7",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_MAKING_LOVE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_FOLLOWING_ADULT",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.25F",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_TEMPTED",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.25F",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_PANICKING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.0F",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_PREPARING_TO_RAM",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.25F",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "MAX_LONG_JUMP_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "MAX_LONG_JUMP_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "MAX_JUMP_VELOCITY",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.5F",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_RAMMING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3.0F",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "RAM_MIN_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "ADULT_RAM_KNOCKBACK_FORCE",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.5F",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "BABY_RAM_KNOCKBACK_FORCE",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 35,
+      "end": 114
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/goat/GoatAi.java"
+  }
+}

@@ -1,0 +1,907 @@
+{
+  "net.minecraftforge.resource.DelegatingPackResources": {
+    "className": "DelegatingPackResources",
+    "fullName": "net.minecraftforge.resource.DelegatingPackResources",
+    "packageName": "net.minecraftforge.resource",
+    "filePath": "/net/minecraftforge/resource/DelegatingPackResources.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractPackResources",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.AbstractPackResources",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.PackType",
+      "net.minecraft.server.packs.metadata.MetadataSectionSerializer",
+      "net.minecraft.server.packs.metadata.pack.PackMetadataSection",
+      "net.minecraft.server.packs.resources.IoSupplier",
+      "org.jetbrains.annotations.Nullable",
+      "net.minecraft.server.packs.PackResources.ResourceOutput"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DelegatingPackResources",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "packId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "isBuiltin",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "packMeta",
+            "type": "PackMetadataSection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildNamespaceMap",
+        "returnType": "Map<String, List<PackResources>>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "packList",
+            "type": "List<PackResources>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resourceNamespace",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "paths",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resourceOutput",
+            "type": "ResourceOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRootResource",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "paths",
+            "type": "String[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResource",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "location",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChildren",
+        "returnType": "Collection<PackResources>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCandidatePacks",
+        "returnType": "List<PackResources>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "location",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 125
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "packMeta",
+        "type": "PackMetadataSection",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "delegates",
+        "type": "List<PackResources>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "namespacesAssets",
+        "type": "Map<String, List<PackResources>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "namespacesData",
+        "type": "Map<String, List<PackResources>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 126
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/resource/DelegatingPackResources.java"
+  },
+  "net.minecraftforge.resource.PathPackResources": {
+    "className": "PathPackResources",
+    "fullName": "net.minecraftforge.resource.PathPackResources",
+    "packageName": "net.minecraftforge.resource",
+    "filePath": "/net/minecraftforge/resource/PathPackResources.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractPackResources",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Joiner",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.FileUtil",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.AbstractPackResources",
+      "net.minecraft.server.packs.PackType",
+      "net.minecraft.server.packs.resources.IoSupplier",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable",
+      "org.slf4j.Logger",
+      "net.minecraft.server.packs.PackResources.ResourceOutput"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PathPackResources",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "packId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "isBuiltin",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "source",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 55
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSource",
+        "returnType": "Path",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resolve",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "paths",
+            "type": "String[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRootResource",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "paths",
+            "type": "String[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "namespace",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "path",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resourceOutput",
+            "type": "ResourceOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespacesFromDisk",
+        "returnType": "Set<String>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResource",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "location",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPathFromLocation",
+        "returnType": "String[]",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "location",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 162
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "source",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 38,
+      "end": 163
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/resource/PathPackResources.java"
+  },
+  "net.minecraftforge.resource.ResourcePackLoader": {
+    "className": "ResourcePackLoader",
+    "fullName": "net.minecraftforge.resource.ResourcePackLoader",
+    "packageName": "net.minecraftforge.resource",
+    "filePath": "/net/minecraftforge/resource/ResourcePackLoader.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.nio.file.Path",
+      "java.util.ArrayList",
+      "java.util.Comparator",
+      "java.util.LinkedHashMap",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.BiConsumer",
+      "java.util.function.BiFunction",
+      "java.util.function.Function",
+      "java.util.stream.Collectors",
+      "com.mojang.datafixers.util.Pair",
+      "it.unimi.dsi.fastutil.objects.Object2IntMap",
+      "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+      "net.minecraft.server.packs.repository.RepositorySource",
+      "net.minecraft.server.packs.repository.Pack",
+      "net.minecraft.server.packs.repository.PackRepository",
+      "net.minecraftforge.fml.ModList",
+      "net.minecraftforge.forgespi.language.IModFileInfo",
+      "net.minecraftforge.forgespi.locating.IModFile",
+      "org.jetbrains.annotations.NotNull"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getPackFor",
+        "returnType": "Optional<PathPackResources>",
+        "parameters": [
+          {
+            "name": "modId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadResourcePacks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "resourcePacks",
+            "type": "PackRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "super",
+            "type": "BiConsumer<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadResourcePacks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "resourcePacks",
+            "type": "PackRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPackForMod",
+        "returnType": "PathPackResources",
+        "parameters": [
+          {
+            "name": "mf",
+            "type": "IModFileInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPackNames",
+        "returnType": "List<String>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "modResourcePacks",
+        "type": "Map<IModFile, PathPackResources>",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 102
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/resource/ResourcePackLoader.java"
+  }
+}

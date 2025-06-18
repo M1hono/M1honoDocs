@@ -1,0 +1,4175 @@
+{
+  "net.minecraft.world.level.chunk.storage.ChunkBuffer": {
+    "className": "ChunkBuffer",
+    "fullName": "net.minecraft.world.level.chunk.storage.ChunkBuffer",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionFile.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "ByteArrayOutputStream",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.logging.LogUtils",
+      "java.io.ByteArrayInputStream",
+      "java.io.ByteArrayOutputStream",
+      "java.io.DataInputStream",
+      "java.io.DataOutputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.ByteBuffer",
+      "java.nio.IntBuffer",
+      "java.nio.channels.FileChannel",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.nio.file.StandardCopyOption",
+      "java.nio.file.StandardOpenOption",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.world.level.ChunkPos",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChunkBuffer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 408
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 410,
+          "end": 414
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "pos",
+        "type": "ChunkPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 398,
+          "end": 398
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 397,
+      "end": 415
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/ChunkBuffer.java"
+  },
+  "net.minecraft.world.level.chunk.storage.ChunkScanAccess": {
+    "className": "ChunkScanAccess",
+    "fullName": "net.minecraft.world.level.chunk.storage.ChunkScanAccess",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/ChunkScanAccess.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.CompletableFuture",
+      "net.minecraft.nbt.StreamTagVisitor",
+      "net.minecraft.world.level.ChunkPos"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "scanChunk",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVisitor",
+            "type": "StreamTagVisitor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/ChunkScanAccess.java"
+  },
+  "net.minecraft.world.level.chunk.storage.ChunkSerializer": {
+    "className": "ChunkSerializer",
+    "fullName": "net.minecraft.world.level.chunk.storage.ChunkSerializer",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/ChunkSerializer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.Dynamic",
+      "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+      "it.unimi.dsi.fastutil.longs.LongSet",
+      "it.unimi.dsi.fastutil.shorts.ShortList",
+      "java.util.Arrays",
+      "java.util.EnumSet",
+      "java.util.Map",
+      "java.util.Objects",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.nbt.LongArrayTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.nbt.ShortTag",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.ai.village.poi.PoiManager",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.LightLayer",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.Biomes",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.chunk.CarvingMask",
+      "net.minecraft.world.level.chunk.ChunkAccess",
+      "net.minecraft.world.level.chunk.ChunkSource",
+      "net.minecraft.world.level.chunk.ChunkStatus",
+      "net.minecraft.world.level.chunk.DataLayer",
+      "net.minecraft.world.level.chunk.ImposterProtoChunk",
+      "net.minecraft.world.level.chunk.LevelChunk",
+      "net.minecraft.world.level.chunk.LevelChunkSection",
+      "net.minecraft.world.level.chunk.PalettedContainer",
+      "net.minecraft.world.level.chunk.PalettedContainerRO",
+      "net.minecraft.world.level.chunk.ProtoChunk",
+      "net.minecraft.world.level.chunk.UpgradeData",
+      "net.minecraft.world.level.levelgen.BelowZeroRetrogen",
+      "net.minecraft.world.level.levelgen.GenerationStep",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.level.levelgen.blending.BlendingData",
+      "net.minecraft.world.level.levelgen.structure.Structure",
+      "net.minecraft.world.level.levelgen.structure.StructureStart",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.lighting.LevelLightEngine",
+      "net.minecraft.world.level.material.Fluid",
+      "net.minecraft.world.ticks.LevelChunkTicks",
+      "net.minecraft.world.ticks.ProtoChunkTicks",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "read",
+        "returnType": "ProtoChunk",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoiManager",
+            "type": "PoiManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 243
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "logErrors",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkSectionY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pErrorMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 245,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "makeBiomeCodec",
+        "returnType": "Codec<PalettedContainerRO<Holder<Biome>>>",
+        "parameters": [
+          {
+            "name": "pBiomeRegistry",
+            "type": "Registry<Biome>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 251
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunk",
+            "type": "ChunkAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 253,
+          "end": 369
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveTicks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTicksToSave",
+            "type": "ChunkAccess.TicksToSave",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 371,
+          "end": 379
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getListOfCompoundsOrNull",
+        "returnType": "ListTag",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 417
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "packStructureData",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureMap",
+            "type": "StructureStart>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReferenceMap",
+            "type": "LongSet>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 419,
+          "end": 441
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpackStructureStart",
+        "returnType": "Map<Structure, StructureStart>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 443,
+          "end": 462
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unpackStructureReferences",
+        "returnType": "Map<Structure, LongSet>",
+        "parameters": [
+          {
+            "name": "pRegistryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 464,
+          "end": 491
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "packOffsets",
+        "returnType": "ListTag",
+        "parameters": [
+          {
+            "name": "pList",
+            "type": "ShortList[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 493,
+          "end": 508
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TAG_UPGRADE_DATA",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"UpgradeData\"",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "BLOCK_TICKS_TAG",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"block_ticks\"",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "FLUID_TICKS_TAG",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"fluid_ticks\"",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "X_POS_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"xPos\"",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "Z_POS_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"zPos\"",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "HEIGHTMAPS_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Heightmaps\"",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "IS_LIGHT_ON_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"isLightOn\"",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "SECTIONS_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"sections\"",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "BLOCK_LIGHT_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"BlockLight\"",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "SKY_LIGHT_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"SkyLight\"",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 65,
+      "end": 509
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/ChunkSerializer.java"
+  },
+  "net.minecraft.world.level.chunk.storage.ChunkStorage": {
+    "className": "ChunkStorage",
+    "fullName": "net.minecraft.world.level.chunk.storage.ChunkStorage",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/ChunkStorage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.serialization.Codec",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.structure.LegacyStructureDataHandler",
+      "net.minecraft.world.level.storage.DimensionDataStorage"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChunkStorage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRegionFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixerUpper",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isOldChunkAround",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRadius",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upgradeChunkTag",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pLevelKey",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStorage",
+            "type": "Supplier<DimensionDataStorage>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "Optional<ResourceKey<Codec<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLegacyStructureHandler",
+        "returnType": "LegacyStructureDataHandler",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStorage",
+            "type": "Supplier<DimensionDataStorage>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "injectDatafixingContext",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevelKey",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "Optional<ResourceKey<Codec<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVersion",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "CompletableFuture<Optional<CompoundTag>>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flushWorker",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "chunkScanner",
+        "returnType": "ChunkScanAccess",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "LAST_MONOLYTH_STRUCTURE_DATA_VERSION",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1493",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "worker",
+        "type": "IOWorker",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "fixerUpper",
+        "type": "DataFixer",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "legacyStructureHandler",
+        "type": "volatile LegacyStructureDataHandler",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 108
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/ChunkStorage.java"
+  },
+  "net.minecraft.world.level.chunk.storage.CommitOp": {
+    "className": "CommitOp",
+    "fullName": "net.minecraft.world.level.chunk.storage.CommitOp",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionFile.java",
+    "classType": "interface",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.logging.LogUtils",
+      "java.io.ByteArrayInputStream",
+      "java.io.ByteArrayOutputStream",
+      "java.io.DataInputStream",
+      "java.io.DataOutputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.ByteBuffer",
+      "java.nio.IntBuffer",
+      "java.nio.channels.FileChannel",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.nio.file.StandardCopyOption",
+      "java.nio.file.StandardOpenOption",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.world.level.ChunkPos",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 418,
+          "end": 418
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 417,
+      "end": 419
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/CommitOp.java"
+  },
+  "net.minecraft.world.level.chunk.storage.EntityStorage": {
+    "className": "EntityStorage",
+    "fullName": "net.minecraft.world.level.chunk.storage.EntityStorage",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/EntityStorage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "EntityPersistentStorage<Entity>"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+      "it.unimi.dsi.fastutil.longs.LongSet",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.List",
+      "java.util.Objects",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.IntArrayTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.util.thread.ProcessorMailbox",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.entity.ChunkEntities",
+      "net.minecraft.world.level.entity.EntityPersistentStorage",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EntityStorage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixerUpper",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMainThreadExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "loadEntities",
+        "returnType": "CompletableFuture<ChunkEntities<Entity>>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readChunkPos",
+        "returnType": "ChunkPos",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "writeChunkPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "emptyChunk",
+        "returnType": "ChunkEntities<Entity>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "storeEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntities",
+            "type": "ChunkEntities<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSynchronize",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upgradeChunkTag",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 122,
+          "end": 124
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ENTITIES_TAG",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Entities\"",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "POSITION_TAG",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Position\"",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "level",
+        "type": "ServerLevel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "worker",
+        "type": "IOWorker",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "entityDeserializerQueue",
+        "type": "ProcessorMailbox<Runnable>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "fixerUpper",
+        "type": "DataFixer",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 125
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/EntityStorage.java"
+  },
+  "net.minecraft.world.level.chunk.storage.IOWorker": {
+    "className": "IOWorker",
+    "fullName": "net.minecraft.world.level.chunk.storage.IOWorker",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/IOWorker.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ChunkScanAccess",
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.BitSet",
+      "java.util.Iterator",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.atomic.AtomicBoolean",
+      "java.util.function.Function",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.IntTag",
+      "net.minecraft.nbt.StreamTagVisitor",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.nbt.visitors.CollectFields",
+      "net.minecraft.nbt.visitors.FieldSelector",
+      "net.minecraft.util.Unit",
+      "net.minecraft.util.thread.ProcessorMailbox",
+      "net.minecraft.util.thread.StrictQueue",
+      "net.minecraft.world.level.ChunkPos",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IOWorker",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorkerName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isOldChunkAround",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRadius",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOrCreateOldDataForRegion",
+        "returnType": "CompletableFuture<BitSet>",
+        "parameters": [
+          {
+            "name": "pChunkX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createOldDataForRegion",
+        "returnType": "CompletableFuture<BitSet>",
+        "parameters": [
+          {
+            "name": "pChunkX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOldChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "store",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadAsync",
+        "returnType": "CompletableFuture<Optional<CompoundTag>>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "synchronize",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pFlushStorage",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scanChunk",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVisitor",
+            "type": "StreamTagVisitor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "storePendingChunk",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 214
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tellStorePending",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 216,
+          "end": 218
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runStore",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPendingStore",
+            "type": "IOWorker.PendingStore",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 220,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 231,
+          "end": 247
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mailbox",
+        "type": "ProcessorMailbox<StrictQueue.IntRunnable>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "storage",
+        "type": "RegionFileStorage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "REGION_CACHE_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1024",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PendingStore",
+        "fullName": "net.minecraft.world.level.chunk.storage.IOWorker.PendingStore",
+        "packageName": "net.minecraft.world.level.chunk.storage",
+        "filePath": "/net/minecraft/world/level/chunk/storage/IOWorker.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap",
+          "java.io.IOException",
+          "java.nio.file.Path",
+          "java.util.BitSet",
+          "java.util.Iterator",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.function.Function",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.IntTag",
+          "net.minecraft.nbt.StreamTagVisitor",
+          "net.minecraft.nbt.Tag",
+          "net.minecraft.nbt.visitors.CollectFields",
+          "net.minecraft.nbt.visitors.FieldSelector",
+          "net.minecraft.util.Unit",
+          "net.minecraft.util.thread.ProcessorMailbox",
+          "net.minecraft.util.thread.StrictQueue",
+          "net.minecraft.world.level.ChunkPos",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PendingStore",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pData",
+                "type": "CompoundTag",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 254,
+              "end": 256
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "data",
+            "type": "CompoundTag",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 251,
+              "end": 251
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 249,
+          "end": 257
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/IOWorker/PendingStore.java"
+      },
+      {
+        "className": "Priority",
+        "fullName": "net.minecraft.world.level.chunk.storage.IOWorker.Priority",
+        "packageName": "net.minecraft.world.level.chunk.storage",
+        "filePath": "/net/minecraft/world/level/chunk/storage/IOWorker.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap",
+          "java.io.IOException",
+          "java.nio.file.Path",
+          "java.util.BitSet",
+          "java.util.Iterator",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.function.Function",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.IntTag",
+          "net.minecraft.nbt.StreamTagVisitor",
+          "net.minecraft.nbt.Tag",
+          "net.minecraft.nbt.visitors.CollectFields",
+          "net.minecraft.nbt.visitors.FieldSelector",
+          "net.minecraft.util.Unit",
+          "net.minecraft.util.thread.ProcessorMailbox",
+          "net.minecraft.util.thread.StrictQueue",
+          "net.minecraft.world.level.ChunkPos",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 259,
+          "end": 263
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/IOWorker/Priority.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 264
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/IOWorker.java"
+  },
+  "net.minecraft.world.level.chunk.storage.RegionBitmap": {
+    "className": "RegionBitmap",
+    "fullName": "net.minecraft.world.level.chunk.storage.RegionBitmap",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionBitmap.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "it.unimi.dsi.fastutil.ints.IntArraySet",
+      "it.unimi.dsi.fastutil.ints.IntCollection",
+      "it.unimi.dsi.fastutil.ints.IntSet",
+      "java.util.BitSet"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "force",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectorOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectorCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "free",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectorOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectorCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "allocate",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pSectorCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUsed",
+        "returnType": "IntSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/RegionBitmap.java"
+  },
+  "net.minecraft.world.level.chunk.storage.RegionFile": {
+    "className": "RegionFile",
+    "fullName": "net.minecraft.world.level.chunk.storage.RegionFile",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionFile.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.logging.LogUtils",
+      "java.io.ByteArrayInputStream",
+      "java.io.ByteArrayOutputStream",
+      "java.io.DataInputStream",
+      "java.io.DataOutputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.ByteBuffer",
+      "java.nio.IntBuffer",
+      "java.nio.channels.FileChannel",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.nio.file.StandardCopyOption",
+      "java.nio.file.StandardOpenOption",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.world.level.ChunkPos",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RegionFile",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRegionFile",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContainingFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "RegionFile",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRegionFile",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContainingFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersion",
+            "type": "RegionFileVersion",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 52,
+          "end": 100
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getExternalChunkPath",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChunkDataInputStream",
+        "returnType": "DataInputStream",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 111,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTimestamp",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isExternalStreamChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pVersionByte",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExternalChunkVersion",
+        "returnType": "byte",
+        "parameters": [
+          {
+            "name": "pVersionByte",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createChunkInputStream",
+        "returnType": "DataInputStream",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersionByte",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 169,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createExternalChunkInputStream",
+        "returnType": "DataInputStream",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVersionByte",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 180,
+          "end": 188
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createStream",
+        "returnType": "ByteArrayInputStream",
+        "parameters": [
+          {
+            "name": "pSourceBuffer",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLength",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 190,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "packSectorOffset",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pSectorOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectorCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNumSectors",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPackedSectorOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSectorNumber",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPackedSectorOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 214
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sizeToSectors",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doesChunkExist",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 269
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChunkDataOutputStream",
+        "returnType": "DataOutputStream",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 274,
+          "end": 276
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flush",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 278,
+          "end": 280
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 282,
+          "end": 292
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkData",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 294,
+          "end": 317
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SECTOR_BYTES",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4096",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "SECTOR_INTS",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1024",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "CHUNK_HEADER_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "HEADER_OFFSET",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "EXTERNAL_FILE_EXTENSION",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\".mcc\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "EXTERNAL_STREAM_FLAG",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "128",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "EXTERNAL_CHUNK_THRESHOLD",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "256",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "CHUNK_NOT_PRESENT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "file",
+        "type": "FileChannel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "externalFileDir",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "version",
+        "type": "RegionFileVersion",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "offsets",
+        "type": "IntBuffer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "timestamps",
+        "type": "IntBuffer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 27,
+      "end": 327
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/RegionFile.java"
+  },
+  "net.minecraft.world.level.chunk.storage.RegionFileStorage": {
+    "className": "RegionFileStorage",
+    "fullName": "net.minecraft.world.level.chunk.storage.RegionFileStorage",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionFileStorage.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap",
+      "java.io.DataInputStream",
+      "java.io.DataOutputStream",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "javax.annotation.Nullable",
+      "net.minecraft.FileUtil",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtIo",
+      "net.minecraft.nbt.StreamTagVisitor",
+      "net.minecraft.util.ExceptionCollector",
+      "net.minecraft.world.level.ChunkPos"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RegionFileStorage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getRegionFile",
+        "returnType": "RegionFile",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 32,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 51,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scanChunk",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVisitor",
+            "type": "StreamTagVisitor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 59,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkData",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 70,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 82,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flush",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 96,
+          "end": 101
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ANVIL_EXTENSION",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\".mca\"",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "MAX_CACHE_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "256",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "folder",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "sync",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 102
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/RegionFileStorage.java"
+  },
+  "net.minecraft.world.level.chunk.storage.RegionFileVersion": {
+    "className": "RegionFileVersion",
+    "fullName": "net.minecraft.world.level.chunk.storage.RegionFileVersion",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/RegionFileVersion.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.ints.Int2ObjectMap",
+      "it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap",
+      "java.io.BufferedOutputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.OutputStream",
+      "java.util.zip.DeflaterOutputStream",
+      "java.util.zip.GZIPInputStream",
+      "java.util.zip.GZIPOutputStream",
+      "java.util.zip.InflaterInputStream",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.FastBufferedInputStream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RegionFileVersion",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputWrapper",
+            "type": "RegionFileVersion.StreamWrapper<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutputWrapper",
+            "type": "RegionFileVersion.StreamWrapper<OutputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "register",
+        "returnType": "RegionFileVersion",
+        "parameters": [
+          {
+            "name": "pFileVersion",
+            "type": "RegionFileVersion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromId",
+        "returnType": "RegionFileVersion",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValidVersion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrap",
+        "returnType": "OutputStream",
+        "parameters": [
+          {
+            "name": "pOutputStream",
+            "type": "OutputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrap",
+        "returnType": "InputStream",
+        "parameters": [
+          {
+            "name": "pInputStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "inputWrapper",
+        "type": "RegionFileVersion.StreamWrapper<InputStream>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "outputWrapper",
+        "type": "RegionFileVersion.StreamWrapper<OutputStream>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "StreamWrapper",
+        "fullName": "net.minecraft.world.level.chunk.storage.RegionFileVersion.StreamWrapper",
+        "packageName": "net.minecraft.world.level.chunk.storage",
+        "filePath": "/net/minecraft/world/level/chunk/storage/RegionFileVersion.java",
+        "classType": "interface",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "it.unimi.dsi.fastutil.ints.Int2ObjectMap",
+          "it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap",
+          "java.io.BufferedOutputStream",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.OutputStream",
+          "java.util.zip.DeflaterOutputStream",
+          "java.util.zip.GZIPInputStream",
+          "java.util.zip.GZIPOutputStream",
+          "java.util.zip.InflaterInputStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.FastBufferedInputStream"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "wrap",
+            "returnType": "O",
+            "parameters": [
+              {
+                "name": "pStream",
+                "type": "O",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 81,
+              "end": 81
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/RegionFileVersion/StreamWrapper.java"
+      }
+    ],
+    "lineRange": {
+      "start": 23,
+      "end": 83
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/RegionFileVersion.java"
+  },
+  "net.minecraft.world.level.chunk.storage.SectionStorage": {
+    "className": "SectionStorage",
+    "fullName": "net.minecraft.world.level.chunk.storage.SectionStorage",
+    "packageName": "net.minecraft.world.level.chunk.storage",
+    "filePath": "/net/minecraft/world/level/chunk/storage/SectionStorage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.Dynamic",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.OptionalDynamic",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+      "it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.CompletionException",
+      "java.util.function.BooleanSupplier",
+      "java.util.function.Function",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.resources.RegistryOps",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.LevelHeightAccessor",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SectionStorage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCodec",
+            "type": "Codec<R>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFactory",
+            "type": "R>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixerUpper",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "DataFixTypes",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevelHeightAccessor",
+            "type": "LevelHeightAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAheadOfTime",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasWork",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Optional<R>",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOrLoad",
+        "returnType": "Optional<R>",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "outsideStoredRange",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOrCreate",
+        "returnType": "R",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readColumn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryRead",
+        "returnType": "CompletableFuture<Optional<CompoundTag>>",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "writeColumn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKey",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectionY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSectionLoad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDirty",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectionPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 215
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVersion",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pColumnData",
+            "type": "Dynamic<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 221,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 234,
+          "end": 236
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SECTIONS_TAG",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Sections\"",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "worker",
+        "type": "IOWorker",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "codec",
+        "type": "Function<Runnable, Codec<R>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "factory",
+        "type": "Function<Runnable, R>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "fixerUpper",
+        "type": "DataFixer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "type",
+        "type": "DataFixTypes",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "registryAccess",
+        "type": "RegistryAccess",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "levelHeightAccessor",
+        "type": "LevelHeightAccessor",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 37,
+      "end": 237
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/chunk/storage/SectionStorage.java"
+  }
+}

@@ -1,0 +1,823 @@
+{
+  "net.minecraft.world.entity.ai.memory.ExpirableValue": {
+    "className": "ExpirableValue",
+    "fullName": "net.minecraft.world.entity.ai.memory.ExpirableValue",
+    "packageName": "net.minecraft.world.entity.ai.memory",
+    "filePath": "/net/minecraft/world/entity/ai/memory/ExpirableValue.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "net.minecraft.util.VisibleForDebug"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ExpirableValue",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimeToLive",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTimeToLive",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasExpired",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canExpire",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "value",
+        "type": "T",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "timeToLive",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/memory/ExpirableValue.java"
+  },
+  "net.minecraft.world.entity.ai.memory.MemoryModuleType": {
+    "className": "MemoryModuleType",
+    "fullName": "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+    "packageName": "net.minecraft.world.entity.ai.memory",
+    "filePath": "/net/minecraft/world/entity/ai/memory/MemoryModuleType.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.serialization.Codec",
+      "java.util.List",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.UUID",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.GlobalPos",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.UUIDUtil",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Unit",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.AgeableMob",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.behavior.PositionTracker",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.monster.hoglin.Hoglin",
+      "net.minecraft.world.entity.monster.piglin.AbstractPiglin",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.pathfinder.Path",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MemoryModuleType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOptionalCodec",
+            "type": "Optional<Codec<U>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 140
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCodec",
+        "returnType": "Optional<Codec<ExpirableValue<U>>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 148
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Optional<Codec<ExpirableValue<U>>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 135,
+          "end": 135
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 157
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/memory/MemoryModuleType.java"
+  },
+  "net.minecraft.world.entity.ai.memory.MemoryStatus": {
+    "className": "MemoryStatus",
+    "fullName": "net.minecraft.world.entity.ai.memory.MemoryStatus",
+    "packageName": "net.minecraft.world.entity.ai.memory",
+    "filePath": "/net/minecraft/world/entity/ai/memory/MemoryStatus.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 7
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/memory/MemoryStatus.java"
+  },
+  "net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities": {
+    "className": "NearestVisibleLivingEntities",
+    "fullName": "net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities",
+    "packageName": "net.minecraft.world.entity.ai.memory",
+    "filePath": "/net/minecraft/world/entity/ai/memory/NearestVisibleLivingEntities.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Iterables",
+      "it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap",
+      "java.util.List",
+      "java.util.Optional",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.sensing.Sensor"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NearestVisibleLivingEntities",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "NearestVisibleLivingEntities",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLivingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNearbyLivingEntities",
+            "type": "List<LivingEntity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "empty",
+        "returnType": "NearestVisibleLivingEntities",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findClosest",
+        "returnType": "Optional<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pPredicate",
+            "type": "Predicate<LivingEntity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAll",
+        "returnType": "Iterable<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pPredicate",
+            "type": "Predicate<LivingEntity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "find",
+        "returnType": "Stream<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pPredicate",
+            "type": "Predicate<LivingEntity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contains",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contains",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPredicate",
+            "type": "Predicate<LivingEntity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 73
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "nearbyEntities",
+        "type": "List<LivingEntity>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "lineOfSightTest",
+        "type": "Predicate<LivingEntity>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 74
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/memory/NearestVisibleLivingEntities.java"
+  },
+  "net.minecraft.world.entity.ai.memory.WalkTarget": {
+    "className": "WalkTarget",
+    "fullName": "net.minecraft.world.entity.ai.memory.WalkTarget",
+    "packageName": "net.minecraft.world.entity.ai.memory",
+    "filePath": "/net/minecraft/world/entity/ai/memory/WalkTarget.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.ai.behavior.BlockPosTracker",
+      "net.minecraft.world.entity.ai.behavior.EntityTracker",
+      "net.minecraft.world.entity.ai.behavior.PositionTracker",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WalkTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCloseEnoughDist",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WalkTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pVectorPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCloseEnoughDist",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WalkTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTargetEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCloseEnoughDist",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WalkTarget",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "PositionTracker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeedModifier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCloseEnoughDist",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getTarget",
+        "returnType": "PositionTracker",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpeedModifier",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCloseEnoughDist",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "target",
+        "type": "PositionTracker",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "speedModifier",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "closeEnoughDist",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/memory/WalkTarget.java"
+  }
+}

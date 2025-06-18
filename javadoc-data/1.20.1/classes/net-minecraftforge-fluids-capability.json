@@ -1,0 +1,526 @@
+{
+  "net.minecraftforge.fluids.capability.FluidHandlerBlockEntity": {
+    "className": "FluidHandlerBlockEntity",
+    "fullName": "net.minecraftforge.fluids.capability.FluidHandlerBlockEntity",
+    "packageName": "net.minecraftforge.fluids.capability",
+    "filePath": "/net/minecraftforge/fluids/capability/FluidHandlerBlockEntity.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockEntity",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.common.capabilities.Capability",
+      "net.minecraftforge.common.capabilities.ForgeCapabilities",
+      "net.minecraftforge.common.util.LazyOptional",
+      "net.minecraftforge.fluids.FluidType",
+      "net.minecraftforge.fluids.capability.templates.FluidTank",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FluidHandlerBlockEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "blockEntityType",
+            "type": "BlockEntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveAdditional",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 45
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/fluids/capability/FluidHandlerBlockEntity.java"
+  },
+  "net.minecraftforge.fluids.capability.IFluidHandler": {
+    "className": "IFluidHandler",
+    "fullName": "net.minecraftforge.fluids.capability.IFluidHandler",
+    "packageName": "net.minecraftforge.fluids.capability",
+    "filePath": "/net/minecraftforge/fluids/capability/IFluidHandler.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.common.capabilities.AutoRegisterCapability",
+      "net.minecraftforge.fluids.*",
+      "org.jetbrains.annotations.NotNull"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getTanks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFluidInTank",
+        "returnType": "FluidStack",
+        "parameters": [
+          {
+            "name": "tank",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTankCapacity",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "tank",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFluidValid",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "tank",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "stack",
+            "type": "FluidStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fill",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "resource",
+            "type": "FluidStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "action",
+            "type": "FluidAction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drain",
+        "returnType": "FluidStack",
+        "parameters": [
+          {
+            "name": "resource",
+            "type": "FluidStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "action",
+            "type": "FluidAction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drain",
+        "returnType": "FluidStack",
+        "parameters": [
+          {
+            "name": "maxDrain",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "action",
+            "type": "FluidAction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 109
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "FluidAction",
+        "fullName": "net.minecraftforge.fluids.capability.IFluidHandler.FluidAction",
+        "packageName": "net.minecraftforge.fluids.capability",
+        "filePath": "/net/minecraftforge/fluids/capability/IFluidHandler.java",
+        "classType": "enum",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "net.minecraftforge.common.capabilities.AutoRegisterCapability",
+          "net.minecraftforge.fluids.*",
+          "org.jetbrains.annotations.NotNull"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "execute",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 24,
+              "end": 26
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "simulate",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 28,
+              "end": 30
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SIMULATE",
+            "type": "EXECUTE,",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 22,
+              "end": 22
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 21,
+          "end": 31
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/fluids/capability/IFluidHandler/FluidAction.java"
+      }
+    ],
+    "lineRange": {
+      "start": 19,
+      "end": 111
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/fluids/capability/IFluidHandler.java"
+  },
+  "net.minecraftforge.fluids.capability.IFluidHandlerItem": {
+    "className": "IFluidHandlerItem",
+    "fullName": "net.minecraftforge.fluids.capability.IFluidHandlerItem",
+    "packageName": "net.minecraftforge.fluids.capability",
+    "filePath": "/net/minecraftforge/fluids/capability/IFluidHandlerItem.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "IFluidHandler",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraftforge.common.capabilities.AutoRegisterCapability",
+      "org.jetbrains.annotations.NotNull"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getContainer",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/fluids/capability/IFluidHandlerItem.java"
+  },
+  "net.minecraftforge.fluids.capability.ItemFluidContainer": {
+    "className": "ItemFluidContainer",
+    "fullName": "net.minecraftforge.fluids.capability.ItemFluidContainer",
+    "packageName": "net.minecraftforge.fluids.capability",
+    "filePath": "/net/minecraftforge/fluids/capability/ItemFluidContainer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Item",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraftforge.common.capabilities.ICapabilityProvider",
+      "net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ItemFluidContainer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "Item.Properties",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "capacity",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "initCapabilities",
+        "returnType": "ICapabilityProvider",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 38
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "capacity",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/fluids/capability/ItemFluidContainer.java"
+  }
+}

@@ -1,0 +1,776 @@
+{
+  "net.minecraft.util.eventlog.EventLogDirectory": {
+    "className": "EventLogDirectory",
+    "fullName": "net.minecraft.util.eventlog.EventLogDirectory",
+    "packageName": "net.minecraft.util.eventlog",
+    "filePath": "/net/minecraft/util/eventlog/EventLogDirectory.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.io.IOException",
+      "java.io.InputStreamReader",
+      "java.io.OutputStream",
+      "java.io.Reader",
+      "java.nio.ByteBuffer",
+      "java.nio.channels.FileChannel",
+      "java.nio.channels.FileLock",
+      "java.nio.channels.ReadableByteChannel",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.nio.file.StandardOpenOption",
+      "java.time.LocalDate",
+      "java.time.format.DateTimeFormatter",
+      "java.time.format.DateTimeParseException",
+      "java.util.ArrayList",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.ListIterator",
+      "java.util.Objects",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "java.util.zip.GZIPInputStream",
+      "java.util.zip.GZIPOutputStream",
+      "javax.annotation.Nullable",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EventLogDirectory",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRoot",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtension",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "open",
+        "returnType": "EventLogDirectory",
+        "parameters": [
+          {
+            "name": "pRoot",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtension",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 44,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryCompress",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutputPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 80,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "writeCompressed",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChannel",
+            "type": "ReadableByteChannel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutputPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 98,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "CompressedFile",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "id",
+            "type": "EventLogDirectory.FileId",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "FileId",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "LocalDate",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "index",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RawFile",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "id",
+            "type": "EventLogDirectory.FileId",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 262
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "COMPRESS_BUFFER_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4096",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "COMPRESSED_EXTENSION",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\".gz\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "root",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "extension",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "File",
+        "fullName": "net.minecraft.util.eventlog.EventLogDirectory.File",
+        "packageName": "net.minecraft.util.eventlog",
+        "filePath": "/net/minecraft/util/eventlog/EventLogDirectory.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.IOException",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.Reader",
+          "java.nio.ByteBuffer",
+          "java.nio.channels.FileChannel",
+          "java.nio.channels.FileLock",
+          "java.nio.channels.ReadableByteChannel",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.nio.file.StandardOpenOption",
+          "java.time.LocalDate",
+          "java.time.format.DateTimeFormatter",
+          "java.time.format.DateTimeParseException",
+          "java.util.ArrayList",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.ListIterator",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "java.util.zip.GZIPInputStream",
+          "java.util.zip.GZIPOutputStream",
+          "javax.annotation.Nullable",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "path",
+            "returnType": "Path",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 146,
+              "end": 146
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "openReader",
+            "returnType": "Reader",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 151,
+              "end": 151
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 145,
+          "end": 154
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/eventlog/EventLogDirectory/File.java"
+      },
+      {
+        "className": "FileList",
+        "fullName": "net.minecraft.util.eventlog.EventLogDirectory.FileList",
+        "packageName": "net.minecraft.util.eventlog",
+        "filePath": "/net/minecraft/util/eventlog/EventLogDirectory.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Iterable<EventLogDirectory.File>"
+        ],
+        "imports": [
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.IOException",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.Reader",
+          "java.nio.ByteBuffer",
+          "java.nio.channels.FileChannel",
+          "java.nio.channels.FileLock",
+          "java.nio.channels.ReadableByteChannel",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.nio.file.StandardOpenOption",
+          "java.time.LocalDate",
+          "java.time.format.DateTimeFormatter",
+          "java.time.format.DateTimeParseException",
+          "java.util.ArrayList",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.ListIterator",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "java.util.zip.GZIPInputStream",
+          "java.util.zip.GZIPOutputStream",
+          "javax.annotation.Nullable",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FileList",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pFiles",
+                "type": "List<EventLogDirectory.File>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 188,
+              "end": 190
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "iterator",
+            "returnType": "Iterator<EventLogDirectory.File>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 226,
+              "end": 228
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stream",
+            "returnType": "Stream<EventLogDirectory.File>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 230,
+              "end": 232
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "ids",
+            "returnType": "Set<EventLogDirectory.FileId>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 234,
+              "end": 236
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "files",
+            "type": "List<EventLogDirectory.File>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 186,
+              "end": 186
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 185,
+          "end": 237
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/eventlog/EventLogDirectory/FileList.java"
+      }
+    ],
+    "lineRange": {
+      "start": 32,
+      "end": 263
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/eventlog/EventLogDirectory.java"
+  },
+  "net.minecraft.util.eventlog.JsonEventLog": {
+    "className": "JsonEventLog",
+    "fullName": "net.minecraft.util.eventlog.JsonEventLog",
+    "packageName": "net.minecraft.util.eventlog",
+    "filePath": "/net/minecraft/util/eventlog/JsonEventLog.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.Gson",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonIOException",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.JsonOps",
+      "java.io.Closeable",
+      "java.io.IOException",
+      "java.io.Writer",
+      "java.nio.channels.Channels",
+      "java.nio.channels.FileChannel",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Path",
+      "java.nio.file.StandardOpenOption",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "JsonEventLog",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pCodec",
+            "type": "Codec<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChannel",
+            "type": "FileChannel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException",
+          "JsonIOException"
+        ],
+        "lineRange": {
+          "start": 36,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openReader",
+        "returnType": "JsonEventLogReader<T>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 45,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "releaseReference",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 78,
+          "end": 83
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Codec<T>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "channel",
+        "type": "FileChannel",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 84
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/eventlog/JsonEventLog.java"
+  },
+  "net.minecraft.util.eventlog.JsonEventLogReader": {
+    "className": "JsonEventLogReader",
+    "fullName": "net.minecraft.util.eventlog.JsonEventLogReader",
+    "packageName": "net.minecraft.util.eventlog",
+    "filePath": "/net/minecraft/util/eventlog/JsonEventLogReader.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonParseException",
+      "com.google.gson.JsonParser",
+      "com.google.gson.stream.JsonReader",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.JsonOps",
+      "java.io.Closeable",
+      "java.io.EOFException",
+      "java.io.IOException",
+      "java.io.Reader",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "next",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 45
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/eventlog/JsonEventLogReader.java"
+  }
+}

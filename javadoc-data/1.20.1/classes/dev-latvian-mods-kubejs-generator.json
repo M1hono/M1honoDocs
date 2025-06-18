@@ -1,0 +1,511 @@
+{
+  "dev.latvian.mods.kubejs.generator.AssetJsonGenerator": {
+    "className": "AssetJsonGenerator",
+    "fullName": "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+    "packageName": "dev.latvian.mods.kubejs.generator",
+    "filePath": "/dev/latvian/mods/kubejs/generator/AssetJsonGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResourceGenerator",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "dev.latvian.mods.kubejs.KubeJSPaths",
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.MultipartBlockStateGenerator",
+      "dev.latvian.mods.kubejs.client.StencilTexture",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.script.data.GeneratedData",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "net.minecraft.Util",
+      "net.minecraft.resources.ResourceLocation",
+      "javax.imageio.ImageIO",
+      "java.io.BufferedInputStream",
+      "java.io.IOException",
+      "java.nio.file.Files",
+      "java.util.HashMap",
+      "java.util.Map",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AssetJsonGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "m",
+            "type": "GeneratedData>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "blockState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "consumer",
+            "type": "Consumer<VariantBlockStateGenerator>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multipartState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "consumer",
+            "type": "Consumer<MultipartBlockStateGenerator>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blockModel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "consumer",
+            "type": "Consumer<ModelGenerator>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "itemModel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "consumer",
+            "type": "Consumer<ModelGenerator>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "asItemModelLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stencil",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "stencil",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "colors",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 54,
+          "end": 83
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "stencils",
+        "type": "Map<String, StencilTexture>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 84
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/generator/AssetJsonGenerator.java"
+  },
+  "dev.latvian.mods.kubejs.generator.DataJsonGenerator": {
+    "className": "DataJsonGenerator",
+    "fullName": "dev.latvian.mods.kubejs.generator.DataJsonGenerator",
+    "packageName": "dev.latvian.mods.kubejs.generator",
+    "filePath": "/dev/latvian/mods/kubejs/generator/DataJsonGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResourceGenerator",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.script.data.GeneratedData",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "net.minecraft.resources.ResourceLocation",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DataJsonGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "m",
+            "type": "GeneratedData>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/generator/DataJsonGenerator.java"
+  },
+  "dev.latvian.mods.kubejs.generator.ResourceGenerator": {
+    "className": "ResourceGenerator",
+    "fullName": "dev.latvian.mods.kubejs.generator.ResourceGenerator",
+    "packageName": "dev.latvian.mods.kubejs.generator",
+    "filePath": "/dev/latvian/mods/kubejs/generator/ResourceGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "dev.latvian.mods.kubejs.DevProperties",
+      "dev.latvian.mods.kubejs.script.data.GeneratedData",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.Lazy",
+      "net.minecraft.resources.ResourceLocation",
+      "java.nio.charset.StandardCharsets",
+      "java.util.Map",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResourceGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "c",
+            "type": "ConsoleJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "m",
+            "type": "GeneratedData>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "data",
+            "type": "Supplier<byte[]>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "alwaysForget",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "data",
+            "type": "Supplier<byte[]>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "json",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "json",
+            "type": "JsonElement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "console",
+        "type": "ConsoleJS",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "map",
+        "type": "Map<ResourceLocation, GeneratedData>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/generator/ResourceGenerator.java"
+  }
+}

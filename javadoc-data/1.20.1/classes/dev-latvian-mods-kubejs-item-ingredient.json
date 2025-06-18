@@ -1,0 +1,345 @@
+{
+  "dev.latvian.mods.kubejs.item.ingredient.IngredientJS": {
+    "className": "IngredientJS",
+    "fullName": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS",
+    "packageName": "dev.latvian.mods.kubejs.item.ingredient",
+    "filePath": "/dev/latvian/mods/kubejs/item/ingredient/IngredientJS.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "dev.latvian.mods.kubejs.core.IngredientSupplierKJS",
+      "dev.latvian.mods.kubejs.item.ItemStackJS",
+      "dev.latvian.mods.kubejs.platform.IngredientPlatformHelper",
+      "dev.latvian.mods.kubejs.platform.RecipePlatformHelper",
+      "dev.latvian.mods.kubejs.recipe.RecipeExceptionJS",
+      "dev.latvian.mods.kubejs.recipe.RecipeJS",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.ListJS",
+      "dev.latvian.mods.kubejs.util.MapJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.Wrapper",
+      "dev.latvian.mods.rhino.mod.util.NBTUtils",
+      "dev.latvian.mods.rhino.regexp.NativeRegExp",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.regex.Pattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "of",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "s",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ofJson",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonElement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ofNetwork",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "buf",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 167
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/item/ingredient/IngredientJS.java"
+  },
+  "dev.latvian.mods.kubejs.item.ingredient.IngredientWithCustomPredicate": {
+    "className": "IngredientWithCustomPredicate",
+    "fullName": "dev.latvian.mods.kubejs.item.ingredient.IngredientWithCustomPredicate",
+    "packageName": "dev.latvian.mods.kubejs.item.ingredient",
+    "filePath": "/dev/latvian/mods/kubejs/item/ingredient/IngredientWithCustomPredicate.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.UUID",
+      "java.util.function.Predicate"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IngredientWithCustomPredicate",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "uuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "predicate",
+            "type": "Predicate<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 19
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "parent",
+        "type": "Ingredient",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "uuid",
+        "type": "UUID",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "predicate",
+        "type": "Predicate<ItemStack>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/item/ingredient/IngredientWithCustomPredicate.java"
+  },
+  "dev.latvian.mods.kubejs.item.ingredient.TagContext": {
+    "className": "TagContext",
+    "fullName": "dev.latvian.mods.kubejs.item.ingredient.TagContext",
+    "packageName": "dev.latvian.mods.kubejs.item.ingredient",
+    "filePath": "/dev/latvian/mods/kubejs/item/ingredient/TagContext.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Iterables",
+      "dev.architectury.extensions.injected.InjectedRegistryEntryExtension",
+      "dev.latvian.mods.kubejs.KubeJS",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.tags.TagManager",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "org.apache.commons.lang3.mutable.MutableObject",
+      "org.jetbrains.annotations.NotNull",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "usingRegistry",
+        "returnType": "TagContext",
+        "parameters": [
+          {
+            "name": "registryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromLoadResult",
+        "returnType": "TagContext",
+        "parameters": [
+          {
+            "name": "results",
+            "type": "List<TagManager.LoadResult<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 90
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 129
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/item/ingredient/TagContext.java"
+  }
+}

@@ -1,0 +1,705 @@
+{
+  "net.minecraft.client.multiplayer.resolver.AddressCheck": {
+    "className": "AddressCheck",
+    "fullName": "net.minecraft.client.multiplayer.resolver.AddressCheck",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/AddressCheck.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Streams",
+      "com.mojang.blocklist.BlockListSupplier",
+      "java.util.Objects",
+      "java.util.ServiceLoader",
+      "java.util.function.Predicate",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "isAllowed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pResolvedServerAddress",
+            "type": "ResolvedServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAllowed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pServerAddress",
+            "type": "ServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createFromService",
+        "returnType": "AddressCheck",
+        "parameters": [],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 37
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/AddressCheck.java"
+  },
+  "net.minecraft.client.multiplayer.resolver.ResolvedServerAddress": {
+    "className": "ResolvedServerAddress",
+    "fullName": "net.minecraft.client.multiplayer.resolver.ResolvedServerAddress",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/ResolvedServerAddress.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.net.InetSocketAddress",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getHostName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHostIp",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPort",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "asInetSocketAddress",
+        "returnType": "InetSocketAddress",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "from",
+        "returnType": "ResolvedServerAddress",
+        "parameters": [
+          {
+            "name": "pInetSocketAddress",
+            "type": "InetSocketAddress",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/ResolvedServerAddress.java"
+  },
+  "net.minecraft.client.multiplayer.resolver.ServerAddress": {
+    "className": "ServerAddress",
+    "fullName": "net.minecraft.client.multiplayer.resolver.ServerAddress",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/ServerAddress.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.net.HostAndPort",
+      "com.mojang.logging.LogUtils",
+      "java.net.IDN",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerAddress",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pHost",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPort",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ServerAddress",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pHostAndPort",
+            "type": "HostAndPort",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getHost",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPort",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseString",
+        "returnType": "ServerAddress",
+        "parameters": [
+          {
+            "name": "pIp",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValidAddress",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pHostAndPort",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parsePort",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPort",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 86
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "hostAndPort",
+        "type": "HostAndPort",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 87
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/ServerAddress.java"
+  },
+  "net.minecraft.client.multiplayer.resolver.ServerAddressResolver": {
+    "className": "ServerAddressResolver",
+    "fullName": "net.minecraft.client.multiplayer.resolver.ServerAddressResolver",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/ServerAddressResolver.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.net.InetAddress",
+      "java.net.InetSocketAddress",
+      "java.net.UnknownHostException",
+      "java.util.Optional",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "resolve",
+        "returnType": "Optional<ResolvedServerAddress>",
+        "parameters": [
+          {
+            "name": "pServerAddress",
+            "type": "ServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/ServerAddressResolver.java"
+  },
+  "net.minecraft.client.multiplayer.resolver.ServerNameResolver": {
+    "className": "ServerNameResolver",
+    "fullName": "net.minecraft.client.multiplayer.resolver.ServerNameResolver",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/ServerNameResolver.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "java.util.Optional",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerNameResolver",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pResolver",
+            "type": "ServerAddressResolver",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRedirectHandler",
+            "type": "ServerRedirectHandler",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAddressCheck",
+            "type": "AddressCheck",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "resolveAddress",
+        "returnType": "Optional<ResolvedServerAddress>",
+        "parameters": [
+          {
+            "name": "pServerAddress",
+            "type": "ServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 34
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resolver",
+        "type": "ServerAddressResolver",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "redirectHandler",
+        "type": "ServerRedirectHandler",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "addressCheck",
+        "type": "AddressCheck",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/ServerNameResolver.java"
+  },
+  "net.minecraft.client.multiplayer.resolver.ServerRedirectHandler": {
+    "className": "ServerRedirectHandler",
+    "fullName": "net.minecraft.client.multiplayer.resolver.ServerRedirectHandler",
+    "packageName": "net.minecraft.client.multiplayer.resolver",
+    "filePath": "/net/minecraft/client/multiplayer/resolver/ServerRedirectHandler.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.Hashtable",
+      "java.util.Optional",
+      "javax.naming.directory.Attribute",
+      "javax.naming.directory.Attributes",
+      "javax.naming.directory.DirContext",
+      "javax.naming.directory.InitialDirContext",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "lookupRedirect",
+        "returnType": "Optional<ServerAddress>",
+        "parameters": [
+          {
+            "name": "pServerAddress",
+            "type": "ServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createDnsSrvRedirectHandler",
+        "returnType": "ServerRedirectHandler",
+        "parameters": [],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/multiplayer/resolver/ServerRedirectHandler.java"
+  }
+}

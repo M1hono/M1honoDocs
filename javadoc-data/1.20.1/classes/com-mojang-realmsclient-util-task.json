@@ -1,0 +1,1996 @@
+{
+  "com.mojang.realmsclient.util.task.CloseServerTask": {
+    "className": "CloseServerTask",
+    "fullName": "com.mojang.realmsclient.util.task.CloseServerTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/CloseServerTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CloseServerTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerData",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConfigureScreen",
+            "type": "RealmsConfigureWorldScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 57
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serverData",
+        "type": "RealmsServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "configureScreen",
+        "type": "RealmsConfigureWorldScreen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/CloseServerTask.java"
+  },
+  "com.mojang.realmsclient.util.task.ConnectTask": {
+    "className": "ConnectTask",
+    "fullName": "com.mojang.realmsclient.util.task.ConnectTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/ConnectTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsServerAddress",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.multiplayer.resolver.ServerAddress",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.realms.RealmsConnect",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ConnectTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOnlineScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAddress",
+            "type": "RealmsServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "abortTask",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "realmsConnect",
+        "type": "RealmsConnect",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "server",
+        "type": "RealmsServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "address",
+        "type": "RealmsServerAddress",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/ConnectTask.java"
+  },
+  "com.mojang.realmsclient.util.task.DownloadTask": {
+    "className": "DownloadTask",
+    "fullName": "com.mojang.realmsclient.util.task.DownloadTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/DownloadTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.WorldDownload",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsDownloadLatestWorldScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DownloadTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlot",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDownloadName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 77
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "slot",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "downloadName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 78
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/DownloadTask.java"
+  },
+  "com.mojang.realmsclient.util.task.GetServerDetailsTask": {
+    "className": "GetServerDetailsTask",
+    "fullName": "com.mojang.realmsclient.util.task.GetServerDetailsTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/GetServerDetailsTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.RealmsMainScreen",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsServerAddress",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsBrokenWorldScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsLongConfirmationScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsTermsScreen",
+      "it.unimi.dsi.fastutil.booleans.BooleanConsumer",
+      "java.net.URL",
+      "java.util.concurrent.CancellationException",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.TimeoutException",
+      "java.util.concurrent.locks.ReentrantLock",
+      "java.util.function.Function",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "GetServerDetailsTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMainScreen",
+            "type": "RealmsMainScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConnectLock",
+            "type": "ReentrantLock",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fetchServerAddress",
+        "returnType": "RealmsServerAddress",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException",
+          "TimeoutException",
+          "CancellationException"
+        ],
+        "lineRange": {
+          "start": 81,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "connectScreen",
+        "returnType": "RealmsLongRunningMcoTaskScreen",
+        "parameters": [
+          {
+            "name": "p_167638_",
+            "type": "RealmsServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resourcePackDownloadConfirmationScreen",
+        "returnType": "RealmsLongConfirmationScreen",
+        "parameters": [
+          {
+            "name": "pServerAddress",
+            "type": "RealmsServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pScreenGetter",
+            "type": "Screen>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 128
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "server",
+        "type": "RealmsServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "mainScreen",
+        "type": "RealmsMainScreen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "connectLock",
+        "type": "ReentrantLock",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 139
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/GetServerDetailsTask.java"
+  },
+  "com.mojang.realmsclient.util.task.LongRunningTask": {
+    "className": "LongRunningTask",
+    "fullName": "com.mojang.realmsclient.util.task.LongRunningTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/LongRunningTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ErrorCallback",
+      "Runnable"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.gui.ErrorCallback",
+      "com.mojang.realmsclient.gui.screens.RealmsLongRunningMcoTaskScreen",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "pause",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSeconds",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setScreen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLongRunningMcoTaskScreen",
+            "type": "RealmsLongRunningMcoTaskScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "error",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pError",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTitle",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aborted",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "abortTask",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 59
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NUMBER_OF_RETRIES",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "25",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "longRunningMcoTaskScreen",
+        "type": "RealmsLongRunningMcoTaskScreen",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 60
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/LongRunningTask.java"
+  },
+  "com.mojang.realmsclient.util.task.OpenServerTask": {
+    "className": "OpenServerTask",
+    "fullName": "com.mojang.realmsclient.util.task.OpenServerTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/OpenServerTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.RealmsMainScreen",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "OpenServerTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerData",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReturnScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMainScreen",
+            "type": "RealmsMainScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pJoin",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 76
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serverData",
+        "type": "RealmsServer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "returnScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "join",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "mainScreen",
+        "type": "RealmsMainScreen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 77
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/OpenServerTask.java"
+  },
+  "com.mojang.realmsclient.util.task.ResettingGeneratedWorldTask": {
+    "className": "ResettingGeneratedWorldTask",
+    "fullName": "com.mojang.realmsclient.util.task.ResettingGeneratedWorldTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/ResettingGeneratedWorldTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResettingWorldTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.util.WorldGenerationInfo",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResettingGeneratedWorldTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pGenerationInfo",
+            "type": "WorldGenerationInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCallback",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "sendResetRequest",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pClient",
+            "type": "RealmsClient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "generationInfo",
+        "type": "WorldGenerationInfo",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/ResettingGeneratedWorldTask.java"
+  },
+  "com.mojang.realmsclient.util.task.ResettingTemplateWorldTask": {
+    "className": "ResettingTemplateWorldTask",
+    "fullName": "com.mojang.realmsclient.util.task.ResettingTemplateWorldTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/ResettingTemplateWorldTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResettingWorldTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.WorldTemplate",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResettingTemplateWorldTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTemplate",
+            "type": "WorldTemplate",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCallback",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "sendResetRequest",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pClient",
+            "type": "RealmsClient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "template",
+        "type": "WorldTemplate",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/ResettingTemplateWorldTask.java"
+  },
+  "com.mojang.realmsclient.util.task.ResettingWorldTask": {
+    "className": "ResettingWorldTask",
+    "fullName": "com.mojang.realmsclient.util.task.ResettingWorldTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/ResettingWorldTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResettingWorldTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCallback",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "sendResetRequest",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pClient",
+            "type": "RealmsClient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serverId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "title",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "callback",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/ResettingWorldTask.java"
+  },
+  "com.mojang.realmsclient.util.task.RestoreTask": {
+    "className": "RestoreTask",
+    "fullName": "com.mojang.realmsclient.util.task.RestoreTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/RestoreTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.Backup",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+      "com.mojang.realmsclient.gui.screens.RealmsGenericErrorScreen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RestoreTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBackup",
+            "type": "Backup",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "RealmsConfigureWorldScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 73
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "backup",
+        "type": "Backup",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "RealmsConfigureWorldScreen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 74
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/RestoreTask.java"
+  },
+  "com.mojang.realmsclient.util.task.SwitchMinigameTask": {
+    "className": "SwitchMinigameTask",
+    "fullName": "com.mojang.realmsclient.util.task.SwitchMinigameTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/SwitchMinigameTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.WorldTemplate",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.gui.screens.RealmsConfigureWorldScreen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SwitchMinigameTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldTemplate",
+            "type": "WorldTemplate",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "RealmsConfigureWorldScreen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "worldTemplate",
+        "type": "WorldTemplate",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "RealmsConfigureWorldScreen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/SwitchMinigameTask.java"
+  },
+  "com.mojang.realmsclient.util.task.SwitchSlotTask": {
+    "className": "SwitchSlotTask",
+    "fullName": "com.mojang.realmsclient.util.task.SwitchSlotTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/SwitchSlotTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SwitchSlotTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlot",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCallback",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "slot",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "callback",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/SwitchSlotTask.java"
+  },
+  "com.mojang.realmsclient.util.task.WorldCreationTask": {
+    "className": "WorldCreationTask",
+    "fullName": "com.mojang.realmsclient.util.task.WorldCreationTask",
+    "packageName": "com.mojang.realmsclient.util.task",
+    "filePath": "/com/mojang/realmsclient/util/task/WorldCreationTask.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LongRunningTask",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WorldCreationTask",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMotd",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "motd",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/util/task/WorldCreationTask.java"
+  }
+}

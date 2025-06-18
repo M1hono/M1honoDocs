@@ -1,0 +1,679 @@
+{
+  "net.minecraftforge.server.LanguageHook": {
+    "className": "LanguageHook",
+    "fullName": "net.minecraftforge.server.LanguageHook",
+    "packageName": "net.minecraftforge.server",
+    "filePath": "/net/minecraftforge/server/LanguageHook.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.Gson",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "net.minecraft.locale.Language",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.common.ForgeI18n",
+      "org.apache.commons.io.IOUtils",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger",
+      "java.io.FileNotFoundException",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.InputStreamReader",
+      "java.nio.charset.StandardCharsets",
+      "java.util.*",
+      "java.util.regex.Pattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "captureLanguageMap",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "table",
+            "type": "String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadLocaleData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "allResources",
+            "type": "List<Resource>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "The below is based on client side net.minecraft.client.resources.Locale code",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadLocaleData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "inputstream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadLanguage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "langName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadForgeAndMCLangs",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadLanguagesOnServer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 106
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "modTable",
+        "type": "Map<String, String>",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 30,
+      "end": 107
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/server/LanguageHook.java"
+  },
+  "net.minecraftforge.server.ServerLifecycleHooks": {
+    "className": "ServerLifecycleHooks",
+    "fullName": "net.minecraftforge.server.ServerLifecycleHooks",
+    "packageName": "net.minecraftforge.server",
+    "filePath": "/net/minecraftforge/server/ServerLifecycleHooks.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.IOException",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Map.Entry",
+      "java.util.Objects",
+      "java.util.concurrent.CountDownLatch",
+      "java.util.concurrent.atomic.AtomicBoolean",
+      "java.util.function.Consumer",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.gametest.framework.GameTestServer",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.server.packs.PackType",
+      "net.minecraft.server.packs.repository.PackSource",
+      "net.minecraft.server.packs.repository.RepositorySource",
+      "net.minecraft.world.level.storage.LevelResource",
+      "net.minecraftforge.common.world.StructureModifier",
+      "net.minecraftforge.fml.DistExecutor",
+      "net.minecraftforge.fml.Logging",
+      "net.minecraftforge.common.util.LogicalSidedProvider",
+      "net.minecraftforge.common.world.BiomeModifier",
+      "net.minecraftforge.fml.ModLoader",
+      "net.minecraftforge.fml.ModLoadingStage",
+      "net.minecraftforge.fml.ModLoadingWarning",
+      "net.minecraftforge.network.ConnectionType",
+      "net.minecraftforge.network.NetworkConstants",
+      "net.minecraftforge.network.NetworkHooks",
+      "net.minecraftforge.network.NetworkRegistry",
+      "net.minecraftforge.forgespi.locating.IModFile",
+      "net.minecraftforge.registries.ForgeRegistries.Keys",
+      "net.minecraftforge.resource.PathPackResources",
+      "net.minecraftforge.server.permission.PermissionAPI",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger",
+      "org.apache.logging.log4j.Marker",
+      "org.apache.logging.log4j.MarkerManager",
+      "net.minecraft.network.Connection",
+      "net.minecraft.network.ConnectionProtocol",
+      "net.minecraft.network.protocol.handshake.ClientIntentionPacket",
+      "net.minecraft.network.protocol.login.ClientboundLoginDisconnectPacket",
+      "net.minecraft.server.packs.repository.Pack",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.common.MinecraftForge",
+      "net.minecraftforge.fml.config.ConfigTracker",
+      "net.minecraftforge.fml.config.ModConfig",
+      "net.minecraftforge.event.server.ServerAboutToStartEvent",
+      "net.minecraftforge.event.server.ServerStartedEvent",
+      "net.minecraftforge.event.server.ServerStartingEvent",
+      "net.minecraftforge.event.server.ServerStoppedEvent",
+      "net.minecraftforge.event.server.ServerStoppingEvent",
+      "net.minecraftforge.forgespi.language.IModInfo",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "net.minecraftforge.registries.GameData",
+      "org.jetbrains.annotations.ApiStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getServerConfigPath",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerAboutToStart",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerStarting",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerStarted",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerStopping",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "expectServerStopped",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerStopped",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCurrentServer",
+        "returnType": "MinecraftServer",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleServerLogin",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "packet",
+            "type": "ClientIntentionPacket",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rejectConnection",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "type",
+            "type": "ConnectionType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleExit",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "retVal",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildPackFinder",
+        "returnType": "RepositorySource",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serverPackFinder",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "packAcceptor",
+            "type": "Consumer<Pack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runModifiers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "server",
+            "type": "MinecraftServer",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 222,
+          "end": 246
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "exitLatch",
+        "type": "volatile CountDownLatch",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "currentServer",
+        "type": "MinecraftServer",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 70,
+      "end": 247
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/server/ServerLifecycleHooks.java"
+  }
+}

@@ -1,0 +1,1521 @@
+{
+  "net.minecraft.server.rcon.thread.GenericThread": {
+    "className": "GenericThread",
+    "fullName": "net.minecraft.server.rcon.thread.GenericThread",
+    "packageName": "net.minecraft.server.rcon.thread",
+    "filePath": "/net/minecraft/server/rcon/thread/GenericThread.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Runnable"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "javax.annotation.Nullable",
+      "net.minecraft.DefaultUncaughtExceptionHandlerWithName",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "GenericThread",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "start",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isRunning",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_STOP_WAIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "running",
+        "type": "volatile boolean",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "thread",
+        "type": "Thread",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 65
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/rcon/thread/GenericThread.java"
+  },
+  "net.minecraft.server.rcon.thread.QueryThreadGs4": {
+    "className": "QueryThreadGs4",
+    "fullName": "net.minecraft.server.rcon.thread.QueryThreadGs4",
+    "packageName": "net.minecraft.server.rcon.thread",
+    "filePath": "/net/minecraft/server/rcon/thread/QueryThreadGs4.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "GenericThread",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.net.DatagramPacket",
+      "java.net.DatagramSocket",
+      "java.net.InetAddress",
+      "java.net.PortUnreachableException",
+      "java.net.SocketAddress",
+      "java.net.SocketTimeoutException",
+      "java.net.UnknownHostException",
+      "java.nio.charset.StandardCharsets",
+      "java.util.Date",
+      "java.util.Locale",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.server.ServerInterface",
+      "net.minecraft.server.rcon.NetworkDataOutputStream",
+      "net.minecraft.server.rcon.PktUtils",
+      "net.minecraft.util.RandomSource",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "QueryThreadGs4",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerInterface",
+            "type": "ServerInterface",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPort",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 72
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "QueryThreadGs4",
+        "parameters": [
+          {
+            "name": "pServerInterface",
+            "type": "ServerInterface",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendTo",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pData",
+            "type": "byte[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequestPacket",
+            "type": "DatagramPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 89,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processPacket",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRequestPacket",
+            "type": "DatagramPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 96,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buildRuleResponse",
+        "returnType": "byte[]",
+        "parameters": [
+          {
+            "name": "pRequestPacket",
+            "type": "DatagramPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 141,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIdentBytes",
+        "returnType": "byte[]",
+        "parameters": [
+          {
+            "name": "pAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 197,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validChallenge",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pRequestPacket",
+            "type": "DatagramPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 212
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendChallenge",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRequestPacket",
+            "type": "DatagramPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 217,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pruneChallenges",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 226,
+          "end": 236
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 238,
+          "end": 261
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 269
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "recoverSocketError",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pException",
+            "type": "Exception",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 274,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initSocket",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 288,
+          "end": 297
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "GAME_TYPE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"SMP\"",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "GAME_ID",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"MINECRAFT\"",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "CHALLENGE_CHECK_INTERVAL",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "30000L",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "RESPONSE_CACHE_TIME",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5000L",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "lastChallengeCheck",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "port",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "serverPort",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "maxPlayers",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "serverName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "worldName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "socket",
+        "type": "DatagramSocket",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "buffer",
+        "type": "byte[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new byte[1460]",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "hostIp",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "serverIp",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "validChallenges",
+        "type": "Map<SocketAddress, QueryThreadGs4.RequestChallenge>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "rulesResponse",
+        "type": "NetworkDataOutputStream",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "lastRulesResponse",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "serverInterface",
+        "type": "ServerInterface",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "RequestChallenge",
+        "fullName": "net.minecraft.server.rcon.thread.QueryThreadGs4.RequestChallenge",
+        "packageName": "net.minecraft.server.rcon.thread",
+        "filePath": "/net/minecraft/server/rcon/thread/QueryThreadGs4.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.net.DatagramPacket",
+          "java.net.DatagramSocket",
+          "java.net.InetAddress",
+          "java.net.PortUnreachableException",
+          "java.net.SocketAddress",
+          "java.net.SocketTimeoutException",
+          "java.net.UnknownHostException",
+          "java.nio.charset.StandardCharsets",
+          "java.util.Date",
+          "java.util.Locale",
+          "java.util.Map",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.server.ServerInterface",
+          "net.minecraft.server.rcon.NetworkDataOutputStream",
+          "net.minecraft.server.rcon.PktUtils",
+          "net.minecraft.util.RandomSource",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RequestChallenge",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pDatagramPacket",
+                "type": "DatagramPacket",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 306,
+              "end": 316
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "before",
+            "returnType": "Boolean",
+            "parameters": [
+              {
+                "name": "pCurrentTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 321,
+              "end": 323
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getChallenge",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 328,
+              "end": 330
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getChallengeBytes",
+            "returnType": "byte[]",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 335,
+              "end": 337
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getIdentBytes",
+            "returnType": "byte[]",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 342,
+              "end": 344
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getIdent",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 346,
+              "end": 348
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "challenge",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 301,
+              "end": 301
+            }
+          },
+          {
+            "name": "identBytes",
+            "type": "byte[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 302,
+              "end": 302
+            }
+          },
+          {
+            "name": "challengeBytes",
+            "type": "byte[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 303,
+              "end": 303
+            }
+          },
+          {
+            "name": "ident",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 304,
+              "end": 304
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 299,
+          "end": 349
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/rcon/thread/QueryThreadGs4/RequestChallenge.java"
+      }
+    ],
+    "lineRange": {
+      "start": 25,
+      "end": 350
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/rcon/thread/QueryThreadGs4.java"
+  },
+  "net.minecraft.server.rcon.thread.RconClient": {
+    "className": "RconClient",
+    "fullName": "net.minecraft.server.rcon.thread.RconClient",
+    "packageName": "net.minecraft.server.rcon.thread",
+    "filePath": "/net/minecraft/server/rcon/thread/RconClient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "GenericThread",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedInputStream",
+      "java.io.ByteArrayOutputStream",
+      "java.io.DataOutputStream",
+      "java.io.IOException",
+      "java.net.Socket",
+      "java.nio.charset.StandardCharsets",
+      "java.util.Locale",
+      "net.minecraft.server.ServerInterface",
+      "net.minecraft.server.rcon.PktUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RconClient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerInterface",
+            "type": "ServerInterface",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRconPassword",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClient",
+            "type": "Socket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "send",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_11592_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 111,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendAuthFailure",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 127,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendCmdResponse",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 134,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "closeSocket",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 163
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SERVERDATA_AUTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "SERVERDATA_EXECCOMMAND",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "SERVERDATA_RESPONSE_VALUE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "SERVERDATA_AUTH_RESPONSE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "SERVERDATA_AUTH_FAILURE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "authed",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "client",
+        "type": "Socket",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "buf",
+        "type": "byte[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new byte[1460]",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "rconPassword",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "serverInterface",
+        "type": "ServerInterface",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 164
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/rcon/thread/RconClient.java"
+  },
+  "net.minecraft.server.rcon.thread.RconThread": {
+    "className": "RconThread",
+    "fullName": "net.minecraft.server.rcon.thread.RconThread",
+    "packageName": "net.minecraft.server.rcon.thread",
+    "filePath": "/net/minecraft/server/rcon/thread/RconThread.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "GenericThread",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.net.InetAddress",
+      "java.net.ServerSocket",
+      "java.net.Socket",
+      "java.net.SocketTimeoutException",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.server.ServerInterface",
+      "net.minecraft.server.dedicated.DedicatedServerProperties",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RconThread",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerInterface",
+            "type": "ServerInterface",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSocket",
+            "type": "ServerSocket",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRconPassword",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "clearClients",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "RconThread",
+        "parameters": [
+          {
+            "name": "pServerInterface",
+            "type": "ServerInterface",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "closeSocket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSocket",
+            "type": "ServerSocket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 121
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "socket",
+        "type": "ServerSocket",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "rconPassword",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "serverInterface",
+        "type": "ServerInterface",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 122
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/rcon/thread/RconThread.java"
+  }
+}

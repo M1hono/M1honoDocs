@@ -1,0 +1,2722 @@
+{
+  "net.minecraft.world.entity.animal.axolotl.Axolotl": {
+    "className": "Axolotl",
+    "fullName": "net.minecraft.world.entity.animal.axolotl.Axolotl",
+    "packageName": "net.minecraft.world.entity.animal.axolotl",
+    "filePath": "/net/minecraft/world/entity/animal/axolotl/Axolotl.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Animal",
+    "interfaces": [
+      "LerpingModel",
+      "VariantHolder<Axolotl.Variant>",
+      "Bucketable"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Maps",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.Dynamic",
+      "java.util.Arrays",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.IntFunction",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.util.ByIdMap",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.AgeableMob",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LerpingModel",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.MobType",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.VariantHolder",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+      "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation",
+      "net.minecraft.world.entity.ai.navigation.PathNavigation",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.animal.Animal",
+      "net.minecraft.world.entity.animal.Bucketable",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.pathfinder.BlockPathTypes",
+      "net.minecraft.world.phys.Vec3",
+      "org.joml.Vector3f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Axolotl",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 91
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getModelRotationValues",
+        "returnType": "Map<String, Vector3f>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWalkTargetValue",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playAmbientSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizeSpawn",
+        "returnType": "SpawnGroupData",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnData",
+            "type": "SpawnGroupData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "baseTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 158,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleAirSupply",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAirSupply",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rehydrate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxAirSupply",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setVariant",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pVariant",
+            "type": "Axolotl.Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 195
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useRareVariant",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 197,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkSpawnObstruction",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBreatheUnderwater",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPushedByFluid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 209,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMobType",
+        "returnType": "MobType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 215
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPlayingDead",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayingDead",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlayingDead",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 221,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromBucket",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 225,
+          "end": 227
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setFromBucket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFromBucket",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 229,
+          "end": 231
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBreedOffspring",
+        "returnType": "AgeableMob",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherParent",
+            "type": "AgeableMob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMeleeAttackRangeSqr",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 251,
+          "end": 253
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFood",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 259,
+          "end": 261
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeLeashed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 265
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 267,
+          "end": 279
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createNavigation",
+        "returnType": "PathNavigation",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 285,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doHurtTarget",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 289,
+          "end": 297
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 302,
+          "end": 309
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 311,
+          "end": 313
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxHeadXRot",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 318,
+          "end": 320
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxHeadYRot",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 322,
+          "end": 324
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 326,
+          "end": 328
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveToBucketTag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 340
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadFromBucketTag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 342,
+          "end": 353
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBucketItemStack",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 355,
+          "end": 357
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPickupSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 359,
+          "end": 361
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeSeenAsEnemy",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 363,
+          "end": 365
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStopAttacking",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAxolotl",
+            "type": "Axolotl",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 367,
+          "end": 383
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applySupportingEffects",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 385,
+          "end": 394
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requiresCustomPersistence",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 396,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 402
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 405,
+          "end": 407
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 410,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSwimSplashSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSwimSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 418,
+          "end": 420
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<Axolotl>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 430,
+          "end": 432
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendDebugPackets",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 434,
+          "end": 437
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "travel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTravelVector",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 439,
+          "end": 448
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "usePlayerItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 450,
+          "end": 457
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeWhenFarAway",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDistanceToClosestPlayer",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 459,
+          "end": 461
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkAxolotlSpawnRules",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnType",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 463,
+          "end": 465
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TOTAL_PLAYDEAD_TIME",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "200",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "PLAYER_REGEN_DETECTION_RANGE",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20.0D",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "RARE_VARIANT_CHANCE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1200",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "AXOLOTL_TOTAL_AIR_SUPPLY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6000",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "VARIANT_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Variant\"",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "REHYDRATE_AIR_SUPPLY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1800",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "REGEN_BUFF_MAX_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2400",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "REGEN_BUFF_BASE_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AxolotlGroupData",
+        "fullName": "net.minecraft.world.entity.animal.axolotl.Axolotl.AxolotlGroupData",
+        "packageName": "net.minecraft.world.entity.animal.axolotl",
+        "filePath": "/net/minecraft/world/entity/animal/axolotl/Axolotl.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "AgeableMob.AgeableMobGroupData",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Maps",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.IntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.ItemTags",
+          "net.minecraft.util.ByIdMap",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.AgeableMob",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LerpingModel",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.MobType",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.VariantHolder",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.animal.Bucketable",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.phys.Vec3",
+          "org.joml.Vector3f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AxolotlGroupData",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pTypes",
+                "type": "Axolotl.Variant[]",
+                "isVarArgs": true,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 470,
+              "end": 473
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "types",
+            "type": "Axolotl.Variant[]",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 468,
+              "end": 468
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 467,
+          "end": 478
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/Axolotl/AxolotlGroupData.java"
+      },
+      {
+        "className": "AxolotlLookControl",
+        "fullName": "net.minecraft.world.entity.animal.axolotl.Axolotl.AxolotlLookControl",
+        "packageName": "net.minecraft.world.entity.animal.axolotl",
+        "filePath": "/net/minecraft/world/entity/animal/axolotl/Axolotl.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "SmoothSwimmingLookControl",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Maps",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.IntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.ItemTags",
+          "net.minecraft.util.ByIdMap",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.AgeableMob",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LerpingModel",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.MobType",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.VariantHolder",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.animal.Bucketable",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.phys.Vec3",
+          "org.joml.Vector3f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AxolotlLookControl",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pAxolotl",
+                "type": "Axolotl",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMaxYRotFromCenter",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 481,
+              "end": 483
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 488,
+              "end": 493
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 480,
+          "end": 494
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/Axolotl/AxolotlLookControl.java"
+      },
+      {
+        "className": "AxolotlMoveControl",
+        "fullName": "net.minecraft.world.entity.animal.axolotl.Axolotl.AxolotlMoveControl",
+        "packageName": "net.minecraft.world.entity.animal.axolotl",
+        "filePath": "/net/minecraft/world/entity/animal/axolotl/Axolotl.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "SmoothSwimmingMoveControl",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Maps",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.IntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.ItemTags",
+          "net.minecraft.util.ByIdMap",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.AgeableMob",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LerpingModel",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.MobType",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.VariantHolder",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.animal.Bucketable",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.phys.Vec3",
+          "org.joml.Vector3f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AxolotlMoveControl",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pAxolotl",
+                "type": "Axolotl",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 499,
+              "end": 502
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 504,
+              "end": 509
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "axolotl",
+            "type": "Axolotl",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 497,
+              "end": 497
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 496,
+          "end": 510
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/Axolotl/AxolotlMoveControl.java"
+      },
+      {
+        "className": "Variant",
+        "fullName": "net.minecraft.world.entity.animal.axolotl.Axolotl.Variant",
+        "packageName": "net.minecraft.world.entity.animal.axolotl",
+        "filePath": "/net/minecraft/world/entity/animal/axolotl/Axolotl.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "StringRepresentable"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Maps",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.IntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.ItemTags",
+          "net.minecraft.util.ByIdMap",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.AgeableMob",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LerpingModel",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.MobType",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.VariantHolder",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl",
+          "net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.animal.Bucketable",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.phys.Vec3",
+          "org.joml.Vector3f"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "LUCY",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 513,
+              "end": 517
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "WILD",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 514,
+              "end": 517
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "GOLD",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 515,
+              "end": 517
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CYAN",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 516,
+              "end": 517
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "BLUE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 517,
+              "end": 517
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Variant",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCommon",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 525,
+              "end": 529
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getId",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 531,
+              "end": 533
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 535,
+              "end": 537
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getSerializedName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 539,
+              "end": 541
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 521,
+              "end": 521
+            }
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 522,
+              "end": 522
+            }
+          },
+          {
+            "name": "common",
+            "type": "boolean",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 523,
+              "end": 523
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 512,
+          "end": 563
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/Axolotl/Variant.java"
+      }
+    ],
+    "lineRange": {
+      "start": 69,
+      "end": 564
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/Axolotl.java"
+  },
+  "net.minecraft.world.entity.animal.axolotl.AxolotlAi": {
+    "className": "AxolotlAi",
+    "fullName": "net.minecraft.world.entity.animal.axolotl.AxolotlAi",
+    "packageName": "net.minecraft.world.entity.animal.axolotl",
+    "filePath": "/net/minecraft/world/entity/animal/axolotl/AxolotlAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.util.Pair",
+      "java.util.Optional",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.util.valueproviders.UniformInt",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+      "net.minecraft.world.entity.ai.behavior.BabyFollowAdult",
+      "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+      "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+      "net.minecraft.world.entity.ai.behavior.EraseMemoryIf",
+      "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+      "net.minecraft.world.entity.ai.behavior.GateBehavior",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MeleeAttack",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.PositionTracker",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTargetSometimes",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromAttackTargetIfTargetOutOfReach",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+      "net.minecraft.world.entity.ai.behavior.StartAttacking",
+      "net.minecraft.world.entity.ai.behavior.StopAttackingIfTargetInvalid",
+      "net.minecraft.world.entity.ai.behavior.TryFindWater",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.level.Level"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initPlayDeadActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Axolotl>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initFightActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Axolotl>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Axolotl>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Axolotl>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSetWalkTargetFromLookTarget",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_182381_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAxolotl",
+            "type": "Axolotl",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpeedModifierChasing",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "p_149289_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpeedModifierFollowingAdult",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "p_149295_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpeedModifier",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "p_149301_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTemptations",
+        "returnType": "Ingredient",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_MAKING_LOVE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.2F",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_ON_LAND",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.15F",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING_IN_WATER",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.5F",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_CHASING_IN_WATER",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_FOLLOWING_ADULT_IN_WATER",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 42,
+      "end": 119
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/AxolotlAi.java"
+  },
+  "net.minecraft.world.entity.animal.axolotl.PlayDead": {
+    "className": "PlayDead",
+    "fullName": "net.minecraft.world.entity.animal.axolotl.PlayDead",
+    "packageName": "net.minecraft.world.entity.animal.axolotl",
+    "filePath": "/net/minecraft/world/entity/animal/axolotl/PlayDead.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Behavior<Axolotl>",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.Behavior",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PlayDead",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "checkExtraStartConditions",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_149319_",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_149320_",
+            "type": "Axolotl",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canStillUse",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_149322_",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_149323_",
+            "type": "Axolotl",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_149324_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_149330_",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_149331_",
+            "type": "Axolotl",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_149332_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 30
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/PlayDead.java"
+  },
+  "net.minecraft.world.entity.animal.axolotl.ValidatePlayDead": {
+    "className": "ValidatePlayDead",
+    "fullName": "net.minecraft.world.entity.animal.axolotl.ValidatePlayDead",
+    "packageName": "net.minecraft.world.entity.animal.axolotl",
+    "filePath": "/net/minecraft/world/entity/animal/axolotl/ValidatePlayDead.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/axolotl/ValidatePlayDead.java"
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "net.minecraft.recipebook.PlaceRecipe": {
+    "className": "PlaceRecipe",
+    "fullName": "net.minecraft.recipebook.PlaceRecipe",
+    "packageName": "net.minecraft.recipebook",
+    "filePath": "/net/minecraft/recipebook/PlaceRecipe.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Iterator",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.item.crafting.Recipe",
+      "net.minecraft.world.item.crafting.ShapedRecipe"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "addItemToSlot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIngredients",
+            "type": "Iterator<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlot",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 60
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/recipebook/PlaceRecipe.java"
+  },
+  "net.minecraft.recipebook.ServerPlaceRecipe": {
+    "className": "ServerPlaceRecipe",
+    "fullName": "net.minecraft.recipebook.ServerPlaceRecipe",
+    "packageName": "net.minecraft.recipebook",
+    "filePath": "/net/minecraft/recipebook/ServerPlaceRecipe.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.ints.IntArrayList",
+      "it.unimi.dsi.fastutil.ints.IntList",
+      "java.util.Iterator",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.protocol.game.ClientboundPlaceGhostRecipePacket",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.world.Container",
+      "net.minecraft.world.entity.player.Inventory",
+      "net.minecraft.world.entity.player.StackedContents",
+      "net.minecraft.world.inventory.RecipeBookMenu",
+      "net.minecraft.world.inventory.Slot",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Recipe",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerPlaceRecipe",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMenu",
+            "type": "RecipeBookMenu<C>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "recipeClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecipe",
+            "type": "Recipe<C>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlaceAll",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearGrid",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleRecipeClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRecipe",
+            "type": "Recipe<C>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlaceAll",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addItemToSlot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIngredients",
+            "type": "Iterator<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlot",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStackSize",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPlaceAll",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxPossible",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecipeMatches",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveItemToGrid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSlotToFill",
+            "type": "Slot",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIngredient",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "testClearGrid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 188
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmountOfFreeSlotsInInventory",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 190,
+          "end": 200
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "inventory",
+        "type": "Inventory",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "menu",
+        "type": "RecipeBookMenu<C>",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 201
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/recipebook/ServerPlaceRecipe.java"
+  }
+}

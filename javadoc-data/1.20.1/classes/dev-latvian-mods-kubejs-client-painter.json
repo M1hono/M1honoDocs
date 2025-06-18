@@ -1,0 +1,2085 @@
+{
+  "dev.latvian.mods.kubejs.client.painter.PaintEventJS": {
+    "className": "PaintEventJS",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.PaintEventJS",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/PaintEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ClientEventJS",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.blaze3d.vertex.BufferBuilder",
+      "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.Tesselator",
+      "com.mojang.blaze3d.vertex.VertexFormat",
+      "dev.latvian.mods.kubejs.client.ClientEventJS",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.Font",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.renderer.GameRenderer",
+      "net.minecraft.client.renderer.ShaderInstance",
+      "net.minecraft.resources.ResourceLocation",
+      "org.jetbrains.annotations.Nullable",
+      "org.joml.Matrix4f",
+      "org.joml.Quaternionf",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PaintEventJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "d",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "s",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "translate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scale",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiply",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "q",
+            "type": "Quaternionf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiplyWithMatrix",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMatrix",
+        "returnType": "Matrix4f",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindTextureForSetup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tex",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetShaderColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tex",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "begin",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "VertexFormat.Mode",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "format",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginQuads",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "format",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginQuads",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "texture",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "vertex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "col",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "vertex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "col",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "u",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "end",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderInstance",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "shader",
+            "type": "Supplier<ShaderInstance>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPositionColorShader",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPositionColorTextureShader",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blend",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 131
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mc",
+        "type": "Minecraft",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "font",
+        "type": "Font",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "graphics",
+        "type": "GuiGraphics",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "matrices",
+        "type": "PoseStack",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "tesselator",
+        "type": "Tesselator",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "buffer",
+        "type": "BufferBuilder",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "delta",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "screen",
+        "type": "Screen",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 132
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/PaintEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.client.painter.Painter": {
+    "className": "Painter",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.Painter",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/Painter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "UnitVariables"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "dev.latvian.mods.kubejs.bindings.event.ClientEvents",
+      "dev.latvian.mods.kubejs.client.ClientEventJS",
+      "dev.latvian.mods.kubejs.client.painter.screen.AtlasTextureObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.GradientObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.ItemObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.LineObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.PaintScreenEventJS",
+      "dev.latvian.mods.kubejs.client.painter.screen.RectangleObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.ScreenGroup",
+      "dev.latvian.mods.kubejs.client.painter.screen.ScreenPainterObject",
+      "dev.latvian.mods.kubejs.client.painter.screen.TextObject",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.rhino.Context",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "dev.latvian.mods.unit.FixedNumberUnit",
+      "dev.latvian.mods.unit.MutableNumberUnit",
+      "dev.latvian.mods.unit.Unit",
+      "dev.latvian.mods.unit.UnitContext",
+      "dev.latvian.mods.unit.UnitVariables",
+      "dev.latvian.mods.unit.VariableSet",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.StringTag",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.HashMap",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Painter",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 75
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "unitOf",
+        "returnType": "Unit",
+        "parameters": [
+          {
+            "name": "cx",
+            "type": "Context",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unitOf",
+        "returnType": "Unit",
+        "parameters": [
+          {
+            "name": "console",
+            "type": "ConsoleJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerObject",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "supplier",
+            "type": "PainterFactory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBuiltinObjects",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "make",
+        "returnType": "PainterObject",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getObject",
+        "returnType": "PainterObject",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "paint",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "root",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getScreenObjects",
+        "returnType": "ScreenPainterObject[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setVariable",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "variable",
+            "type": "Unit",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 168
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVariables",
+        "returnType": "VariableSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "inGameScreenDraw",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "graphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "delta",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "guiScreenDraw",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "screen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "graphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "delta",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 244
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "lock",
+        "type": "Object",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "objectRegistry",
+        "type": "Map<String, PainterFactory>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "storage",
+        "type": "PainterObjectStorage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "screenObjects",
+        "type": "ScreenPainterObject[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "unitContext",
+        "type": "UnitContext",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "variables",
+        "type": "VariableSet",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "deltaUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "screenWidthUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "screenHeightUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "mouseXUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "mouseYUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "defaultLineSizeUnit",
+        "type": "MutableNumberUnit",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 35,
+      "end": 245
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/Painter.java"
+  },
+  "dev.latvian.mods.kubejs.client.painter.PainterFactory": {
+    "className": "PainterFactory",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.PainterFactory",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/PainterFactory.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "PainterObject",
+        "parameters": [
+          {
+            "name": "painter",
+            "type": "Painter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 5,
+          "end": 5
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 4,
+      "end": 6
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/PainterFactory.java"
+  },
+  "dev.latvian.mods.kubejs.client.painter.PainterObject": {
+    "className": "PainterObject",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.PainterObject",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/PainterObject.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpecialEquality"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.rhino.util.SpecialEquality",
+      "dev.latvian.mods.unit.FixedBooleanUnit",
+      "dev.latvian.mods.unit.Unit",
+      "net.minecraft.nbt.CompoundTag"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "id",
+        "returnType": "PainterObject",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "PainterObjectProperties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "update",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "specialEquals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "shallow",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "\"\"",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "parent",
+        "type": "PainterObjectStorage",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "visible",
+        "type": "Unit",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "FixedBooleanUnit.TRUE",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/PainterObject.java"
+  },
+  "dev.latvian.mods.kubejs.client.painter.PainterObjectProperties": {
+    "className": "PainterObjectProperties",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.PainterObjectProperties",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/PainterObjectProperties.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.rhino.mod.wrapper.ColorWrapper",
+      "dev.latvian.mods.unit.FixedColorUnit",
+      "dev.latvian.mods.unit.FixedNumberUnit",
+      "dev.latvian.mods.unit.Unit",
+      "dev.latvian.mods.unit.UnitContext",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.resources.ResourceLocation",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PainterObjectProperties",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "hasAny",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "has",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "type",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasNumber",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasString",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUnit",
+        "returnType": "Unit",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "Unit",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getColor",
+        "returnType": "Unit",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "Unit",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 66
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "tag",
+        "type": "CompoundTag",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 67
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/PainterObjectProperties.java"
+  },
+  "dev.latvian.mods.kubejs.client.painter.PainterObjectStorage": {
+    "className": "PainterObjectStorage",
+    "fullName": "dev.latvian.mods.kubejs.client.painter.PainterObjectStorage",
+    "packageName": "dev.latvian.mods.kubejs.client.painter",
+    "filePath": "/dev/latvian/mods/kubejs/client/painter/PainterObjectStorage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.painter.screen.ScreenPainterObject",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.unit.FixedNumberUnit",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.Tag",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Collection",
+      "java.util.LinkedHashMap",
+      "java.util.List",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PainterObjectStorage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Painter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getObject",
+        "returnType": "PainterObject",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getObjects",
+        "returnType": "Collection<PainterObject>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handle",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "root",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createScreenObjects",
+        "returnType": "ScreenPainterObject[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NO_SCREEN_OBJECTS",
+        "type": "ScreenPainterObject[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new ScreenPainterObject[0]",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "painter",
+        "type": "Painter",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 104
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/client/painter/PainterObjectStorage.java"
+  }
+}

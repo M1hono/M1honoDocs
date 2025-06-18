@@ -1,0 +1,5385 @@
+{
+  "com.mojang.realmsclient.client.FileDownload": {
+    "className": "FileDownload",
+    "fullName": "com.mojang.realmsclient.client.FileDownload",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/FileDownload.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.hash.Hashing",
+      "com.google.common.io.Files",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.dto.WorldDownload",
+      "com.mojang.realmsclient.exception.RealmsDefaultUncaughtExceptionHandler",
+      "com.mojang.realmsclient.gui.screens.RealmsDownloadLatestWorldScreen",
+      "java.awt.event.ActionEvent",
+      "java.awt.event.ActionListener",
+      "java.io.BufferedInputStream",
+      "java.io.File",
+      "java.io.FileInputStream",
+      "java.io.FileOutputStream",
+      "java.io.IOException",
+      "java.io.OutputStream",
+      "java.nio.file.Path",
+      "java.util.Locale",
+      "java.util.regex.Matcher",
+      "java.util.regex.Pattern",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtIo",
+      "net.minecraft.world.level.storage.LevelResource",
+      "net.minecraft.world.level.storage.LevelStorageSource",
+      "net.minecraft.world.level.validation.ContentValidationException",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.compress.archivers.tar.TarArchiveEntry",
+      "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+      "org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream",
+      "org.apache.commons.io.FileUtils",
+      "org.apache.commons.io.IOUtils",
+      "org.apache.commons.io.output.CountingOutputStream",
+      "org.apache.commons.lang3.StringUtils",
+      "org.apache.http.HttpResponse",
+      "org.apache.http.client.config.RequestConfig",
+      "org.apache.http.client.methods.CloseableHttpResponse",
+      "org.apache.http.client.methods.HttpGet",
+      "org.apache.http.impl.client.CloseableHttpClient",
+      "org.apache.http.impl.client.HttpClientBuilder",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "contentLength",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pUri",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "download",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDownload",
+            "type": "WorldDownload",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "RealmsDownloadLatestWorldScreen.DownloadStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "LevelStorageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cancel",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFinished",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isError",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isExtracting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 197
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAvailableFolderName",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pFolderName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 214
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "untarGzipArchive",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTempFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevelStorageSource",
+            "type": "LevelStorageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 216,
+          "end": 313
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deletePlayerTag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayerDataFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 315,
+          "end": 327
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "cancelled",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "finished",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "error",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "extracting",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "tempFile",
+        "type": "volatile File",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "resourcePackPath",
+        "type": "volatile File",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "request",
+        "type": "volatile HttpGet",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "currentThread",
+        "type": "Thread",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "INVALID_FILE_NAMES",
+        "type": "String[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new String[]{\"CON\", \"COM\", \"PRN\", \"AUX\", \"CLOCK$\", \"NUL\", \"COM1\", \"COM2\", \"COM3\", \"COM4\", \"COM5\", \"COM6\", \"COM7\", \"COM8\", \"COM9\", \"LPT1\", \"LPT2\", \"LPT3\", \"LPT4\", \"LPT5\", \"LPT6\", \"LPT7\", \"LPT8\", \"LPT9\"}",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "DownloadCountingOutputStream",
+        "fullName": "com.mojang.realmsclient.client.FileDownload.DownloadCountingOutputStream",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/FileDownload.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "CountingOutputStream",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.hash.Hashing",
+          "com.google.common.io.Files",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.WorldDownload",
+          "com.mojang.realmsclient.exception.RealmsDefaultUncaughtExceptionHandler",
+          "com.mojang.realmsclient.gui.screens.RealmsDownloadLatestWorldScreen",
+          "java.awt.event.ActionEvent",
+          "java.awt.event.ActionListener",
+          "java.io.BufferedInputStream",
+          "java.io.File",
+          "java.io.FileInputStream",
+          "java.io.FileOutputStream",
+          "java.io.IOException",
+          "java.io.OutputStream",
+          "java.nio.file.Path",
+          "java.util.Locale",
+          "java.util.regex.Matcher",
+          "java.util.regex.Pattern",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtIo",
+          "net.minecraft.world.level.storage.LevelResource",
+          "net.minecraft.world.level.storage.LevelStorageSource",
+          "net.minecraft.world.level.validation.ContentValidationException",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.compress.archivers.tar.TarArchiveEntry",
+          "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+          "org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream",
+          "org.apache.commons.io.FileUtils",
+          "org.apache.commons.io.IOUtils",
+          "org.apache.commons.io.output.CountingOutputStream",
+          "org.apache.commons.lang3.StringUtils",
+          "org.apache.http.HttpResponse",
+          "org.apache.http.client.config.RequestConfig",
+          "org.apache.http.client.methods.CloseableHttpResponse",
+          "org.apache.http.client.methods.HttpGet",
+          "org.apache.http.impl.client.CloseableHttpClient",
+          "org.apache.http.impl.client.HttpClientBuilder",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "DownloadCountingOutputStream",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOut",
+                "type": "OutputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 334,
+              "end": 336
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "setListener",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pListener",
+                "type": "ActionListener",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 338,
+              "end": 340
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "afterWrite",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBytesWritten",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 342,
+              "end": 348
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "listener",
+            "type": "ActionListener",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 332,
+              "end": 332
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 330,
+          "end": 349
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileDownload/DownloadCountingOutputStream.java"
+      },
+      {
+        "className": "ProgressListener",
+        "fullName": "com.mojang.realmsclient.client.FileDownload.ProgressListener",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/FileDownload.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "ActionListener"
+        ],
+        "imports": [
+          "com.google.common.hash.Hashing",
+          "com.google.common.io.Files",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.WorldDownload",
+          "com.mojang.realmsclient.exception.RealmsDefaultUncaughtExceptionHandler",
+          "com.mojang.realmsclient.gui.screens.RealmsDownloadLatestWorldScreen",
+          "java.awt.event.ActionEvent",
+          "java.awt.event.ActionListener",
+          "java.io.BufferedInputStream",
+          "java.io.File",
+          "java.io.FileInputStream",
+          "java.io.FileOutputStream",
+          "java.io.IOException",
+          "java.io.OutputStream",
+          "java.nio.file.Path",
+          "java.util.Locale",
+          "java.util.regex.Matcher",
+          "java.util.regex.Pattern",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtIo",
+          "net.minecraft.world.level.storage.LevelResource",
+          "net.minecraft.world.level.storage.LevelStorageSource",
+          "net.minecraft.world.level.validation.ContentValidationException",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.compress.archivers.tar.TarArchiveEntry",
+          "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+          "org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream",
+          "org.apache.commons.io.FileUtils",
+          "org.apache.commons.io.IOUtils",
+          "org.apache.commons.io.output.CountingOutputStream",
+          "org.apache.commons.lang3.StringUtils",
+          "org.apache.http.HttpResponse",
+          "org.apache.http.client.config.RequestConfig",
+          "org.apache.http.client.methods.CloseableHttpResponse",
+          "org.apache.http.client.methods.HttpGet",
+          "org.apache.http.impl.client.CloseableHttpClient",
+          "org.apache.http.impl.client.HttpClientBuilder",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ProgressListener",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pWorldName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTempFile",
+                "type": "File",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevelStorageSource",
+                "type": "LevelStorageSource",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDownloadStatus",
+                "type": "RealmsDownloadLatestWorldScreen.DownloadStatus",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 358,
+              "end": 363
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "actionPerformed",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAction",
+                "type": "ActionEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 365,
+              "end": 377
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "worldName",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 353,
+              "end": 353
+            }
+          },
+          {
+            "name": "tempFile",
+            "type": "File",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 354,
+              "end": 354
+            }
+          },
+          {
+            "name": "levelStorageSource",
+            "type": "LevelStorageSource",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 355,
+              "end": 355
+            }
+          },
+          {
+            "name": "downloadStatus",
+            "type": "RealmsDownloadLatestWorldScreen.DownloadStatus",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 356,
+              "end": 356
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 352,
+          "end": 378
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileDownload/ProgressListener.java"
+      },
+      {
+        "className": "ResourcePackProgressListener",
+        "fullName": "com.mojang.realmsclient.client.FileDownload.ResourcePackProgressListener",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/FileDownload.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "ActionListener"
+        ],
+        "imports": [
+          "com.google.common.hash.Hashing",
+          "com.google.common.io.Files",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.WorldDownload",
+          "com.mojang.realmsclient.exception.RealmsDefaultUncaughtExceptionHandler",
+          "com.mojang.realmsclient.gui.screens.RealmsDownloadLatestWorldScreen",
+          "java.awt.event.ActionEvent",
+          "java.awt.event.ActionListener",
+          "java.io.BufferedInputStream",
+          "java.io.File",
+          "java.io.FileInputStream",
+          "java.io.FileOutputStream",
+          "java.io.IOException",
+          "java.io.OutputStream",
+          "java.nio.file.Path",
+          "java.util.Locale",
+          "java.util.regex.Matcher",
+          "java.util.regex.Pattern",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtIo",
+          "net.minecraft.world.level.storage.LevelResource",
+          "net.minecraft.world.level.storage.LevelStorageSource",
+          "net.minecraft.world.level.validation.ContentValidationException",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.compress.archivers.tar.TarArchiveEntry",
+          "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+          "org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream",
+          "org.apache.commons.io.FileUtils",
+          "org.apache.commons.io.IOUtils",
+          "org.apache.commons.io.output.CountingOutputStream",
+          "org.apache.commons.lang3.StringUtils",
+          "org.apache.http.HttpResponse",
+          "org.apache.http.client.config.RequestConfig",
+          "org.apache.http.client.methods.CloseableHttpResponse",
+          "org.apache.http.client.methods.HttpGet",
+          "org.apache.http.impl.client.CloseableHttpClient",
+          "org.apache.http.impl.client.HttpClientBuilder",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ResourcePackProgressListener",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pTempFile",
+                "type": "File",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDownloadStatus",
+                "type": "RealmsDownloadLatestWorldScreen.DownloadStatus",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWorldDownload",
+                "type": "WorldDownload",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 386,
+              "end": 390
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "actionPerformed",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAction",
+                "type": "ActionEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 392,
+              "end": 411
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "tempFile",
+            "type": "File",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 382,
+              "end": 382
+            }
+          },
+          {
+            "name": "downloadStatus",
+            "type": "RealmsDownloadLatestWorldScreen.DownloadStatus",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 383,
+              "end": 383
+            }
+          },
+          {
+            "name": "worldDownload",
+            "type": "WorldDownload",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 384,
+              "end": 384
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 381,
+          "end": 412
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileDownload/ResourcePackProgressListener.java"
+      }
+    ],
+    "lineRange": {
+      "start": 47,
+      "end": 413
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileDownload.java"
+  },
+  "com.mojang.realmsclient.client.FileUpload": {
+    "className": "FileUpload",
+    "fullName": "com.mojang.realmsclient.client.FileUpload",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/FileUpload.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonParser",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.dto.UploadInfo",
+      "com.mojang.realmsclient.gui.screens.UploadResult",
+      "java.io.File",
+      "java.io.FileInputStream",
+      "java.io.FileNotFoundException",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.OutputStream",
+      "java.time.Duration",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.TimeUnit",
+      "java.util.concurrent.atomic.AtomicBoolean",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.User",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.http.HttpResponse",
+      "org.apache.http.NameValuePair",
+      "org.apache.http.client.config.RequestConfig",
+      "org.apache.http.client.methods.HttpPost",
+      "org.apache.http.entity.InputStreamEntity",
+      "org.apache.http.impl.client.CloseableHttpClient",
+      "org.apache.http.impl.client.HttpClientBuilder",
+      "org.apache.http.util.Args",
+      "org.apache.http.util.EntityUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FileUpload",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUploadInfo",
+            "type": "UploadInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUser",
+            "type": "User",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClientVersion",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUploadStatus",
+            "type": "UploadStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 62
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResultConsumer",
+            "type": "Consumer<UploadResult>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cancel",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requestUpload",
+        "returnType": "UploadResult",
+        "parameters": [
+          {
+            "name": "pRetries",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cleanup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPost",
+            "type": "HttpPost",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHttpClient",
+            "type": "CloseableHttpClient",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupRequest",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPost",
+            "type": "HttpPost",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "FileNotFoundException"
+        ],
+        "lineRange": {
+          "start": 132,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleResponse",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResponse",
+            "type": "HttpResponse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUploadResult",
+            "type": "UploadResult.Builder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 139,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRetry",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRetryDelaySeconds",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRetries",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 163
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "retryUploadAfter",
+        "returnType": "UploadResult",
+        "parameters": [
+          {
+            "name": "pSeconds",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRetries",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "InterruptedException"
+        ],
+        "lineRange": {
+          "start": 165,
+          "end": 168
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRetryDelaySeconds",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pHttpResponse",
+            "type": "HttpResponse",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 170,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFinished",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 176
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_RETRIES",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "UPLOAD_PATH",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/upload\"",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "file",
+        "type": "File",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "worldId",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "slotId",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "uploadInfo",
+        "type": "UploadInfo",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "sessionId",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "username",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "clientVersion",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "uploadStatus",
+        "type": "UploadStatus",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "uploadTask",
+        "type": "CompletableFuture<UploadResult>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "CustomInputStreamEntity",
+        "fullName": "com.mojang.realmsclient.client.FileUpload.CustomInputStreamEntity",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/FileUpload.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "InputStreamEntity",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonParser",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.UploadInfo",
+          "com.mojang.realmsclient.gui.screens.UploadResult",
+          "java.io.File",
+          "java.io.FileInputStream",
+          "java.io.FileNotFoundException",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.OutputStream",
+          "java.time.Duration",
+          "java.util.Optional",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.User",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.http.HttpResponse",
+          "org.apache.http.NameValuePair",
+          "org.apache.http.client.config.RequestConfig",
+          "org.apache.http.client.methods.HttpPost",
+          "org.apache.http.entity.InputStreamEntity",
+          "org.apache.http.impl.client.CloseableHttpClient",
+          "org.apache.http.impl.client.HttpClientBuilder",
+          "org.apache.http.util.Args",
+          "org.apache.http.util.EntityUtils",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "CustomInputStreamEntity",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pContent",
+                "type": "InputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLength",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUploadStatus",
+                "type": "UploadStatus",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 184,
+              "end": 189
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "writeTo",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pOut",
+                "type": "OutputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 191,
+              "end": 222
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "length",
+            "type": "long",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 180,
+              "end": 180
+            }
+          },
+          {
+            "name": "content",
+            "type": "InputStream",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 181,
+              "end": 181
+            }
+          },
+          {
+            "name": "uploadStatus",
+            "type": "UploadStatus",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 182,
+              "end": 182
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 179,
+          "end": 223
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileUpload/CustomInputStreamEntity.java"
+      }
+    ],
+    "lineRange": {
+      "start": 36,
+      "end": 224
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/FileUpload.java"
+  },
+  "com.mojang.realmsclient.client.Ping": {
+    "className": "Ping",
+    "fullName": "com.mojang.realmsclient.client.Ping",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/Ping.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.realmsclient.dto.RegionPingResult",
+      "java.net.InetSocketAddress",
+      "java.net.Socket",
+      "java.net.SocketAddress",
+      "java.util.Comparator",
+      "java.util.List",
+      "net.minecraft.Util",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.io.IOUtils"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ping",
+        "returnType": "List<RegionPingResult>",
+        "parameters": [
+          {
+            "name": "pRegions",
+            "type": "Ping.Region[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ping",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pHostname",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "now",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pingAllRegions",
+        "returnType": "List<RegionPingResult>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Region",
+        "fullName": "com.mojang.realmsclient.client.Ping.Region",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/Ping.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.mojang.realmsclient.dto.RegionPingResult",
+          "java.net.InetSocketAddress",
+          "java.net.Socket",
+          "java.net.SocketAddress",
+          "java.util.Comparator",
+          "java.util.List",
+          "net.minecraft.Util",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.apache.commons.io.IOUtils"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "US_EAST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 64,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "US_WEST_2",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 65,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "US_WEST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 66,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "EU_WEST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 67,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "AP_SOUTHEAST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 68,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "AP_SOUTHEAST_2",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 69,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "AP_NORTHEAST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 70,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "SA_EAST_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Region",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEndpoint",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 76,
+              "end": 79
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 73,
+              "end": 73
+            }
+          },
+          {
+            "name": "endpoint",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 74,
+              "end": 74
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 63,
+          "end": 80
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Ping/Region.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 81
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Ping.java"
+  },
+  "com.mojang.realmsclient.client.RealmsClient": {
+    "className": "RealmsClient",
+    "fullName": "com.mojang.realmsclient.client.RealmsClient",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/RealmsClient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonArray",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.dto.BackupList",
+      "com.mojang.realmsclient.dto.GuardedSerializer",
+      "com.mojang.realmsclient.dto.Ops",
+      "com.mojang.realmsclient.dto.PendingInvite",
+      "com.mojang.realmsclient.dto.PendingInvitesList",
+      "com.mojang.realmsclient.dto.PingResult",
+      "com.mojang.realmsclient.dto.PlayerInfo",
+      "com.mojang.realmsclient.dto.RealmsDescriptionDto",
+      "com.mojang.realmsclient.dto.RealmsNews",
+      "com.mojang.realmsclient.dto.RealmsNotification",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsServerAddress",
+      "com.mojang.realmsclient.dto.RealmsServerList",
+      "com.mojang.realmsclient.dto.RealmsServerPlayerLists",
+      "com.mojang.realmsclient.dto.RealmsWorldOptions",
+      "com.mojang.realmsclient.dto.RealmsWorldResetDto",
+      "com.mojang.realmsclient.dto.ServerActivityList",
+      "com.mojang.realmsclient.dto.Subscription",
+      "com.mojang.realmsclient.dto.UploadInfo",
+      "com.mojang.realmsclient.dto.WorldDownload",
+      "com.mojang.realmsclient.dto.WorldTemplatePaginatedList",
+      "com.mojang.realmsclient.exception.RealmsHttpException",
+      "com.mojang.realmsclient.exception.RealmsServiceException",
+      "com.mojang.realmsclient.exception.RetryCallException",
+      "com.mojang.realmsclient.util.WorldGenerationInfo",
+      "java.net.URI",
+      "java.net.URISyntaxException",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Optional",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.resources.language.I18n",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "RealmsClient",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "RealmsClient",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToStage",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToProd",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchToLocal",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RealmsClient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSessionId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUsername",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 133
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "listWorlds",
+        "returnType": "RealmsServerList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 135,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNotifications",
+        "returnType": "List<RealmsNotification>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 141,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uuidListToJsonArray",
+        "returnType": "JsonArray",
+        "parameters": [
+          {
+            "name": "pUuidList",
+            "type": "List<UUID>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "notificationsSeen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUuidList",
+            "type": "List<UUID>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 160,
+          "end": 163
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "notificationsDismiss",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUuidList",
+            "type": "List<UUID>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 165,
+          "end": 168
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOwnWorld",
+        "returnType": "RealmsServer",
+        "parameters": [
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 170,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getActivity",
+        "returnType": "ServerActivityList",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 176,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLiveStats",
+        "returnType": "RealmsServerPlayerLists",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 182,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "join",
+        "returnType": "RealmsServerAddress",
+        "parameters": [
+          {
+            "name": "pServerId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 188,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initializeWorld",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDescription",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 194,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mcoEnabled",
+        "returnType": "Boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 201,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stageAvailable",
+        "returnType": "Boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 207,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uninvite",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUuid",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 224,
+          "end": 227
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uninviteMyselfFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 229,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invite",
+        "returnType": "RealmsServer",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 234,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "backupsFor",
+        "returnType": "BackupList",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 242,
+          "end": 246
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "update",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDescription",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 248,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateSlot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldOptions",
+            "type": "RealmsWorldOptions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 254,
+          "end": 258
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "switchSlot",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 260,
+          "end": 264
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "restoreWorld",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackupId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 266,
+          "end": 269
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fetchWorldTemplates",
+        "returnType": "WorldTemplatePaginatedList",
+        "parameters": [
+          {
+            "name": "pPage",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPageSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldType",
+            "type": "RealmsServer.WorldType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 271,
+          "end": 275
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putIntoMinigameMode",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinigameId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 277,
+          "end": 281
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "op",
+        "returnType": "Ops",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfileUuid",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 283,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deop",
+        "returnType": "Ops",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfileUuid",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 289,
+          "end": 293
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "open",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 295,
+          "end": 299
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 301,
+          "end": 305
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetWorldWithSeed",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerationInfo",
+            "type": "WorldGenerationInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 307,
+          "end": 312
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetWorldWithTemplate",
+        "returnType": "Boolean",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldTemplateId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 314,
+          "end": 319
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "subscriptionFor",
+        "returnType": "Subscription",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 321,
+          "end": 325
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pendingInvitesCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 327,
+          "end": 329
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pendingInvites",
+        "returnType": "PendingInvitesList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 331,
+          "end": 337
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBlocked",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_87198_",
+            "type": "PendingInvite",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 339,
+          "end": 346
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acceptInvitation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pInviteId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 348,
+          "end": 351
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requestDownloadInfo",
+        "returnType": "WorldDownload",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 353,
+          "end": 357
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requestUploadInfo",
+        "returnType": "UploadInfo",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pToken",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 360,
+          "end": 363
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rejectInvitation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pInviteId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 365,
+          "end": 368
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "agreeToTos",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 370,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNews",
+        "returnType": "RealmsNews",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 375,
+          "end": 379
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendPingResults",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPingResult",
+            "type": "PingResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 381,
+          "end": 384
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "trialAvailable",
+        "returnType": "Boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 386,
+          "end": 390
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deleteWorld",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWorldId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 392,
+          "end": 395
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "url",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 397,
+          "end": 399
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "url",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pQuery",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 401,
+          "end": 407
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pRequest",
+            "type": "Request<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "RealmsServiceException"
+        ],
+        "lineRange": {
+          "start": 409,
+          "end": 442
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHttpCodeDescription",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pHttpCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 444,
+          "end": 455
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "currentEnvironment",
+        "type": "RealmsClient.Environment",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "RealmsClient.Environment.PRODUCTION",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "initialized",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "sessionId",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "username",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "WORLDS_RESOURCE_PATH",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"worlds\"",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "INVITES_RESOURCE_PATH",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"invites\"",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "MCO_RESOURCE_PATH",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"mco\"",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "SUBSCRIPTION_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"subscriptions\"",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "ACTIVITIES_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"activities\"",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "OPS_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"ops\"",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "REGIONS_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"regions/ping/stat\"",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "TRIALS_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"trial\"",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "NOTIFICATIONS_RESOURCE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"notifications\"",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      },
+      {
+        "name": "PATH_INITIALIZE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/initialize\"",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "PATH_GET_ACTIVTIES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "PATH_GET_LIVESTATS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/liveplayerlist\"",
+        "lineRange": {
+          "start": 63,
+          "end": 63
+        }
+      },
+      {
+        "name": "PATH_GET_SUBSCRIPTION",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "PATH_OP",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/$PROFILE_UUID\"",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "PATH_PUT_INTO_MINIGAMES_MODE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/minigames/$MINIGAME_ID/$WORLD_ID\"",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "PATH_AVAILABLE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/available\"",
+        "lineRange": {
+          "start": 67,
+          "end": 67
+        }
+      },
+      {
+        "name": "PATH_TEMPLATES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/templates/$WORLD_TYPE\"",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "PATH_WORLD_JOIN",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/v1/$ID/join/pc\"",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "PATH_WORLD_GET",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$ID\"",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "PATH_WORLD_INVITES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "PATH_WORLD_UNINVITE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/invite/$UUID\"",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "PATH_PENDING_INVITES_COUNT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/count/pending\"",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "PATH_PENDING_INVITES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/pending\"",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "PATH_ACCEPT_INVITE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/accept/$INVITATION_ID\"",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "PATH_REJECT_INVITE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/reject/$INVITATION_ID\"",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "PATH_UNINVITE_MYSELF",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "PATH_WORLD_UPDATE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "PATH_SLOT",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/slot/$SLOT_ID\"",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "PATH_WORLD_OPEN",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/open\"",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "PATH_WORLD_CLOSE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/close\"",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "PATH_WORLD_RESET",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/reset\"",
+        "lineRange": {
+          "start": 82,
+          "end": 82
+        }
+      },
+      {
+        "name": "PATH_DELETE_WORLD",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID\"",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      },
+      {
+        "name": "PATH_WORLD_BACKUPS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/backups\"",
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        }
+      },
+      {
+        "name": "PATH_WORLD_DOWNLOAD",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/slot/$SLOT_ID/download\"",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      },
+      {
+        "name": "PATH_WORLD_UPLOAD",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/$WORLD_ID/backups/upload\"",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "PATH_CLIENT_COMPATIBLE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/client/compatible\"",
+        "lineRange": {
+          "start": 87,
+          "end": 87
+        }
+      },
+      {
+        "name": "PATH_TOS_AGREED",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/tos/agreed\"",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "PATH_NEWS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/v1/news\"",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "PATH_MARK_NOTIFICATIONS_SEEN",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/seen\"",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "PATH_DISMISS_NOTIFICATIONS",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/dismiss\"",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "PATH_STAGE_AVAILABLE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"/stageAvailable\"",
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "CompatibleVersionResponse",
+        "fullName": "com.mojang.realmsclient.client.RealmsClient.CompatibleVersionResponse",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/RealmsClient.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonArray",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.BackupList",
+          "com.mojang.realmsclient.dto.GuardedSerializer",
+          "com.mojang.realmsclient.dto.Ops",
+          "com.mojang.realmsclient.dto.PendingInvite",
+          "com.mojang.realmsclient.dto.PendingInvitesList",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.PlayerInfo",
+          "com.mojang.realmsclient.dto.RealmsDescriptionDto",
+          "com.mojang.realmsclient.dto.RealmsNews",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerAddress",
+          "com.mojang.realmsclient.dto.RealmsServerList",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerLists",
+          "com.mojang.realmsclient.dto.RealmsWorldOptions",
+          "com.mojang.realmsclient.dto.RealmsWorldResetDto",
+          "com.mojang.realmsclient.dto.ServerActivityList",
+          "com.mojang.realmsclient.dto.Subscription",
+          "com.mojang.realmsclient.dto.UploadInfo",
+          "com.mojang.realmsclient.dto.WorldDownload",
+          "com.mojang.realmsclient.dto.WorldTemplatePaginatedList",
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.exception.RetryCallException",
+          "com.mojang.realmsclient.util.WorldGenerationInfo",
+          "java.net.URI",
+          "java.net.URISyntaxException",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.UUID",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.resources.language.I18n",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 458,
+          "end": 462
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/RealmsClient/CompatibleVersionResponse.java"
+      },
+      {
+        "className": "Environment",
+        "fullName": "com.mojang.realmsclient.client.RealmsClient.Environment",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/RealmsClient.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonArray",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.realmsclient.dto.BackupList",
+          "com.mojang.realmsclient.dto.GuardedSerializer",
+          "com.mojang.realmsclient.dto.Ops",
+          "com.mojang.realmsclient.dto.PendingInvite",
+          "com.mojang.realmsclient.dto.PendingInvitesList",
+          "com.mojang.realmsclient.dto.PingResult",
+          "com.mojang.realmsclient.dto.PlayerInfo",
+          "com.mojang.realmsclient.dto.RealmsDescriptionDto",
+          "com.mojang.realmsclient.dto.RealmsNews",
+          "com.mojang.realmsclient.dto.RealmsNotification",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsServerAddress",
+          "com.mojang.realmsclient.dto.RealmsServerList",
+          "com.mojang.realmsclient.dto.RealmsServerPlayerLists",
+          "com.mojang.realmsclient.dto.RealmsWorldOptions",
+          "com.mojang.realmsclient.dto.RealmsWorldResetDto",
+          "com.mojang.realmsclient.dto.ServerActivityList",
+          "com.mojang.realmsclient.dto.Subscription",
+          "com.mojang.realmsclient.dto.UploadInfo",
+          "com.mojang.realmsclient.dto.WorldDownload",
+          "com.mojang.realmsclient.dto.WorldTemplatePaginatedList",
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "com.mojang.realmsclient.exception.RealmsServiceException",
+          "com.mojang.realmsclient.exception.RetryCallException",
+          "com.mojang.realmsclient.util.WorldGenerationInfo",
+          "java.net.URI",
+          "java.net.URISyntaxException",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.UUID",
+          "javax.annotation.Nullable",
+          "net.minecraft.SharedConstants",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.resources.language.I18n",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PRODUCTION",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 466,
+              "end": 468
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "STAGE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 467,
+              "end": 468
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LOCAL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 468,
+              "end": 468
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Environment",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pBaseUrl",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProtocol",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 473,
+              "end": 476
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "byName",
+            "returnType": "Optional<RealmsClient.Environment>",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 478,
+              "end": 495
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "baseUrl",
+            "type": "String",
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 470,
+              "end": 470
+            }
+          },
+          {
+            "name": "protocol",
+            "type": "String",
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 471,
+              "end": 471
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 465,
+          "end": 496
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/RealmsClient/Environment.java"
+      }
+    ],
+    "lineRange": {
+      "start": 45,
+      "end": 497
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/RealmsClient.java"
+  },
+  "com.mojang.realmsclient.client.RealmsClientConfig": {
+    "className": "RealmsClientConfig",
+    "fullName": "com.mojang.realmsclient.client.RealmsClientConfig",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/RealmsClientConfig.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.net.Proxy",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getProxy",
+        "returnType": "Proxy",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setProxy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pProxy",
+            "type": "Proxy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "proxy",
+        "type": "Proxy",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/RealmsClientConfig.java"
+  },
+  "com.mojang.realmsclient.client.RealmsError": {
+    "className": "RealmsError",
+    "fullName": "com.mojang.realmsclient.client.RealmsError",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/RealmsError.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Strings",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParser",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.util.JsonUtils",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsError",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pErrorMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pErrorCode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "parse",
+        "returnType": "RealmsError",
+        "parameters": [
+          {
+            "name": "pError",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getErrorMessage",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getErrorCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "errorMessage",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "errorCode",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 49
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/RealmsError.java"
+  },
+  "com.mojang.realmsclient.client.Request": {
+    "className": "Request",
+    "fullName": "com.mojang.realmsclient.client.Request",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/Request.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.exception.RealmsHttpException",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.InputStreamReader",
+      "java.io.OutputStream",
+      "java.io.OutputStreamWriter",
+      "java.net.HttpURLConnection",
+      "java.net.MalformedURLException",
+      "java.net.Proxy",
+      "java.net.URL",
+      "java.nio.charset.StandardCharsets",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Request",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUrl",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConnectTimeout",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReadTimeout",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "cookie",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cookie",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pConnection",
+            "type": "HttpURLConnection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "header",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRetryAfterHeader",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRetryAfterHeader",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pConnection",
+            "type": "HttpURLConnection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "responseCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "text",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pIn",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 104,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dispose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "connect",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 160
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doConnect",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 162,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeader",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeader",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pConnection",
+            "type": "HttpURLConnection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 202
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "connection",
+        "type": "HttpURLConnection",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "connected",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "url",
+        "type": "String",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "DEFAULT_READ_TIMEOUT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "60000",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "DEFAULT_CONNECT_TIMEOUT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5000",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Delete",
+        "fullName": "com.mojang.realmsclient.client.Request.Delete",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/Request.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "Request<Request.Delete>",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.OutputStreamWriter",
+          "java.net.HttpURLConnection",
+          "java.net.MalformedURLException",
+          "java.net.Proxy",
+          "java.net.URL",
+          "java.nio.charset.StandardCharsets",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Delete",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p_87359_",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_87360_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_87361_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 208
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 205,
+          "end": 220
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Request/Delete.java"
+      },
+      {
+        "className": "Get",
+        "fullName": "com.mojang.realmsclient.client.Request.Get",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/Request.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "Request<Request.Get>",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.OutputStreamWriter",
+          "java.net.HttpURLConnection",
+          "java.net.MalformedURLException",
+          "java.net.Proxy",
+          "java.net.URL",
+          "java.nio.charset.StandardCharsets",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Get",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p_87365_",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_87366_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_87367_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 224,
+              "end": 226
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 223,
+          "end": 239
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Request/Get.java"
+      },
+      {
+        "className": "Post",
+        "fullName": "com.mojang.realmsclient.client.Request.Post",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/Request.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "Request<Request.Post>",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.OutputStreamWriter",
+          "java.net.HttpURLConnection",
+          "java.net.MalformedURLException",
+          "java.net.Proxy",
+          "java.net.URL",
+          "java.nio.charset.StandardCharsets",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Post",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pUrl",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContent",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pConnectTimeout",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReadTimeout",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 245,
+              "end": 248
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "content",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 243,
+              "end": 243
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 242,
+          "end": 270
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Request/Post.java"
+      },
+      {
+        "className": "Put",
+        "fullName": "com.mojang.realmsclient.client.Request.Put",
+        "packageName": "com.mojang.realmsclient.client",
+        "filePath": "/com/mojang/realmsclient/client/Request.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "Request<Request.Put>",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.realmsclient.exception.RealmsHttpException",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.InputStreamReader",
+          "java.io.OutputStream",
+          "java.io.OutputStreamWriter",
+          "java.net.HttpURLConnection",
+          "java.net.MalformedURLException",
+          "java.net.Proxy",
+          "java.net.URL",
+          "java.nio.charset.StandardCharsets",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Put",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pUrl",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContent",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pConnectTimeout",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReadTimeout",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 276,
+              "end": 279
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "content",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 274,
+              "end": 274
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 273,
+          "end": 300
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Request/Put.java"
+      }
+    ],
+    "lineRange": {
+      "start": 19,
+      "end": 301
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/Request.java"
+  },
+  "com.mojang.realmsclient.client.UploadStatus": {
+    "className": "UploadStatus",
+    "fullName": "com.mojang.realmsclient.client.UploadStatus",
+    "packageName": "com.mojang.realmsclient.client",
+    "filePath": "/com/mojang/realmsclient/client/UploadStatus.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [
+      {
+        "name": "bytesWritten",
+        "type": "volatile long",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "totalBytes",
+        "type": "volatile long",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 10
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/realmsclient/client/UploadStatus.java"
+  }
+}

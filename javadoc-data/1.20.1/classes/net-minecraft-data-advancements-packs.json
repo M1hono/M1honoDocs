@@ -1,0 +1,796 @@
+{
+  "net.minecraft.data.advancements.packs.VanillaAdvancementProvider": {
+    "className": "VanillaAdvancementProvider",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaAdvancementProvider",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaAdvancementProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.data.PackOutput",
+      "net.minecraft.data.advancements.AdvancementProvider"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "AdvancementProvider",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistries",
+            "type": "CompletableFuture<HolderLookup.Provider>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaAdvancementProvider.java"
+  },
+  "net.minecraft.data.advancements.packs.VanillaAdventureAdvancements": {
+    "className": "VanillaAdventureAdvancements",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaAdventureAdvancements",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaAdventureAdvancements.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AdvancementSubProvider"
+    ],
+    "imports": [
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.Consumer",
+      "java.util.stream.Stream",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.advancements.AdvancementRewards",
+      "net.minecraft.advancements.CriterionTriggerInstance",
+      "net.minecraft.advancements.FrameType",
+      "net.minecraft.advancements.RequirementsStrategy",
+      "net.minecraft.advancements.critereon.BlockPredicate",
+      "net.minecraft.advancements.critereon.ChanneledLightningTrigger",
+      "net.minecraft.advancements.critereon.DamagePredicate",
+      "net.minecraft.advancements.critereon.DamageSourcePredicate",
+      "net.minecraft.advancements.critereon.DistancePredicate",
+      "net.minecraft.advancements.critereon.DistanceTrigger",
+      "net.minecraft.advancements.critereon.EntityEquipmentPredicate",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.ItemPredicate",
+      "net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger",
+      "net.minecraft.advancements.critereon.KilledByCrossbowTrigger",
+      "net.minecraft.advancements.critereon.KilledTrigger",
+      "net.minecraft.advancements.critereon.LighthingBoltPredicate",
+      "net.minecraft.advancements.critereon.LightningStrikeTrigger",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.advancements.critereon.LootTableTrigger",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.PlayerHurtEntityTrigger",
+      "net.minecraft.advancements.critereon.PlayerPredicate",
+      "net.minecraft.advancements.critereon.PlayerTrigger",
+      "net.minecraft.advancements.critereon.RecipeCraftedTrigger",
+      "net.minecraft.advancements.critereon.ShotCrossbowTrigger",
+      "net.minecraft.advancements.critereon.SlideDownBlockTrigger",
+      "net.minecraft.advancements.critereon.StatePropertiesPredicate",
+      "net.minecraft.advancements.critereon.SummonedEntityTrigger",
+      "net.minecraft.advancements.critereon.TagPredicate",
+      "net.minecraft.advancements.critereon.TargetBlockTrigger",
+      "net.minecraft.advancements.critereon.TradeTrigger",
+      "net.minecraft.advancements.critereon.UsedTotemTrigger",
+      "net.minecraft.advancements.critereon.UsingItemTrigger",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.data.advancements.AdvancementSubProvider",
+      "net.minecraft.data.recipes.packs.VanillaRecipeProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.tags.EntityTypeTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.raid.Raid",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.DecoratedPotRecipe",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.Biomes",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterList",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.ComparatorBlock",
+      "net.minecraft.world.level.block.entity.DecoratedPotBlockEntity",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.predicates.AllOfCondition",
+      "net.minecraft.world.level.storage.loot.predicates.AnyOfCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LocationCheck",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemCondition"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRegistries",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWriter",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placedBlockReadByComparator",
+        "returnType": "CriterionTriggerInstance",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placedComparatorReadingBlock",
+        "returnType": "CriterionTriggerInstance",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createAdventuringTime",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pConsumer",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAdvancement",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreset",
+            "type": "MultiNoiseBiomeSourceParameterList.Preset",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 186,
+          "end": 188
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DISTANCE_FROM_BOTTOM_TO_TOP",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "384",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "Y_COORDINATE_AT_TOP",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "320",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "Y_COORDINATE_AT_BOTTOM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-64",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "BEDROCK_THICKNESS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 74,
+      "end": 208
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaAdventureAdvancements.java"
+  },
+  "net.minecraft.data.advancements.packs.VanillaHusbandryAdvancements": {
+    "className": "VanillaHusbandryAdvancements",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaHusbandryAdvancements",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaHusbandryAdvancements.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AdvancementSubProvider"
+    ],
+    "imports": [
+      "java.util.Comparator",
+      "java.util.List",
+      "java.util.Map.Entry",
+      "java.util.function.Consumer",
+      "java.util.stream.Stream",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.advancements.AdvancementRewards",
+      "net.minecraft.advancements.FrameType",
+      "net.minecraft.advancements.RequirementsStrategy",
+      "net.minecraft.advancements.critereon.BeeNestDestroyedTrigger",
+      "net.minecraft.advancements.critereon.BlockPredicate",
+      "net.minecraft.advancements.critereon.BredAnimalsTrigger",
+      "net.minecraft.advancements.critereon.ConsumeItemTrigger",
+      "net.minecraft.advancements.critereon.ContextAwarePredicate",
+      "net.minecraft.advancements.critereon.EffectsChangedTrigger",
+      "net.minecraft.advancements.critereon.EnchantmentPredicate",
+      "net.minecraft.advancements.critereon.EntityFlagsPredicate",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.EntitySubPredicate",
+      "net.minecraft.advancements.critereon.FilledBucketTrigger",
+      "net.minecraft.advancements.critereon.FishingRodHookedTrigger",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.ItemPredicate",
+      "net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.PickedUpItemTrigger",
+      "net.minecraft.advancements.critereon.PlayerInteractTrigger",
+      "net.minecraft.advancements.critereon.StartRidingTrigger",
+      "net.minecraft.advancements.critereon.TameAnimalTrigger",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.data.advancements.AdvancementSubProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.item.HoneycombItem",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.enchantment.Enchantments",
+      "net.minecraft.world.level.block.Blocks"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRegistries",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWriter",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBreedAllAnimalsAdvancement",
+        "returnType": "Advancement",
+        "parameters": [
+          {
+            "name": "pParent",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWriter",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBreedableAnimals",
+            "type": "Stream<EntityType<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndirectlyBreedableAnimals",
+            "type": "Stream<EntityType<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FISH",
+        "type": "Item[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Item[]{Items.COD, Items.TROPICAL_FISH, Items.PUFFERFISH, Items.SALMON}",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "FISH_BUCKETS",
+        "type": "Item[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Item[]{Items.COD_BUCKET, Items.TROPICAL_FISH_BUCKET, Items.PUFFERFISH_BUCKET, Items.SALMON_BUCKET}",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "EDIBLE_ITEMS",
+        "type": "Item[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Item[]{Items.APPLE, Items.MUSHROOM_STEW, Items.BREAD, Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.GOLDEN_APPLE, Items.ENCHANTED_GOLDEN_APPLE, Items.COD, Items.SALMON, Items.TROPICAL_FISH, Items.PUFFERFISH, Items.COOKED_COD, Items.COOKED_SALMON, Items.COOKIE, Items.MELON_SLICE, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.ROTTEN_FLESH, Items.SPIDER_EYE, Items.CARROT, Items.POTATO, Items.BAKED_POTATO, Items.POISONOUS_POTATO, Items.GOLDEN_CARROT, Items.PUMPKIN_PIE, Items.RABBIT, Items.COOKED_RABBIT, Items.RABBIT_STEW, Items.MUTTON, Items.COOKED_MUTTON, Items.CHORUS_FRUIT, Items.BEETROOT, Items.BEETROOT_SOUP, Items.DRIED_KELP, Items.SUSPICIOUS_STEW, Items.SWEET_BERRIES, Items.HONEY_BOTTLE, Items.GLOW_BERRIES}",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "WAX_SCRAPING_TOOLS",
+        "type": "Item[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Item[]{Items.WOODEN_AXE, Items.GOLDEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE}",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 48,
+      "end": 139
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaHusbandryAdvancements.java"
+  },
+  "net.minecraft.data.advancements.packs.VanillaNetherAdvancements": {
+    "className": "VanillaNetherAdvancements",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaNetherAdvancements",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaNetherAdvancements.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AdvancementSubProvider"
+    ],
+    "imports": [
+      "java.util.function.Consumer",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.advancements.AdvancementRewards",
+      "net.minecraft.advancements.FrameType",
+      "net.minecraft.advancements.RequirementsStrategy",
+      "net.minecraft.advancements.critereon.BlockPredicate",
+      "net.minecraft.advancements.critereon.BrewedPotionTrigger",
+      "net.minecraft.advancements.critereon.ChangeDimensionTrigger",
+      "net.minecraft.advancements.critereon.ConstructBeaconTrigger",
+      "net.minecraft.advancements.critereon.ContextAwarePredicate",
+      "net.minecraft.advancements.critereon.DamageSourcePredicate",
+      "net.minecraft.advancements.critereon.DistancePredicate",
+      "net.minecraft.advancements.critereon.DistanceTrigger",
+      "net.minecraft.advancements.critereon.EffectsChangedTrigger",
+      "net.minecraft.advancements.critereon.EntityEquipmentPredicate",
+      "net.minecraft.advancements.critereon.EntityFlagsPredicate",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.ItemDurabilityTrigger",
+      "net.minecraft.advancements.critereon.ItemPredicate",
+      "net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger",
+      "net.minecraft.advancements.critereon.KilledTrigger",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.advancements.critereon.LootTableTrigger",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.MobEffectsPredicate",
+      "net.minecraft.advancements.critereon.PickedUpItemTrigger",
+      "net.minecraft.advancements.critereon.PlayerInteractTrigger",
+      "net.minecraft.advancements.critereon.PlayerTrigger",
+      "net.minecraft.advancements.critereon.StatePropertiesPredicate",
+      "net.minecraft.advancements.critereon.SummonedEntityTrigger",
+      "net.minecraft.advancements.critereon.TagPredicate",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.data.advancements.AdvancementSubProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.monster.piglin.PiglinAi",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterList",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.RespawnAnchorBlock",
+      "net.minecraft.world.level.levelgen.structure.BuiltinStructures",
+      "net.minecraft.world.level.storage.loot.LootContext",
+      "net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_256338_",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_249760_",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 81
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 53,
+      "end": 82
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaNetherAdvancements.java"
+  },
+  "net.minecraft.data.advancements.packs.VanillaStoryAdvancements": {
+    "className": "VanillaStoryAdvancements",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaStoryAdvancements",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaStoryAdvancements.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AdvancementSubProvider"
+    ],
+    "imports": [
+      "java.util.function.Consumer",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.advancements.FrameType",
+      "net.minecraft.advancements.RequirementsStrategy",
+      "net.minecraft.advancements.critereon.ChangeDimensionTrigger",
+      "net.minecraft.advancements.critereon.CuredZombieVillagerTrigger",
+      "net.minecraft.advancements.critereon.DamagePredicate",
+      "net.minecraft.advancements.critereon.DamageSourcePredicate",
+      "net.minecraft.advancements.critereon.EnchantedItemTrigger",
+      "net.minecraft.advancements.critereon.EntityHurtPlayerTrigger",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.ItemPredicate",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.advancements.critereon.PlayerTrigger",
+      "net.minecraft.advancements.critereon.TagPredicate",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.data.advancements.AdvancementSubProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.levelgen.structure.BuiltinStructures"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_256574_",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_248554_",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 47
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaStoryAdvancements.java"
+  },
+  "net.minecraft.data.advancements.packs.VanillaTheEndAdvancements": {
+    "className": "VanillaTheEndAdvancements",
+    "fullName": "net.minecraft.data.advancements.packs.VanillaTheEndAdvancements",
+    "packageName": "net.minecraft.data.advancements.packs",
+    "filePath": "/net/minecraft/data/advancements/packs/VanillaTheEndAdvancements.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AdvancementSubProvider"
+    ],
+    "imports": [
+      "java.util.function.Consumer",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.advancements.AdvancementRewards",
+      "net.minecraft.advancements.FrameType",
+      "net.minecraft.advancements.critereon.ChangeDimensionTrigger",
+      "net.minecraft.advancements.critereon.DistancePredicate",
+      "net.minecraft.advancements.critereon.EnterBlockTrigger",
+      "net.minecraft.advancements.critereon.EntityPredicate",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.KilledTrigger",
+      "net.minecraft.advancements.critereon.LevitationTrigger",
+      "net.minecraft.advancements.critereon.LocationPredicate",
+      "net.minecraft.advancements.critereon.MinMaxBounds",
+      "net.minecraft.advancements.critereon.PlayerTrigger",
+      "net.minecraft.advancements.critereon.SummonedEntityTrigger",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.data.advancements.AdvancementSubProvider",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.levelgen.structure.BuiltinStructures"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_256214_",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_250851_",
+            "type": "Consumer<Advancement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/advancements/packs/VanillaTheEndAdvancements.java"
+  }
+}

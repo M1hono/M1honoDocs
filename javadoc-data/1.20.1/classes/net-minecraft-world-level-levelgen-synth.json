@@ -1,0 +1,2609 @@
+{
+  "net.minecraft.world.level.levelgen.synth.BlendedNoise": {
+    "className": "BlendedNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.BlendedNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/BlendedNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "DensityFunction.SimpleFunction"
+    ],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.MapCodec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Locale",
+      "java.util.stream.IntStream",
+      "net.minecraft.util.KeyDispatchDataCodec",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.levelgen.DensityFunction",
+      "net.minecraft.world.level.levelgen.XoroshiroRandomSource"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createUnseeded",
+        "returnType": "BlendedNoise",
+        "parameters": [
+          {
+            "name": "p_230478_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_230479_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_230480_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_230481_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_230482_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "BlendedNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinLimitNoise",
+            "type": "PerlinNoise",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxLimitNoise",
+            "type": "PerlinNoise",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMainNoise",
+            "type": "PerlinNoise",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXzScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXzFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSmearScaleMultiplier",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 64
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BlendedNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXzScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXzFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSmearScaleMultiplier",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "withNewRandom",
+        "returnType": "BlendedNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "compute",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "DensityFunction.FunctionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "minValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 146
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minLimitNoise",
+        "type": "PerlinNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "maxLimitNoise",
+        "type": "PerlinNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "mainNoise",
+        "type": "PerlinNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "xzMultiplier",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "yMultiplier",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "xzFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "yFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "smearScaleMultiplier",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "maxValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "xzScale",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "yScale",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 151
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/BlendedNoise.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.ImprovedNoise": {
+    "className": "ImprovedNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.ImprovedNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/ImprovedNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ImprovedNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "noise",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "noise",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMax",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "noiseWithDerivative",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValues",
+            "type": "double[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gradDot",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pGradIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZFactor",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "p",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sampleAndLerp",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pGridX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGridY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGridZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWeirdDeltaY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sampleWithDerivative",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pGridX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGridY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGridZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNoiseValues",
+            "type": "double[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 170,
+          "end": 172
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SHIFT_UP_EPSILON",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0E-7F",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "p",
+        "type": "byte[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "xo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "yo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "zo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 173
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/ImprovedNoise.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.NoiseUtils": {
+    "className": "NoiseUtils",
+    "fullName": "net.minecraft.world.level.levelgen.synth.NoiseUtils",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/NoiseUtils.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Locale"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "biasTowardsExtreme",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBias",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityNoiseOctaveConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pP",
+            "type": "byte[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityNoiseOctaveConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZo",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pP",
+            "type": "int[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/NoiseUtils.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.NormalNoise": {
+    "className": "NormalNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.NormalNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/NormalNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.doubles.DoubleArrayList",
+      "it.unimi.dsi.fastutil.doubles.DoubleList",
+      "it.unimi.dsi.fastutil.doubles.DoubleListIterator",
+      "java.util.List",
+      "net.minecraft.Util",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.RegistryFileCodec",
+      "net.minecraft.util.RandomSource"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createLegacyNetherBiome",
+        "returnType": "NormalNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameters",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "NormalNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFirstOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmplitudes",
+            "type": "double[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "NormalNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameters",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "NormalNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameters",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseLegacyNetherBiome",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 70
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "maxValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "expectedDeviation",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pOctaves",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "NoiseParameters",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "firstOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "amplitudes",
+            "type": "DoubleList",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 116
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "INPUT_FACTOR",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0181268882175227D",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "TARGET_DEVIATION",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.3333333333333333D",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "valueFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "first",
+        "type": "PerlinNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "second",
+        "type": "PerlinNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "maxValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "parameters",
+        "type": "NormalNoise.NoiseParameters",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 117
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/NormalNoise.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.PerlinNoise": {
+    "className": "PerlinNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.PerlinNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/PerlinNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.datafixers.util.Pair",
+      "it.unimi.dsi.fastutil.doubles.DoubleArrayList",
+      "it.unimi.dsi.fastutil.doubles.DoubleList",
+      "it.unimi.dsi.fastutil.ints.IntBidirectionalIterator",
+      "it.unimi.dsi.fastutil.ints.IntRBTreeSet",
+      "it.unimi.dsi.fastutil.ints.IntSortedSet",
+      "java.util.Arrays",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Objects",
+      "java.util.stream.IntStream",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.levelgen.PositionalRandomFactory"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createLegacyForBlendedNoise",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctaves",
+            "type": "IntStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createLegacyForLegacyNetherBiome",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFirstOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmplitudes",
+            "type": "DoubleList",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctaves",
+            "type": "IntStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctaves",
+            "type": "List<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFirstOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFirstAmplitude",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmplitudes",
+            "type": "double[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "PerlinNoise",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFirstOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmplitudes",
+            "type": "DoubleList",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "makeAmplitudes",
+        "returnType": "Pair<Integer, DoubleList>",
+        "parameters": [
+          {
+            "name": "pOctaves",
+            "type": "IntSortedSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PerlinNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctavesAndAmplitudes",
+            "type": "DoubleList>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseNewFactory",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 139
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "maxValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "skipOctave",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYScale",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMax",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseFixedY",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxBrokenValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "p_210644_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "edgeValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "p_210650_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOctaveNoise",
+        "returnType": "ImprovedNoise",
+        "parameters": [
+          {
+            "name": "pOctave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrap",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 204
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "firstOctave",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "amplitudes",
+        "returnType": "DoubleList",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 212
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parityConfigString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StringBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 236
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ROUND_OFF",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "33554432",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "noiseLevels",
+        "type": "ImprovedNoise[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "firstOctave",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "amplitudes",
+        "type": "DoubleList",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "lowestFreqValueFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "lowestFreqInputFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "maxValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 237
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/PerlinNoise.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise": {
+    "className": "PerlinSimplexNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/PerlinSimplexNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.ints.IntRBTreeSet",
+      "it.unimi.dsi.fastutil.ints.IntSortedSet",
+      "java.util.List",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.WorldgenRandom"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PerlinSimplexNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctaves",
+            "type": "List<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PerlinSimplexNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOctaves",
+            "type": "IntSortedSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseNoiseOffsets",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 84
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "noiseLevels",
+        "type": "SimplexNoise[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "highestFreqValueFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "highestFreqInputFactor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 85
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/PerlinSimplexNoise.java"
+  },
+  "net.minecraft.world.level.levelgen.synth.SimplexNoise": {
+    "className": "SimplexNoise",
+    "fullName": "net.minecraft.world.level.levelgen.synth.SimplexNoise",
+    "packageName": "net.minecraft.world.level.levelgen.synth",
+    "filePath": "/net/minecraft/world/level/levelgen/synth/SimplexNoise.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SimplexNoise",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "p",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dot",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pGradient",
+            "type": "int[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCornerNoise3D",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pGradientIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffset",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 188
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "GRADIENT",
+        "type": "int[][]",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[][]{{1, 1, 0}, {-1, 1, 0}, {1, -1, 0}, {-1, -1, 0}, {1, 0, 1}, {-1, 0, 1}, {1, 0, -1}, {-1, 0, -1}, {0, 1, 1}, {0, -1, 1}, {0, 1, -1}, {0, -1, -1}, {1, 1, 0}, {0, -1, 1}, {-1, 1, 0}, {0, -1, -1}}",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "p",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "/",
+        "initialValue": "new int[512]",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "xo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "yo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "zo",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 189
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/synth/SimplexNoise.java"
+  }
+}

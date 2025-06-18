@@ -1,0 +1,863 @@
+{
+  "net.minecraftforge.network.filters.CommandTreeCleaner": {
+    "className": "CommandTreeCleaner",
+    "fullName": "net.minecraftforge.network.filters.CommandTreeCleaner",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/CommandTreeCleaner.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.HashMap",
+      "java.util.Map",
+      "java.util.function.Predicate",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.tree.ArgumentCommandNode",
+      "com.mojang.brigadier.tree.CommandNode",
+      "com.mojang.brigadier.tree.RootCommandNode"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 75
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/CommandTreeCleaner.java"
+  },
+  "net.minecraftforge.network.filters.ForgeConnectionNetworkFilter": {
+    "className": "ForgeConnectionNetworkFilter",
+    "fullName": "net.minecraftforge.network.filters.ForgeConnectionNetworkFilter",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/ForgeConnectionNetworkFilter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "VanillaPacketFilter",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.BiConsumer",
+      "io.netty.channel.ChannelHandler",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.Connection",
+      "net.minecraft.network.protocol.PacketFlow",
+      "net.minecraft.network.ConnectionProtocol",
+      "net.minecraft.network.protocol.game.ClientboundLoginPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateAdvancementsPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket",
+      "com.google.common.collect.ImmutableMap",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ForgeConnectionNetworkFilter",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isNecessary",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "splitPacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "packet",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "super",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 65
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 67
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/ForgeConnectionNetworkFilter.java"
+  },
+  "net.minecraftforge.network.filters.NetworkFilters": {
+    "className": "NetworkFilters",
+    "fullName": "net.minecraftforge.network.filters.NetworkFilters",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/NetworkFilters.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Map",
+      "java.util.function.Function",
+      "io.netty.channel.ChannelPipeline",
+      "net.minecraft.network.Connection",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger",
+      "com.google.common.collect.ImmutableMap"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "injectIfNecessary",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "NetworkFilters",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 49
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/NetworkFilters.java"
+  },
+  "net.minecraftforge.network.filters.VanillaConnectionNetworkFilter": {
+    "className": "VanillaConnectionNetworkFilter",
+    "fullName": "net.minecraftforge.network.filters.VanillaConnectionNetworkFilter",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/VanillaConnectionNetworkFilter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "VanillaPacketFilter",
+    "interfaces": [],
+    "imports": [
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.BiConsumer",
+      "java.util.stream.Collectors",
+      "io.netty.channel.ChannelHandler",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.commands.synchronization.ArgumentTypeInfo",
+      "net.minecraft.commands.synchronization.ArgumentTypeInfos",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.data.registries.VanillaRegistries",
+      "net.minecraft.gametest.framework.TestClassNameArgument",
+      "net.minecraft.gametest.framework.TestFunctionArgument",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.Connection",
+      "net.minecraft.network.protocol.game.ClientboundCommandsPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket",
+      "net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.tags.TagNetworkSerialization",
+      "net.minecraft.world.flag.FeatureFlagSet",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraftforge.network.NetworkHooks",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "net.minecraftforge.registries.RegistryManager",
+      "net.minecraftforge.server.ServerLifecycleHooks",
+      "org.jetbrains.annotations.NotNull",
+      "org.slf4j.Logger",
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.brigadier.tree.RootCommandNode",
+      "com.mojang.logging.LogUtils"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VanillaConnectionNetworkFilter",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isNecessary",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "filterEntityProperties",
+        "returnType": "ClientboundUpdateAttributesPacket",
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "ClientboundUpdateAttributesPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "filterCommandList",
+        "returnType": "ClientboundCommandsPacket",
+        "parameters": [
+          {
+            "name": "packet",
+            "type": "ClientboundCommandsPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "filterCustomTagTypes",
+        "returnType": "ClientboundUpdateTagsPacket",
+        "parameters": [
+          {
+            "name": "packet",
+            "type": "ClientboundUpdateTagsPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isVanillaRegistry",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "location",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 128
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 54,
+      "end": 129
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/VanillaConnectionNetworkFilter.java"
+  },
+  "net.minecraftforge.network.filters.VanillaPacketFilter": {
+    "className": "VanillaPacketFilter",
+    "fullName": "net.minecraftforge.network.filters.VanillaPacketFilter",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/VanillaPacketFilter.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "MessageToMessageEncoder<Packet<",
+    "interfaces": [],
+    "imports": [
+      "java.util.AbstractMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.BiConsumer",
+      "java.util.function.Function",
+      "io.netty.channel.ChannelHandlerContext",
+      "io.netty.handler.codec.MessageToMessageEncoder",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.Connection",
+      "org.jetbrains.annotations.NotNull"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VanillaPacketFilter",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "Map<Class<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "super",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isNecessary",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "encode",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "ChannelHandlerContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "msg",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "out",
+            "type": "List<Object>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 61
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 63
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/VanillaPacketFilter.java"
+  },
+  "net.minecraftforge.network.filters.VanillaPacketSplitter": {
+    "className": "VanillaPacketSplitter",
+    "fullName": "net.minecraftforge.network.filters.VanillaPacketSplitter",
+    "packageName": "net.minecraftforge.network.filters",
+    "filePath": "/net/minecraftforge/network/filters/VanillaPacketSplitter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Predicate",
+      "io.netty.buffer.ByteBuf",
+      "io.netty.buffer.Unpooled",
+      "net.minecraft.network.*",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.protocol.PacketFlow",
+      "net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.network.*",
+      "net.minecraftforge.network.event.EventNetworkChannel",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "register",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendPackets",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "protocol",
+            "type": "ConnectionProtocol",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "direction",
+            "type": "PacketFlow",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "packet",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "super",
+            "type": "List<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "heuristicIsDefinitelySmallEnough",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "packet",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClientPacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "NetworkEvent.ServerCustomPayloadEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemoteCompatibility",
+        "returnType": "RemoteCompatibility",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isRemoteCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "manager",
+            "type": "Connection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 185
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "VERSION",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"1.1\"",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "PROTOCOL_MAX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "CompressionDecoder.MAXIMUM_UNCOMPRESSED_LENGTH",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "PAYLOAD_TO_CLIENT_MAX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1048576",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "PART_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "1 byte for state, 5 byte for VarInt PacketID",
+        "initialValue": "PAYLOAD_TO_CLIENT_MAX - 1 - 5",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "STATE_FIRST",
+        "type": "byte",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "STATE_LAST",
+        "type": "byte",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "RemoteCompatibility",
+        "fullName": "net.minecraftforge.network.filters.VanillaPacketSplitter.RemoteCompatibility",
+        "packageName": "net.minecraftforge.network.filters",
+        "filePath": "/net/minecraftforge/network/filters/VanillaPacketSplitter.java",
+        "classType": "enum",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Predicate",
+          "io.netty.buffer.ByteBuf",
+          "io.netty.buffer.Unpooled",
+          "net.minecraft.network.*",
+          "net.minecraft.network.protocol.Packet",
+          "net.minecraft.network.protocol.PacketFlow",
+          "net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.network.*",
+          "net.minecraftforge.network.event.EventNetworkChannel",
+          "org.apache.logging.log4j.LogManager",
+          "org.apache.logging.log4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 163,
+          "end": 167
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/VanillaPacketSplitter/RemoteCompatibility.java"
+      }
+    ],
+    "lineRange": {
+      "start": 29,
+      "end": 186
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/network/filters/VanillaPacketSplitter.java"
+  }
+}

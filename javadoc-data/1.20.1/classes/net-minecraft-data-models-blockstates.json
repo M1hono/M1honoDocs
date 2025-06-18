@@ -1,0 +1,3311 @@
+{
+  "net.minecraft.data.models.blockstates.BlockStateGenerator": {
+    "className": "BlockStateGenerator",
+    "fullName": "net.minecraft.data.models.blockstates.BlockStateGenerator",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/BlockStateGenerator.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Supplier<JsonElement>",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "java.util.function.Supplier",
+      "net.minecraft.world.level.block.Block"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getBlock",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/BlockStateGenerator.java"
+  },
+  "net.minecraft.data.models.blockstates.Condition": {
+    "className": "Condition",
+    "fullName": "net.minecraft.data.models.blockstates.Condition",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/Condition.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Supplier<JsonElement>",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "java.util.Arrays",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.Supplier",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "validate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStateDefinition",
+            "type": "?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "and",
+        "returnType": "Condition",
+        "parameters": [
+          {
+            "name": "pConditions",
+            "type": "Condition[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "or",
+        "returnType": "Condition",
+        "parameters": [
+          {
+            "name": "pConditions",
+            "type": "Condition[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "CompositeCondition",
+        "fullName": "net.minecraft.data.models.blockstates.Condition.CompositeCondition",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/Condition.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Condition"
+        ],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Supplier",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "CompositeCondition",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOperation",
+                "type": "Condition.Operation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSubconditions",
+                "type": "List<Condition>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 35,
+              "end": 38
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "validate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateDefinition",
+                "type": "?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 40,
+              "end": 44
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "get",
+            "returnType": "JsonElement",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 46,
+              "end": 52
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "operation",
+            "type": "Condition.Operation",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 32,
+              "end": 32
+            }
+          },
+          {
+            "name": "subconditions",
+            "type": "List<Condition>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 33,
+              "end": 33
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 31,
+          "end": 53
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Condition/CompositeCondition.java"
+      },
+      {
+        "className": "Operation",
+        "fullName": "net.minecraft.data.models.blockstates.Condition.Operation",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/Condition.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Supplier",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AND",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 56,
+              "end": 57
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "OR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 57,
+              "end": 57
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Operation",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 61,
+              "end": 63
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 59,
+              "end": 59
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 55,
+          "end": 64
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Condition/Operation.java"
+      },
+      {
+        "className": "TerminalCondition",
+        "fullName": "net.minecraft.data.models.blockstates.Condition.TerminalCondition",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/Condition.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Condition"
+        ],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.Arrays",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Supplier",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "get",
+            "returnType": "JsonElement",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 106,
+              "end": 112
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "validate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateDefinition",
+                "type": "?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 114,
+              "end": 121
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 66,
+          "end": 122
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Condition/TerminalCondition.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Condition.java"
+  },
+  "net.minecraft.data.models.blockstates.MultiPartGenerator": {
+    "className": "MultiPartGenerator",
+    "fullName": "net.minecraft.data.models.blockstates.MultiPartGenerator",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/MultiPartGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockStateGenerator"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Lists",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "java.util.List",
+      "java.util.function.Supplier",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MultiPartGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getBlock",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiPart",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "with",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pVariants",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "with",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pVariant",
+            "type": "Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "with",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pCondition",
+            "type": "Condition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariants",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "with",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pCondition",
+            "type": "Condition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariants",
+            "type": "Variant[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "with",
+        "returnType": "MultiPartGenerator",
+        "parameters": [
+          {
+            "name": "pCondition",
+            "type": "Condition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariant",
+            "type": "Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 62
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "block",
+        "type": "Block",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ConditionalEntry",
+        "fullName": "net.minecraft.data.models.blockstates.MultiPartGenerator.ConditionalEntry",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/MultiPartGenerator.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "MultiPartGenerator.Entry",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.List",
+          "java.util.function.Supplier",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ConditionalEntry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pCondition",
+                "type": "Condition",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVariants",
+                "type": "List<Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 67,
+              "end": 70
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "validate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateDefinition",
+                "type": "?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 72,
+              "end": 74
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "decorate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pJsonObject",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 76,
+              "end": 78
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "condition",
+            "type": "Condition",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 65,
+              "end": 65
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 64,
+          "end": 79
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/MultiPartGenerator/ConditionalEntry.java"
+      },
+      {
+        "className": "Entry",
+        "fullName": "net.minecraft.data.models.blockstates.MultiPartGenerator.Entry",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/MultiPartGenerator.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Supplier<JsonElement>"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.Lists",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.List",
+          "java.util.function.Supplier",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Entry",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pVariants",
+                "type": "List<Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 84,
+              "end": 86
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "validate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateDefinition",
+                "type": "?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 88,
+              "end": 89
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "decorate",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pJsonObject",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 91,
+              "end": 92
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "get",
+            "returnType": "JsonElement",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 94,
+              "end": 99
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "variants",
+            "type": "List<Variant>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 82,
+              "end": 82
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 81,
+          "end": 100
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/MultiPartGenerator/Entry.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 101
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/MultiPartGenerator.java"
+  },
+  "net.minecraft.data.models.blockstates.MultiVariantGenerator": {
+    "className": "MultiVariantGenerator",
+    "fullName": "net.minecraft.data.models.blockstates.MultiVariantGenerator",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/MultiVariantGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockStateGenerator"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Sets",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.mojang.datafixers.util.Pair",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.TreeMap",
+      "java.util.stream.Stream",
+      "net.minecraft.Util",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MultiVariantGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBaseVariants",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "with",
+        "returnType": "MultiVariantGenerator",
+        "parameters": [
+          {
+            "name": "pPropertyDispatch",
+            "type": "PropertyDispatch",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mergeVariants",
+        "returnType": "List<Variant>",
+        "parameters": [
+          {
+            "name": "pVariants1",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariants2",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlock",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiVariant",
+        "returnType": "MultiVariantGenerator",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiVariant",
+        "returnType": "MultiVariantGenerator",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariant",
+            "type": "Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "multiVariant",
+        "returnType": "MultiVariantGenerator",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVariants",
+            "type": "Variant[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "block",
+        "type": "Block",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "baseVariants",
+        "type": "List<Variant>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 91
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/MultiVariantGenerator.java"
+  },
+  "net.minecraft.data.models.blockstates.PropertyDispatch": {
+    "className": "PropertyDispatch",
+    "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.BiFunction",
+      "java.util.function.Function",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "putValue",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSelector",
+            "type": "Selector",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValues",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntries",
+        "returnType": "Map<Selector, List<Variant>>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "verifyComplete",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 46
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "C1",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.C1",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "C1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProperty1",
+                "type": "Property<T1>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 73,
+              "end": 75
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "generate",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValueToVariantMapper",
+                "type": "Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 91,
+              "end": 96
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateList",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValueToVariantsMapper",
+                "type": "List<Variant>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 103
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "property1",
+            "type": "Property<T1>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 70,
+          "end": 104
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/C1.java"
+      },
+      {
+        "className": "C2",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.C2",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "C2",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProperty1",
+                "type": "Property<T1>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty2",
+                "type": "Property<T2>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 110,
+              "end": 113
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "generate",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantMapper",
+                "type": "Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 129,
+              "end": 136
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateList",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantsMapper",
+                "type": "List<Variant>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 138,
+              "end": 145
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "property1",
+            "type": "Property<T1>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 107,
+              "end": 107
+            }
+          },
+          {
+            "name": "property2",
+            "type": "Property<T2>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 108,
+              "end": 108
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 106,
+          "end": 146
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/C2.java"
+      },
+      {
+        "className": "C3",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.C3",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "C3",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProperty1",
+                "type": "Property<T1>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty2",
+                "type": "Property<T2>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty3",
+                "type": "Property<T3>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 153,
+              "end": 157
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "generate",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantMapper",
+                "type": "Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 173,
+              "end": 182
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateList",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantsMapper",
+                "type": "List<Variant>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 184,
+              "end": 193
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "property1",
+            "type": "Property<T1>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 149,
+              "end": 149
+            }
+          },
+          {
+            "name": "property2",
+            "type": "Property<T2>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 150,
+              "end": 150
+            }
+          },
+          {
+            "name": "property3",
+            "type": "Property<T3>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 151,
+              "end": 151
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 148,
+          "end": 194
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/C3.java"
+      },
+      {
+        "className": "C4",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.C4",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "C4",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProperty1",
+                "type": "Property<T1>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty2",
+                "type": "Property<T2>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty3",
+                "type": "Property<T3>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty4",
+                "type": "Property<T4>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 202,
+              "end": 207
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "generate",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantMapper",
+                "type": "Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 223,
+              "end": 234
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateList",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantsMapper",
+                "type": "List<Variant>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 236,
+              "end": 247
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "property1",
+            "type": "Property<T1>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 197,
+              "end": 197
+            }
+          },
+          {
+            "name": "property2",
+            "type": "Property<T2>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 198,
+              "end": 198
+            }
+          },
+          {
+            "name": "property3",
+            "type": "Property<T3>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 199,
+              "end": 199
+            }
+          },
+          {
+            "name": "property4",
+            "type": "Property<T4>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 200,
+              "end": 200
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 196,
+          "end": 248
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/C4.java"
+      },
+      {
+        "className": "C5",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.C5",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "C5",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pProperty1",
+                "type": "Property<T1>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty2",
+                "type": "Property<T2>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty3",
+                "type": "Property<T3>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty4",
+                "type": "Property<T4>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperty5",
+                "type": "Property<T5>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 257,
+              "end": 263
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "generate",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantMapper",
+                "type": "Variant>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 279,
+              "end": 292
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateList",
+            "returnType": "PropertyDispatch",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropertyValuesToVariantsMapper",
+                "type": "List<Variant>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 294,
+              "end": 307
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "property1",
+            "type": "Property<T1>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 251,
+              "end": 251
+            }
+          },
+          {
+            "name": "property2",
+            "type": "Property<T2>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 252,
+              "end": 252
+            }
+          },
+          {
+            "name": "property3",
+            "type": "Property<T3>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 253,
+              "end": 253
+            }
+          },
+          {
+            "name": "property4",
+            "type": "Property<T4>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 254,
+              "end": 254
+            }
+          },
+          {
+            "name": "property5",
+            "type": "Property<T5>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 255,
+              "end": 255
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 250,
+          "end": 308
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/C5.java"
+      },
+      {
+        "className": "PentaFunction",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.PentaFunction",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "apply",
+            "returnType": "R",
+            "parameters": [
+              {
+                "name": "pP1",
+                "type": "P1",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP2",
+                "type": "P2",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP3",
+                "type": "P3",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP4",
+                "type": "P4",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP5",
+                "type": "P5",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 312,
+              "end": 312
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 311,
+          "end": 313
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/PentaFunction.java"
+      },
+      {
+        "className": "QuadFunction",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.QuadFunction",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "apply",
+            "returnType": "R",
+            "parameters": [
+              {
+                "name": "pP1",
+                "type": "P1",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP2",
+                "type": "P2",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP3",
+                "type": "P3",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP4",
+                "type": "P4",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 317,
+              "end": 317
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 316,
+          "end": 318
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/QuadFunction.java"
+      },
+      {
+        "className": "TriFunction",
+        "fullName": "net.minecraft.data.models.blockstates.PropertyDispatch.TriFunction",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/PropertyDispatch.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.BiFunction",
+          "java.util.function.Function",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "apply",
+            "returnType": "R",
+            "parameters": [
+              {
+                "name": "pP1",
+                "type": "P1",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP2",
+                "type": "P2",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pP3",
+                "type": "P3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 322,
+              "end": 322
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 321,
+          "end": 323
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch/TriFunction.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 324
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/PropertyDispatch.java"
+  },
+  "net.minecraft.data.models.blockstates.Selector": {
+    "className": "Selector",
+    "fullName": "net.minecraft.data.models.blockstates.Selector",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/Selector.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "java.util.Comparator",
+      "java.util.List",
+      "java.util.stream.Collectors",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "extend",
+        "returnType": "Selector",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "Property.Value<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "extend",
+        "returnType": "Selector",
+        "parameters": [
+          {
+            "name": "pSelector",
+            "type": "Selector",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Selector",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pValues",
+            "type": "List<Property.Value<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "empty",
+        "returnType": "Selector",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "Selector",
+        "parameters": [
+          {
+            "name": "pValues",
+            "type": "Property.Value<?>[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getKey",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 51
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Selector.java"
+  },
+  "net.minecraft.data.models.blockstates.Variant": {
+    "className": "Variant",
+    "fullName": "net.minecraft.data.models.blockstates.Variant",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/Variant.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Supplier<JsonElement>"
+    ],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "variant",
+        "returnType": "Variant",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "merge",
+        "returnType": "Variant",
+        "parameters": [
+          {
+            "name": "pDefinition1",
+            "type": "Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefinition2",
+            "type": "Variant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertList",
+        "returnType": "JsonElement",
+        "parameters": [
+          {
+            "name": "pDefinitions",
+            "type": "List<Variant>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 52
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 53
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/Variant.java"
+  },
+  "net.minecraft.data.models.blockstates.VariantProperties": {
+    "className": "VariantProperties",
+    "fullName": "net.minecraft.data.models.blockstates.VariantProperties",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/VariantProperties.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonPrimitive",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Rotation",
+        "fullName": "net.minecraft.data.models.blockstates.VariantProperties.Rotation",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/VariantProperties.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonPrimitive",
+          "net.minecraft.resources.ResourceLocation"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "R0",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 20,
+              "end": 23
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "R90",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 21,
+              "end": 23
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "R180",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 22,
+              "end": 23
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "R270",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 23,
+              "end": 23
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Rotation",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pValue",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 27,
+              "end": 29
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "value",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 25,
+              "end": 25
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 19,
+          "end": 30
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/VariantProperties/Rotation.java"
+      }
+    ],
+    "lineRange": {
+      "start": 6,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/VariantProperties.java"
+  },
+  "net.minecraft.data.models.blockstates.VariantProperty": {
+    "className": "VariantProperty",
+    "fullName": "net.minecraft.data.models.blockstates.VariantProperty",
+    "packageName": "net.minecraft.data.models.blockstates",
+    "filePath": "/net/minecraft/data/models/blockstates/VariantProperty.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "java.util.function.Function"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VariantProperty",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSerializer",
+            "type": "JsonElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "key",
+        "type": "String",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "serializer",
+        "type": "Function<T, JsonElement>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Value",
+        "fullName": "net.minecraft.data.models.blockstates.VariantProperty.Value",
+        "packageName": "net.minecraft.data.models.blockstates",
+        "filePath": "/net/minecraft/data/models/blockstates/VariantProperty.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "java.util.function.Function"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Value",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pValue",
+                "type": "T",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 27,
+              "end": 29
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getKey",
+            "returnType": "VariantProperty<T>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 31,
+              "end": 33
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addToVariant",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pJsonObject",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 35,
+              "end": 37
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toString",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 39,
+              "end": 41
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "value",
+            "type": "T",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 25,
+              "end": 25
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 24,
+          "end": 42
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/VariantProperty/Value.java"
+      }
+    ],
+    "lineRange": {
+      "start": 7,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/models/blockstates/VariantProperty.java"
+  }
+}

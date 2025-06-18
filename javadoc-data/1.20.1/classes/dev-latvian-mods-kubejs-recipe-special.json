@@ -1,0 +1,943 @@
+{
+  "dev.latvian.mods.kubejs.recipe.special.KubeJSCraftingRecipe": {
+    "className": "KubeJSCraftingRecipe",
+    "fullName": "dev.latvian.mods.kubejs.recipe.special.KubeJSCraftingRecipe",
+    "packageName": "dev.latvian.mods.kubejs.recipe.special",
+    "filePath": "/dev/latvian/mods/kubejs/recipe/special/KubeJSCraftingRecipe.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "CraftingRecipe",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.utils.GameInstance",
+      "dev.latvian.mods.kubejs.core.CraftingContainerKJS",
+      "dev.latvian.mods.kubejs.recipe.ModifyRecipeCraftingGrid",
+      "dev.latvian.mods.kubejs.recipe.ModifyRecipeResultCallback",
+      "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientAction",
+      "net.minecraft.core.NonNullList",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.inventory.AbstractContainerMenu",
+      "net.minecraft.world.inventory.CraftingContainer",
+      "net.minecraft.world.inventory.CraftingMenu",
+      "net.minecraft.world.inventory.InventoryMenu",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.CraftingRecipe",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getPlayer",
+        "returnType": "Player",
+        "parameters": [
+          {
+            "name": "menu",
+            "type": "AbstractContainerMenu",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 79
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 80
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/KubeJSCraftingRecipe.java"
+  },
+  "dev.latvian.mods.kubejs.recipe.special.RecipeFlags": {
+    "className": "RecipeFlags",
+    "fullName": "dev.latvian.mods.kubejs.recipe.special.RecipeFlags",
+    "packageName": "dev.latvian.mods.kubejs.recipe.special",
+    "filePath": "/dev/latvian/mods/kubejs/recipe/special/RecipeFlags.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [],
+    "fields": [
+      {
+        "name": "INGREDIENT_ACTIONS",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        }
+      },
+      {
+        "name": "STAGE",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 5,
+          "end": 5
+        }
+      },
+      {
+        "name": "MIRROR",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 7
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/RecipeFlags.java"
+  },
+  "dev.latvian.mods.kubejs.recipe.special.ShapedKubeJSRecipe": {
+    "className": "ShapedKubeJSRecipe",
+    "fullName": "dev.latvian.mods.kubejs.recipe.special.ShapedKubeJSRecipe",
+    "packageName": "dev.latvian.mods.kubejs.recipe.special",
+    "filePath": "/dev/latvian/mods/kubejs/recipe/special/ShapedKubeJSRecipe.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedRecipe",
+    "interfaces": [
+      "KubeJSCraftingRecipe"
+    ],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "dev.latvian.mods.kubejs.recipe.KubeJSRecipeEventHandler",
+      "dev.latvian.mods.kubejs.recipe.ModifyRecipeResultCallback",
+      "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+      "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientAction",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.core.NonNullList",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.inventory.CraftingContainer",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.CraftingBookCategory",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.item.crafting.RecipeSerializer",
+      "net.minecraft.world.item.crafting.ShapedRecipe",
+      "net.minecraft.world.level.Level",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getRemainingItems",
+        "returnType": "NonNullList<ItemStack>",
+        "parameters": [
+          {
+            "name": "container",
+            "type": "CraftingContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assemble",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "container",
+            "type": "CraftingContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "registryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "matches",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "craftingContainer",
+            "type": "CraftingContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 88
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mirror",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "ingredientActions",
+        "type": "List<IngredientAction>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "modifyResult",
+        "type": "ModifyRecipeResultCallback",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "stage",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "SerializerKJS",
+        "fullName": "dev.latvian.mods.kubejs.recipe.special.ShapedKubeJSRecipe.SerializerKJS",
+        "packageName": "dev.latvian.mods.kubejs.recipe.special",
+        "filePath": "/dev/latvian/mods/kubejs/recipe/special/ShapedKubeJSRecipe.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "RecipeSerializer<ShapedKubeJSRecipe>"
+        ],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "dev.latvian.mods.kubejs.recipe.KubeJSRecipeEventHandler",
+          "dev.latvian.mods.kubejs.recipe.ModifyRecipeResultCallback",
+          "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+          "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientAction",
+          "dev.latvian.mods.kubejs.registry.RegistryInfo",
+          "dev.latvian.mods.kubejs.util.UtilsJS",
+          "net.minecraft.core.NonNullList",
+          "net.minecraft.core.RegistryAccess",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.inventory.CraftingContainer",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.CraftingBookCategory",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.world.item.crafting.RecipeSerializer",
+          "net.minecraft.world.item.crafting.ShapedRecipe",
+          "net.minecraft.world.level.Level",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "fromJson",
+            "returnType": "ShapedKubeJSRecipe",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 96,
+              "end": 126
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "fromNetwork",
+            "returnType": "ShapedKubeJSRecipe",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "buf",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 129,
+              "end": 148
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toNetwork",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buf",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "r",
+                "type": "ShapedKubeJSRecipe",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 151,
+              "end": 177
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 90,
+          "end": 178
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/ShapedKubeJSRecipe/SerializerKJS.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 179
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/ShapedKubeJSRecipe.java"
+  },
+  "dev.latvian.mods.kubejs.recipe.special.ShapelessKubeJSRecipe": {
+    "className": "ShapelessKubeJSRecipe",
+    "fullName": "dev.latvian.mods.kubejs.recipe.special.ShapelessKubeJSRecipe",
+    "packageName": "dev.latvian.mods.kubejs.recipe.special",
+    "filePath": "/dev/latvian/mods/kubejs/recipe/special/ShapelessKubeJSRecipe.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapelessRecipe",
+    "interfaces": [
+      "KubeJSCraftingRecipe"
+    ],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "dev.latvian.mods.kubejs.recipe.KubeJSRecipeEventHandler",
+      "dev.latvian.mods.kubejs.recipe.ModifyRecipeResultCallback",
+      "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+      "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientAction",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.core.NonNullList",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.inventory.CraftingContainer",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.RecipeSerializer",
+      "net.minecraft.world.item.crafting.ShapelessRecipe",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ShapelessKubeJSRecipe",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "original",
+            "type": "ShapelessRecipe",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ingredientActions",
+            "type": "List<IngredientAction>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modifyResult",
+            "type": "ModifyRecipeResultCallback",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "stage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getRemainingItems",
+        "returnType": "NonNullList<ItemStack>",
+        "parameters": [
+          {
+            "name": "container",
+            "type": "CraftingContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assemble",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "container",
+            "type": "CraftingContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "registryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ingredientActions",
+        "type": "List<IngredientAction>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "modifyResult",
+        "type": "ModifyRecipeResultCallback",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "stage",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "SerializerKJS",
+        "fullName": "dev.latvian.mods.kubejs.recipe.special.ShapelessKubeJSRecipe.SerializerKJS",
+        "packageName": "dev.latvian.mods.kubejs.recipe.special",
+        "filePath": "/dev/latvian/mods/kubejs/recipe/special/ShapelessKubeJSRecipe.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "RecipeSerializer<ShapelessKubeJSRecipe>"
+        ],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "dev.latvian.mods.kubejs.recipe.KubeJSRecipeEventHandler",
+          "dev.latvian.mods.kubejs.recipe.ModifyRecipeResultCallback",
+          "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+          "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientAction",
+          "dev.latvian.mods.kubejs.registry.RegistryInfo",
+          "dev.latvian.mods.kubejs.util.UtilsJS",
+          "net.minecraft.core.NonNullList",
+          "net.minecraft.core.RegistryAccess",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.inventory.CraftingContainer",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.RecipeSerializer",
+          "net.minecraft.world.item.crafting.ShapelessRecipe",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "fromJson",
+            "returnType": "ShapelessKubeJSRecipe",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 72,
+              "end": 84
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "fromNetwork",
+            "returnType": "ShapelessKubeJSRecipe",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "buf",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 87,
+              "end": 96
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toNetwork",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buf",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "r",
+                "type": "ShapelessKubeJSRecipe",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 121
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 66,
+          "end": 122
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/ShapelessKubeJSRecipe/SerializerKJS.java"
+      }
+    ],
+    "lineRange": {
+      "start": 23,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/ShapelessKubeJSRecipe.java"
+  },
+  "dev.latvian.mods.kubejs.recipe.special.SpecialRecipeSerializerManager": {
+    "className": "SpecialRecipeSerializerManager",
+    "fullName": "dev.latvian.mods.kubejs.recipe.special.SpecialRecipeSerializerManager",
+    "packageName": "dev.latvian.mods.kubejs.recipe.special",
+    "filePath": "/dev/latvian/mods/kubejs/recipe/special/SpecialRecipeSerializerManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "EventJS",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.event.Event",
+      "dev.architectury.event.EventFactory",
+      "dev.latvian.mods.kubejs.event.EventJS",
+      "dev.latvian.mods.kubejs.event.EventResult",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.item.crafting.Recipe",
+      "java.util.HashMap",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "afterPosted",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "result",
+            "type": "EventResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSpecial",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "recipe",
+            "type": "Recipe<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ignoreSpecialFlag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSpecialFlag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ignoreSpecialMod",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "modid",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addSpecialMod",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "modid",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 64
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 65
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/recipe/special/SpecialRecipeSerializerManager.java"
+  }
+}
