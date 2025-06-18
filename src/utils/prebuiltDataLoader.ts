@@ -393,19 +393,21 @@ export class PrebuiltDataLoader {
                 throw new Error(`HTTP ${response.status}: ${url}`);
             }
             
-            const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                const text = await response.text();
-                if (text.includes('<!DOCTYPE') || text.includes('<html')) {
-                    throw new Error(`收到HTML页面而非JSON数据: ${url}`);
-                }
+            const text = await response.text();
+
+            // Handle cases where GitHub Pages returns a 200 OK with an HTML error page
+            if (text.startsWith('<!DOCTYPE html>')) {
+                console.error(`Received HTML page instead of JSON data from: ${url}`);
+                throw new Error(`Received HTML page instead of JSON data: ${url}`);
             }
             
-            return await response.json();
+            return JSON.parse(text);
         } catch (error) {
             if (error instanceof SyntaxError) {
-                throw new Error(`JSON解析失败 ${url}: ${error.message}`);
+                console.error(`JSON parse error for ${url}:`, error);
+                throw new Error(`Failed to parse JSON from ${url}: ${error.message}`);
             }
+            // Re-throw other errors (like the HTTP error)
             throw error;
         }
     }
