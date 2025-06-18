@@ -5,21 +5,19 @@ import {
     Space,
     Badge,
     List,
-    Button,
-    Progress,
     Divider,
     Tag,
 } from "antd";
+import { Link } from "react-router-dom";
 import {
     FolderOutlined,
     ApiOutlined,
     CodeOutlined,
     FieldTimeOutlined,
     FireOutlined,
-    FileTextOutlined,
+    TrophyOutlined,
 } from "@ant-design/icons";
 import { ProjectDocIndex } from "../types";
-import { CrossReferenceAnalyzer } from "../utils/crossReferenceAnalyzer";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -345,7 +343,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({
 
                     <div>
                         <Space>
-                            <FileTextOutlined style={{ color: "#52c41a" }} />
+                            <CodeOutlined style={{ color: "#52c41a" }} />
                             <Text strong>交叉引用</Text>
                         </Space>
                         <Paragraph

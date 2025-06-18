@@ -221,7 +221,7 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
     /**
      * 处理树节点点击
      */
-    const handleSelect = (selectedKeys: React.Key[], info: any) => {
+    const handleSelect = (selectedKeys: React.Key[]) => {
         const key = selectedKeys[0] as string;
 
         if (key?.startsWith("cls_")) {

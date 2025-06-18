@@ -8,6 +8,9 @@ import {
     Spin,
     Progress,
     Avatar,
+    Statistic,
+    Row,
+    Col
 } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -16,6 +19,7 @@ import {
     FireOutlined,
     TrophyOutlined,
     RocketOutlined,
+    BookOutlined
 } from "@ant-design/icons";
 import { ProjectDocIndex } from "../../types";
 

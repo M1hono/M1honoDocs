@@ -33,17 +33,14 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
     className,
     loading = false,
     onJumpToLine,
-    onSmartJump,
     highlightedLines = [],
     title,
-    classDoc,
-    docIndex
+    onSmartJump,
 }) => {
     const navigate = useNavigate();
-    const [isFullscreen, setIsFullscreen] = useState(false);
-    const [currentLine, setCurrentLine] = useState(1);
-    const [searchVisible, setSearchVisible] = useState(false);
     const editorRef = useRef<any>(null);
+    const [currentLine, setCurrentLine] = useState(1);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     // 监听高亮行变化
     useEffect(() => {
@@ -385,15 +382,6 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({
     const showSearch = () => {
         if (editorRef.current) {
             editorRef.current.getAction('actions.find').run();
-        }
-    };
-
-    /**
-     * 格式化代码
-     */
-    const formatCode = () => {
-        if (editorRef.current) {
-            editorRef.current.getAction('editor.action.formatDocument').run();
         }
     };
 

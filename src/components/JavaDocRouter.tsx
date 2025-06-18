@@ -150,8 +150,6 @@ export const JavaDocRouter: React.FC<JavaDocRouterProps> = ({
         }}>
           <JavaDocNavbar 
             docIndex={docIndex}
-            loading={loading}
-            onRegenerate={onRegenerate}
           />
         </Header>
 

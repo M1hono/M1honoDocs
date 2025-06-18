@@ -175,8 +175,8 @@ export const selectProjectDirectory = async (): Promise<{
         };
 
         return { dirHandle, projectInfo };
-    } catch (error) {
-        if (error.name === 'AbortError') {
+    } catch (error: unknown) {
+        if (error instanceof Error && error.name === 'AbortError') {
             console.log('User cancelled directory selection');
             return null;
         }

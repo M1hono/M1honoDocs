@@ -1,4 +1,5 @@
 import { ProjectDocIndex, JavaClassDoc } from '../types';
+import { isValidClassType } from './typeguards';
 
 /**
  * 简化文档生成器
@@ -238,7 +239,7 @@ export class SimpleDocumentGenerator {
             fullName,
             packageName,
             filePath: `/${packageName.replace(/\./g, '/')}/${className}.java`,
-            classType,
+            classType: isValidClassType(classType) ? classType : 'class',
             modifiers: ['public'],
             superClass: superClass || 'Object',
             interfaces: [],

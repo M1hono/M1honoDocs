@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Typography, Tag, Collapse, Button, Space, Divider, List, Input, Spin, Alert, Tabs, Table, Tooltip, Badge, Avatar } from 'antd';
-import { CodeOutlined, BookOutlined, SearchOutlined, FileTextOutlined, LinkOutlined, EyeOutlined, ApiOutlined, FieldTimeOutlined, OrderedListOutlined, TagOutlined } from '@ant-design/icons';
+import { Card, Typography, Tag, Collapse, Button, Space, List, Input, Spin, Tabs, Table, Badge, Avatar } from 'antd';
+import { CodeOutlined, BookOutlined, FileTextOutlined, LinkOutlined, ApiOutlined, FieldTimeOutlined, OrderedListOutlined, TagOutlined } from '@ant-design/icons';
 import { JavaClassDoc, JavaMethodDoc, JavaFieldDoc, ProjectDocIndex } from '../types';
 import { CrossReferenceAnalyzer, ClassUsage, MethodUsage, CrossReference } from '../utils/crossReferenceAnalyzer';
 import { JavaDocNavigation } from './JavaDocNavigation';
@@ -8,7 +8,6 @@ import { CodeEditor } from './CodeEditor';
 
 const { Title, Text, Paragraph } = Typography;
 const { Panel } = Collapse;
-const { Search } = Input;
 const { TabPane } = Tabs;
 
 interface JavaDocViewerProps {

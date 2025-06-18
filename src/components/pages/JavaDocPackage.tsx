@@ -5,7 +5,7 @@ import { FolderOutlined, ApiOutlined, HomeOutlined } from "@ant-design/icons";
 import { ProjectDocIndex, JavaClassDoc } from "../../types";
 import { PrebuiltDataLoader } from "../../utils/prebuiltDataLoader";
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 
 interface JavaDocPackageProps {
     docIndex: ProjectDocIndex | null;

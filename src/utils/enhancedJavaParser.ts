@@ -5,6 +5,7 @@ import {
     JavaParameterDoc,
     JavadocTag,
 } from "../types";
+import { isValidClassType } from "./typeguards";
 
 /**
  * 增强的 Java 解析器
@@ -169,7 +170,7 @@ export class EnhancedJavaParser {
             const headerMatch = declaration.match(this.KEYWORD_PATTERN);
             if (!headerMatch) return null;
 
-            const classType = headerMatch[1]; // class, interface, enum, etc.
+            const classTypeRaw = headerMatch[1]; // class, interface, enum, etc.
             const className = headerMatch[2];
             const fullName = packageName
                 ? `${packageName}.${className}`
@@ -203,7 +204,7 @@ export class EnhancedJavaParser {
                 fullName,
                 packageName,
                 filePath,
-                classType,
+                classType: isValidClassType(classTypeRaw) ? classTypeRaw : 'class',
                 modifiers,
                 superClass,
                 interfaces,

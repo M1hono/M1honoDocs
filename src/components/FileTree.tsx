@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Input, Tree, Typography, Collapse } from "antd";
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import { Input, Typography, Collapse } from "antd";
 import {
     Search,
     Folder,
@@ -12,15 +12,14 @@ import {
 } from "lucide-react";
 import { FileNode, ProjectInfo } from "../types";
 import { getFileIcon, searchFiles, flattenFileTree } from "../utils/fileUtils";
-import { loadDirectoryContents } from "../utils/fileScanner";
+import { Tree } from 'antd';
+import { loadDirectoryContent } from '../utils/fileSystemAPI';
 
 const { Search: AntSearch } = Input;
 const { Panel } = Collapse;
 
 interface FileTreeProps {
     projects: ProjectInfo[];
-    selectedProject?: ProjectInfo | null;
-    onProjectChange?: (project: ProjectInfo) => void;
     onFileSelect: (file: FileNode) => void;
     onDirectoryExpand?: (node: FileNode) => void;
     selectedFile: FileNode | null;
@@ -33,8 +32,6 @@ interface FileTreeProps {
  */
 export const FileTree: React.FC<FileTreeProps> = ({
     projects,
-    selectedProject,
-    onProjectChange,
     onFileSelect,
     onDirectoryExpand,
     selectedFile,
@@ -42,10 +39,7 @@ export const FileTree: React.FC<FileTreeProps> = ({
     onSearch,
 }) => {
     const [internalSearchTerm, setInternalSearchTerm] = useState("");
-    const searchTerm =
-        externalSearchTerm !== undefined
-            ? externalSearchTerm
-            : internalSearchTerm;
+    const searchTerm = externalSearchTerm || internalSearchTerm;
     const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
 
     const getIcon = (iconName: string) => {

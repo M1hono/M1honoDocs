@@ -14,7 +14,6 @@ import {
     message,
     Tooltip,
     Badge,
-    Divider,
     Input,
     List,
     Avatar,
@@ -25,11 +24,9 @@ import {
     FolderOutlined,
     CodeOutlined,
     FieldTimeOutlined,
-    FileTextOutlined,
     CopyOutlined,
     BranchesOutlined,
     LinkOutlined,
-    ExpandOutlined,
     PlayCircleOutlined,
     BookOutlined,
     SearchOutlined,
@@ -45,7 +42,6 @@ import { CodeViewer } from "../CodeViewer";
 import { PrebuiltDataLoader } from "../../utils/prebuiltDataLoader";
 
 const { Title, Text, Paragraph } = Typography;
-const { Panel } = Collapse;
 
 /**
  * Generates the correct KubeJS name for a class, using '$' for inner classes.
@@ -66,7 +62,7 @@ interface JavaDocClassProps {
 
 export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
     const { className: encodedClassName } = useParams<{ className: string }>();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const className = encodedClassName
         ? decodeURIComponent(encodedClassName)
         : "";
@@ -326,7 +322,9 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
 
     // 复制方法签名
     const copyMethodSignature = (method: JavaMethodDoc) => {
-        const params = method.parameters.map(p => `${p.type} ${p.name}`).join(', ');
+        const params = method.parameters
+            .map((param) => `${createTypeLink(param.type)} ${param.name}`)
+            .join(", ");
         const signature = `${method.modifiers.join(' ')} ${method.returnType || 'void'} ${method.name}(${params})`;
         navigator.clipboard.writeText(signature);
         message.success('方法签名已复制到剪贴板');
