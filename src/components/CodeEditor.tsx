@@ -1,6 +1,6 @@
 import React from "react";
 import { Editor } from "@monaco-editor/react";
-import { Typography, Spin, Empty } from "antd";
+import { Typography, Spin } from "antd";
 import { FileNode } from "../types";
 import { getFileLanguage } from "../utils/fileUtils";
 
@@ -107,9 +107,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
                         indentation: true,
                         bracketPairs: true,
                     },
-                    suggest: {
-                        enabled: false,
-                    },
                     quickSuggestions: false,
                     parameterHints: {
                         enabled: false,
@@ -123,7 +120,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
                     showFoldingControls: "always",
                     unfoldOnClickAfterEndOfLine: false,
                     disableLayerHinting: false,
-                    enableSplitViewResizing: false,
                     hideCursorInOverviewRuler: false,
                     links: true,
                     mouseWheelZoom: true,

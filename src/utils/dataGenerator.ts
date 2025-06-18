@@ -122,10 +122,10 @@ export class JavaFileParser {
         if (!classInfo) return null;
 
         // 解析字段
-        const fields = this.extractFields(sourceCode, lines);
+        const fields = this.extractFields(lines);
 
         // 解析方法
-        const methods = this.extractMethods(sourceCode, lines);
+        const methods = this.extractMethods(lines);
 
         // 解析类注释
         const classComment = this.extractClassComment(sourceCode, classInfo.lineStart);
@@ -137,7 +137,7 @@ export class JavaFileParser {
             fullName,
             packageName,
             filePath: `/${filePath}`,
-            classType: classInfo.classType,
+            classType: classInfo.classType as 'class' | 'interface' | 'enum',
             modifiers: classInfo.modifiers,
             superClass: classInfo.superClass,
             interfaces: classInfo.interfaces,
@@ -241,7 +241,7 @@ export class JavaFileParser {
     /**
      * 提取字段
      */
-    private extractFields(sourceCode: string, lines: string[]): JavaFieldDoc[] {
+    private extractFields(lines: string[]): JavaFieldDoc[] {
         const fields: JavaFieldDoc[] = [];
         const fieldRegex = /^\s*(public|private|protected)?\s*(static|final|volatile)?\s*(static|final|volatile)?\s*(\w+(?:<[\w\s,<>\.]+>)?(?:\[\])*)\s+(\w+)(?:\s*=\s*([^;]+))?\s*;/;
         
@@ -281,7 +281,7 @@ export class JavaFileParser {
     /**
      * 提取方法
      */
-    private extractMethods(sourceCode: string, lines: string[]): JavaMethodDoc[] {
+    private extractMethods(lines: string[]): JavaMethodDoc[] {
         const methods: JavaMethodDoc[] = [];
         
         for (let i = 0; i < lines.length; i++) {
