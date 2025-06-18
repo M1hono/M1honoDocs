@@ -1,0 +1,2170 @@
+{
+  "net.minecraft.world.entity.item.FallingBlockEntity": {
+    "className": "FallingBlockEntity",
+    "fullName": "net.minecraft.world.entity.item.FallingBlockEntity",
+    "packageName": "net.minecraft.world.entity.item",
+    "filePath": "/net\\minecraft\\world\\entity\\item\\FallingBlockEntity.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Entity",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.protocol.game.ClientGamePacketListener",
+      "net.minecraft.network.protocol.game.ClientboundAddEntityPacket",
+      "net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.FluidTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntitySelector",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.context.DirectionalPlaceContext",
+      "net.minecraft.world.level.ClipContext",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.AnvilBlock",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.ConcretePowderBlock",
+      "net.minecraft.world.level.block.Fallable",
+      "net.minecraft.world.level.block.FallingBlock",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.material.Fluids",
+      "net.minecraft.world.phys.BlockHitResult",
+      "net.minecraft.world.phys.HitResult",
+      "net.minecraft.world.phys.Vec3",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FallingBlockEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "FallingBlockEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 76
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "fall",
+        "returnType": "FallingBlockEntity",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAttackable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setStartPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStartPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartPos",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPickable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "callOnBrokenAfterFall",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "causeFallDamage",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFallDistance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMultiplier",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 255
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 269
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 274,
+          "end": 298
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHurtsEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFallDamagePerDistance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFallDamageMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 300,
+          "end": 304
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableDrop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 306,
+          "end": 308
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "displayFireAnimation",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 313,
+          "end": 315
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillCrashReportCategory",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "CrashReportCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 317,
+          "end": 320
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 322,
+          "end": 324
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTypeName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 326,
+          "end": 328
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onlyOpCanSetNbt",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 339,
+          "end": 341
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAddEntityPacket",
+        "returnType": "Packet<ClientGamePacketListener>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 343,
+          "end": 345
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "recreateFromPacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPacket",
+            "type": "ClientboundAddEntityPacket",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 356
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "time",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "dropItem",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "cancelDrop",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "hurtEntities",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "fallDamageMax",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "40",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "fallDamagePerDistance",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "blockData",
+        "type": "CompoundTag",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 49,
+      "end": 357
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/item/FallingBlockEntity.java"
+  },
+  "net.minecraft.world.entity.item.ItemEntity": {
+    "className": "ItemEntity",
+    "fullName": "net.minecraft.world.entity.item.ItemEntity",
+    "packageName": "net.minecraft.world.entity.item",
+    "filePath": "/net\\minecraft\\world\\entity\\item\\ItemEntity.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Entity",
+    "interfaces": [
+      "TraceableEntity"
+    ],
+    "imports": [
+      "java.util.Objects",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.tags.DamageTypeTags",
+      "net.minecraft.tags.FluidTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.entity.TraceableEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.gameevent.GameEvent",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ItemEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 54
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ItemEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pItemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ItemEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pItemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeltaZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 66
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ItemEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 75
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "dampensVibrations",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOwner",
+        "returnType": "Entity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockPosBelowThatAffectsMyMovement",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUnderwaterMovement",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 201
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUnderLavaMovement",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 203,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mergeWithNeighbours",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isMergable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryToMerge",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 232,
+          "end": 243
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areMergable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDestinationStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 245,
+          "end": 257
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "merge",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pDestinationStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 259,
+          "end": 264
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "merge",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDestinationEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestinationStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 266,
+          "end": 269
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "merge",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDestinationEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestinationStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 271,
+          "end": 279
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fireImmune",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 281,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 288,
+          "end": 308
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 310,
+          "end": 327
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 332,
+          "end": 356
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playerTouch",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 361,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 387,
+          "end": 390
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAttackable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 395,
+          "end": 397
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "changeDimension",
+        "returnType": "Entity",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "teleporter",
+            "type": "net.minecraftforge.common.util.ITeleporter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 407
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItem",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 412,
+          "end": 414
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 419,
+          "end": 421
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSyncedDataUpdated",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "EntityDataAccessor<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 429
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTarget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 431,
+          "end": 433
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setThrower",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pThrower",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 435,
+          "end": 437
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAge",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 439,
+          "end": 441
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDefaultPickUpDelay",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 443,
+          "end": 445
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setNoPickUpDelay",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 447,
+          "end": 449
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setNeverPickUp",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 451,
+          "end": 453
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPickUpDelay",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPickupDelay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 455,
+          "end": 457
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasPickUpDelay",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 459,
+          "end": 461
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUnlimitedLifetime",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 463,
+          "end": 465
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setExtendedLifetime",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 467,
+          "end": 469
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "makeFakeItem",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 471,
+          "end": 474
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpin",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 476,
+          "end": 478
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copy",
+        "returnType": "ItemEntity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 480,
+          "end": 482
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundSource",
+        "returnType": "SoundSource",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 484,
+          "end": 486
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVisualRotationYInDegrees",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 488,
+          "end": 490
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "LIFETIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6000",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "INFINITE_PICKUP_DELAY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "32767",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "INFINITE_LIFETIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-32768",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "age",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "pickupDelay",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "health",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "thrower",
+        "type": "UUID",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "target",
+        "type": "UUID",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "bobOffs",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "lifespan",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "/",
+        "initialValue": "ItemEntity.LIFETIME",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 491
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/item/ItemEntity.java"
+  },
+  "net.minecraft.world.entity.item.PrimedTnt": {
+    "className": "PrimedTnt",
+    "fullName": "net.minecraft.world.entity.item.PrimedTnt",
+    "packageName": "net.minecraft.world.entity.item",
+    "filePath": "/net\\minecraft\\world\\entity\\item\\PrimedTnt.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Entity",
+    "interfaces": [
+      "TraceableEntity"
+    ],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.core.particles.ParticleTypes",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.TraceableEntity",
+      "net.minecraft.world.level.Level"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PrimedTnt",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PrimedTnt",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOwner",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPickable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "explode",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOwner",
+        "returnType": "LivingEntity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSize",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setFuse",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLife",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFuse",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 123
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DEFAULT_FUSE_TIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "80",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "owner",
+        "type": "LivingEntity",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 124
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/item/PrimedTnt.java"
+  }
+}

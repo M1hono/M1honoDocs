@@ -1,0 +1,2804 @@
+{
+  "net.minecraft.world.entity.animal.sniffer.Sniffer": {
+    "className": "Sniffer",
+    "fullName": "net.minecraft.world.entity.animal.sniffer.Sniffer",
+    "packageName": "net.minecraft.world.entity.animal.sniffer",
+    "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\Sniffer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Animal",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Dynamic",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.IntStream",
+      "java.util.stream.Stream",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.GlobalPos",
+      "net.minecraft.core.particles.BlockParticleOption",
+      "net.minecraft.core.particles.ParticleTypes",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.AgeableMob",
+      "net.minecraft.world.entity.AnimationState",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.util.LandRandomPos",
+      "net.minecraft.world.entity.animal.Animal",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.RenderShape",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.gameevent.GameEvent",
+      "net.minecraft.world.level.pathfinder.BlockPathTypes",
+      "net.minecraft.world.level.pathfinder.Path",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootParams",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Sniffer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 88
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onPathfindingStart",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onPathfindingDone",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDimensions",
+        "returnType": "EntityDimensions",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPanicking",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSearching",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTempted",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSniff",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlayDiggingSound",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeadBlock",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeadPosition",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setState",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "Sniffer.State",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSyncedDataUpdated",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "EntityDataAccessor<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetAnimations",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "transitionTo",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "Sniffer.State",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onScentingStart",
+        "returnType": "Sniffer",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onDiggingStart",
+        "returnType": "Sniffer",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 218,
+          "end": 222
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onDiggingComplete",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pStoreExploredPosition",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 224,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateDigPosition",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 232,
+          "end": 238
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canDig",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 240,
+          "end": 242
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canDig",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_272757_",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 244,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropSeed",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 266
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "emitDiggingParticles",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pAnimationState",
+            "type": "AnimationState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 268,
+          "end": 290
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "storeExploredPosition",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 292,
+          "end": 297
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExploredPositions",
+        "returnType": "Stream<GlobalPos>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 299,
+          "end": 301
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "jumpFromGround",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 306,
+          "end": 316
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnChildFromBreeding",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMate",
+            "type": "Animal",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 318,
+          "end": 325
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "die",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 333
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 338,
+          "end": 348
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 350,
+          "end": 359
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPassengersRidingOffset",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 364,
+          "end": 366
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNameTagOffsetY",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 368,
+          "end": 370
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playSearchingSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 372,
+          "end": 377
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playStepSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 379,
+          "end": 381
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEatingSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 383,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 387,
+          "end": 389
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 391,
+          "end": 393
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 395,
+          "end": 397
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxHeadYRot",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 399,
+          "end": 401
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBaby",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBaby",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 406,
+          "end": 408
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBreedOffspring",
+        "returnType": "AgeableMob",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOtherParent",
+            "type": "AgeableMob",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 410,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canMate",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOtherAnimal",
+            "type": "Animal",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 417,
+          "end": 424
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBoundingBoxForCulling",
+        "returnType": "AABB",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 430,
+          "end": 432
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFood",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 438,
+          "end": 440
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<Sniffer>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 446,
+          "end": 448
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 454,
+          "end": 461
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendDebugPackets",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 463,
+          "end": 466
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DIGGING_PARTICLES_DELAY_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1700",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "DIGGING_PARTICLES_DURATION_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6000",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "DIGGING_PARTICLES_AMOUNT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "30",
+        "lineRange": {
+          "start": 63,
+          "end": 63
+        }
+      },
+      {
+        "name": "DIGGING_DROP_SEED_OFFSET_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "120",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "SNIFFER_BABY_AGE_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "48000",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "DIGGING_BB_HEIGHT_OFFSET",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.4F",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "State",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.Sniffer.State",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\Sniffer.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.serialization.Dynamic",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.stream.Collectors",
+          "java.util.stream.IntStream",
+          "java.util.stream.Stream",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.GlobalPos",
+          "net.minecraft.core.particles.BlockParticleOption",
+          "net.minecraft.core.particles.ParticleTypes",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.ItemTags",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.entity.AgeableMob",
+          "net.minecraft.world.entity.AnimationState",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.util.LandRandomPos",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.pathfinder.BlockPathTypes",
+          "net.minecraft.world.level.pathfinder.Path",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 468,
+          "end": 476
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/Sniffer/State.java"
+      }
+    ],
+    "lineRange": {
+      "start": 60,
+      "end": 477
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/Sniffer.java"
+  },
+  "net.minecraft.world.entity.animal.sniffer.SnifferAi": {
+    "className": "SnifferAi",
+    "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi",
+    "packageName": "net.minecraft.world.entity.animal.sniffer",
+    "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.function.Function",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.Unit",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.PathfinderMob",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+      "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+      "net.minecraft.world.entity.ai.behavior.Behavior",
+      "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+      "net.minecraft.world.entity.ai.behavior.DoNothing",
+      "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.PositionTracker",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+      "net.minecraft.world.entity.ai.behavior.Swim",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus",
+      "net.minecraft.world.entity.ai.memory.WalkTarget",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.animal.Animal",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getTemptations",
+        "returnType": "Ingredient",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetSniffing",
+        "returnType": "Sniffer",
+        "parameters": [
+          {
+            "name": "pSniffer",
+            "type": "Sniffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Sniffer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initSniffingActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Sniffer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initDigActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Sniffer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Sniffer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSniffer",
+            "type": "Sniffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_LOOK_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "SNIFFING_COOLDOWN_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "9600",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_PANICKING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.0F",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_SNIFFING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.25F",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_TEMPTED",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.25F",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Digging",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.Digging",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Digging",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMaxDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 115,
+              "end": 117
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "checkExtraStartConditions",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOwner",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 121
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 123,
+              "end": 125
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 127,
+              "end": 129
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 131,
+              "end": 139
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 114,
+          "end": 140
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/Digging.java"
+      },
+      {
+        "className": "FeelingHappy",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.FeelingHappy",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FeelingHappy",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMaxDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 143,
+              "end": 145
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 147,
+              "end": 149
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 151,
+              "end": 153
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 155,
+              "end": 158
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 142,
+          "end": 159
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/FeelingHappy.java"
+      },
+      {
+        "className": "FinishedDigging",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.FinishedDigging",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FinishedDigging",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 162,
+              "end": 164
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "checkExtraStartConditions",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOwner",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 166,
+              "end": 168
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 170,
+              "end": 172
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 174,
+              "end": 176
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 178,
+              "end": 183
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 161,
+          "end": 184
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/FinishedDigging.java"
+      },
+      {
+        "className": "Scenting",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.Scenting",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Scenting",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMaxDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 187,
+              "end": 189
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "checkExtraStartConditions",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOwner",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 191,
+              "end": 193
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 195,
+              "end": 197
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 199,
+              "end": 201
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 203,
+              "end": 205
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 186,
+          "end": 206
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/Scenting.java"
+      },
+      {
+        "className": "Searching",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.Searching",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Searching",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 209,
+              "end": 211
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "checkExtraStartConditions",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "p_273493_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_272857_",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 213,
+              "end": 215
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "p_273196_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_273769_",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_273602_",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 217,
+              "end": 226
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_273563_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_273394_",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_273358_",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 228,
+              "end": 230
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_273705_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_273135_",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_272667_",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 232,
+              "end": 239
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 208,
+          "end": 240
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/Searching.java"
+      },
+      {
+        "className": "Sniffing",
+        "fullName": "net.minecraft.world.entity.animal.sniffer.SnifferAi.Sniffing",
+        "packageName": "net.minecraft.world.entity.animal.sniffer",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\sniffer\\SnifferAi.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Behavior<Sniffer>",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.Unit",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.behavior.AnimalMakeLove",
+          "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+          "net.minecraft.world.entity.ai.behavior.DoNothing",
+          "net.minecraft.world.entity.ai.behavior.FollowTemptation",
+          "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+          "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+          "net.minecraft.world.entity.ai.behavior.PositionTracker",
+          "net.minecraft.world.entity.ai.behavior.RandomStroll",
+          "net.minecraft.world.entity.ai.behavior.RunOne",
+          "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+          "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+          "net.minecraft.world.entity.ai.behavior.Swim",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.memory.WalkTarget",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.animal.Animal",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Sniffing",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMaxDuration",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 243,
+              "end": 245
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "checkExtraStartConditions",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOwner",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 247,
+              "end": 249
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canStillUse",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 251,
+              "end": 253
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 255,
+              "end": 257
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Sniffer",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 259,
+              "end": 269
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 242,
+          "end": 270
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi/Sniffing.java"
+      }
+    ],
+    "lineRange": {
+      "start": 43,
+      "end": 271
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/animal/sniffer/SnifferAi.java"
+  }
+}

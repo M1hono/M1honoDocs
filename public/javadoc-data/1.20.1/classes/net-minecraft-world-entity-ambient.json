@@ -1,0 +1,678 @@
+{
+  "net.minecraft.world.entity.ambient.AmbientCreature": {
+    "className": "AmbientCreature",
+    "fullName": "net.minecraft.world.entity.ambient.AmbientCreature",
+    "packageName": "net.minecraft.world.entity.ambient",
+    "filePath": "/net\\minecraft\\world\\entity\\ambient\\AmbientCreature.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Mob",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.Level"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AmbientCreature",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "canBeLeashed",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ambient/AmbientCreature.java"
+  },
+  "net.minecraft.world.entity.ambient.Bat": {
+    "className": "Bat",
+    "fullName": "net.minecraft.world.entity.ambient.Bat",
+    "packageName": "net.minecraft.world.entity.ambient",
+    "filePath": "/net\\minecraft\\world\\entity\\ambient\\Bat.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AmbientCreature",
+    "interfaces": [],
+    "imports": [
+      "java.time.LocalDate",
+      "java.time.temporal.ChronoField",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Bat",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isFlapping",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundVolume",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVoicePitch",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPushable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doPush",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pushEntities",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isResting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setResting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsResting",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkFallDamage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnGround",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isIgnoringBlockTriggers",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 218
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkBatSpawnRules",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBat",
+            "type": "EntityType<Bat>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnType",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 220,
+          "end": 234
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHalloween",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 236,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSize",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 245
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FLAP_DEGREES_PER_TICK",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "74.48451F",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "FLAG_RESTING",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "targetPosition",
+        "type": "BlockPos",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 31,
+      "end": 246
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ambient/Bat.java"
+  }
+}

@@ -1,0 +1,7260 @@
+{
+  "net.minecraft.world.level.levelgen.structure.BoundingBox": {
+    "className": "BoundingBox",
+    "fullName": "net.minecraft.world.level.levelgen.structure.BoundingBox",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\BoundingBox.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.MoreObjects",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "java.util.Iterator",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.Consumer",
+      "java.util.stream.IntStream",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.Vec3i",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BoundingBox",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BoundingBox",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 66
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "fromCorners",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSecond",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "infinite",
+        "returnType": "BoundingBox",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "orientBox",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pStructureMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "intersects",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "intersects",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "encapsulatingPositions",
+        "returnType": "Optional<BoundingBox>",
+        "parameters": [
+          {
+            "name": "pPositions",
+            "type": "Iterable<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "encapsulatingBoxes",
+        "returnType": "Optional<BoundingBox>",
+        "parameters": [
+          {
+            "name": "pBoxes",
+            "type": "Iterable<BoundingBox>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "encapsulate",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "p_162387_",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "encapsulate",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "p_162372_",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 160
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pVector",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moved",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "inflatedBy",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isInside",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pVector",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 203,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isInside",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 207,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLength",
+        "returnType": "Vec3i",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getXSpan",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 224,
+          "end": 226
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getYSpan",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 233
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getZSpan",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 238,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCenter",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 246,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "forAllCorners",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "Consumer<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 262,
+          "end": 264
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 266,
+          "end": 275
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 277,
+          "end": 279
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "minX",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 281,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "minY",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 285,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "minZ",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 289,
+          "end": 291
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxX",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 293,
+          "end": 295
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxY",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 297,
+          "end": 299
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxZ",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 301,
+          "end": 303
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minX",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "minY",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "minZ",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "maxX",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "maxY",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "maxZ",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 304
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/BoundingBox.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.BoundingBoxType": {
+    "className": "BoundingBoxType",
+    "fullName": "net.minecraft.world.level.levelgen.structure.BoundingBoxType",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureSpawnOverride.java",
+    "classType": "enum",
+    "modifiers": [
+      "public",
+      "static"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraft.util.random.WeightedRandomList",
+      "net.minecraft.world.level.biome.MobSpawnSettings"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PIECE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "STRUCTURE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BoundingBoxType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/BoundingBoxType.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.BuiltinStructureSets": {
+    "className": "BuiltinStructureSets",
+    "fullName": "net.minecraft.world.level.levelgen.structure.BuiltinStructureSets",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\BuiltinStructureSets.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "register",
+        "returnType": "ResourceKey<StructureSet>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/BuiltinStructureSets.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.BuiltinStructures": {
+    "className": "BuiltinStructures",
+    "fullName": "net.minecraft.world.level.levelgen.structure.BuiltinStructures",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\BuiltinStructures.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createKey",
+        "returnType": "ResourceKey<Structure>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 45
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/BuiltinStructures.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.LegacyStructureDataHandler": {
+    "className": "LegacyStructureDataHandler",
+    "fullName": "net.minecraft.world.level.levelgen.structure.LegacyStructureDataHandler",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\LegacyStructureDataHandler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Maps",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+      "it.unimi.dsi.fastutil.longs.LongArrayList",
+      "it.unimi.dsi.fastutil.longs.LongList",
+      "java.io.IOException",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Set",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.storage.DimensionDataStorage"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LegacyStructureDataHandler",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pStorage",
+            "type": "DimensionDataStorage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLegacyKeys",
+            "type": "List<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentKeys",
+            "type": "List<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 61
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "removeIndex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPackedChunkPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateFromLegacy",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasLegacyStart",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isUnhandledStructureStart",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateStructureStart",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "populateCaches",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStorage",
+            "type": "DimensionDataStorage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLegacyStructureHandler",
+        "returnType": "LegacyStructureDataHandler",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStorage",
+            "type": "DimensionDataStorage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 217
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "hasLegacyData",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "legacyKeys",
+        "type": "List<String>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "currentKeys",
+        "type": "List<String>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 218
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/LegacyStructureDataHandler.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece": {
+    "className": "PoolElementStructurePiece",
+    "fullName": "net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\PoolElementStructurePiece.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StructurePiece",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Dynamic",
+      "com.mojang.serialization.DynamicOps",
+      "java.util.List",
+      "java.util.Locale",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.resources.RegistryOps",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType",
+      "net.minecraft.world.level.levelgen.structure.pools.JigsawJunction",
+      "net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PoolElementStructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pStructureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pElement",
+            "type": "StructurePoolElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosition",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGroundLevelDelta",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRotation",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PoolElementStructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 62
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "postProcess",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "place",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pKeepJigsaws",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRotation",
+        "returnType": "Rotation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElement",
+        "returnType": "StructurePoolElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPosition",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getGroundLevelDelta",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addJunction",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pJunction",
+            "type": "JigsawJunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getJunctions",
+        "returnType": "List<JigsawJunction>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "element",
+        "type": "StructurePoolElement",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "position",
+        "type": "BlockPos",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "groundLevelDelta",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "rotation",
+        "type": "Rotation",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "structureTemplateManager",
+        "type": "StructureTemplateManager",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/PoolElementStructurePiece.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.PostPlacementProcessor": {
+    "className": "PostPlacementProcessor",
+    "fullName": "net.minecraft.world.level.levelgen.structure.PostPlacementProcessor",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\PostPlacementProcessor.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "afterPlace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPieces",
+            "type": "PiecesContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/PostPlacementProcessor.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.ScatteredFeaturePiece": {
+    "className": "ScatteredFeaturePiece",
+    "fullName": "net.minecraft.world.level.levelgen.structure.ScatteredFeaturePiece",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\ScatteredFeaturePiece.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "StructurePiece",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ScatteredFeaturePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOrientation",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ScatteredFeaturePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateAverageGroundHeight",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBounds",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateHeightPositionToLowestGroundHeight",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 92
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "depth",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "heightPosition",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 93
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/ScatteredFeaturePiece.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.SinglePieceStructure": {
+    "className": "SinglePieceStructure",
+    "fullName": "net.minecraft.world.level.levelgen.structure.SinglePieceStructure",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\SinglePieceStructure.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Structure",
+    "interfaces": [],
+    "imports": [
+      "java.util.Optional",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.level.levelgen.WorldgenRandom",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SinglePieceStructure",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pConstructor",
+            "type": "SinglePieceStructure.PieceConstructor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSettings",
+            "type": "Structure.StructureSettings",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "findGenerationPoint",
+        "returnType": "Optional<Structure.GenerationStub>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generatePieces",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "StructurePiecesBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "constructor",
+        "type": "SinglePieceStructure.PieceConstructor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "depth",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "PieceConstructor",
+        "fullName": "net.minecraft.world.level.levelgen.structure.SinglePieceStructure.PieceConstructor",
+        "packageName": "net.minecraft.world.level.levelgen.structure",
+        "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\SinglePieceStructure.java",
+        "classType": "interface",
+        "modifiers": [
+          "protected"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.Optional",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.levelgen.Heightmap",
+          "net.minecraft.world.level.levelgen.WorldgenRandom",
+          "net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "construct",
+            "returnType": "StructurePiece",
+            "parameters": [
+              {
+                "name": "pRandom",
+                "type": "WorldgenRandom",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMinBlockX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMinBlockZ",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 34,
+              "end": 34
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/SinglePieceStructure/PieceConstructor.java"
+      }
+    ],
+    "lineRange": {
+      "start": 9,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/SinglePieceStructure.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.Structure": {
+    "className": "Structure",
+    "fullName": "net.minecraft.world.level.levelgen.structure.Structure",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\Structure.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.MapCodec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.Consumer",
+      "java.util.function.Function",
+      "java.util.function.Predicate",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.QuartPos",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.RegistryCodecs",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.RegistryFileCodec",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraft.world.entity.MobCategory",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.LevelHeightAccessor",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.BiomeSource",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.GenerationStep",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.RandomState",
+      "net.minecraft.world.level.levelgen.WorldgenRandom",
+      "net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Structure",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSettings",
+            "type": "Structure.StructureSettings",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 62
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "biomes",
+        "returnType": "HolderSet<Biome>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnOverrides",
+        "returnType": "Map<MobCategory, StructureSpawnOverride>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "terrainAdaptation",
+        "returnType": "TerrainAdjustment",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "adjustBoundingBox",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generate",
+        "returnType": "StructureStart",
+        "parameters": [
+          {
+            "name": "pRegistryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBiomeSource",
+            "type": "BiomeSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandomState",
+            "type": "RandomState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReferences",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeightAccessor",
+            "type": "LevelHeightAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValidBiome",
+            "type": "Predicate<Holder<Biome>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onTopOfChunkCenter",
+        "returnType": "Optional<Structure.GenerationStub>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeightmapTypes",
+            "type": "Heightmap.Types",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "Consumer<StructurePiecesBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValidBiome",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStub",
+            "type": "Structure.GenerationStub",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "afterPlace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPieces",
+            "type": "PiecesContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCornerHeights",
+        "returnType": "int[]",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLowestY",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLowestY",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLowestYIn5by5BoxOffset7Blocks",
+        "returnType": "BlockPos",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRotation",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findGenerationPoint",
+        "returnType": "Optional<Structure.GenerationStub>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findValidGenerationPoint",
+        "returnType": "Optional<Structure.GenerationStub>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "Structure.GenerationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifiedStructureSettings",
+        "returnType": "StructureSettings",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "GenerationContext",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "registryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "chunkGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "biomeSource",
+            "type": "BiomeSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "randomState",
+            "type": "RandomState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "structureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "random",
+            "type": "WorldgenRandom",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "seed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "chunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "heightAccessor",
+            "type": "LevelHeightAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "validBiome",
+            "type": "Predicate<Holder<Biome>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "FORGE END",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 186,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "GenerationStub",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "position",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "generator",
+            "type": "StructurePiecesBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 212
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "StructureSettings",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "biomes",
+            "type": "HolderSet<Biome>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spawnOverrides",
+            "type": "StructureSpawnOverride>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "step",
+            "type": "GenerationStep.Decoration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "terrainAdaptation",
+            "type": "TerrainAdjustment",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 218
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "settings",
+        "type": "Structure.StructureSettings",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "Forge: Make this field private so that the redirect coremod can target it",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "modifiableStructureInfo",
+        "type": "net.minecraftforge.common.world.ModifiableStructureInfo",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "FORGE START",
+        "initialValue": "",
+        "lineRange": {
+          "start": 165,
+          "end": 165
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 41,
+      "end": 219
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/Structure.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructureCheck": {
+    "className": "StructureCheck",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructureCheck",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureCheck.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.longs.Long2BooleanMap",
+      "it.unimi.dsi.fastutil.longs.Long2BooleanOpenHashMap",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectMap",
+      "it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap",
+      "it.unimi.dsi.fastutil.objects.Object2IntMap",
+      "it.unimi.dsi.fastutil.objects.Object2IntMaps",
+      "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+      "java.util.HashMap",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.IntTag",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.nbt.visitors.CollectFields",
+      "net.minecraft.nbt.visitors.FieldSelector",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelHeightAccessor",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.BiomeSource",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.chunk.storage.ChunkScanAccess",
+      "net.minecraft.world.level.chunk.storage.ChunkStorage",
+      "net.minecraft.world.level.levelgen.RandomState",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructureCheck",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pStorageAccess",
+            "type": "ChunkScanAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimension",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandomState",
+            "type": "RandomState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeightAccessor",
+            "type": "LevelHeightAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBiomeSource",
+            "type": "BiomeSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixerUpper",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 69
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "checkStart",
+        "returnType": "StructureCheckResult",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSkipKnownStructures",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canCreateStructure",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryLoadFromStorage",
+        "returnType": "StructureCheckResult",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSkipKnownStructures",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackedChunkPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadStructures",
+        "returnType": "Object2IntMap<Structure>",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deduplicateEmptyMap",
+        "returnType": "Object2IntMap<Structure>",
+        "parameters": [
+          {
+            "name": "pMap",
+            "type": "Object2IntMap<Structure>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkStructureInfo",
+        "returnType": "StructureCheckResult",
+        "parameters": [
+          {
+            "name": "pStructureChunks",
+            "type": "Object2IntMap<Structure>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSkipKnownStructures",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onStructureLoad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkStarts",
+            "type": "StructureStart>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "storeFullResults",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureChunks",
+            "type": "Object2IntMap<Structure>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementReference",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 213
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NO_STRUCTURE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "storageAccess",
+        "type": "ChunkScanAccess",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "registryAccess",
+        "type": "RegistryAccess",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "biomes",
+        "type": "Registry<Biome>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "structureConfigs",
+        "type": "Registry<Structure>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "structureTemplateManager",
+        "type": "StructureTemplateManager",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "dimension",
+        "type": "ResourceKey<Level>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "chunkGenerator",
+        "type": "ChunkGenerator",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "randomState",
+        "type": "RandomState",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "heightAccessor",
+        "type": "LevelHeightAccessor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "biomeSource",
+        "type": "BiomeSource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "seed",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "fixerUpper",
+        "type": "DataFixer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 38,
+      "end": 214
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructureCheck.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructureCheckResult": {
+    "className": "StructureCheckResult",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructureCheckResult",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureCheckResult.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 7
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructureCheckResult.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructureFeatureIndexSavedData": {
+    "className": "StructureFeatureIndexSavedData",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructureFeatureIndexSavedData",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureFeatureIndexSavedData.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SavedData",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+      "it.unimi.dsi.fastutil.longs.LongSet",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.level.saveddata.SavedData"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructureFeatureIndexSavedData",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pAll",
+            "type": "LongSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRemaining",
+            "type": "LongSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "StructureFeatureIndexSavedData",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "load",
+        "returnType": "StructureFeatureIndexSavedData",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pCompoundTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addIndex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasStartIndex",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasUnhandledIndex",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeIndex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAll",
+        "returnType": "LongSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TAG_REMAINING_INDEXES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Remaining\"",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "TAG_All_INDEXES",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"All\"",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "all",
+        "type": "LongSet",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "remaining",
+        "type": "LongSet",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructureFeatureIndexSavedData.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructurePiece": {
+    "className": "StructurePiece",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructurePiece",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructurePiece.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "java.util.Set",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.DispenserBlock",
+      "net.minecraft.world.level.block.HorizontalDirectionalBlock",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.ChestBlockEntity",
+      "net.minecraft.world.level.block.entity.DispenserBlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType",
+      "net.minecraft.world.level.material.FluidState",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 55
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "StructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 63
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "makeBoundingBox",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffsetX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffsetY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffsetZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRandomHorizontalDirection",
+        "returnType": "Direction",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTag",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addChildren",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiece",
+            "type": "StructurePiece",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPieces",
+            "type": "StructurePieceAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "postProcess",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBoundingBox",
+        "returnType": "BoundingBox",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getGenDepth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setGenDepth",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGenDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCloseToChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLocatorPosition",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWorldX",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWorldY",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWorldZ",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockstate",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingbox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 188
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeReplaced",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 190,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlock",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 197
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isInterior",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 199,
+          "end": 206
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateAirBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZMin",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZMax",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundaryBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInsideBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExistingOnly",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 222,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundaryBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInsideBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExistingOnly",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 241
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlwaysReplace",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSelector",
+            "type": "StructurePiece.BlockSelector",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 243,
+          "end": 255
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlwaysReplace",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSelector",
+            "type": "StructurePiece.BlockSelector",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 259
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateMaybeBox",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX2",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY2",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ2",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEdgeState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequireNonAir",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequireSkylight",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 276
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maybeGenerateBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 278,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateUpperHalfSphere",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExcludeAir",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 285,
+          "end": 310
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillColumnDown",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 312,
+          "end": 321
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isReplaceableByStructures",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 323,
+          "end": 325
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createChest",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLootTable",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 327,
+          "end": 329
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reorient",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 331,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createChest",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLootTable",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 375,
+          "end": 391
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createDispenser",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLootTable",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 393,
+          "end": 406
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 408,
+          "end": 410
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBoundingBox",
+        "returnType": "BoundingBox",
+        "parameters": [
+          {
+            "name": "pPieces",
+            "type": "Stream<StructurePiece>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 412,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findCollisionPiece",
+        "returnType": "StructurePiece",
+        "parameters": [
+          {
+            "name": "pPieces",
+            "type": "List<StructurePiece>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundingBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 419,
+          "end": 427
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOrientation",
+        "returnType": "Direction",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 430,
+          "end": 432
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setOrientation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOrientation",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 434,
+          "end": 459
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRotation",
+        "returnType": "Rotation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 461,
+          "end": 463
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMirror",
+        "returnType": "Mirror",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 465,
+          "end": 467
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getType",
+        "returnType": "StructurePieceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 469,
+          "end": 471
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "boundingBox",
+        "type": "BoundingBox",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "orientation",
+        "type": "Direction",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "mirror",
+        "type": "Mirror",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "rotation",
+        "type": "Rotation",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "genDepth",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "type",
+        "type": "StructurePieceType",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 39,
+      "end": 482
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructurePiece.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructurePieceAccessor": {
+    "className": "StructurePieceAccessor",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructurePieceAccessor",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructurePieceAccessor.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "addPiece",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiece",
+            "type": "StructurePiece",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findCollisionPiece",
+        "returnType": "StructurePiece",
+        "parameters": [
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 10
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructurePieceAccessor.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructureStart": {
+    "className": "StructureStart",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructureStart",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureStart.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.levelgen.structure.structures.OceanMonumentStructure",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructureStart",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pStructure",
+            "type": "Structure",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReferences",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPieceContainer",
+            "type": "PiecesContainer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "loadStaticStart",
+        "returnType": "StructureStart",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBoundingBox",
+        "returnType": "BoundingBox",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeInChunk",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTag",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChunkPos",
+        "returnType": "ChunkPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeReferenced",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addReference",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getReferences",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxReferences",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStructure",
+        "returnType": "Structure",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPieces",
+        "returnType": "List<StructurePiece>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "INVALID_START_ID",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"INVALID\"",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "structure",
+        "type": "Structure",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "pieceContainer",
+        "type": "PiecesContainer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "chunkPos",
+        "type": "ChunkPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "references",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "cachedBoundingBox",
+        "type": "volatile BoundingBox",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 147
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructureStart.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.StructureType": {
+    "className": "StructureType",
+    "fullName": "net.minecraft.world.level.levelgen.structure.StructureType",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\StructureType.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.world.level.levelgen.structure.structures.BuriedTreasureStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.DesertPyramidStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.EndCityStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.IglooStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.JigsawStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.JungleTempleStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.MineshaftStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.NetherFortressStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.NetherFossilStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.OceanMonumentStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.OceanRuinStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.RuinedPortalStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.ShipwreckStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.StrongholdStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.SwampHutStructure",
+      "net.minecraft.world.level.levelgen.structure.structures.WoodlandMansionStructure"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "codec",
+        "returnType": "Codec<S>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 23,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/StructureType.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.TemplateStructurePiece": {
+    "className": "TemplateStructurePiece",
+    "fullName": "net.minecraft.world.level.levelgen.structure.TemplateStructurePiece",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\TemplateStructurePiece.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "StructurePiece",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.logging.LogUtils",
+      "java.util.function.Function",
+      "net.minecraft.commands.arguments.blocks.BlockStateParser",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.StructureManager",
+      "net.minecraft.world.level.WorldGenLevel",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.StructureMode",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext",
+      "net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TemplateStructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenDepth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTemplateName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlaceSettings",
+            "type": "StructurePlaceSettings",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTemplatePosition",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "TemplateStructurePiece",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "StructurePieceType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureTemplateManager",
+            "type": "StructureTemplateManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlaceSettingsFactory",
+            "type": "StructurePlaceSettings>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 54
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "makeTemplateLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "StructurePieceSerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "postProcess",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "WorldGenLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStructureManager",
+            "type": "StructureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGenerator",
+            "type": "ChunkGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleDataMarker",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBox",
+            "type": "BoundingBox",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "move",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRotation",
+        "returnType": "Rotation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "template",
+        "returnType": "StructureTemplate",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "templatePosition",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeSettings",
+        "returnType": "StructurePlaceSettings",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "templateName",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "template",
+        "type": "StructureTemplate",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "placeSettings",
+        "type": "StructurePlaceSettings",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "templatePosition",
+        "type": "BlockPos",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 122
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/TemplateStructurePiece.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.TerrainAdjustment": {
+    "className": "TerrainAdjustment",
+    "fullName": "net.minecraft.world.level.levelgen.structure.TerrainAdjustment",
+    "packageName": "net.minecraft.world.level.levelgen.structure",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\TerrainAdjustment.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NONE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BURY",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BEARD_THIN",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BEARD_BOX",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "TerrainAdjustment",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/TerrainAdjustment.java"
+  }
+}

@@ -25,6 +25,10 @@ interface JavaDocRouterProps {
         parsed: number;
         current: string;
     } | null;
+    // Version props
+    availableVersions: string[];
+    currentVersion: string;
+    onVersionChange: (version: string) => void;
 }
 
 /**
@@ -36,9 +40,12 @@ export const JavaDocRouter: React.FC<JavaDocRouterProps> = ({
     loading,
     error,
     onRegenerate,
+    availableVersions,
+    currentVersion,
+    onVersionChange,
 }) => {
     // 如果正在加载，显示加载界面
-    if (loading) {
+    if (loading && !docIndex) {
         return (
             <div className="router-loading-container">
                 <div className="router-loading-content">
@@ -124,7 +131,12 @@ export const JavaDocRouter: React.FC<JavaDocRouterProps> = ({
             <Layout className="javadoc-layout">
                 {/* 顶部导航栏 - 固定 */}
                 <Header className="javadoc-header">
-                    <JavaDocNavbar docIndex={docIndex} />
+                    <JavaDocNavbar
+                        docIndex={docIndex}
+                        availableVersions={availableVersions}
+                        currentVersion={currentVersion}
+                        onVersionChange={onVersionChange}
+                    />
                 </Header>
 
                 <Layout className="javadoc-body">

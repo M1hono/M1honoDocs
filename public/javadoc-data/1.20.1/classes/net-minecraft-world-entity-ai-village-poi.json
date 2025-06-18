@@ -1,0 +1,2478 @@
+{
+  "net.minecraft.world.entity.ai.village.poi.PoiManager": {
+    "className": "PoiManager",
+    "fullName": "net.minecraft.world.entity.ai.village.poi.PoiManager",
+    "packageName": "net.minecraft.world.entity.ai.village.poi",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SectionStorage<PoiSection>",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.datafixers.util.Pair",
+      "it.unimi.dsi.fastutil.longs.Long2ByteMap",
+      "it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap",
+      "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+      "it.unimi.dsi.fastutil.longs.LongSet",
+      "java.nio.file.Path",
+      "java.util.Comparator",
+      "java.util.List",
+      "java.util.Optional",
+      "java.util.function.BiConsumer",
+      "java.util.function.BiPredicate",
+      "java.util.function.BooleanSupplier",
+      "java.util.function.Predicate",
+      "java.util.stream.IntStream",
+      "java.util.stream.Stream",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.server.level.SectionTracker",
+      "net.minecraft.tags.PoiTypeTags",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.VisibleForDebug",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.LevelHeightAccessor",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.chunk.ChunkStatus",
+      "net.minecraft.world.level.chunk.LevelChunkSection",
+      "net.minecraft.world.level.chunk.storage.SectionStorage"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PoiManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFixerUpper",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSync",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevelHeightAccessor",
+            "type": "LevelHeightAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "Holder<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCountInRange",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "existsAtPosition",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "ResourceKey<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInSquare",
+        "returnType": "Stream<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInRange",
+        "returnType": "Stream<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInChunk",
+        "returnType": "Stream<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosChunk",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAll",
+        "returnType": "Stream<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAllWithType",
+        "returnType": "Stream<Pair<Holder<PoiType>, BlockPos>>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAllClosestFirstWithType",
+        "returnType": "Stream<Pair<Holder<PoiType>, BlockPos>>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "find",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findClosest",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findClosestWithType",
+        "returnType": "Optional<Pair<Holder<PoiType>, BlockPos>>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findClosest",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "take",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCombinedTypePosPredicate",
+            "type": "BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRandom",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosPredicate",
+            "type": "Predicate<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "release",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exists",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getType",
+        "returnType": "Optional<Holder<PoiType>>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFreeTickets",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 176,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sectionsToVillage",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pSectionPos",
+            "type": "SectionPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isVillageCenter",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAheadOfTime",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDirty",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectionPos",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 204
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSectionLoad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectionKey",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkConsistencyWithBlocks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSectionPos",
+            "type": "SectionPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevelChunkSection",
+            "type": "LevelChunkSection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mayHavePoi",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSection",
+            "type": "LevelChunkSection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateFromSection",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSection",
+            "type": "LevelChunkSection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSectionPos",
+            "type": "SectionPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosToTypeConsumer",
+            "type": "Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 238
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ensureLoadedAndValid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevelReader",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCoordinateOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 240,
+          "end": 252
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_VILLAGE_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "VILLAGE_SECTION_SIZE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "distanceTracker",
+        "type": "PoiManager.DistanceTracker",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "DistanceTracker",
+        "fullName": "net.minecraft.world.entity.ai.village.poi.PoiManager.DistanceTracker",
+        "packageName": "net.minecraft.world.entity.ai.village.poi",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiManager.java",
+        "classType": "class",
+        "modifiers": [
+          "final"
+        ],
+        "superClass": "SectionTracker",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.DataFixer",
+          "com.mojang.datafixers.util.Pair",
+          "it.unimi.dsi.fastutil.longs.Long2ByteMap",
+          "it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap",
+          "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+          "it.unimi.dsi.fastutil.longs.LongSet",
+          "java.nio.file.Path",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.Optional",
+          "java.util.function.BiConsumer",
+          "java.util.function.BiPredicate",
+          "java.util.function.BooleanSupplier",
+          "java.util.function.Predicate",
+          "java.util.stream.IntStream",
+          "java.util.stream.Stream",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.RegistryAccess",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.resources.ResourceKey",
+          "net.minecraft.server.level.SectionTracker",
+          "net.minecraft.tags.PoiTypeTags",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.VisibleForDebug",
+          "net.minecraft.util.datafix.DataFixTypes",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.LevelHeightAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.chunk.ChunkStatus",
+          "net.minecraft.world.level.chunk.LevelChunkSection",
+          "net.minecraft.world.level.chunk.storage.SectionStorage"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "DistanceTracker",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 257,
+              "end": 260
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getLevelFromSource",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pPos",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 262,
+              "end": 264
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getLevel",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pSectionPos",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 266,
+              "end": 268
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setLevel",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pSectionPos",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevel",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 270,
+              "end": 277
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "runAllUpdates",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 279,
+              "end": 281
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 254,
+          "end": 282
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiManager/DistanceTracker.java"
+      },
+      {
+        "className": "Occupancy",
+        "fullName": "net.minecraft.world.entity.ai.village.poi.PoiManager.Occupancy",
+        "packageName": "net.minecraft.world.entity.ai.village.poi",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiManager.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.DataFixer",
+          "com.mojang.datafixers.util.Pair",
+          "it.unimi.dsi.fastutil.longs.Long2ByteMap",
+          "it.unimi.dsi.fastutil.longs.Long2ByteOpenHashMap",
+          "it.unimi.dsi.fastutil.longs.LongOpenHashSet",
+          "it.unimi.dsi.fastutil.longs.LongSet",
+          "java.nio.file.Path",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.Optional",
+          "java.util.function.BiConsumer",
+          "java.util.function.BiPredicate",
+          "java.util.function.BooleanSupplier",
+          "java.util.function.Predicate",
+          "java.util.stream.IntStream",
+          "java.util.stream.Stream",
+          "net.minecraft.Util",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.RegistryAccess",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.resources.ResourceKey",
+          "net.minecraft.server.level.SectionTracker",
+          "net.minecraft.tags.PoiTypeTags",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.util.VisibleForDebug",
+          "net.minecraft.util.datafix.DataFixTypes",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.LevelHeightAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.chunk.ChunkStatus",
+          "net.minecraft.world.level.chunk.LevelChunkSection",
+          "net.minecraft.world.level.chunk.storage.SectionStorage"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "HAS_SPACE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 285,
+              "end": 289
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "IS_OCCUPIED",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 286,
+              "end": 289
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "ANY",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 287,
+              "end": 289
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Occupancy",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "super",
+                "type": "Predicate<?",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 293,
+              "end": 295
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 284,
+          "end": 300
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiManager/Occupancy.java"
+      }
+    ],
+    "lineRange": {
+      "start": 38,
+      "end": 301
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiManager.java"
+  },
+  "net.minecraft.world.entity.ai.village.poi.PoiRecord": {
+    "className": "PoiRecord",
+    "fullName": "net.minecraft.world.entity.ai.village.poi.PoiRecord",
+    "packageName": "net.minecraft.world.entity.ai.village.poi",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiRecord.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Objects",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.RegistryFixedCodec",
+      "net.minecraft.util.VisibleForDebug"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "codec",
+        "returnType": "Codec<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pExecutable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PoiRecord",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_218008_",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_218009_",
+            "type": "Holder<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_218010_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_218011_",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 35
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PoiRecord",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPod",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPoiType",
+            "type": "Holder<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSetDirty",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getFreeTickets",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acquireTicket",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "releaseTicket",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasSpace",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOccupied",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPos",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPoiType",
+        "returnType": "Holder<PoiType>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "pos",
+        "type": "BlockPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "poiType",
+        "type": "Holder<PoiType>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "freeTickets",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "setDirty",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 95
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiRecord.java"
+  },
+  "net.minecraft.world.entity.ai.village.poi.PoiSection": {
+    "className": "PoiSection",
+    "fullName": "net.minecraft.world.entity.ai.village.poi.PoiSection",
+    "packageName": "net.minecraft.world.entity.ai.village.poi",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiSection.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.shorts.Short2ObjectMap",
+      "it.unimi.dsi.fastutil.shorts.Short2ObjectOpenHashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.function.BiConsumer",
+      "java.util.function.Consumer",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.util.VisibleForDebug",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "codec",
+        "returnType": "Codec<PoiSection>",
+        "parameters": [
+          {
+            "name": "pExecutable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PoiSection",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSetDirty",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PoiSection",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_27269_",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_27270_",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_27271_",
+            "type": "List<PoiRecord>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 53
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getRecords",
+        "returnType": "Stream<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStatus",
+            "type": "PoiManager.Occupancy",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "Holder<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_27274_",
+            "type": "PoiRecord",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFreeTickets",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "release",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exists",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTypePredicate",
+            "type": "Predicate<Holder<PoiType>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getType",
+        "returnType": "Optional<Holder<PoiType>>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPoiRecord",
+        "returnType": "Optional<PoiRecord>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "refresh",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPosToTypeConsumer",
+            "type": "Holder<PoiType>>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 158
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "setDirty",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "isValid",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 159
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiSection.java"
+  },
+  "net.minecraft.world.entity.ai.village.poi.PoiTypes": {
+    "className": "PoiTypes",
+    "fullName": "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+    "packageName": "net.minecraft.world.entity.ai.village.poi",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\poi\\PoiTypes.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.google.common.collect.Maps",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "net.minecraft.Util",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.block.BedBlock",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BedPart"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getBlockStates",
+        "returnType": "Set<BlockState>",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createKey",
+        "returnType": "ResourceKey<PoiType>",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "register",
+        "returnType": "PoiType",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "Registry<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "ResourceKey<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMatchingStates",
+            "type": "Set<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxTickets",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValidRange",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBlockStates",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPoi",
+            "type": "Holder<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStates",
+            "type": "Set<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "forState",
+        "returnType": "Optional<Holder<PoiType>>",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasPoi",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bootstrap",
+        "returnType": "PoiType",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "Registry<PoiType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 103
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/poi/PoiTypes.java"
+  }
+}

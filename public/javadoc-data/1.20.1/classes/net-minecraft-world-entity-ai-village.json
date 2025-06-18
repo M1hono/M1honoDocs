@@ -1,0 +1,334 @@
+{
+  "net.minecraft.world.entity.ai.village.ReputationEventType": {
+    "className": "ReputationEventType",
+    "fullName": "net.minecraft.world.entity.ai.village.ReputationEventType",
+    "packageName": "net.minecraft.world.entity.ai.village",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\ReputationEventType.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "register",
+        "returnType": "ReputationEventType",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 16
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 17
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/ReputationEventType.java"
+  },
+  "net.minecraft.world.entity.ai.village.VillageSiege": {
+    "className": "VillageSiege",
+    "fullName": "net.minecraft.world.entity.ai.village.VillageSiege",
+    "packageName": "net.minecraft.world.entity.ai.village",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\VillageSiege.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "CustomSpawner"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.tags.BiomeTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.monster.Monster",
+      "net.minecraft.world.entity.monster.Zombie",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.CustomSpawner",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.phys.Vec3",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "tick",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnHostiles",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnPassives",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tryToSetupSiege",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "trySpawn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findRandomSpawnPos",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 128
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "hasSetupSiege",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "siegeState",
+        "type": "VillageSiege.State",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "VillageSiege.State.SIEGE_DONE",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "zombiesToSpawn",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "nextSpawnTime",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "spawnX",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "spawnY",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "spawnZ",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "State",
+        "fullName": "net.minecraft.world.entity.ai.village.VillageSiege.State",
+        "packageName": "net.minecraft.world.entity.ai.village",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\village\\VillageSiege.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.logging.LogUtils",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.BiomeTags",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.monster.Monster",
+          "net.minecraft.world.entity.monster.Zombie",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.level.CustomSpawner",
+          "net.minecraft.world.level.levelgen.Heightmap",
+          "net.minecraft.world.phys.Vec3",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 130,
+          "end": 134
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/VillageSiege/State.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 135
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/ai/village/VillageSiege.java"
+  }
+}

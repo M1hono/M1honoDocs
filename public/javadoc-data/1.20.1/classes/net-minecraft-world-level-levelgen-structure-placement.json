@@ -1,0 +1,1741 @@
+{
+  "net.minecraft.world.level.levelgen.structure.placement.ConcentricRingsStructurePlacement": {
+    "className": "ConcentricRingsStructurePlacement",
+    "fullName": "net.minecraft.world.level.levelgen.structure.placement.ConcentricRingsStructurePlacement",
+    "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\ConcentricRingsStructurePlacement.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StructurePlacement",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.Products",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "java.util.Optional",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.RegistryCodecs",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.chunk.ChunkGeneratorStructureState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ConcentricRingsStructurePlacement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_226981_",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226982_",
+            "type": "StructurePlacement.FrequencyReductionMethod",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226983_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226984_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226985_",
+            "type": "Optional<StructurePlacement.ExclusionZone>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226986_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226987_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226988_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_226989_",
+            "type": "HolderSet<Biome>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ConcentricRingsStructurePlacement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpread",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreferrredBiomes",
+            "type": "HolderSet<Biome>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "distance",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spread",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "count",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "preferredBiomes",
+        "returnType": "HolderSet<Biome>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlacementChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStructureState",
+            "type": "ChunkGeneratorStructureState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 62
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "distance",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "spread",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "preferredBiomes",
+        "type": "HolderSet<Biome>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 67
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/ConcentricRingsStructurePlacement.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement": {
+    "className": "RandomSpreadStructurePlacement",
+    "fullName": "net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement",
+    "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\RandomSpreadStructurePlacement.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "StructurePlacement",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkGeneratorStructureState",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.WorldgenRandom"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "validate",
+        "returnType": "DataResult<RandomSpreadStructurePlacement>",
+        "parameters": [
+          {
+            "name": "p_286361_",
+            "type": "RandomSpreadStructurePlacement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RandomSpreadStructurePlacement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_227000_",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227001_",
+            "type": "StructurePlacement.FrequencyReductionMethod",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227002_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227003_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227004_",
+            "type": "Optional<StructurePlacement.ExclusionZone>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227005_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227006_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227007_",
+            "type": "RandomSpreadType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "RandomSpreadStructurePlacement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSpacing",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSeparation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpreadType",
+            "type": "RandomSpreadType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSalt",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "spacing",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "separation",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spreadType",
+        "returnType": "RandomSpreadType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPotentialStructureChunk",
+        "returnType": "ChunkPos",
+        "parameters": [
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlacementChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStructureState",
+            "type": "ChunkGeneratorStructureState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 65
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "spacing",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "separation",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "spreadType",
+        "type": "RandomSpreadType",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 70
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/RandomSpreadStructurePlacement.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType": {
+    "className": "RandomSpreadType",
+    "fullName": "net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType",
+    "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\RandomSpreadType.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.StringRepresentable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LINEAR",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "TRIANGULAR",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "RandomSpreadType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "evaluate",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBound",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 37
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/RandomSpreadType.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.placement.StructurePlacement": {
+    "className": "StructurePlacement",
+    "fullName": "net.minecraft.world.level.levelgen.structure.placement.StructurePlacement",
+    "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\StructurePlacement.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.Products",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.RegistryFileCodec",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.chunk.ChunkGeneratorStructureState",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.WorldgenRandom",
+      "net.minecraft.world.level.levelgen.structure.StructureSet"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StructurePlacement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLocateOffset",
+            "type": "Vec3i",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrequencyReductionMethod",
+            "type": "StructurePlacement.FrequencyReductionMethod",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrequency",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSalt",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExclusionZone",
+            "type": "Optional<StructurePlacement.ExclusionZone>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "locateOffset",
+        "returnType": "Vec3i",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "frequency",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "salt",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exclusionZone",
+        "returnType": "Optional<StructurePlacement.ExclusionZone>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isStructureChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStructureState",
+            "type": "ChunkGeneratorStructureState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlacementChunk",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStructureState",
+            "type": "ChunkGeneratorStructureState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLocatePos",
+        "returnType": "BlockPos",
+        "parameters": [
+          {
+            "name": "pChunkPos",
+            "type": "ChunkPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "probabilityReducer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevelSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSalt",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProbability",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "legacyProbabilityReducerWithDouble",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBaseSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227050_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChunkZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProbability",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "legacyArbitrarySaltProbabilityReducer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevelSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227062_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProbability",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "legacyPillagerOutpostReducer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevelSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_227068_",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegionZ",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProbability",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ExclusionZone",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "otherSet",
+            "type": "Holder<StructureSet>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "chunkCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 117
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "HIGHLY_ARBITRARY_RANDOM_SALT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10387320",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "locateOffset",
+        "type": "Vec3i",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "frequencyReductionMethod",
+        "type": "StructurePlacement.FrequencyReductionMethod",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "frequency",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "salt",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "exclusionZone",
+        "type": "Optional<StructurePlacement.ExclusionZone>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "FrequencyReducer",
+        "fullName": "net.minecraft.world.level.levelgen.structure.placement.StructurePlacement.FrequencyReducer",
+        "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+        "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\StructurePlacement.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.Products",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "java.util.Optional",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.Vec3i",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.resources.RegistryFileCodec",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.chunk.ChunkGeneratorStructureState",
+          "net.minecraft.world.level.levelgen.LegacyRandomSource",
+          "net.minecraft.world.level.levelgen.WorldgenRandom",
+          "net.minecraft.world.level.levelgen.structure.StructureSet"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "shouldGenerate",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevelSeed",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_227100_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegionX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegionZ",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProbability",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 121
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/StructurePlacement/FrequencyReducer.java"
+      },
+      {
+        "className": "FrequencyReductionMethod",
+        "fullName": "net.minecraft.world.level.levelgen.structure.placement.StructurePlacement.FrequencyReductionMethod",
+        "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+        "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\StructurePlacement.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "StringRepresentable"
+        ],
+        "imports": [
+          "com.mojang.datafixers.Products",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "java.util.Optional",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.Vec3i",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.resources.RegistryFileCodec",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.chunk.ChunkGeneratorStructureState",
+          "net.minecraft.world.level.levelgen.LegacyRandomSource",
+          "net.minecraft.world.level.levelgen.WorldgenRandom",
+          "net.minecraft.world.level.levelgen.structure.StructureSet"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "DEFAULT",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 125,
+              "end": 128
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LEGACY_TYPE_1",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 128
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LEGACY_TYPE_2",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 127,
+              "end": 128
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LEGACY_TYPE_3",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 128,
+              "end": 128
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "FrequencyReductionMethod",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReducer",
+                "type": "StructurePlacement.FrequencyReducer",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 134,
+              "end": 137
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "shouldGenerate",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevelSeed",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_227121_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegionX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegionZ",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProbability",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 139,
+              "end": 141
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getSerializedName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 143,
+              "end": 145
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 131,
+              "end": 131
+            }
+          },
+          {
+            "name": "reducer",
+            "type": "StructurePlacement.FrequencyReducer",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 132,
+              "end": 132
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 124,
+          "end": 146
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/StructurePlacement/FrequencyReductionMethod.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 147
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/StructurePlacement.java"
+  },
+  "net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType": {
+    "className": "StructurePlacementType",
+    "fullName": "net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType",
+    "packageName": "net.minecraft.world.level.levelgen.structure.placement",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\structure\\placement\\StructurePlacementType.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.BuiltInRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "codec",
+        "returnType": "Codec<SP>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 18
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/structure/placement/StructurePlacementType.java"
+  }
+}

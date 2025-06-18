@@ -168,6 +168,8 @@ export interface ProjectDocIndex {
     totalPackages?: number;
     /** 构建时间 */
     buildTime?: string;
+    /** 版本 */
+    version?: string;
 }
 
 /**

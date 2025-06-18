@@ -1,12 +1,13 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { AutoComplete, Input, Space, Typography, Tag } from "antd";
+import { AutoComplete, Input, Space, Typography, Tag, Select } from "antd";
 import {
     SearchOutlined,
     ApiOutlined,
     FolderOutlined,
     CodeOutlined,
     FieldStringOutlined,
+    DownOutlined,
 } from "@ant-design/icons";
 import Fuse, { FuseResult } from "fuse.js";
 import { ProjectDocIndex } from "../types";
@@ -21,8 +22,18 @@ interface SearchItem {
     parentShortName?: string;
 }
 
-export const JavaDocNavbar: React.FC<{ docIndex: ProjectDocIndex | null }> = ({
+interface JavaDocNavbarProps {
+    docIndex: ProjectDocIndex | null;
+    availableVersions: string[];
+    currentVersion: string;
+    onVersionChange: (version: string) => void;
+}
+
+export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
     docIndex,
+    availableVersions,
+    currentVersion,
+    onVersionChange,
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -123,7 +134,7 @@ export const JavaDocNavbar: React.FC<{ docIndex: ProjectDocIndex | null }> = ({
                         <div>
                             <Text>{name}</Text>
                             <br />
-                            <Text type="secondary" style={{ fontSize: "11px" }}>
+                            <Text type="secondary" className="option-label-description">
                                 {description}
                             </Text>
                         </div>
@@ -204,17 +215,28 @@ export const JavaDocNavbar: React.FC<{ docIndex: ProjectDocIndex | null }> = ({
             <AutoComplete
                 value={searchValue}
                 options={options}
-                style={{ width: 500 }}
                 className="javadoc-search"
                 onSelect={onSelect}
                 onSearch={handleSearch}
-                placeholder=""
                 allowClear
                 autoClearSearchValue
                 popupClassName="javadoc-search-popup"
             >
                 <Input size="large" prefix={<SearchOutlined />} />
             </AutoComplete>
+            
+            <Select
+                value={currentVersion}
+                onChange={onVersionChange}
+                className="version-selector"
+                suffixIcon={<DownOutlined />}
+            >
+                {availableVersions.map((version) => (
+                    <Select.Option key={version} value={version}>
+                        {version}
+                    </Select.Option>
+                ))}
+            </Select>
         </div>
     );
 };

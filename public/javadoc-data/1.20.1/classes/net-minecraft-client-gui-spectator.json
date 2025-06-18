@@ -1,0 +1,1087 @@
+{
+  "net.minecraft.client.gui.spectator.PlayerMenuItem": {
+    "className": "PlayerMenuItem",
+    "fullName": "net.minecraft.client.gui.spectator.PlayerMenuItem",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\PlayerMenuItem.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpectatorMenuItem"
+    ],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.PlayerFaceRenderer",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.protocol.game.ServerboundTeleportToEntityPacket",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PlayerMenuItem",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "selectItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMenu",
+            "type": "SpectatorMenu",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderIcon",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShadeColor",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "profile",
+        "type": "GameProfile",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "location",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "name",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/PlayerMenuItem.java"
+  },
+  "net.minecraft.client.gui.spectator.RootSpectatorMenuCategory": {
+    "className": "RootSpectatorMenuCategory",
+    "fullName": "net.minecraft.client.gui.spectator.RootSpectatorMenuCategory",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\RootSpectatorMenuCategory.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpectatorMenuCategory"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "net.minecraft.client.gui.spectator.categories.TeleportToPlayerMenuCategory",
+      "net.minecraft.client.gui.spectator.categories.TeleportToTeamMenuCategory",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RootSpectatorMenuCategory",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getItems",
+        "returnType": "List<SpectatorMenuItem>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPrompt",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/RootSpectatorMenuCategory.java"
+  },
+  "net.minecraft.client.gui.spectator.SpectatorMenu": {
+    "className": "SpectatorMenu",
+    "fullName": "net.minecraft.client.gui.spectator.SpectatorMenu",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenu.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.MoreObjects",
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.spectator.SpectatorGui",
+      "net.minecraft.client.gui.spectator.categories.SpectatorPage",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SpectatorMenu",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "SpectatorMenuListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getItem",
+        "returnType": "SpectatorMenuItem",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItems",
+        "returnType": "List<SpectatorMenuItem>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSelectedItem",
+        "returnType": "SpectatorMenuItem",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSelectedCategory",
+        "returnType": "SpectatorMenuCategory",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectSlot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSlot",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSelectedSlot",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectCategory",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "SpectatorMenuCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCurrentPage",
+        "returnType": "SpectatorPage",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_PER_PAGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "listener",
+        "type": "SpectatorMenuListener",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "category",
+        "type": "SpectatorMenuCategory",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "selectedSlot",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "page",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "CloseSpectatorItem",
+        "fullName": "net.minecraft.client.gui.spectator.SpectatorMenu.CloseSpectatorItem",
+        "packageName": "net.minecraft.client.gui.spectator",
+        "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenu.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "SpectatorMenuItem"
+        ],
+        "imports": [
+          "com.google.common.base.MoreObjects",
+          "com.google.common.collect.Lists",
+          "java.util.List",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.spectator.SpectatorGui",
+          "net.minecraft.client.gui.spectator.categories.SpectatorPage",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "selectItem",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pMenu",
+                "type": "SpectatorMenu",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 114
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 116,
+              "end": 118
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderIcon",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pShadeColor",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 120,
+              "end": 122
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEnabled",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 124,
+              "end": 126
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 111,
+          "end": 127
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenu/CloseSpectatorItem.java"
+      },
+      {
+        "className": "ScrollMenuItem",
+        "fullName": "net.minecraft.client.gui.spectator.SpectatorMenu.ScrollMenuItem",
+        "packageName": "net.minecraft.client.gui.spectator",
+        "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenu.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "SpectatorMenuItem"
+        ],
+        "imports": [
+          "com.google.common.base.MoreObjects",
+          "com.google.common.collect.Lists",
+          "java.util.List",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.spectator.SpectatorGui",
+          "net.minecraft.client.gui.spectator.categories.SpectatorPage",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ScrollMenuItem",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pDirection",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEnabled",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 134,
+              "end": 137
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "selectItem",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pMenu",
+                "type": "SpectatorMenu",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 139,
+              "end": 141
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getName",
+            "returnType": "Component",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 143,
+              "end": 145
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderIcon",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pShadeColor",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAlpha",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 147,
+              "end": 154
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEnabled",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 156,
+              "end": 158
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "direction",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 131,
+              "end": 131
+            }
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 132,
+              "end": 132
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 130,
+          "end": 159
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenu/ScrollMenuItem.java"
+      }
+    ],
+    "lineRange": {
+      "start": 15,
+      "end": 160
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenu.java"
+  },
+  "net.minecraft.client.gui.spectator.SpectatorMenuCategory": {
+    "className": "SpectatorMenuCategory",
+    "fullName": "net.minecraft.client.gui.spectator.SpectatorMenuCategory",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenuCategory.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getItems",
+        "returnType": "List<SpectatorMenuItem>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPrompt",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenuCategory.java"
+  },
+  "net.minecraft.client.gui.spectator.SpectatorMenuItem": {
+    "className": "SpectatorMenuItem",
+    "fullName": "net.minecraft.client.gui.spectator.SpectatorMenuItem",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenuItem.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "selectItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMenu",
+            "type": "SpectatorMenu",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderIcon",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShadeColor",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 17
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenuItem.java"
+  },
+  "net.minecraft.client.gui.spectator.SpectatorMenuListener": {
+    "className": "SpectatorMenuListener",
+    "fullName": "net.minecraft.client.gui.spectator.SpectatorMenuListener",
+    "packageName": "net.minecraft.client.gui.spectator",
+    "filePath": "/net\\minecraft\\client\\gui\\spectator\\SpectatorMenuListener.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "onSpectatorMenuClosed",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMenu",
+            "type": "SpectatorMenu",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/spectator/SpectatorMenuListener.java"
+  }
+}

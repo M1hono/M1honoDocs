@@ -1,0 +1,5776 @@
+{
+  "net.minecraft.world.entity.monster.piglin.AbstractPiglin": {
+    "className": "AbstractPiglin",
+    "fullName": "net.minecraft.world.entity.monster.piglin.AbstractPiglin",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\AbstractPiglin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Monster",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.navigation.GroundPathNavigation",
+      "net.minecraft.world.entity.ai.util.GoalUtils",
+      "net.minecraft.world.entity.monster.Monster",
+      "net.minecraft.world.entity.monster.ZombifiedPiglin",
+      "net.minecraft.world.item.TieredItem",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.pathfinder.BlockPathTypes"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AbstractPiglin",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "applyOpenDoorsAbility",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canHunt",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setImmuneToZombification",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImmuneToZombification",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isImmuneToZombification",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMyRidingOffset",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isConverting",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finishConversion",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServerLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAdult",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getArmPose",
+        "returnType": "PiglinArmPose",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTarget",
+        "returnType": "LivingEntity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHoldingMeleeWeapon",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playAmbientSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendDebugPackets",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playConvertedSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 152
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "CONVERSION_TIME",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "300",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "PIGLIN_EYE_HEIGHT",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.79F",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "timeInOverworld",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 153
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/AbstractPiglin.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.Piglin": {
+    "className": "Piglin",
+    "fullName": "net.minecraft.world.entity.monster.piglin.Piglin",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\Piglin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractPiglin",
+    "interfaces": [
+      "CrossbowAttackMob",
+      "InventoryCarrier"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.serialization.Dynamic",
+      "java.util.List",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.VisibleForDebug",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.SimpleContainer",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeInstance",
+      "net.minecraft.world.entity.ai.attributes.AttributeModifier",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.monster.Creeper",
+      "net.minecraft.world.entity.monster.CrossbowAttackMob",
+      "net.minecraft.world.entity.monster.Monster",
+      "net.minecraft.world.entity.npc.InventoryCarrier",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.entity.projectile.Projectile",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.ProjectileWeaponItem",
+      "net.minecraft.world.item.enchantment.EnchantmentHelper",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Piglin",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 81
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInventory",
+        "returnType": "SimpleContainer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropCustomDeathLoot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLooting",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecentlyHit",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addToInventory",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canAddToInventory",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onSyncedDataUpdated",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pKey",
+            "type": "EntityDataAccessor<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkPiglinSpawnRules",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "EntityType<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnType",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizeSpawn",
+        "returnType": "SpawnGroupData",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnData",
+            "type": "SpawnGroupData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldDespawnInPeaceful",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeWhenFarAway",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDistanceToClosestPlayer",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "populateDefaultEquipmentSlots",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maybeWearArmor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSlot",
+            "type": "EquipmentSlot",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSize",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 222,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPassengersRidingOffset",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 230,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBaby",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChildZombie",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 237,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBaby",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 252,
+          "end": 254
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCannotHunt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCannotHunt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 256,
+          "end": 258
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canHunt",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 260,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 264,
+          "end": 270
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExperienceReward",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 272,
+          "end": 274
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finishConversion",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServerLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 276,
+          "end": 280
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createSpawnWeapon",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 282,
+          "end": 284
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isChargingCrossbow",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 286,
+          "end": 288
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setChargingCrossbow",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsCharging",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 290,
+          "end": 292
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onCrossbowAttackPerformed",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 294,
+          "end": 296
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getArmPose",
+        "returnType": "PiglinArmPose",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 298,
+          "end": 310
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDancing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 312,
+          "end": 314
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDancing",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDancing",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 316,
+          "end": 318
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 323,
+          "end": 334
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "performRangedAttack",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistanceFactor",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 339,
+          "end": 341
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shootCrossbowProjectile",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCrossbowStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProjectile",
+            "type": "Projectile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProjectileAngle",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 343,
+          "end": 345
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canFireProjectileWeapon",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProjectileWeapon",
+            "type": "ProjectileWeaponItem",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 349
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "holdInMainHand",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 351,
+          "end": 353
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "holdInOffHand",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 355,
+          "end": 363
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToPickUp",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 365,
+          "end": 367
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canReplaceCurrentItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCandidate",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 369,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canReplaceCurrentItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCandidate",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExisting",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 375,
+          "end": 389
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pickUpItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 395,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startRiding",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pForce",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 406
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTopPassenger",
+        "returnType": "Entity",
+        "parameters": [
+          {
+            "name": "pVehicle",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxPosition",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 408,
+          "end": 411
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 413,
+          "end": 415
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 417,
+          "end": 419
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 421,
+          "end": 423
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playStepSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlock",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 425,
+          "end": 427
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playSoundEvent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSoundEvent",
+            "type": "SoundEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 429,
+          "end": 431
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playConvertedSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 433,
+          "end": 435
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_HEALTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "MOVEMENT_SPEED_WHEN_FIGHTING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.35F",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "ATTACK_DAMAGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "CROSSBOW_POWER",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.6F",
+        "lineRange": {
+          "start": 67,
+          "end": 67
+        }
+      },
+      {
+        "name": "CHANCE_OF_WEARING_EACH_ARMOUR_ITEM",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.1F",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "MAX_PASSENGERS_ON_ONE_HOGLIN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "PROBABILITY_OF_SPAWNING_AS_BABY",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.2F",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "BABY_EYE_HEIGHT_ADJUSTMENT",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.82F",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "PROBABILITY_OF_SPAWNING_WITH_CROSSBOW_INSTEAD_OF_SWORD",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.5D",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "cannotHunt",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 58,
+      "end": 436
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/Piglin.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.PiglinAi": {
+    "className": "PiglinAi",
+    "fullName": "net.minecraft.world.entity.monster.piglin.PiglinAi",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\PiglinAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.util.Pair",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Optional",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.tags.ItemTags",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.TimeUtil",
+      "net.minecraft.util.valueproviders.UniformInt",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.PathfinderMob",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.BackUpIfTooClose",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+      "net.minecraft.world.entity.ai.behavior.CopyMemoryWithExpiry",
+      "net.minecraft.world.entity.ai.behavior.CrossbowAttack",
+      "net.minecraft.world.entity.ai.behavior.DismountOrSkipMounting",
+      "net.minecraft.world.entity.ai.behavior.DoNothing",
+      "net.minecraft.world.entity.ai.behavior.EraseMemoryIf",
+      "net.minecraft.world.entity.ai.behavior.GoToTargetLocation",
+      "net.minecraft.world.entity.ai.behavior.GoToWantedItem",
+      "net.minecraft.world.entity.ai.behavior.InteractWith",
+      "net.minecraft.world.entity.ai.behavior.InteractWithDoor",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MeleeAttack",
+      "net.minecraft.world.entity.ai.behavior.Mount",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.OneShot",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTargetSometimes",
+      "net.minecraft.world.entity.ai.behavior.SetLookAndInteract",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetAwayFrom",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromAttackTargetIfTargetOutOfReach",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+      "net.minecraft.world.entity.ai.behavior.StartAttacking",
+      "net.minecraft.world.entity.ai.behavior.StartCelebratingIfTargetDead",
+      "net.minecraft.world.entity.ai.behavior.StopAttackingIfTargetInvalid",
+      "net.minecraft.world.entity.ai.behavior.StopBeingAngryIfTargetDead",
+      "net.minecraft.world.entity.ai.behavior.TriggerGate",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.behavior.declarative.Trigger",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.util.LandRandomPos",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.monster.hoglin.Hoglin",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.item.ArmorItem",
+      "net.minecraft.world.item.ArmorMaterials",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootParams",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initMemories",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initFightActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCelebrateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initAdmireItemActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initRetreatActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initRideHoglinActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Piglin>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createLookBehaviors",
+        "returnType": "ImmutableList<Pair<OneShot<LivingEntity>, Integer>>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createIdleLookBehaviors",
+        "returnType": "RunOne<LivingEntity>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createIdleMovementBehaviors",
+        "returnType": "RunOne<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "avoidRepellent",
+        "returnType": "BehaviorControl<PathfinderMob>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "babyAvoidNemesis",
+        "returnType": "BehaviorControl<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "avoidZombified",
+        "returnType": "BehaviorControl<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBabyRidingBaby",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPassenger",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pickUpItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 221,
+          "end": 245
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "holdInOffhand",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 247,
+          "end": 253
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeOneItemFromItemEntity",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 255,
+          "end": 265
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopHoldingOffHandItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShouldBarter",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 267,
+          "end": 294
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cancelAdmiring",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 296,
+          "end": 302
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "putInInventory",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 304,
+          "end": 307
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "throwItems",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPilgin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStacks",
+            "type": "List<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 309,
+          "end": 317
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "throwItemsTowardRandomPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStacks",
+            "type": "List<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 319,
+          "end": 321
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "throwItemsTowardPlayer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStacks",
+            "type": "List<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 323,
+          "end": 325
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "throwItemsTowardPos",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStacks",
+            "type": "List<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 327,
+          "end": 336
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBarterResponseItems",
+        "returnType": "List<ItemStack>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 338,
+          "end": 342
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToDance",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34811_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_34812_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 344,
+          "end": 350
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToPickup",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 352,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isLovedItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_149966_",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 375,
+          "end": 377
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToStopRiding",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34835_",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_34836_",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 379,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNearestValidAttackTarget",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 387,
+          "end": 391
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNearZombified",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34999_",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 393,
+          "end": 401
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "angerNearbyPiglins",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAngerOnlyIfCanSee",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 430,
+          "end": 442
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 444,
+          "end": 455
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canAdmire",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 457,
+          "end": 459
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wasHurtBy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 461,
+          "end": 494
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maybeRetaliate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 496,
+          "end": 511
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundForCurrentActivity",
+        "returnType": "Optional<SoundEvent>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 513,
+          "end": 517
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundForActivity",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 519,
+          "end": 535
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNearAvoidTarget",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 537,
+          "end": 540
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVisibleAdultPiglins",
+        "returnType": "List<AbstractPiglin>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 542,
+          "end": 544
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAdultPiglins",
+        "returnType": "List<AbstractPiglin>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 546,
+          "end": 548
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isWearingGold",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLivingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 550,
+          "end": 559
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopWalking",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 561,
+          "end": 564
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "babySometimesRideBabyHoglin",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 566,
+          "end": 571
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastAngerTarget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 573,
+          "end": 579
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastUniversalAnger",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 581,
+          "end": 587
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAngerTarget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 589,
+          "end": 602
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAngerTargetToNearestTargetablePlayerIfFound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 604,
+          "end": 612
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAngerTargetIfCloserThanCurrent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 614,
+          "end": 620
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAngerTarget",
+        "returnType": "Optional<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 622,
+          "end": 624
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAvoidTarget",
+        "returnType": "Optional<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 626,
+          "end": 628
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNearestVisibleTargetablePlayer",
+        "returnType": "Optional<Player>",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 630,
+          "end": 632
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "broadcastRetreat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 634,
+          "end": 640
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "retreatFromNearestTarget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 642,
+          "end": 647
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToStopFleeing",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_35009_",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 649,
+          "end": 664
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "piglinsEqualOrOutnumberHoglins",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 666,
+          "end": 668
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hoglinsOutnumberPiglins",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 670,
+          "end": 674
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAvoidTargetAndDontHuntForAWhile",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 676,
+          "end": 682
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dontKillAnyMoreHoglinsForAWhile",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 684,
+          "end": 686
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "eat",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 688,
+          "end": 690
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRandomNearbyPos",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 692,
+          "end": 695
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasEatenRecently",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 697,
+          "end": 699
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isIdle",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34943_",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 701,
+          "end": 703
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasCrossbow",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34919_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 705,
+          "end": 707
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "admireGoldItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 709,
+          "end": 711
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAdmiringItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 713,
+          "end": 715
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBarterCurrency",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 717,
+          "end": 719
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFood",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 721,
+          "end": 723
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNearRepellent",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 725,
+          "end": 727
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "seesPlayerHoldingLovedItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 729,
+          "end": 731
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doesntSeeAnyPlayerHoldingLovedItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34983_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 733,
+          "end": 735
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPlayerHoldingLovedItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_34884_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 737,
+          "end": 739
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAdmiringDisabled",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 741,
+          "end": 743
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wasHurtRecently",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 745,
+          "end": 747
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHoldingItemInOffHand",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglin",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 749,
+          "end": 751
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNotHoldingLovedItemInOffHand",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_35029_",
+            "type": "Piglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 753,
+          "end": 755
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isZombified",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntityType",
+            "type": "EntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 757,
+          "end": 759
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "REPELLENT_DETECTION_RANGE_HORIZONTAL",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "REPELLENT_DETECTION_RANGE_VERTICAL",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "BARTERING_ITEM",
+        "type": "Item",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "Items.GOLD_INGOT",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "PLAYER_ANGER_RANGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "ANGER_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "ADMIRE_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "120",
+        "lineRange": {
+          "start": 82,
+          "end": 82
+        }
+      },
+      {
+        "name": "MAX_DISTANCE_TO_WALK_TO_ITEM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "9",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      },
+      {
+        "name": "MAX_TIME_TO_WALK_TO_ITEM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "200",
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        }
+      },
+      {
+        "name": "HOW_LONG_TIME_TO_DISABLE_ADMIRE_WALKING_IF_CANT_REACH_ITEM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "200",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      },
+      {
+        "name": "CELEBRATION_TIME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "300",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "BABY_FLEE_DURATION_AFTER_GETTING_HIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "HIT_BY_PLAYER_MEMORY_TIMEOUT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "400",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "MAX_WALK_DISTANCE_TO_START_RIDING",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "MELEE_ATTACK_COOLDOWN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        }
+      },
+      {
+        "name": "EAT_COOLDOWN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "200",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      {
+        "name": "DESIRED_DISTANCE_FROM_ENTITY_WHEN_AVOIDING",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "12",
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        }
+      },
+      {
+        "name": "MAX_LOOK_DIST",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      },
+      {
+        "name": "MAX_LOOK_DIST_FOR_PLAYER_HOLDING_LOVED_ITEM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "14",
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        }
+      },
+      {
+        "name": "INTERACTION_RANGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 99,
+          "end": 99
+        }
+      },
+      {
+        "name": "MIN_DESIRED_DIST_FROM_TARGET_WHEN_HOLDING_CROSSBOW",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 100,
+          "end": 100
+        }
+      },
+      {
+        "name": "SPEED_WHEN_STRAFING_BACK_FROM_TARGET",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.75F",
+        "lineRange": {
+          "start": 101,
+          "end": 101
+        }
+      },
+      {
+        "name": "DESIRED_DISTANCE_FROM_ZOMBIFIED",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6",
+        "lineRange": {
+          "start": 102,
+          "end": 102
+        }
+      },
+      {
+        "name": "PROBABILITY_OF_CELEBRATION_DANCE",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.1F",
+        "lineRange": {
+          "start": 105,
+          "end": 105
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_AVOIDING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 106,
+          "end": 106
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_RETREATING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 107,
+          "end": 107
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_MOUNTING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.8F",
+        "lineRange": {
+          "start": 108,
+          "end": 108
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_GOING_TO_WANTED_ITEM",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 109,
+          "end": 109
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_GOING_TO_CELEBRATE_LOCATION",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 110,
+          "end": 110
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_DANCING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 111,
+          "end": 111
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 112,
+          "end": 112
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 76,
+      "end": 760
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/PiglinAi.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.PiglinArmPose": {
+    "className": "PiglinArmPose",
+    "fullName": "net.minecraft.world.entity.monster.piglin.PiglinArmPose",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\PiglinArmPose.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 10
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/PiglinArmPose.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.PiglinBrute": {
+    "className": "PiglinBrute",
+    "fullName": "net.minecraft.world.entity.monster.piglin.PiglinBrute",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\PiglinBrute.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractPiglin",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.serialization.Dynamic",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.monster.Monster",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PiglinBrute",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "finalizeSpawn",
+        "returnType": "SpawnGroupData",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnData",
+            "type": "SpawnGroupData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "populateDefaultEquipmentSlots",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<PiglinBrute>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canHunt",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToPickUp",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getArmPose",
+        "returnType": "PiglinArmPose",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playStepSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlock",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playAngrySound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playConvertedSound",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 130
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_HEALTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "50",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "MOVEMENT_SPEED_WHEN_FIGHTING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.35F",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "ATTACK_DAMAGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "7",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 131
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/PiglinBrute.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.PiglinBruteAi": {
+    "className": "PiglinBruteAi",
+    "fullName": "net.minecraft.world.entity.monster.piglin.PiglinBruteAi",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\PiglinBruteAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.util.Pair",
+      "java.util.Optional",
+      "net.minecraft.core.GlobalPos",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+      "net.minecraft.world.entity.ai.behavior.DoNothing",
+      "net.minecraft.world.entity.ai.behavior.InteractWith",
+      "net.minecraft.world.entity.ai.behavior.InteractWithDoor",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MeleeAttack",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTarget",
+      "net.minecraft.world.entity.ai.behavior.SetLookAndInteract",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromAttackTargetIfTargetOutOfReach",
+      "net.minecraft.world.entity.ai.behavior.StartAttacking",
+      "net.minecraft.world.entity.ai.behavior.StopAttackingIfTargetInvalid",
+      "net.minecraft.world.entity.ai.behavior.StopBeingAngryIfTargetDead",
+      "net.minecraft.world.entity.ai.behavior.StrollAroundPoi",
+      "net.minecraft.world.entity.ai.behavior.StrollToPoi",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.schedule.Activity"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initMemories",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrain",
+            "type": "Brain<PiglinBrute>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrain",
+            "type": "Brain<PiglinBrute>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initFightActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrain",
+            "type": "Brain<PiglinBrute>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createIdleLookBehaviors",
+        "returnType": "RunOne<PiglinBrute>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createIdleMovementBehaviors",
+        "returnType": "RunOne<PiglinBrute>",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNearestValidAttackTarget",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wasHurtBy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAngerTarget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAngerTarget",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maybePlayActivitySound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playActivitySound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPiglinBrute",
+            "type": "PiglinBrute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 141
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ANGER_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "MELEE_ATTACK_COOLDOWN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "ACTIVITY_SOUND_LIKELIHOOD_PER_TICK",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.0125D",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "MAX_LOOK_DIST",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "INTERACTION_RANGE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "TARGETING_RANGE",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "12.0D",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.6F",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "HOME_CLOSE_ENOUGH_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "HOME_TOO_FAR_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "100",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "HOME_STROLL_AROUND_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 33,
+      "end": 142
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/PiglinBruteAi.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.RememberIfHoglinWasKilled": {
+    "className": "RememberIfHoglinWasKilled",
+    "fullName": "net.minecraft.world.entity.monster.piglin.RememberIfHoglinWasKilled",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\RememberIfHoglinWasKilled.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/RememberIfHoglinWasKilled.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.StartAdmiringItemIfSeen": {
+    "className": "StartAdmiringItemIfSeen",
+    "fullName": "net.minecraft.world.entity.monster.piglin.StartAdmiringItemIfSeen",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\StartAdmiringItemIfSeen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.item.ItemEntity"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pAdmireDuration",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/StartAdmiringItemIfSeen.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.StartHuntingHoglin": {
+    "className": "StartHuntingHoglin",
+    "fullName": "net.minecraft.world.entity.monster.piglin.StartHuntingHoglin",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\StartHuntingHoglin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.world.entity.ai.behavior.OneShot",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.monster.hoglin.Hoglin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "OneShot<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasHuntedRecently",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_260138_",
+            "type": "AbstractPiglin",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/StartHuntingHoglin.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.StopAdmiringIfItemTooFarAway": {
+    "className": "StopAdmiringIfItemTooFarAway",
+    "fullName": "net.minecraft.world.entity.monster.piglin.StopAdmiringIfItemTooFarAway",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\StopAdmiringIfItemTooFarAway.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Optional",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.item.ItemEntity"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pMaxDist",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 30
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/StopAdmiringIfItemTooFarAway.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.StopAdmiringIfTiredOfTryingToReachItem": {
+    "className": "StopAdmiringIfTiredOfTryingToReachItem",
+    "fullName": "net.minecraft.world.entity.monster.piglin.StopAdmiringIfTiredOfTryingToReachItem",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\StopAdmiringIfTiredOfTryingToReachItem.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Optional",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<LivingEntity>",
+        "parameters": [
+          {
+            "name": "pMaxTimeToReachItem",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDisableDuration",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 37
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/StopAdmiringIfTiredOfTryingToReachItem.java"
+  },
+  "net.minecraft.world.entity.monster.piglin.StopHoldingItemIfNoLongerAdmiring": {
+    "className": "StopHoldingItemIfNoLongerAdmiring",
+    "fullName": "net.minecraft.world.entity.monster.piglin.StopHoldingItemIfNoLongerAdmiring",
+    "packageName": "net.minecraft.world.entity.monster.piglin",
+    "filePath": "/net\\minecraft\\world\\entity\\monster\\piglin\\StopHoldingItemIfNoLongerAdmiring.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.item.Items"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "BehaviorControl<Piglin>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 22
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 23
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/monster/piglin/StopHoldingItemIfNoLongerAdmiring.java"
+  }
+}

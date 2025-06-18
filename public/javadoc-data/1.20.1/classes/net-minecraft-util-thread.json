@@ -1,0 +1,1706 @@
+{
+  "net.minecraft.util.thread.BlockableEventLoop": {
+    "className": "BlockableEventLoop",
+    "fullName": "net.minecraft.util.thread.BlockableEventLoop",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\BlockableEventLoop.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.Queues",
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "java.util.Queue",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.locks.LockSupport",
+      "java.util.function.BooleanSupplier",
+      "java.util.function.Supplier",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "net.minecraft.util.profiling.metrics.MetricSampler",
+      "net.minecraft.util.profiling.metrics.MetricsRegistry",
+      "net.minecraft.util.profiling.metrics.ProfilerMeasured",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockableEventLoop",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "wrapRunnable",
+        "returnType": "R",
+        "parameters": [
+          {
+            "name": "pRunnable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRun",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRunnable",
+            "type": "R",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSameThread",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRunningThread",
+        "returnType": "Thread",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scheduleExecutables",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPendingTasksCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "name",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "submitAsync",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "submit",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executeBlocking",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tell",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "R",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executeIfPossible",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropAllTasks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runAllTasks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pollTask",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "managedBlock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIsDone",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "waitForTasks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doRunTask",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "R",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "profiledMetrics",
+        "returnType": "List<MetricSampler>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 175
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "blockingCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 176
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/BlockableEventLoop.java"
+  },
+  "net.minecraft.util.thread.NamedThreadFactory": {
+    "className": "NamedThreadFactory",
+    "fullName": "net.minecraft.util.thread.NamedThreadFactory",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\NamedThreadFactory.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ThreadFactory"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.concurrent.ThreadFactory",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NamedThreadFactory",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pNamePrefix",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "newThread",
+        "returnType": "Thread",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 31
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "group",
+        "type": "ThreadGroup",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "namePrefix",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 32
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/NamedThreadFactory.java"
+  },
+  "net.minecraft.util.thread.ProcessorHandle": {
+    "className": "ProcessorHandle",
+    "fullName": "net.minecraft.util.thread.ProcessorHandle",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\ProcessorHandle.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.util.Either",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Consumer",
+      "java.util.function.Function"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "name",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tell",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "Msg",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/ProcessorHandle.java"
+  },
+  "net.minecraft.util.thread.ProcessorMailbox": {
+    "className": "ProcessorMailbox",
+    "fullName": "net.minecraft.util.thread.ProcessorMailbox",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\ProcessorMailbox.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.ints.Int2BooleanFunction",
+      "java.util.List",
+      "java.util.concurrent.ConcurrentLinkedQueue",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.RejectedExecutionException",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "net.minecraft.Util",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "net.minecraft.util.profiling.metrics.MetricSampler",
+      "net.minecraft.util.profiling.metrics.MetricsRegistry",
+      "net.minecraft.util.profiling.metrics.ProfilerMeasured",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "ProcessorMailbox<Runnable>",
+        "parameters": [
+          {
+            "name": "pDispatcher",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ProcessorMailbox",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "super",
+            "type": "StrictQueue<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDispatcher",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 36
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "setAsScheduled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setAsIdle",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeScheduled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldProcess",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pollTask",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runAll",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tell",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerForExecution",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pollUntil",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pContinuePolling",
+            "type": "Int2BooleanFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "size",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasWork",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "name",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "profiledMetrics",
+        "returnType": "List<MetricSampler>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "CLOSED_BIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "SCHEDULED_BIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "dispatcher",
+        "type": "Executor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 163
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/ProcessorMailbox.java"
+  },
+  "net.minecraft.util.thread.ReentrantBlockableEventLoop": {
+    "className": "ReentrantBlockableEventLoop",
+    "fullName": "net.minecraft.util.thread.ReentrantBlockableEventLoop",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\ReentrantBlockableEventLoop.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ReentrantBlockableEventLoop",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 8
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "scheduleExecutables",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runningTask",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doRunTask",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTask",
+            "type": "R",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "reentrantCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/ReentrantBlockableEventLoop.java"
+  },
+  "net.minecraft.util.thread.StrictQueue": {
+    "className": "StrictQueue",
+    "fullName": "net.minecraft.util.thread.StrictQueue",
+    "packageName": "net.minecraft.util.thread",
+    "filePath": "/net\\minecraft\\util\\thread\\StrictQueue.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Queues",
+      "java.util.Locale",
+      "java.util.Queue",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "pop",
+        "returnType": "F",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "size",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "FixedPriorityQueue",
+        "fullName": "net.minecraft.util.thread.StrictQueue.FixedPriorityQueue",
+        "packageName": "net.minecraft.util.thread",
+        "filePath": "/net\\minecraft\\util\\thread\\StrictQueue.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "StrictQueue<StrictQueue.IntRunnable",
+          "Runnable>"
+        ],
+        "imports": [
+          "com.google.common.collect.Queues",
+          "java.util.Locale",
+          "java.util.Queue",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "javax.annotation.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FixedPriorityQueue",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pSize",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 23,
+              "end": 30
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "pop",
+            "returnType": "Runnable",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 33,
+              "end": 43
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "push",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pValue",
+                "type": "StrictQueue.IntRunnable",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 45,
+              "end": 54
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEmpty",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 56,
+              "end": 58
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "size",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 60,
+              "end": 62
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "queues",
+            "type": "Queue<Runnable>[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 20,
+              "end": 20
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 19,
+          "end": 63
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/StrictQueue/FixedPriorityQueue.java"
+      },
+      {
+        "className": "IntRunnable",
+        "fullName": "net.minecraft.util.thread.StrictQueue.IntRunnable",
+        "packageName": "net.minecraft.util.thread",
+        "filePath": "/net\\minecraft\\util\\thread\\StrictQueue.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Runnable"
+        ],
+        "imports": [
+          "com.google.common.collect.Queues",
+          "java.util.Locale",
+          "java.util.Queue",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "javax.annotation.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "IntRunnable",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPriority",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTask",
+                "type": "Runnable",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 69,
+              "end": 72
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "run",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 74,
+              "end": 76
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPriority",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 78,
+              "end": 80
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "priority",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 66,
+              "end": 66
+            }
+          },
+          {
+            "name": "task",
+            "type": "Runnable",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 67,
+              "end": 67
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 65,
+          "end": 81
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/StrictQueue/IntRunnable.java"
+      },
+      {
+        "className": "QueueStrictQueue",
+        "fullName": "net.minecraft.util.thread.StrictQueue.QueueStrictQueue",
+        "packageName": "net.minecraft.util.thread",
+        "filePath": "/net\\minecraft\\util\\thread\\StrictQueue.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Queues",
+          "java.util.Locale",
+          "java.util.Queue",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "javax.annotation.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "QueueStrictQueue",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pQueue",
+                "type": "Queue<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 86,
+              "end": 88
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "pop",
+            "returnType": "T",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 91,
+              "end": 93
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "push",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pValue",
+                "type": "T",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 95,
+              "end": 97
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isEmpty",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 101
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "size",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 105
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "queue",
+            "type": "Queue<T>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 84,
+              "end": 84
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 83,
+          "end": 106
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/StrictQueue/QueueStrictQueue.java"
+      }
+    ],
+    "lineRange": {
+      "start": 9,
+      "end": 107
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/thread/StrictQueue.java"
+  }
+}

@@ -1,0 +1,3469 @@
+{
+  "net.minecraft.world.level.block.piston.MovingPistonBlock": {
+    "className": "MovingPistonBlock",
+    "fullName": "net.minecraft.world.level.block.piston.MovingPistonBlock",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\MovingPistonBlock.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BaseEntityBlock",
+    "interfaces": [],
+    "imports": [
+      "java.util.Collections",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.block.BaseEntityBlock",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityTicker",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.DirectionProperty",
+      "net.minecraft.world.level.block.state.properties.EnumProperty",
+      "net.minecraft.world.level.block.state.properties.PistonType",
+      "net.minecraft.world.level.pathfinder.PathComputationType",
+      "net.minecraft.world.level.storage.loot.LootParams",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+      "net.minecraft.world.phys.BlockHitResult",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MovingPistonBlock",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProperties",
+            "type": "BlockBehaviour.Properties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "newBlockEntity",
+        "returnType": "BlockEntity",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "newMovingBlockEntity",
+        "returnType": "BlockEntity",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovedState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtending",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsSourcePiston",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onRemove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsMoving",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "use",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHit",
+            "type": "BlockHitResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDrops",
+        "returnType": "List<ItemStack>",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParams",
+            "type": "LootParams.Builder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCollisionShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockEntity",
+        "returnType": "PistonMovingBlockEntity",
+        "parameters": [
+          {
+            "name": "pBlockReader",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCloneItemStack",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRot",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mirror",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMirror",
+            "type": "Mirror",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBlockStateDefinition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPathfindable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "PathComputationType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 140
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FACING",
+        "type": "DirectionProperty",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "PistonHeadBlock.FACING",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "TYPE",
+        "type": "EnumProperty<PistonType>",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "PistonHeadBlock.TYPE",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 36,
+      "end": 141
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/MovingPistonBlock.java"
+  },
+  "net.minecraft.world.level.block.piston.PistonBaseBlock": {
+    "className": "PistonBaseBlock",
+    "fullName": "net.minecraft.world.level.block.piston.PistonBaseBlock",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\PistonBaseBlock.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "DirectionalBlock",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "java.util.List",
+      "java.util.Map",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.context.BlockPlaceContext",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.SignalGetter",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.DirectionalBlock",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.block.state.properties.BooleanProperty",
+      "net.minecraft.world.level.block.state.properties.PistonType",
+      "net.minecraft.world.level.gameevent.GameEvent",
+      "net.minecraft.world.level.material.PushReaction",
+      "net.minecraft.world.level.pathfinder.PathComputationType",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PistonBaseBlock",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pIsSticky",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProperties",
+            "type": "BlockBehaviour.Properties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPlacedBy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlacer",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "neighborChanged",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFromPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsMoving",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onPlace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOldState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsMoving",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStateForPlacement",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "BlockPlaceContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkIfExtend",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNeighborSignal",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSignalGetter",
+            "type": "SignalGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "triggerEvent",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParam",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 236
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPushable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovementDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowDestroy",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPistonFacing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 241,
+          "end": 276
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveBlocks",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtending",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 278,
+          "end": 371
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRot",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 379,
+          "end": 381
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "world",
+            "type": "net.minecraft.world.level.LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "direction",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 383,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mirror",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMirror",
+            "type": "Mirror",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 393,
+          "end": 395
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBlockStateDefinition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 397,
+          "end": 399
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useShapeForLightOcclusion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 401,
+          "end": 403
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPathfindable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "PathComputationType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 405,
+          "end": 407
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "EXTENDED",
+        "type": "BooleanProperty",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "BlockStateProperties.EXTENDED",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "TRIGGER_EXTEND",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "TRIGGER_CONTRACT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "TRIGGER_DROP",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "PLATFORM_THICKNESS",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4.0F",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "isSticky",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "Whether this is a sticky piston ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 39,
+      "end": 408
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/PistonBaseBlock.java"
+  },
+  "net.minecraft.world.level.block.piston.PistonHeadBlock": {
+    "className": "PistonHeadBlock",
+    "fullName": "net.minecraft.world.level.block.piston.PistonHeadBlock",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\PistonHeadBlock.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "DirectionalBlock",
+    "interfaces": [],
+    "imports": [
+      "java.util.Arrays",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.DirectionalBlock",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.block.state.properties.BooleanProperty",
+      "net.minecraft.world.level.block.state.properties.EnumProperty",
+      "net.minecraft.world.level.block.state.properties.PistonType",
+      "net.minecraft.world.level.pathfinder.PathComputationType",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "makeShapes",
+        "returnType": "VoxelShape[]",
+        "parameters": [
+          {
+            "name": "pExtended",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShortArm",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PistonHeadBlock",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProperties",
+            "type": "BlockBehaviour.Properties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 86
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "useShapeForLightOcclusion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFittingBase",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBaseState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtendedState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playerWillDestroy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onRemove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsMoving",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateShape",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacingState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacingPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSurvive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "neighborChanged",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFromPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsMoving",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCloneItemStack",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRot",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mirror",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMirror",
+            "type": "Mirror",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBlockStateDefinition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPathfindable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "PathComputationType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 179
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TYPE",
+        "type": "EnumProperty<PistonType>",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "BlockStateProperties.PISTON_TYPE",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "SHORT",
+        "type": "BooleanProperty",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "BlockStateProperties.SHORT",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "PLATFORM",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4.0F",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "AABB_OFFSET",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.0F",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "EDGE_MIN",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6.0F",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "EDGE_MAX",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10.0F",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 180
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/PistonHeadBlock.java"
+  },
+  "net.minecraft.world.level.block.piston.PistonMath": {
+    "className": "PistonMath",
+    "fullName": "net.minecraft.world.level.block.piston.PistonMath",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\PistonMath.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.phys.AABB"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getMovementArea",
+        "returnType": "AABB",
+        "parameters": [
+          {
+            "name": "pBounds",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDir",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelta",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/PistonMath.java"
+  },
+  "net.minecraft.world.level.block.piston.PistonMovingBlockEntity": {
+    "className": "PistonMovingBlockEntity",
+    "fullName": "net.minecraft.world.level.block.piston.PistonMovingBlockEntity",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\PistonMovingBlockEntity.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockEntity",
+    "interfaces": [],
+    "imports": [
+      "java.util.Iterator",
+      "java.util.List",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.HolderGetter",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.block.state.properties.PistonType",
+      "net.minecraft.world.level.material.PushReaction",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PistonMovingBlockEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "PistonMovingBlockEntity",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovedState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtending",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsSourcePiston",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 59
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getUpdateTag",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isExtending",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDirection",
+        "returnType": "Direction",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSourcePiston",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getXOff",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getYOff",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getZOff",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExtendedProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pProgress",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCollisionRelatedBlockState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveCollidedEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPiston",
+            "type": "PistonMovingBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveEntityByPiston",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNoClipDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProgress",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveStuckEntities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPiston",
+            "type": "PistonMovingBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "matchesStickyCritera",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBox",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isStickyForEntities",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMovementDirection",
+        "returnType": "Direction",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMovement",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pHeadShape",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFacing",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 239
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveByPositionAndProgress",
+        "returnType": "AABB",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAabb",
+            "type": "AABB",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPistonMovingBlockEntity",
+            "type": "PistonMovingBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 241,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fixEntityWithinPistonBase",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDir",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProgress",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 246,
+          "end": 259
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMovedState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalTick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 268,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockEntity",
+            "type": "PistonMovingBlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 289,
+          "end": 324
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 326,
+          "end": 335
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveAdditional",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 337,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCollisionShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 346,
+          "end": 371
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLastTicked",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 373,
+          "end": 375
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 377,
+          "end": 383
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TICKS_TO_EXTEND",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "PUSH_OFFSET",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.01D",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "TICK_MOVEMENT",
+        "type": "double",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.51D",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "extending",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "Whether this piston is extending. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "isSourcePiston",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "progress",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "progressO",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "The extension / retraction progress ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "lastTicked",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "deathTicks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 31,
+      "end": 384
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/PistonMovingBlockEntity.java"
+  },
+  "net.minecraft.world.level.block.piston.PistonStructureResolver": {
+    "className": "PistonStructureResolver",
+    "fullName": "net.minecraft.world.level.block.piston.PistonStructureResolver",
+    "packageName": "net.minecraft.world.level.block.piston",
+    "filePath": "/net\\minecraft\\world\\level\\block\\piston\\PistonStructureResolver.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.material.PushReaction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PistonStructureResolver",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPistonPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPistonDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExtending",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "resolve",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addBlockLine",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOriginPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reorderListAtCollision",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOffsets",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addBranchingBlocks",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFromPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPushDirection",
+        "returnType": "Direction",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getToPush",
+        "returnType": "List<BlockPos>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getToDestroy",
+        "returnType": "List<BlockPos>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 191
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_PUSH_DEPTH",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "12",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "level",
+        "type": "Level",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "pistonPos",
+        "type": "BlockPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "extending",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "startPos",
+        "type": "BlockPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "pushDirection",
+        "type": "Direction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "pistonDirection",
+        "type": "Direction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 192
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/block/piston/PistonStructureResolver.java"
+  }
+}

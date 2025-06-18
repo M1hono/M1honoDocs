@@ -1,0 +1,2872 @@
+{
+  "dev.latvian.mods.kubejs.level.BlockContainerJS": {
+    "className": "BlockContainerJS",
+    "fullName": "dev.latvian.mods.kubejs.level.BlockContainerJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\BlockContainerJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpecialEquality"
+    ],
+    "imports": [
+      "dev.architectury.hooks.level.entity.PlayerHooks",
+      "dev.latvian.mods.kubejs.core.InventoryKJS",
+      "dev.latvian.mods.kubejs.platform.LevelPlatformHelper",
+      "dev.latvian.mods.kubejs.player.EntityArrayList",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.Tags",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.util.SpecialEquality",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LightLayer",
+      "net.minecraft.world.level.biome.Biomes",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.Property",
+      "net.minecraft.world.phys.AABB",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockContainerJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "w",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 52
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "BlockContainerJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "blockEntity",
+            "type": "BlockEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "clearCache",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLevel",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPos",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDimension",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getX",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getY",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getZ",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "offset",
+        "returnType": "BlockContainerJS",
+        "parameters": [
+          {
+            "name": "f",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "d",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "offset",
+        "returnType": "BlockContainerJS",
+        "parameters": [
+          {
+            "name": "f",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "offset",
+        "returnType": "BlockContainerJS",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDown",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUp",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNorth",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSouth",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWest",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEast",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBlockState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "flags",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTags",
+        "returnType": "Collection<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTag",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 147,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "set",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "properties",
+            "type": "?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "flags",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 172
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "set",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "properties",
+            "type": "?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 174,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "set",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProperties",
+        "returnType": "Map<String, String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntity",
+        "returnType": "BlockEntity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntityId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntityData",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 208,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setEntityData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 218,
+          "end": 226
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mergeEntityData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 228,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 242,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSkyLight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 246,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockLight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCanSeeSky",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 256
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSeeSkyFromBelowWater",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 258,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 290
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createExplosion",
+        "returnType": "ExplosionJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 292,
+          "end": 294
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createEntity",
+        "returnType": "Entity",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "EntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 297,
+          "end": 305
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnLightning",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "effectOnly",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "player",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 307,
+          "end": 315
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnLightning",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "effectOnly",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 317,
+          "end": 319
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnLightning",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 321,
+          "end": 323
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnFireworks",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "fireworks",
+            "type": "FireworksJS",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 325,
+          "end": 327
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInventory",
+        "returnType": "InventoryKJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 332
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInventory",
+        "returnType": "InventoryKJS",
+        "parameters": [
+          {
+            "name": "facing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 335,
+          "end": 349
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItem",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 351,
+          "end": 354
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDrops",
+        "returnType": "List<ItemStack>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 356,
+          "end": 358
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDrops",
+        "returnType": "List<ItemStack>",
+        "parameters": [
+          {
+            "name": "entity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "heldItem",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 360,
+          "end": 366
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 368,
+          "end": 370
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "popItemFromFace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dir",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 372,
+          "end": 374
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 377,
+          "end": 385
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isReal",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 387,
+          "end": 389
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayersInRadius",
+        "returnType": "EntityArrayList",
+        "parameters": [
+          {
+            "name": "radius",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 391,
+          "end": 393
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPlayersInRadius",
+        "returnType": "EntityArrayList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 395,
+          "end": 397
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBiomeId",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 399,
+          "end": 401
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "specialEquals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "shallow",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 404,
+          "end": 410
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTypeData",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 412,
+          "end": 414
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minecraftLevel",
+        "type": "Level",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "pos",
+        "type": "BlockPos",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "cachedState",
+        "type": "transient BlockState",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "cachedEntity",
+        "type": "transient BlockEntity",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 40,
+      "end": 415
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/BlockContainerJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.ExplosionEventJS": {
+    "className": "ExplosionEventJS",
+    "fullName": "dev.latvian.mods.kubejs.level.ExplosionEventJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\ExplosionEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "LevelEventJS",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.hooks.level.ExplosionHooks",
+      "dev.latvian.mods.kubejs.player.EntityArrayList",
+      "dev.latvian.mods.kubejs.typings.Info",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.level.Explosion",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.phys.Vec3",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.ArrayList",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ExplosionEventJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "explosion",
+            "type": "Explosion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getLevel",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPosition",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getX",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getY",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getZ",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlock",
+        "returnType": "BlockContainerJS",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExploder",
+        "returnType": "LivingEntity",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "level",
+        "type": "Level",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "explosion",
+        "type": "Explosion",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Before",
+        "fullName": "dev.latvian.mods.kubejs.level.ExplosionEventJS.Before",
+        "packageName": "dev.latvian.mods.kubejs.level",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\level\\ExplosionEventJS.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "ExplosionEventJS",
+        "interfaces": [],
+        "imports": [
+          "dev.architectury.hooks.level.ExplosionHooks",
+          "dev.latvian.mods.kubejs.player.EntityArrayList",
+          "dev.latvian.mods.kubejs.typings.Info",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.level.Explosion",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.phys.Vec3",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Before",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "level",
+                "type": "Level",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "explosion",
+                "type": "Explosion",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 60,
+              "end": 62
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSize",
+            "returnType": "float",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 65,
+              "end": 67
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setSize",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "s",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 70,
+              "end": 72
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 59,
+          "end": 73
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/ExplosionEventJS/Before.java"
+      },
+      {
+        "className": "After",
+        "fullName": "dev.latvian.mods.kubejs.level.ExplosionEventJS.After",
+        "packageName": "dev.latvian.mods.kubejs.level",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\level\\ExplosionEventJS.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "ExplosionEventJS",
+        "interfaces": [],
+        "imports": [
+          "dev.architectury.hooks.level.ExplosionHooks",
+          "dev.latvian.mods.kubejs.player.EntityArrayList",
+          "dev.latvian.mods.kubejs.typings.Info",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.level.Explosion",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.phys.Vec3",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "After",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "level",
+                "type": "Level",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "explosion",
+                "type": "Explosion",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "affectedEntities",
+                "type": "List<Entity>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 81,
+              "end": 84
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getAffectedEntities",
+            "returnType": "EntityArrayList",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 87,
+              "end": 89
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "removeAffectedEntity",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "entity",
+                "type": "Entity",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 92,
+              "end": 94
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "removeAllAffectedEntities",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 97,
+              "end": 99
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getAffectedBlocks",
+            "returnType": "List<BlockContainerJS>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 102,
+              "end": 110
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "removeAffectedBlock",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "block",
+                "type": "BlockContainerJS",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 113,
+              "end": 115
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "removeAllAffectedBlocks",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 118,
+              "end": 120
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "removeKnockback",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 123,
+              "end": 125
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "affectedEntities",
+            "type": "List<Entity>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 79,
+              "end": 79
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 78,
+          "end": 126
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/ExplosionEventJS/After.java"
+      }
+    ],
+    "lineRange": {
+      "start": 17,
+      "end": 127
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/ExplosionEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.ExplosionJS": {
+    "className": "ExplosionJS",
+    "fullName": "dev.latvian.mods.kubejs.level.ExplosionJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\ExplosionJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ExplosionJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "l",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "_x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "_y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "_z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "exploder",
+        "returnType": "ExplosionJS",
+        "parameters": [
+          {
+            "name": "entity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "strength",
+        "returnType": "ExplosionJS",
+        "parameters": [
+          {
+            "name": "f",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "causesFire",
+        "returnType": "ExplosionJS",
+        "parameters": [
+          {
+            "name": "b",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "explosionMode",
+        "returnType": "ExplosionJS",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "Level.ExplosionInteraction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "TODO (low): change this",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "explode",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "level",
+        "type": "LevelAccessor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "z",
+        "type": "double x, y,",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "exploder",
+        "type": "Entity",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "strength",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "causesFire",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "explosionMode",
+        "type": "Level.ExplosionInteraction",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/ExplosionJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.FireworksJS": {
+    "className": "FireworksJS",
+    "fullName": "dev.latvian.mods.kubejs.level.FireworksJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\FireworksJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.FireworkRocketEntityKJS",
+      "dev.latvian.mods.kubejs.util.ListJS",
+      "dev.latvian.mods.kubejs.util.MapJS",
+      "dev.latvian.mods.rhino.mod.wrapper.ColorWrapper",
+      "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "java.util.ArrayList",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "of",
+        "returnType": "FireworksJS",
+        "parameters": [
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createFireworkRocket",
+        "returnType": "FireworkRocketEntity",
+        "parameters": [
+          {
+            "name": "w",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 154
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "flight",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 122,
+          "end": 122
+        }
+      },
+      {
+        "name": "lifetime",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 123,
+          "end": 123
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Shape",
+        "fullName": "dev.latvian.mods.kubejs.level.FireworksJS.Shape",
+        "packageName": "dev.latvian.mods.kubejs.level",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\level\\FireworksJS.java",
+        "classType": "enum",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "dev.latvian.mods.kubejs.core.FireworkRocketEntityKJS",
+          "dev.latvian.mods.kubejs.util.ListJS",
+          "dev.latvian.mods.kubejs.util.MapJS",
+          "dev.latvian.mods.rhino.mod.wrapper.ColorWrapper",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.ListTag",
+          "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "java.util.ArrayList",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SMALL_BALL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 87,
+              "end": 91
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "LARGE_BALL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 88,
+              "end": 91
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "STAR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 89,
+              "end": 91
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "CREEPER",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 91
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "BURST",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 91,
+              "end": 91
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Shape",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "n",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "t",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 101
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "get",
+            "returnType": "Shape",
+            "parameters": [
+              {
+                "name": "name",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 111
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 95,
+              "end": 95
+            }
+          },
+          {
+            "name": "type",
+            "type": "int",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 96,
+              "end": 96
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 86,
+          "end": 112
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/FireworksJS/Shape.java"
+      },
+      {
+        "className": "Explosion",
+        "fullName": "dev.latvian.mods.kubejs.level.FireworksJS.Explosion",
+        "packageName": "dev.latvian.mods.kubejs.level",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\level\\FireworksJS.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "dev.latvian.mods.kubejs.core.FireworkRocketEntityKJS",
+          "dev.latvian.mods.kubejs.util.ListJS",
+          "dev.latvian.mods.kubejs.util.MapJS",
+          "dev.latvian.mods.rhino.mod.wrapper.ColorWrapper",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.ListTag",
+          "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "java.util.ArrayList",
+          "java.util.List"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [
+          {
+            "name": "shape",
+            "type": "Shape",
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "initialValue": "Shape.SMALL_BALL",
+            "lineRange": {
+              "start": 115,
+              "end": 115
+            }
+          },
+          {
+            "name": "flicker",
+            "type": "boolean",
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "initialValue": "false",
+            "lineRange": {
+              "start": 116,
+              "end": 116
+            }
+          },
+          {
+            "name": "trail",
+            "type": "boolean",
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "initialValue": "false",
+            "lineRange": {
+              "start": 117,
+              "end": 117
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 114,
+          "end": 120
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/FireworksJS/Explosion.java"
+      }
+    ],
+    "lineRange": {
+      "start": 18,
+      "end": 155
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/FireworksJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.KubeJSWorldEventHandler": {
+    "className": "KubeJSWorldEventHandler",
+    "fullName": "dev.latvian.mods.kubejs.level.KubeJSWorldEventHandler",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\KubeJSWorldEventHandler.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.event.EventResult",
+      "dev.architectury.event.events.common.ExplosionEvent",
+      "dev.architectury.event.events.common.LifecycleEvent",
+      "dev.architectury.event.events.common.TickEvent",
+      "dev.latvian.mods.kubejs.bindings.event.LevelEvents",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.Explosion",
+      "net.minecraft.world.level.Level",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "levelLoad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "levelUnload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "levelPostTick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "preExplosion",
+        "returnType": "EventResult",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "explosion",
+            "type": "Explosion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "detonateExplosion",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "explosion",
+            "type": "Explosion",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "affectedEntities",
+            "type": "List<Entity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/KubeJSWorldEventHandler.java"
+  },
+  "dev.latvian.mods.kubejs.level.LevelEventJS": {
+    "className": "LevelEventJS",
+    "fullName": "dev.latvian.mods.kubejs.level.LevelEventJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\LevelEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "EventJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.event.EventJS",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.world.level.Level",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getLevel",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getServer",
+        "returnType": "MinecraftServer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 15
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/LevelEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.level.SimpleLevelEventJS": {
+    "className": "SimpleLevelEventJS",
+    "fullName": "dev.latvian.mods.kubejs.level.SimpleLevelEventJS",
+    "packageName": "dev.latvian.mods.kubejs.level",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\level\\SimpleLevelEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LevelEventJS",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.level.Level"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SimpleLevelEventJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "l",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getLevel",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "level",
+        "type": "Level",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/level/SimpleLevelEventJS.java"
+  }
+}

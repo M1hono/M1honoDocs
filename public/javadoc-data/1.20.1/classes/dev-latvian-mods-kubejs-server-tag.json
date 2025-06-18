@@ -1,0 +1,1431 @@
+{
+  "dev.latvian.mods.kubejs.server.tag.EmptyTagTargetException": {
+    "className": "EmptyTagTargetException",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.EmptyTagTargetException",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\EmptyTagTargetException.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "NoSuchElementException",
+    "interfaces": [],
+    "imports": [
+      "java.util.NoSuchElementException"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EmptyTagTargetException",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "message",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 8
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/EmptyTagTargetException.java"
+  },
+  "dev.latvian.mods.kubejs.server.tag.PreTagEventJS": {
+    "className": "PreTagEventJS",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.PreTagEventJS",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\PreTagEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "TagEventJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.DevProperties",
+      "dev.latvian.mods.kubejs.KubeJS",
+      "dev.latvian.mods.kubejs.bindings.event.ServerEvents",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.ConcurrentHashMap",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "handle",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "tagEventHolders",
+            "type": "PreTagEventJS>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RemoveAllTagsFromAction",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "ignored",
+            "type": "Object[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PreTagEventJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "registry",
+            "type": "RegistryInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createTagWrapper",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllTagsFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ignored",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElementIds",
+        "returnType": "Set<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "tags",
+        "type": "Map<ResourceLocation, PreTagWrapper>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "actions",
+        "type": "List<Consumer<TagEventJS>>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "invalid",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 74
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/PreTagEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.server.tag.PreTagWrapper": {
+    "className": "PreTagWrapper",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.PreTagWrapper",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\PreTagWrapper.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "TagWrapper",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.resources.ResourceLocation",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AddAction",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RemoveAction",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RemoveAllAction",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PreTagWrapper",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "e",
+            "type": "PreTagEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "add",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAll",
+        "returnType": "TagWrapper",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getObjectIds",
+        "returnType": "List<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 62
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "preEvent",
+        "type": "PreTagEventJS",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "id",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 63
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/PreTagWrapper.java"
+  },
+  "dev.latvian.mods.kubejs.server.tag.TagEventFilter": {
+    "className": "TagEventFilter",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.TagEventFilter",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\TagEventFilter.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.DevProperties",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagEntry",
+      "net.minecraft.tags.TagLoader",
+      "net.minecraft.util.ExtraCodecs",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.regex.Pattern",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "of",
+        "returnType": "TagEventFilter",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "TagEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "o",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unwrap",
+        "returnType": "TagEventFilter",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "TagEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "array",
+            "type": "Object[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "testElementId",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Or",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "filters",
+            "type": "List<TagEventFilter>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ID",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Tag",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "TagWrapper",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 207,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Namespace",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "namespace",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 242,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "RegEx",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "pattern",
+            "type": "Pattern",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 254
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Empty",
+        "fullName": "dev.latvian.mods.kubejs.server.tag.TagEventFilter.Empty",
+        "packageName": "dev.latvian.mods.kubejs.server.tag",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\TagEventFilter.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "TagEventFilter"
+        ],
+        "imports": [
+          "dev.latvian.mods.kubejs.DevProperties",
+          "dev.latvian.mods.kubejs.util.ConsoleJS",
+          "dev.latvian.mods.kubejs.util.UtilsJS",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.tags.TagEntry",
+          "net.minecraft.tags.TagLoader",
+          "net.minecraft.util.ExtraCodecs",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.regex.Pattern",
+          "java.util.stream.Stream"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "testElementId",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "resourceLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 111,
+              "end": 113
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "testTagOrElementLocation",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "element",
+                "type": "ExtraCodecs.TagOrElementLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 116,
+              "end": 118
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "add",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "wrapper",
+                "type": "TagWrapper",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 123
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "remove",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "wrapper",
+                "type": "TagWrapper",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 128
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 107,
+          "end": 129
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/TagEventFilter/Empty.java"
+      }
+    ],
+    "lineRange": {
+      "start": 17,
+      "end": 255
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/TagEventFilter.java"
+  },
+  "dev.latvian.mods.kubejs.server.tag.TagEventJS": {
+    "className": "TagEventJS",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.TagEventJS",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\TagEventJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "EventJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.event.EventExceptionHandler",
+      "dev.latvian.mods.kubejs.event.EventJS",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Registry",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagLoader",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.ConcurrentHashMap",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TagEventJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "ri",
+            "type": "RegistryInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "vr",
+            "type": "Registry<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 57
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getType",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTagWrapper",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAll",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllTagsFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ids",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getElementIds",
+        "returnType": "Set<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gatherIdsFor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "excluded",
+            "type": "TagWrapper",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "collection",
+            "type": "Collection<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "entry",
+            "type": "TagLoader.EntryWithSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 118
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SOURCE",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"KubeJS Custom Tags\"",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "registry",
+        "type": "RegistryInfo",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "tags",
+        "type": "Map<ResourceLocation, TagWrapper>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "totalAdded",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "totalRemoved",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "elementIds",
+        "type": "Set<ResourceLocation>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 119
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/TagEventJS.java"
+  },
+  "dev.latvian.mods.kubejs.server.tag.TagWrapper": {
+    "className": "TagWrapper",
+    "fullName": "dev.latvian.mods.kubejs.server.tag.TagWrapper",
+    "packageName": "dev.latvian.mods.kubejs.server.tag",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\server\\tag\\TagWrapper.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.DevProperties",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagLoader",
+      "java.util.ArrayList",
+      "java.util.LinkedHashSet",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TagWrapper",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "e",
+            "type": "TagEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "t",
+            "type": "List<TagLoader.EntryWithSource>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "TagWrapper",
+        "parameters": [
+          {
+            "name": "filters",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAll",
+        "returnType": "TagWrapper",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getObjectIds",
+        "returnType": "List<ResourceLocation>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 85
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "event",
+        "type": "TagEventJS",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "id",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "entries",
+        "type": "List<TagLoader.EntryWithSource>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 86
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/server/tag/TagWrapper.java"
+  }
+}

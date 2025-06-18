@@ -1,0 +1,319 @@
+{
+  "net.minecraft.data.registries.RegistriesDatapackGenerator": {
+    "className": "RegistriesDatapackGenerator",
+    "fullName": "net.minecraft.data.registries.RegistriesDatapackGenerator",
+    "packageName": "net.minecraft.data.registries",
+    "filePath": "/net\\minecraft\\data\\registries\\RegistriesDatapackGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "DataProvider"
+    ],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.Encoder",
+      "com.mojang.serialization.JsonOps",
+      "java.nio.file.Path",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.Registry",
+      "net.minecraft.data.CachedOutput",
+      "net.minecraft.data.DataProvider",
+      "net.minecraft.data.PackOutput",
+      "net.minecraft.resources.RegistryDataLoader",
+      "net.minecraft.resources.RegistryOps",
+      "net.minecraft.resources.ResourceKey",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RegistriesDatapackGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistries",
+            "type": "CompletableFuture<HolderLookup.Provider>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "RegistriesDatapackGenerator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistries",
+            "type": "CompletableFuture<HolderLookup.Provider>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modIds",
+            "type": "java.util.Set<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getRegistryProvider",
+        "returnType": "CompletableFuture<HolderLookup.Provider>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "output",
+        "type": "PackOutput",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "registries",
+        "type": "CompletableFuture<HolderLookup.Provider>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "namespacePredicate",
+        "type": "java.util.function.Predicate<String>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 83
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/registries/RegistriesDatapackGenerator.java"
+  },
+  "net.minecraft.data.registries.VanillaRegistries": {
+    "className": "VanillaRegistries",
+    "fullName": "net.minecraft.data.registries.VanillaRegistries",
+    "packageName": "net.minecraft.data.registries",
+    "filePath": "/net\\minecraft\\data\\registries\\VanillaRegistries.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.Util",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderGetter",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.core.RegistrySetBuilder",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.data.worldgen.Carvers",
+      "net.minecraft.data.worldgen.DimensionTypes",
+      "net.minecraft.data.worldgen.NoiseData",
+      "net.minecraft.data.worldgen.Pools",
+      "net.minecraft.data.worldgen.ProcessorLists",
+      "net.minecraft.data.worldgen.StructureSets",
+      "net.minecraft.data.worldgen.Structures",
+      "net.minecraft.data.worldgen.biome.BiomeData",
+      "net.minecraft.data.worldgen.features.FeatureUtils",
+      "net.minecraft.data.worldgen.placement.PlacementUtils",
+      "net.minecraft.network.chat.ChatType",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.damagesource.DamageTypes",
+      "net.minecraft.world.item.armortrim.TrimMaterials",
+      "net.minecraft.world.item.armortrim.TrimPatterns",
+      "net.minecraft.world.level.biome.Biome",
+      "net.minecraft.world.level.biome.MultiNoiseBiomeSourceParameterLists",
+      "net.minecraft.world.level.levelgen.NoiseGeneratorSettings",
+      "net.minecraft.world.level.levelgen.NoiseRouterData",
+      "net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorPresets",
+      "net.minecraft.world.level.levelgen.placement.BiomeFilter",
+      "net.minecraft.world.level.levelgen.placement.PlacedFeature",
+      "net.minecraft.world.level.levelgen.presets.WorldPresets"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "validateThatAllBiomeFeaturesHaveBiomeFilter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pProvider",
+            "type": "HolderLookup.Provider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validateThatAllBiomeFeaturesHaveBiomeFilter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFeatures",
+            "type": "HolderGetter<PlacedFeature>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBiomes",
+            "type": "HolderLookup<Biome>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validatePlacedFeature",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFeature",
+            "type": "PlacedFeature",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 37,
+      "end": 76
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/data/registries/VanillaRegistries.java"
+  }
+}

@@ -6,18 +6,30 @@ import { JavaClassDoc, ProjectDocIndex } from "../types";
  */
 export class PrebuiltDataLoader {
     private cache = new Map<string, any>();
+    private version: string;
+    private basePath: string;
+    private sourceBasePath: string;
+
+    constructor(version: string) {
+        if (!version) {
+            throw new Error("DataLoader must be initialized with a version.");
+        }
+        this.version = version;
+        this.basePath = `/javadoc-data/${version}`;
+        this.sourceBasePath = `/java-sources/${version}`;
+        console.log(`DataLoader initialized for version: ${this.version}`);
+    }
 
     /**
      * 加载主项目索引
      */
     async loadProjectIndex(): Promise<ProjectDocIndex> {
-        console.log("📁 加载预构建的 JavaDoc 数据...");
+        console.log(`📁 Loading project index for version ${this.version}...`);
 
         try {
-            // Load the main index to get the list of package files
-            const mainIndex = await this.loadJSON("/javadoc-data/index.json");
+            const mainIndex = await this.loadJSON(`${this.basePath}/index.json`);
             console.log(
-                `📊 主索引: ${mainIndex.totalClasses} 个类, ${mainIndex.totalPackages} 个包`
+                `📊 Main index for ${this.version}: ${mainIndex.totalClasses} classes, ${mainIndex.totalPackages} packages`
             );
 
             const docIndex: ProjectDocIndex = {
@@ -27,39 +39,35 @@ export class PrebuiltDataLoader {
                 totalClasses: mainIndex.totalClasses,
                 totalPackages: mainIndex.totalPackages,
                 buildTime: mainIndex.buildTime,
+                version: this.version,
             };
 
             const packageFiles = mainIndex.packageFiles || [];
-
-            // Concurrently load all package data files
             const allPackageData = await Promise.all(
                 packageFiles.map((fileName: string) =>
-                    this.loadJSON(`/javadoc-data/classes/${fileName}`)
+                    this.loadJSON(`${this.basePath}/classes/${fileName}`)
                 )
             );
 
-            // Process all loaded data
             for (const packageData of allPackageData) {
-                for (const [className, classDoc] of Object.entries(
-                    packageData
-                )) {
+                for (const [className, classDoc] of Object.entries(packageData)) {
                     const typedClassDoc = classDoc as JavaClassDoc;
                     docIndex.classes.set(className, typedClassDoc);
 
                     const packageName = typedClassDoc.packageName;
-                    if (!docIndex.packages.has(packageName)) {
+                    if (packageName && !docIndex.packages.has(packageName)) {
                         docIndex.packages.set(packageName, []);
                     }
-                    docIndex.packages.get(packageName)!.push(className);
+                    if(packageName) {
+                        docIndex.packages.get(packageName)!.push(className);
+                    }
                 }
             }
 
-            console.log(
-                `✅ 预构建数据加载完成: ${docIndex.classes.size} 个类, ${docIndex.packages.size} 个包`
-            );
+            console.log(`✅ Prebuilt data loaded for ${this.version}: ${docIndex.classes.size} classes`);
             return docIndex;
         } catch (error) {
-            console.error("❌ 加载预构建数据失败:", error);
+            console.error(`❌ Failed to load prebuilt data for version ${this.version}:`, error);
             throw error;
         }
     }
@@ -81,7 +89,7 @@ export class PrebuiltDataLoader {
             return new Map();
         }
 
-        const cacheKey = `package:${packageName}`;
+        const cacheKey = `${this.version}-package:${packageName}`;
 
         if (this.cache.has(cacheKey)) {
             return this.cache.get(cacheKey);
@@ -90,7 +98,7 @@ export class PrebuiltDataLoader {
         try {
             const packageFileName = packageName.replace(/\./g, "-") + ".json";
             const packageData = await this.loadJSON(
-                `/javadoc-data/classes/${packageFileName}`
+                `${this.basePath}/classes/${packageFileName}`
             );
 
             const classMap = new Map<string, JavaClassDoc>();
@@ -224,7 +232,7 @@ export class PrebuiltDataLoader {
 
         // 规范化路径
         const normalizedPath = filePath.replace(/\\/g, "/").replace(/^\//, "");
-        const sourceUrl = `/java-sources/${normalizedPath}`;
+        const sourceUrl = `${this.sourceBasePath}/${normalizedPath}`;
 
         console.log(`Fetching source code from: ${sourceUrl}`);
 
@@ -259,7 +267,7 @@ export class PrebuiltDataLoader {
     async loadHierarchy(): Promise<
         Map<string, { children: string[]; parent: string | null }>
     > {
-        const cacheKey = "hierarchy";
+        const cacheKey = `${this.version}-hierarchy`;
 
         if (this.cache.has(cacheKey)) {
             return this.cache.get(cacheKey);
@@ -267,7 +275,7 @@ export class PrebuiltDataLoader {
 
         try {
             const hierarchyData = await this.loadJSON(
-                "/javadoc-data/hierarchy.json"
+                `${this.basePath}/hierarchy.json`
             );
             const hierarchyMap = new Map();
 
@@ -280,7 +288,7 @@ export class PrebuiltDataLoader {
             this.cache.set(cacheKey, hierarchyMap);
             return hierarchyMap;
         } catch (error) {
-            console.warn("⚠️  加载继承关系失败:", error);
+            console.warn(`⚠️ Failed to load hierarchy for version ${this.version}:`, error);
             return new Map();
         }
     }
@@ -291,7 +299,7 @@ export class PrebuiltDataLoader {
     async loadReferences(): Promise<
         Map<string, { usedBy: any[]; uses: any[] }>
     > {
-        const cacheKey = "references";
+        const cacheKey = `${this.version}-references`;
 
         if (this.cache.has(cacheKey)) {
             return this.cache.get(cacheKey);
@@ -299,7 +307,7 @@ export class PrebuiltDataLoader {
 
         try {
             const referencesData = await this.loadJSON(
-                "/javadoc-data/references.json"
+                `${this.basePath}/references.json`
             );
             const referencesMap = new Map();
 
@@ -310,7 +318,7 @@ export class PrebuiltDataLoader {
             this.cache.set(cacheKey, referencesMap);
             return referencesMap;
         } catch (error) {
-            console.warn("⚠️  加载引用关系失败:", error);
+            console.warn(`⚠️ Failed to load references for version ${this.version}:`, error);
             return new Map();
         }
     }

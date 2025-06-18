@@ -1,0 +1,1551 @@
+{
+  "net.minecraft.client.server.IntegratedPlayerList": {
+    "className": "IntegratedPlayerList",
+    "fullName": "net.minecraft.client.server.IntegratedPlayerList",
+    "packageName": "net.minecraft.client.server",
+    "filePath": "/net\\minecraft\\client\\server\\IntegratedPlayerList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "PlayerList",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "java.net.SocketAddress",
+      "net.minecraft.core.LayeredRegistryAccess",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.server.RegistryLayer",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.players.PlayerList",
+      "net.minecraft.world.level.storage.PlayerDataStorage",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IntegratedPlayerList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "IntegratedServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRegistries",
+            "type": "LayeredRegistryAccess<RegistryLayer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayerIo",
+            "type": "PlayerDataStorage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlayerLogin",
+        "returnType": "Component",
+        "parameters": [
+          {
+            "name": "pSocketAddress",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getServer",
+        "returnType": "IntegratedServer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSingleplayerData",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "playerData",
+        "type": "CompoundTag",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 49
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/IntegratedPlayerList.java"
+  },
+  "net.minecraft.client.server.IntegratedServer": {
+    "className": "IntegratedServer",
+    "fullName": "net.minecraft.client.server.IntegratedServer",
+    "packageName": "net.minecraft.client.server",
+    "filePath": "/net\\minecraft\\client\\server\\IntegratedServer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "MinecraftServer",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.MoreObjects",
+      "com.google.common.collect.Lists",
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.logging.LogUtils",
+      "java.io.File",
+      "java.io.IOException",
+      "java.net.InetAddress",
+      "java.util.UUID",
+      "java.util.function.BooleanSupplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.SystemReport",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.multiplayer.ClientPacketListener",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.Services",
+      "net.minecraft.server.WorldStem",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.level.progress.ChunkProgressListenerFactory",
+      "net.minecraft.server.packs.repository.PackRepository",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.util.ModCheck",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "net.minecraft.world.level.GameType",
+      "net.minecraft.world.level.storage.LevelStorageSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IntegratedServer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pServerThread",
+            "type": "Thread",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStorageSource",
+            "type": "LevelStorageSource.LevelStorageAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackRepository",
+            "type": "PackRepository",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldStem",
+            "type": "WorldStem",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServices",
+            "type": "Services",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProgressListenerFactory",
+            "type": "ChunkProgressListenerFactory",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 54
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "initServer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickServer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHasTimeLeft",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickPaused",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldRconBroadcast",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldInformAdmins",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getServerDirectory",
+        "returnType": "File",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDedicatedServer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRateLimitPacketsPerSecond",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEpollEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 145
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onServerCrash",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pReport",
+            "type": "CrashReport",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillServerSystemReport",
+        "returnType": "SystemReport",
+        "parameters": [
+          {
+            "name": "pReport",
+            "type": "SystemReport",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModdedStatus",
+        "returnType": "ModCheck",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 163,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "publishServer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pGameMode",
+            "type": "GameType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCheats",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPort",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 197
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopServer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "halt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWaitForServer",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 230
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPublished",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPort",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 242,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDefaultGameType",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGameMode",
+            "type": "GameType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCommandBlockEnabled",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 259
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOperatorUserPermissionLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFunctionCompilationLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 265,
+          "end": 267
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setUUID",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 269,
+          "end": 271
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSingleplayerOwner",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 273,
+          "end": 275
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getScaledTrackingDistance",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pTrackingDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 277,
+          "end": 279
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "forceSynchronousWrites",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 281,
+          "end": 283
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getForcedGameType",
+        "returnType": "GameType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 286,
+          "end": 288
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MIN_SIM_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "publishedPort",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "publishedGameType",
+        "type": "GameType",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "lanPinger",
+        "type": "LanServerPinger",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "uuid",
+        "type": "UUID",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "previousSimulationDistance",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 34,
+      "end": 289
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/IntegratedServer.java"
+  },
+  "net.minecraft.client.server.LanServer": {
+    "className": "LanServer",
+    "fullName": "net.minecraft.client.server.LanServer",
+    "packageName": "net.minecraft.client.server",
+    "filePath": "/net\\minecraft\\client\\server\\LanServer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.Util",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LanServer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMotd",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAddress",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getMotd",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAddress",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updatePingTime",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "motd",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "address",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "pingTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/LanServer.java"
+  },
+  "net.minecraft.client.server.LanServerDetection": {
+    "className": "LanServerDetection",
+    "fullName": "net.minecraft.client.server.LanServerDetection",
+    "packageName": "net.minecraft.client.server",
+    "filePath": "/net\\minecraft\\client\\server\\LanServerDetection.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.net.DatagramPacket",
+      "java.net.InetAddress",
+      "java.net.MulticastSocket",
+      "java.net.SocketTimeoutException",
+      "java.nio.charset.StandardCharsets",
+      "java.util.List",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "javax.annotation.Nullable",
+      "net.minecraft.DefaultUncaughtExceptionHandler",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "LanServerDetector",
+        "fullName": "net.minecraft.client.server.LanServerDetection.LanServerDetector",
+        "packageName": "net.minecraft.client.server",
+        "filePath": "/net\\minecraft\\client\\server\\LanServerDetection.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "Thread",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.net.DatagramPacket",
+          "java.net.InetAddress",
+          "java.net.MulticastSocket",
+          "java.net.SocketTimeoutException",
+          "java.nio.charset.StandardCharsets",
+          "java.util.List",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "javax.annotation.Nullable",
+          "net.minecraft.DefaultUncaughtExceptionHandler",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "LanServerDetector",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pServerList",
+                "type": "LanServerDetection.LanServerList",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 30,
+              "end": 39
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "run",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 41,
+              "end": 67
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "serverList",
+            "type": "LanServerDetection.LanServerList",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 26,
+              "end": 26
+            }
+          },
+          {
+            "name": "pingGroup",
+            "type": "InetAddress",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 27,
+              "end": 27
+            }
+          },
+          {
+            "name": "socket",
+            "type": "MulticastSocket",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 28,
+              "end": 28
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 25,
+          "end": 68
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/LanServerDetection/LanServerDetector.java"
+      },
+      {
+        "className": "LanServerList",
+        "fullName": "net.minecraft.client.server.LanServerDetection.LanServerList",
+        "packageName": "net.minecraft.client.server",
+        "filePath": "/net\\minecraft\\client\\server\\LanServerDetection.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.mojang.logging.LogUtils",
+          "java.io.IOException",
+          "java.net.DatagramPacket",
+          "java.net.InetAddress",
+          "java.net.MulticastSocket",
+          "java.net.SocketTimeoutException",
+          "java.nio.charset.StandardCharsets",
+          "java.util.List",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "javax.annotation.Nullable",
+          "net.minecraft.DefaultUncaughtExceptionHandler",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "takeDirtyServers",
+            "returnType": "List<LanServer>",
+            "parameters": [],
+            "modifiers": [
+              "public",
+              "synchronized"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 76,
+              "end": 84
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addServer",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pPingResponse",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIpAddress",
+                "type": "InetAddress",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public",
+              "synchronized"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 86,
+              "end": 111
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "isDirty",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 73,
+              "end": 73
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 71,
+          "end": 112
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/LanServerDetection/LanServerList.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 113
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/LanServerDetection.java"
+  },
+  "net.minecraft.client.server.LanServerPinger": {
+    "className": "LanServerPinger",
+    "fullName": "net.minecraft.client.server.LanServerPinger",
+    "packageName": "net.minecraft.client.server",
+    "filePath": "/net\\minecraft\\client\\server\\LanServerPinger.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Thread",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.net.DatagramPacket",
+      "java.net.DatagramSocket",
+      "java.net.InetAddress",
+      "java.nio.charset.StandardCharsets",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "net.minecraft.DefaultUncaughtExceptionHandler",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LanServerPinger",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMotd",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerAddress",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 24,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "interrupt",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPingString",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pMotdMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAdMessage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseMotd",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pPingResponse",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseAddress",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pPingResponse",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 92
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PING_PORT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4445",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "PING_INTERVAL",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1500L",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "motd",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "socket",
+        "type": "DatagramSocket",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "isRunning",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "serverAddress",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 93
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/server/LanServerPinger.java"
+  }
+}

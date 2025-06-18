@@ -1,0 +1,1238 @@
+{
+  "net.minecraft.client.renderer.texture.atlas.sources.DirectoryLister": {
+    "className": "DirectoryLister",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.DirectoryLister",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\DirectoryLister.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpriteSource"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+      "net.minecraft.resources.FileToIdConverter",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DirectoryLister",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_261886_",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_261776_",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "SpriteSource.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "SpriteSourceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "sourcePath",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "idPrefix",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 42
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/DirectoryLister.java"
+  },
+  "net.minecraft.client.renderer.texture.atlas.sources.LazyLoadedImage": {
+    "className": "LazyLoadedImage",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.LazyLoadedImage",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\LazyLoadedImage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "java.util.concurrent.atomic.AtomicReference",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LazyLoadedImage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResource",
+            "type": "Resource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReferenceCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "get",
+        "returnType": "NativeImage",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 26,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "release",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "resource",
+        "type": "Resource",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "referenceCount",
+        "type": "AtomicInteger",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/LazyLoadedImage.java"
+  },
+  "net.minecraft.client.renderer.texture.atlas.sources.PalettedPermutations": {
+    "className": "PalettedPermutations",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.PalettedPermutations",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\PalettedPermutations.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpriteSource"
+    ],
+    "imports": [
+      "com.google.common.base.Suppliers",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.ints.Int2IntMap",
+      "it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.IntUnaryOperator",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.renderer.texture.SpriteContents",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+      "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+      "net.minecraft.client.resources.metadata.animation.FrameSize",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.FastColor",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PalettedPermutations",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_267282_",
+            "type": "List<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_266681_",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_266741_",
+            "type": "ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 53
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "SpriteSource.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPaletteMapping",
+        "returnType": "IntUnaryOperator",
+        "parameters": [
+          {
+            "name": "p_266839_",
+            "type": "int[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_266776_",
+            "type": "int[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadPaletteEntryFromImage",
+        "returnType": "int[]",
+        "parameters": [
+          {
+            "name": "pResourceMananger",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPalette",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "SpriteSourceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PalettedSpriteSupplier",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "baseImage",
+            "type": "LazyLoadedImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "palette",
+            "type": "Supplier<IntUnaryOperator>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "permutationLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 154
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "textures",
+        "type": "List<ResourceLocation>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "permutations",
+        "type": "Map<String, ResourceLocation>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "paletteKey",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 34,
+      "end": 155
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/PalettedPermutations.java"
+  },
+  "net.minecraft.client.renderer.texture.atlas.sources.SingleFile": {
+    "className": "SingleFile",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.SingleFile",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\SingleFile.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpriteSource"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SingleFile",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_261658_",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_261712_",
+            "type": "Optional<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "SpriteSource.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "SpriteSourceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resourceId",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "spriteId",
+        "type": "Optional<ResourceLocation>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 49
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/SingleFile.java"
+  },
+  "net.minecraft.client.renderer.texture.atlas.sources.SourceFilter": {
+    "className": "SourceFilter",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.SourceFilter",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\SourceFilter.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpriteSource"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.ResourceLocationPattern",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SourceFilter",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_261654_",
+            "type": "ResourceLocationPattern",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "SpriteSource.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "SpriteSourceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "filter",
+        "type": "ResourceLocationPattern",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/SourceFilter.java"
+  },
+  "net.minecraft.client.renderer.texture.atlas.sources.Unstitcher": {
+    "className": "Unstitcher",
+    "fullName": "net.minecraft.client.renderer.texture.atlas.sources.Unstitcher",
+    "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\Unstitcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SpriteSource"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "java.util.Optional",
+      "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+      "net.minecraft.client.renderer.texture.SpriteContents",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+      "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+      "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+      "net.minecraft.client.resources.metadata.animation.FrameSize",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Unstitcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_261679_",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_261974_",
+            "type": "List<Unstitcher.Region>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_262181_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_261631_",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 49
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "SpriteSource.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "type",
+        "returnType": "SpriteSourceType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Region",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "sprite",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "width",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "height",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 75
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resource",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "regions",
+        "type": "List<Unstitcher.Region>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "xDivisor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "yDivisor",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "RegionInstance",
+        "fullName": "net.minecraft.client.renderer.texture.atlas.sources.Unstitcher.RegionInstance",
+        "packageName": "net.minecraft.client.renderer.texture.atlas.sources",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\atlas\\sources\\Unstitcher.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "SpriteSource.SpriteSupplier"
+        ],
+        "imports": [
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "java.util.List",
+          "java.util.Optional",
+          "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+          "net.minecraft.client.renderer.texture.SpriteContents",
+          "net.minecraft.client.renderer.texture.atlas.SpriteSource",
+          "net.minecraft.client.renderer.texture.atlas.SpriteSourceType",
+          "net.minecraft.client.renderer.texture.atlas.SpriteSources",
+          "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+          "net.minecraft.client.resources.metadata.animation.FrameSize",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.Resource",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RegionInstance",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pImage",
+                "type": "LazyLoadedImage",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRegion",
+                "type": "Unstitcher.Region",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pXDivisor",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pYDivisor",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 84,
+              "end": 89
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "get",
+            "returnType": "SpriteContents",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 91,
+              "end": 110
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "discard",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 114
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "image",
+            "type": "LazyLoadedImage",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 79,
+              "end": 79
+            }
+          },
+          {
+            "name": "region",
+            "type": "Unstitcher.Region",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 80,
+              "end": 80
+            }
+          },
+          {
+            "name": "xDivisor",
+            "type": "double",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 81,
+              "end": 81
+            }
+          },
+          {
+            "name": "yDivisor",
+            "type": "double",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 82,
+              "end": 82
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 78,
+          "end": 115
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/Unstitcher/RegionInstance.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 116
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/atlas/sources/Unstitcher.java"
+  }
+}

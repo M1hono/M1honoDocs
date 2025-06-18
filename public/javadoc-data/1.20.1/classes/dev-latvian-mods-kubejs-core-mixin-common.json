@@ -1,0 +1,4033 @@
+{
+  "dev.latvian.mods.kubejs.core.mixin.common.AbstractClientPlayerMixin": {
+    "className": "AbstractClientPlayerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.AbstractClientPlayerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\AbstractClientPlayerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Player",
+    "interfaces": [
+      "ClientPlayerKJS"
+    ],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "dev.latvian.mods.kubejs.core.ClientPlayerKJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.client.player.AbstractClientPlayer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.Level",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AbstractClientPlayerMixin",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "f",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "gameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 18
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/AbstractClientPlayerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.AbstractSelectionListMixin": {
+    "className": "AbstractSelectionListMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.AbstractSelectionListMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\AbstractSelectionListMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.gui.components.AbstractSelectionList",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "innerBackgroundBrightnessKJS",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "backgroundBrightnessKJS",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "backgroundScaleKJS",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/AbstractSelectionListMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.BlockBehaviourMixin": {
+    "className": "BlockBehaviourMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.BlockBehaviourMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\BlockBehaviourMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+      "dev.latvian.mods.kubejs.core.BlockKJS",
+      "dev.latvian.mods.kubejs.level.BlockContainerJS",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.SoundType",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.gen.Accessor",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "onRandomTick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "serverLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "randomSource",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 93
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 31,
+      "end": 129
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/BlockBehaviourMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.BlockMixin": {
+    "className": "BlockMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.BlockMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\BlockMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "BlockBehaviourMixin",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.level.block.Block",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.gen.Accessor"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/BlockMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.BlockStateBaseMixin": {
+    "className": "BlockStateBaseMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.BlockStateBaseMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\BlockStateBaseMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "BlockStateKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.BlockStateKJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.gen.Accessor"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/BlockStateBaseMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ClientLevelMixin": {
+    "className": "ClientLevelMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ClientLevelMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ClientLevelMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ClientLevelKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ClientLevelKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "net.minecraft.client.multiplayer.ClientLevel",
+      "net.minecraft.client.player.AbstractClientPlayer",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.entity.LevelEntityGetter",
+      "org.spongepowered.asm.mixin.Final",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "players",
+        "returnType": "List<AbstractClientPlayer>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntities",
+        "returnType": "LevelEntityGetter<Entity>",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "players",
+        "type": "List<AbstractClientPlayer>",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 29
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ClientLevelMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.CommandSourceStackMixin": {
+    "className": "CommandSourceStackMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.CommandSourceStackMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\CommandSourceStackMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.LazyComponentKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.network.chat.Component",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.Unique",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "sendSuccess",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "supplier",
+            "type": "Supplier<Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "bl",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 30
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/CommandSourceStackMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ContainerMixin": {
+    "className": "ContainerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ContainerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ContainerMixin.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "InventoryKJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.InventoryKJS",
+      "dev.latvian.mods.kubejs.item.ItemHandlerUtils",
+      "dev.latvian.mods.kubejs.level.BlockContainerJS",
+      "net.minecraft.world.Container",
+      "net.minecraft.world.entity.player.Inventory",
+      "net.minecraft.world.inventory.CraftingContainer",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 195
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ContainerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.CraftingContainerMixin": {
+    "className": "CraftingContainerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.CraftingContainerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\CraftingContainerMixin.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "CraftingContainerKJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.CraftingContainerKJS",
+      "net.minecraft.world.inventory.AbstractContainerMenu",
+      "net.minecraft.world.inventory.CraftingContainer",
+      "net.minecraft.world.inventory.TransientCraftingContainer",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/CraftingContainerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.CreativeModeTabMixin": {
+    "className": "CreativeModeTabMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.CreativeModeTabMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\CreativeModeTabMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "CreativeModeTabKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.CreativeModeTabKJS",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.world.item.CreativeModeTab",
+      "net.minecraft.world.item.ItemStack",
+      "org.spongepowered.asm.mixin.Final",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [
+      {
+        "name": "displayName",
+        "type": "Component",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "iconItemStack",
+        "type": "ItemStack",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/CreativeModeTabMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.DamageSourceMixin": {
+    "className": "DamageSourceMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.DamageSourceMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\DamageSourceMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.player.Player",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getMsgId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDirectEntity",
+        "returnType": "Entity",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntity",
+        "returnType": "Entity",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/DamageSourceMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.EntityMixin": {
+    "className": "EntityMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.EntityMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\EntityMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "EntityKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.EntityKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.core.Direction",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.level.Level",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.util.List",
+      "java.util.UUID"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "removeTag",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "string",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<CompoundTag>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUUID",
+        "returnType": "UUID",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStringUUID",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getScoreboardName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCurrentlyGlowing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setGlowingTag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "glowing",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getYRot",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setYRot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "yaw",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getXRot",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setXRot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDeltaMovement",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveTo",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "yaw",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pitch",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPassengers",
+        "returnType": "List<Entity>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAlliedTo",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "e",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDirection",
+        "returnType": "Direction",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearFire",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "source",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "hp",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "distanceToSqr",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "distanceToSqr",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "arg",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "distanceTo",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "arg",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 160
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "level",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 164
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "maxUpStep",
+        "type": "float",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "tickCount",
+        "type": "int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 165
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/EntityMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.EventHandlerBridgeMixin": {
+    "className": "EventHandlerBridgeMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.EventHandlerBridgeMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\EventHandlerBridgeMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.event.EventHandler",
+      "dev.latvian.mods.kubejs.event.EventJS",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "cancelable",
+        "returnType": "EventHandler",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "post",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "extraId",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "event",
+            "type": "EventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "post",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "EventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 21
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/EventHandlerBridgeMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.EventHandlerInvoker": {
+    "className": "EventHandlerInvoker",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.EventHandlerInvoker",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\EventHandlerInvoker.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.event.EventHandler",
+      "dev.latvian.mods.kubejs.event.EventJS",
+      "dev.latvian.mods.kubejs.event.EventResult",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.gen.Invoker"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "callHasResult",
+        "returnType": "EventHandler",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "callPost",
+        "returnType": "EventResult",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "EventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extraId",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 18
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/EventHandlerInvoker.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.FireworkRocketEntityMixin": {
+    "className": "FireworkRocketEntityMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.FireworkRocketEntityMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\FireworkRocketEntityMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "FireworkRocketEntityKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.FireworkRocketEntityKJS",
+      "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.gen.Accessor"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "setLifetimeKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "lifetime",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 15
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/FireworkRocketEntityMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.GameRulesMixin": {
+    "className": "GameRulesMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.GameRulesMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\GameRulesMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "GameRulesKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.GameRulesKJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.level.GameRules",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "java.util.HashMap",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/GameRulesMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ImageButtonMixin": {
+    "className": "ImageButtonMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ImageButtonMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ImageButtonMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ImageButtonKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ImageButtonKJS",
+      "net.minecraft.client.gui.components.ImageButton",
+      "net.minecraft.resources.ResourceLocation",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.gen.Accessor"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 14
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ImageButtonMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.IngredientMixin": {
+    "className": "IngredientMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.IngredientMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\IngredientMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "IngredientKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.IngredientKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getItems",
+        "returnType": "ItemStack[]",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/IngredientMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.IngredientTagValueMixin": {
+    "className": "IngredientTagValueMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.IngredientTagValueMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\IngredientTagValueMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.item.ingredient.TagContext",
+      "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "org.spongepowered.asm.mixin.Final",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.util.Collection"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [
+      {
+        "name": "tag",
+        "type": "TagKey<Item>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 29
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/IngredientTagValueMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ItemEntityMixin": {
+    "className": "ItemEntityMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ItemEntityMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ItemEntityMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ItemEntityKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ItemEntityKJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ItemEntityMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ItemFrameEntityMixin": {
+    "className": "ItemFrameEntityMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ItemFrameEntityMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ItemFrameEntityMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ItemFrameEntityKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ItemFrameEntityKJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.entity.decoration.ItemFrame",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ItemFrameEntityMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ItemMixin": {
+    "className": "ItemMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ItemMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ItemMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ItemKJS"
+    ],
+    "imports": [
+      "dev.architectury.registry.fuel.FuelRegistry",
+      "dev.latvian.mods.kubejs.core.ItemKJS",
+      "dev.latvian.mods.kubejs.item.ItemBuilder",
+      "dev.latvian.mods.kubejs.item.ItemStackKey",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResultHolder",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.food.FoodProperties",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.ItemUtils",
+      "net.minecraft.world.item.Rarity",
+      "net.minecraft.world.item.TooltipFlag",
+      "net.minecraft.world.item.UseAnim",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.level.Level",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Mutable",
+      "org.spongepowered.asm.mixin.gen.Accessor",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.util.List",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "isFoilKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Boolean>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendHoverText",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "tooltip",
+            "type": "List<Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "flagIn",
+            "type": "TooltipFlag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBarVisible",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Boolean>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBarWidth",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBarColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 163
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUseDuration",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUseAnimation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<UseAnim>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "use",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "player",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "interactionHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<InteractionResultHolder<ItemStack>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finishUsingItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "livingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 199,
+          "end": 203
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "releaseUsing",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "livingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "i",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurtEnemy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "livingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "livingEntity2",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "cir",
+            "type": "CallbackInfoReturnable<Boolean>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 217
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 41,
+      "end": 242
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ItemMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ItemStackMixin": {
+    "className": "ItemStackMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ItemStackMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ItemStackMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ItemStackKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ItemStackKJS",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.enchantment.Enchantment",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "enchant",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "enchantment",
+            "type": "Enchantment",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTag",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTag",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTag",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 30
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ItemStackMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.KeyboardHandlerMixin": {
+    "className": "KeyboardHandlerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.KeyboardHandlerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\KeyboardHandlerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.KubeJSClient",
+      "net.minecraft.client.KeyboardHandler",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "reloadResources",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<Boolean>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/KeyboardHandlerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.LevelMixin": {
+    "className": "LevelMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.LevelMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\LevelMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LevelKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.KubeJSPlugin",
+      "dev.latvian.mods.kubejs.core.LevelKJS",
+      "dev.latvian.mods.kubejs.util.AttachedData",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.world.level.Level",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getGameTime",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dimension",
+        "returnType": "ResourceKey<Level>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/LevelMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.LivingEntityMixin": {
+    "className": "LivingEntityMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.LivingEntityMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\LivingEntityMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LivingEntityKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.LivingEntityKJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.Level",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "foodEaten",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "item",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfoReturnable<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/LivingEntityMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.LoadingOverlayMixin": {
+    "className": "LoadingOverlayMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.LoadingOverlayMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\LoadingOverlayMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.gui.screens.LoadingOverlay",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "backgroundColorKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "cir",
+            "type": "CallbackInfoReturnable<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "barColorKJS1",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "barColorKJS2",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "barColorKJS3",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "barColorKJS4",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "barBorderColorKJS",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 50
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/LoadingOverlayMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.LocalPlayerMixin": {
+    "className": "LocalPlayerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.LocalPlayerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\LocalPlayerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "AbstractClientPlayerMixin",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "net.minecraft.client.player.LocalPlayer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.stats.StatsCounter",
+      "net.minecraft.world.level.Level",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LocalPlayerMixin",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "f",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "gameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getStats",
+        "returnType": "StatsCounter",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 21
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/LocalPlayerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.LootTablesMixin": {
+    "className": "LootTablesMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.LootTablesMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\LootTablesMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "LootTablesKJS"
+    ],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "dev.latvian.mods.kubejs.core.LootTablesKJS",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.world.level.storage.loot.LootDataId",
+      "net.minecraft.world.level.storage.loot.LootDataManager",
+      "net.minecraft.world.level.storage.loot.LootDataType",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "org.spongepowered.asm.mixin.injection.callback.LocalCapture",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 42
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/LootTablesMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.MinecraftClientMixin": {
+    "className": "MinecraftClientMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.MinecraftClientMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\MinecraftClientMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "MinecraftClientKJS"
+    ],
+    "imports": [
+      "com.llamalad7.mixinextras.injector.ModifyExpressionValue",
+      "dev.latvian.mods.kubejs.bindings.event.ClientEvents",
+      "dev.latvian.mods.kubejs.client.ClientEventJS",
+      "dev.latvian.mods.kubejs.client.ClientProperties",
+      "dev.latvian.mods.kubejs.client.GeneratedClientResourcePack",
+      "dev.latvian.mods.kubejs.client.ScheduledClientEvent",
+      "dev.latvian.mods.kubejs.core.MinecraftClientKJS",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.util.ScheduledEvents",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.server.packs.PackResources",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Unique",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 27,
+      "end": 93
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/MinecraftClientMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.MinecraftServerMixin": {
+    "className": "MinecraftServerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.MinecraftServerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\MinecraftServerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "MinecraftServerKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.KubeJSPlugin",
+      "dev.latvian.mods.kubejs.bindings.event.ServerEvents",
+      "dev.latvian.mods.kubejs.core.MinecraftServerKJS",
+      "dev.latvian.mods.kubejs.gui.chest.CustomChestMenu",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.server.ScheduledServerEvent",
+      "dev.latvian.mods.kubejs.server.ServerEventJS",
+      "dev.latvian.mods.kubejs.util.AttachedData",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "dev.latvian.mods.kubejs.util.ScheduledEvents",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.item.ItemStack",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.Unique",
+      "org.spongepowered.asm.mixin.gen.Accessor",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.io.IOException",
+      "java.util.Collection",
+      "java.util.HashMap",
+      "java.util.Map",
+      "java.util.UUID",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.BooleanSupplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initServer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidateStatus",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDedicatedServer",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopServer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 140
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 38,
+      "end": 146
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/MinecraftServerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.OptionsMixin": {
+    "className": "OptionsMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.OptionsMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\OptionsMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.KubeJSClient",
+      "net.minecraft.client.Options",
+      "org.spongepowered.asm.mixin.Final",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "java.io.File"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "loadKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "optionsFile",
+        "type": "File",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/OptionsMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.PlayerListMixin": {
+    "className": "PlayerListMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.PlayerListMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\PlayerListMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.player.KubeJSPlayerEventHandler",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.players.PlayerList",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "canPlayerLoginKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "SocketAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "gameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "cir",
+            "type": "CallbackInfoReturnable<Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "server",
+        "type": "MinecraftServer",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/PlayerListMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.PlayerMixin": {
+    "className": "PlayerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.PlayerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\PlayerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "PlayerKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.KubeJSPlugin",
+      "dev.latvian.mods.kubejs.core.InventoryKJS",
+      "dev.latvian.mods.kubejs.core.PlayerKJS",
+      "dev.latvian.mods.kubejs.player.KubeJSInventoryListener",
+      "dev.latvian.mods.kubejs.stages.Stages",
+      "dev.latvian.mods.kubejs.util.AttachedData",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.world.entity.player.Player",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "closeContainer",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/PlayerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.RecipeManagerMixin": {
+    "className": "RecipeManagerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.RecipeManagerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\RecipeManagerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "dev.latvian.mods.kubejs.bindings.event.ServerEvents",
+      "dev.latvian.mods.kubejs.recipe.CompostableRecipesEventJS",
+      "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "net.minecraft.world.item.crafting.RecipeManager",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "customRecipesHead",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "map",
+            "type": "JsonElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "profiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 38
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/RecipeManagerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.RecipeMixin": {
+    "className": "RecipeMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.RecipeMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\RecipeMixin.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RecipeKJS",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.RecipeKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "net.minecraft.world.item.crafting.Recipe",
+      "net.minecraft.world.item.crafting.RecipeType",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getGroup",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 19
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/RecipeMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ReloadableServerResourcesMixin": {
+    "className": "ReloadableServerResourcesMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ReloadableServerResourcesMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ReloadableServerResourcesMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.item.ingredient.TagContext",
+      "dev.latvian.mods.kubejs.server.ServerScriptManager",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.server.ReloadableServerResources",
+      "net.minecraft.world.flag.FeatureFlagSet",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "frozen",
+            "type": "RegistryAccess.Frozen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "featureFlagSet",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "commandSelection",
+            "type": "Commands.CommandSelection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "i",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateRegistryTags",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "registryAccess",
+            "type": "RegistryAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ReloadableServerResourcesMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ScreenMixin": {
+    "className": "ScreenMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ScreenMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ScreenMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.gui.screens.Screen",
+      "org.spongepowered.asm.mixin.Mixin"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "backgroundBrightnessKJS",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "backgroundScaleKJS",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "old",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ScreenMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ServerLevelMixin": {
+    "className": "ServerLevelMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ServerLevelMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ServerLevelMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ServerLevelKJS"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.ServerLevelKJS",
+      "dev.latvian.mods.rhino.util.HideFromJS",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.entity.LevelEntityGetter",
+      "org.spongepowered.asm.mixin.Final",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "players",
+        "returnType": "List<ServerPlayer>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEntities",
+        "returnType": "LevelEntityGetter<Entity>",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "players",
+        "type": "List<ServerPlayer>",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ServerLevelMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.ServerPlayerMixin": {
+    "className": "ServerPlayerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.ServerPlayerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\ServerPlayerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Player",
+    "interfaces": [
+      "ServerPlayerKJS"
+    ],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "dev.latvian.mods.kubejs.core.ServerPlayerKJS",
+      "dev.latvian.mods.rhino.util.RemapForJS",
+      "dev.latvian.mods.rhino.util.RemapPrefixForJS",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.stats.ServerStatsCounter",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.level.Level",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Shadow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ServerPlayerMixin",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "f",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "gameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getStats",
+        "returnType": "ServerStatsCounter",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/ServerPlayerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.TagLoaderMixin": {
+    "className": "TagLoaderMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.TagLoaderMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\TagLoaderMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.TagLoaderKJS",
+      "dev.latvian.mods.kubejs.server.ServerScriptManager",
+      "net.minecraft.core.Registry",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.tags.TagLoader",
+      "org.jetbrains.annotations.Nullable",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.Unique",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "java.util.List",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "customTags",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "resourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "cir",
+            "type": "List<TagLoader.EntryWithSource>>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/TagLoaderMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.TagManagerMixin": {
+    "className": "TagManagerMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.TagManagerMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\TagManagerMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.core.TagLoaderKJS",
+      "dev.latvian.mods.kubejs.item.ItemStackJS",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess.RegistryEntry",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.server.packs.resources.PreparableReloadListener",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.tags.TagLoader",
+      "net.minecraft.tags.TagManager",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable",
+      "org.spongepowered.asm.mixin.injection.callback.LocalCapture",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 43
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/TagManagerMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.UtilMixin": {
+    "className": "UtilMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.UtilMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\UtilMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.util.KubeJSBackgroundThread",
+      "net.minecraft.Util",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "shutdownExecutorsKJS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/UtilMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.WindowMixin": {
+    "className": "WindowMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.WindowMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\WindowMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "WindowKJS"
+    ],
+    "imports": [
+      "com.llamalad7.mixinextras.injector.ModifyExpressionValue",
+      "com.mojang.blaze3d.platform.IconSet",
+      "com.mojang.blaze3d.platform.Window",
+      "dev.latvian.mods.kubejs.core.WindowKJS",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.resources.IoSupplier",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/WindowMixin.java"
+  },
+  "dev.latvian.mods.kubejs.core.mixin.common.WorldOpenFlowsMixin": {
+    "className": "WorldOpenFlowsMixin",
+    "fullName": "dev.latvian.mods.kubejs.core.mixin.common.WorldOpenFlowsMixin",
+    "packageName": "dev.latvian.mods.kubejs.core.mixin.common",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\core\\mixin\\common\\WorldOpenFlowsMixin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "net.minecraft.client.gui.screens.worldselection.WorldOpenFlows",
+      "org.spongepowered.asm.mixin.Mixin",
+      "org.spongepowered.asm.mixin.injection.At",
+      "org.spongepowered.asm.mixin.injection.Inject",
+      "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "printServerLogWarning",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "ci",
+            "type": "CallbackInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/core/mixin/common/WorldOpenFlowsMixin.java"
+  }
+}

@@ -8,17 +8,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 class JavaFileScanner {
-    constructor() {
+    constructor(version) {
+        this.version = version;
         this.javaFiles = [];
-        this.baseDir = path.join(__dirname, "..", "forge-1.20.1-47.1.99");
-        this.outputDir = path.join(__dirname, "..", "public", "java-files");
+        this.baseDir = path.join(__dirname, "..", "source", this.version);
+        this.outputDir = path.join(
+            __dirname,
+            "..",
+            "public",
+            "java-files",
+            this.version
+        );
     }
 
     async scan() {
-        console.log("🔍 开始扫描Java文件...");
+        console.log(`🔍 开始扫描Java文件 (版本: ${this.version})...`);
 
         if (!fs.existsSync(this.baseDir)) {
             console.error(`❌ 目录不存在: ${this.baseDir}`);
+            console.error(
+                `   请确保 source/${this.version} 目录存在并且包含Java源代码。`
+            );
             return;
         }
 
@@ -28,13 +38,13 @@ class JavaFileScanner {
 
         this.scanDirectory(this.baseDir);
 
-        console.log(`📁 发现 ${this.javaFiles.length} 个Java文件`);
+        console.log(`📁 [${this.version}] 发现 ${this.javaFiles.length} 个Java文件`);
 
         await this.generateIndex();
 
         await this.copyFilesToPublic();
 
-        console.log("✅ 扫描完成!");
+        console.log(`✅ [${this.version}] 扫描完成!`);
     }
 
     scanDirectory(dirPath) {
@@ -47,10 +57,7 @@ class JavaFileScanner {
                 if (item.isDirectory()) {
                     this.scanDirectory(fullPath);
                 } else if (item.name.endsWith(".java")) {
-                    const relativePath = path.relative(
-                        path.join(__dirname, ".."),
-                        fullPath
-                    );
+                    const relativePath = path.relative(this.baseDir, fullPath);
                     this.javaFiles.push(relativePath.replace(/\\/g, "/"));
                 }
             }
@@ -61,6 +68,7 @@ class JavaFileScanner {
 
     async generateIndex() {
         const index = {
+            version: this.version,
             totalFiles: this.javaFiles.length,
             lastUpdated: new Date().toISOString(),
             files: this.javaFiles,
@@ -69,21 +77,18 @@ class JavaFileScanner {
         const indexPath = path.join(this.outputDir, "index.json");
         fs.writeFileSync(indexPath, JSON.stringify(index, null, 2));
 
-        console.log(`📝 生成索引文件: ${indexPath}`);
+        console.log(`📝 [${this.version}] 生成索引文件: ${indexPath}`);
     }
 
     async copyFilesToPublic() {
-        console.log("📂 复制Java文件到public目录...");
+        console.log(`📂 [${this.version}] 复制Java文件到public目录...`);
 
         let copiedCount = 0;
 
         for (const filePath of this.javaFiles) {
             try {
-                const sourcePath = path.join(__dirname, "..", filePath);
-                const targetPath = path.join(
-                    this.outputDir,
-                    filePath.replace("forge-1.20.1-47.1.99/", "")
-                );
+                const sourcePath = path.join(this.baseDir, filePath);
+                const targetPath = path.join(this.outputDir, filePath);
 
                 const targetDir = path.dirname(targetPath);
                 if (!fs.existsSync(targetDir)) {
@@ -93,57 +98,45 @@ class JavaFileScanner {
                 fs.copyFileSync(sourcePath, targetPath);
                 copiedCount++;
 
-                if (copiedCount % 100 === 0) {
+                if (copiedCount % 500 === 0) {
                     console.log(
-                        `  已复制 ${copiedCount}/${this.javaFiles.length} 个文件...`
+                        `  [${this.version}] 已复制 ${copiedCount}/${this.javaFiles.length} 个文件...`
                     );
                 }
             } catch (error) {
-                console.warn(`⚠️  复制失败: ${filePath}`, error.message);
+                console.warn(`⚠️  [${this.version}] 复制失败: ${filePath}`, error.message);
             }
         }
 
-        console.log(`✅ 复制完成: ${copiedCount} 个文件`);
-    }
-
-    async generateTypeScriptFileList() {
-        const filePaths = this.javaFiles
-            .map((file) => `'${file}'`)
-            .join(",\n        ");
-
-        const tsContent = `/**
- * 自动生成的Java文件列表
- * 由 scanJavaFiles.js 脚本生成
- */
-export const JAVA_FILE_PATHS: string[] = [
-        ${filePaths}
-];
-
-export const JAVA_FILE_COUNT = ${this.javaFiles.length};
-`;
-
-        const tsPath = path.join(
-            __dirname,
-            "..",
-            "src",
-            "utils",
-            "javaFilePaths.ts"
-        );
-        fs.writeFileSync(tsPath, tsContent);
-
-        console.log(`📝 生成TypeScript文件列表: ${tsPath}`);
+        console.log(`✅ [${this.version}] 复制完成: ${copiedCount} 个文件`);
     }
 }
 
-const scanner = new JavaFileScanner();
-scanner
-    .scan()
-    .then(() => {
-        scanner.generateTypeScriptFileList();
-    })
-    .catch((error) => {
-        console.error("❌ 扫描失败:", error);
+async function main() {
+    const versionsPath = path.join(__dirname, "../public/versions.json");
+    if (!fs.existsSync(versionsPath)) {
+        console.error(`❌ versions.json not found at ${versionsPath}`);
         process.exit(1);
-    });
+    }
+    const versions = JSON.parse(fs.readFileSync(versionsPath, "utf-8"));
+
+    for (const version of versions) {
+        console.log(`\n\n🚀 开始为版本 [${version}] 扫描...`);
+        try {
+            const scanner = new JavaFileScanner(version);
+            await scanner.scan();
+            console.log(`🎉 成功完成版本 [${version}] 的扫描`);
+        } catch (error) {
+            console.error(`❌ 扫描失败 for version ${version}:`, error);
+        }
+    }
+    console.log("\n\n✅ 所有版本扫描完成!");
+}
+
+main().catch((error) => {
+    console.error("❌ 扫描过程发生严重错误:", error);
+    process.exit(1);
+});
 
 export default JavaFileScanner;
+

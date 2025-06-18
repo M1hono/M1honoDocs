@@ -1,0 +1,4684 @@
+{
+  "dev.latvian.mods.kubejs.block.custom.BasicBlockJS": {
+    "className": "BasicBlockJS",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.BasicBlockJS",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\BasicBlockJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Block",
+    "interfaces": [
+      "BlockKJS",
+      "SimpleWaterloggedBlock"
+    ],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "dev.latvian.mods.kubejs.block.BlockRightClickedEventJS",
+      "dev.latvian.mods.kubejs.block.KubeJSBlockProperties",
+      "dev.latvian.mods.kubejs.block.PickBlockCallbackJS",
+      "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.AfterEntityFallenOnBlockCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.BlockExplodedCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.BlockStateMirrorCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyPlacementCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.BlockStateRotateCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.CanBeReplacedCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.EntityFallenOnBlockCallbackJS",
+      "dev.latvian.mods.kubejs.block.callbacks.EntitySteppedOnBlockCallbackJS",
+      "dev.latvian.mods.kubejs.block.entity.BlockEntityJS",
+      "dev.latvian.mods.kubejs.core.BlockKJS",
+      "dev.latvian.mods.kubejs.level.BlockContainerJS",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.context.BlockPlaceContext",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Explosion",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.EntityBlock",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.SimpleWaterloggedBlock",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityTicker",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.material.Fluid",
+      "net.minecraft.world.level.material.FluidState",
+      "net.minecraft.world.level.material.Fluids",
+      "net.minecraft.world.phys.BlockHitResult",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Collections",
+      "java.util.HashMap",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BasicBlockJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p",
+            "type": "BlockBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 114
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getName",
+        "returnType": "MutableComponent",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "context",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBlockStateDefinition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "builder",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFluidState",
+        "returnType": "FluidState",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStateForPlacement",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "BlockPlaceContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeReplaced",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "context",
+            "type": "BlockPlaceContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 170,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateShape",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "facing",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "facingState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "world",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "facingPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "propagatesSkylightDown",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "randomTick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "random",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isRandomlyTicking",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 203,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVisualShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ctx",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 209,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShadeBrightness",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "skipRendering",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "state2",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 221,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlaceLiquid",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "blockGetter",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fluid",
+            "type": "Fluid",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 238,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeLiquid",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "levelAccessor",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fluidState",
+            "type": "FluidState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 247,
+          "end": 253
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pickupBlock",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "levelAccessor",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 256,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPickupSound",
+        "returnType": "Optional<SoundEvent>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 265,
+          "end": 271
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stepOn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "entity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 274,
+          "end": 281
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fallOn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "entity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "f",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 284,
+          "end": 291
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateEntityAfterFallOn",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "blockGetter",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "entity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 294,
+          "end": 305
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wasExploded",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "explosion",
+            "type": "Explosion",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 308,
+          "end": 315
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "rotation",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 318,
+          "end": 327
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mirror",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mirror",
+            "type": "Mirror",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 339
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "use",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "player",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "hand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "hit",
+            "type": "BlockHitResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 342,
+          "end": 352
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onRemove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "newState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "bl",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 355,
+          "end": 369
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPlacedBy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "livingEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "itemStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 372,
+          "end": 376
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCloneItemStack",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "blockGetter",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 379,
+          "end": 386
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blockBuilder",
+        "type": "BlockBuilder",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      },
+      {
+        "name": "shape",
+        "type": "VoxelShape",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.BasicBlockJS.Builder",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\BasicBlockJS.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "BlockBuilder",
+        "interfaces": [],
+        "imports": [
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.block.BlockRightClickedEventJS",
+          "dev.latvian.mods.kubejs.block.KubeJSBlockProperties",
+          "dev.latvian.mods.kubejs.block.PickBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.AfterEntityFallenOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockExplodedCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateMirrorCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyPlacementCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateRotateCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.CanBeReplacedCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.EntityFallenOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.EntitySteppedOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.entity.BlockEntityJS",
+          "dev.latvian.mods.kubejs.core.BlockKJS",
+          "dev.latvian.mods.kubejs.level.BlockContainerJS",
+          "dev.latvian.mods.kubejs.script.ScriptType",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.MutableComponent",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.Explosion",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SimpleWaterloggedBlock",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Collections",
+          "java.util.HashMap",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.Consumer"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "i",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 69,
+              "end": 71
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "createObject",
+            "returnType": "Block",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 74,
+              "end": 76
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 68,
+          "end": 77
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/BasicBlockJS/Builder.java"
+      },
+      {
+        "className": "WithEntity",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.BasicBlockJS.WithEntity",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\BasicBlockJS.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "BasicBlockJS",
+        "interfaces": [
+          "EntityBlock"
+        ],
+        "imports": [
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.block.BlockRightClickedEventJS",
+          "dev.latvian.mods.kubejs.block.KubeJSBlockProperties",
+          "dev.latvian.mods.kubejs.block.PickBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.AfterEntityFallenOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockExplodedCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateMirrorCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyPlacementCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.BlockStateRotateCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.CanBeReplacedCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.EntityFallenOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.callbacks.EntitySteppedOnBlockCallbackJS",
+          "dev.latvian.mods.kubejs.block.entity.BlockEntityJS",
+          "dev.latvian.mods.kubejs.core.BlockKJS",
+          "dev.latvian.mods.kubejs.level.BlockContainerJS",
+          "dev.latvian.mods.kubejs.script.ScriptType",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.MutableComponent",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.Explosion",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SimpleWaterloggedBlock",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Collections",
+          "java.util.HashMap",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.function.Consumer"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "WithEntity",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p",
+                "type": "BlockBuilder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 82
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "newBlockEntity",
+            "returnType": "BlockEntity",
+            "parameters": [
+              {
+                "name": "blockPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "blockState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 86,
+              "end": 88
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 79,
+          "end": 95
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/BasicBlockJS/WithEntity.java"
+      }
+    ],
+    "lineRange": {
+      "start": 67,
+      "end": 387
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/BasicBlockJS.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.BasicCropBlockJS": {
+    "className": "BasicCropBlockJS",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.BasicCropBlockJS",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\BasicCropBlockJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "CropBlock",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+      "dev.latvian.mods.kubejs.item.ItemBuilder",
+      "dev.latvian.mods.kubejs.level.BlockContainerJS",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.ItemLike",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.CropBlock",
+      "net.minecraft.world.level.block.SoundType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.VoxelShape",
+      "java.util.List",
+      "java.util.function.ToDoubleFunction",
+      "java.util.function.ToIntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BasicCropBlockJS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "builder",
+            "type": "CropBlockBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getMaxAge",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBaseSeedId",
+        "returnType": "ItemLike",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createBlockStateDefinition",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "builder",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockGetter",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "collisionContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "randomTick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "serverLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "random",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "growCrops",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "level",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSurvive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "levelReader",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "blockPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 97
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "age",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "seedItem",
+        "type": "ItemBuilder",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "shapeByAge",
+        "type": "List<VoxelShape>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "dropSeed",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "growSpeedCallback",
+        "type": "ToDoubleFunction<RandomTickCallbackJS>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "fertilizerCallback",
+        "type": "ToIntFunction<RandomTickCallbackJS>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "surviveCallback",
+        "type": "CropBlockBuilder.SurviveCallback",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 98
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/BasicCropBlockJS.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.ButtonBlockBuilder": {
+    "className": "ButtonBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.ButtonBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\ButtonBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.ButtonBlock",
+      "net.minecraft.world.level.block.state.properties.BlockSetType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ButtonBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "behaviour",
+        "returnType": "ButtonBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "BlockSetType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "behaviour",
+        "returnType": "ButtonBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ticksToStayPressed",
+        "returnType": "ButtonBlockBuilder",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "arrowsCanPress",
+        "returnType": "ButtonBlockBuilder",
+        "parameters": [
+          {
+            "name": "b",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 108
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "behaviour",
+        "type": "transient BlockSetType",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "ticksToStayPressed",
+        "type": "transient int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "arrowsCanPress",
+        "type": "transient boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 109
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/ButtonBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.CarpetBlockBuilder": {
+    "className": "CarpetBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.CarpetBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\CarpetBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.CarpetBlock"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CarpetBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 14
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "texture",
+        "returnType": "CarpetBlockBuilder",
+        "parameters": [
+          {
+            "name": "texture",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/CarpetBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.CropBlockBuilder": {
+    "className": "CropBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.CropBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\CropBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.datafixers.util.Pair",
+      "dev.architectury.platform.Platform",
+      "dev.latvian.mods.kubejs.KubeJS",
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+      "dev.latvian.mods.kubejs.block.SeedItemBuilder",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "dev.latvian.mods.kubejs.item.ItemStackJS",
+      "dev.latvian.mods.kubejs.level.BlockContainerJS",
+      "dev.latvian.mods.kubejs.typings.Info",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.SoundType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.IntegerProperty",
+      "net.minecraft.world.level.material.MapColor",
+      "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+      "net.minecraft.world.phys.shapes.VoxelShape",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.ArrayList",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.function.Consumer",
+      "java.util.function.ToDoubleFunction",
+      "java.util.function.ToIntFunction"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CropBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 145
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "crop",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "output",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "crop",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "output",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "chance",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "age",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "age",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropSeed",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "dropSeed",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "age",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "age",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "builder",
+            "type": "Consumer<ShapeBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "texture",
+        "returnType": "BlockBuilder",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "tex",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bonemeal",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "bonemealCallback",
+            "type": "ToIntFunction<RandomTickCallbackJS>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 197
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "survive",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "surviveCallback",
+            "type": "SurviveCallback",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 199,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "growTick",
+        "returnType": "CropBlockBuilder",
+        "parameters": [
+          {
+            "name": "growSpeedCallback",
+            "type": "ToDoubleFunction<RandomTickCallbackJS>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "randomTick",
+        "returnType": "BlockBuilder",
+        "parameters": [
+          {
+            "name": "randomTickCallback",
+            "type": "Consumer<RandomTickCallbackJS>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 216,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 284
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "age",
+        "type": "transient int",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "shapeByAge",
+        "type": "transient List<VoxelShape>",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "dropSeed",
+        "type": "transient boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "growSpeedCallback",
+        "type": "transient ToDoubleFunction<RandomTickCallbackJS>",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "fertilizerCallback",
+        "type": "transient ToIntFunction<RandomTickCallbackJS>",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "surviveCallback",
+        "type": "transient SurviveCallback",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "outputs",
+        "type": "transient List<Pair<Object, Double>>",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "SurviveCallback",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.CropBlockBuilder.SurviveCallback",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\CropBlockBuilder.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "com.mojang.datafixers.util.Pair",
+          "dev.architectury.platform.Platform",
+          "dev.latvian.mods.kubejs.KubeJS",
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+          "dev.latvian.mods.kubejs.block.SeedItemBuilder",
+          "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+          "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+          "dev.latvian.mods.kubejs.item.ItemStackJS",
+          "dev.latvian.mods.kubejs.level.BlockContainerJS",
+          "dev.latvian.mods.kubejs.typings.Info",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.IntegerProperty",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.ToDoubleFunction",
+          "java.util.function.ToIntFunction"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "survive",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "state",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "reader",
+                "type": "LevelReader",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 43,
+              "end": 43
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/CropBlockBuilder/SurviveCallback.java"
+      },
+      {
+        "className": "ShapeBuilder",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.CropBlockBuilder.ShapeBuilder",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\CropBlockBuilder.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "com.mojang.datafixers.util.Pair",
+          "dev.architectury.platform.Platform",
+          "dev.latvian.mods.kubejs.KubeJS",
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.block.RandomTickCallbackJS",
+          "dev.latvian.mods.kubejs.block.SeedItemBuilder",
+          "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+          "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+          "dev.latvian.mods.kubejs.item.ItemStackJS",
+          "dev.latvian.mods.kubejs.level.BlockContainerJS",
+          "dev.latvian.mods.kubejs.typings.Info",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.IntegerProperty",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.storage.loot.providers.number.ConstantValue",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.ToDoubleFunction",
+          "java.util.function.ToIntFunction"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ShapeBuilder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "age",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 49,
+              "end": 51
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "shape",
+            "returnType": "ShapeBuilder",
+            "parameters": [
+              {
+                "name": "age",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "minX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "minY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "minZ",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "maxX",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "maxY",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "maxZ",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 58,
+              "end": 61
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getShapes",
+            "returnType": "List<VoxelShape>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 63,
+              "end": 65
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "shapes",
+            "type": "List<VoxelShape>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 47,
+              "end": 47
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 46,
+          "end": 66
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/CropBlockBuilder/ShapeBuilder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 40,
+      "end": 285
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/CropBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.FallingBlockBuilder": {
+    "className": "FallingBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.FallingBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\FallingBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "dev.latvian.mods.rhino.mod.util.color.Color",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.FallingBlock",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FallingBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dustColor",
+        "returnType": "FallingBlockBuilder",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "Color",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "dustColor",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "-8356741",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/FallingBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.FenceBlockBuilder": {
+    "className": "FenceBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.FenceBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\FenceBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "MultipartShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.platform.Platform",
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.MultipartBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.FenceBlock"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FenceBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateMultipartBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "MultipartBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/FenceBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.FenceGateBlockBuilder": {
+    "className": "FenceGateBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.FenceGateBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\FenceGateBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.platform.Platform",
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.FenceGateBlock",
+      "net.minecraft.world.level.block.state.properties.WoodType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FenceGateBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "behaviour",
+        "returnType": "FenceGateBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "WoodType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "behaviour",
+        "returnType": "FenceGateBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "behaviour",
+        "type": "transient WoodType",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 103
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/FenceGateBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder": {
+    "className": "HorizontalDirectionalBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\HorizontalDirectionalBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.item.context.BlockPlaceContext",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.EntityBlock",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityTicker",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.block.state.properties.DirectionProperty",
+      "net.minecraft.world.level.material.Fluids",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.ArrayList",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "HorizontalDirectionalBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "Cardinal blocks that can face any horizontal direction (NSEW).",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "gen",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "textureAll",
+        "returnType": "HorizontalDirectionalBlockBuilder",
+        "parameters": [
+          {
+            "name": "tex",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTextureOrDefault",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "defaultTexture",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "HorizontalDirectionalBlockJS",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder.HorizontalDirectionalBlockJS",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\HorizontalDirectionalBlockBuilder.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "BasicBlockJS",
+        "interfaces": [],
+        "imports": [
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.client.ModelGenerator",
+          "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+          "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+          "net.minecraft.world.level.block.state.properties.DirectionProperty",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.NotNull",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.HashMap",
+          "java.util.List",
+          "java.util.Map"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "HorizontalDirectionalBlockJS",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p",
+                "type": "BlockBuilder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 96,
+              "end": 101
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "rotateShape",
+            "returnType": "VoxelShape",
+            "parameters": [
+              {
+                "name": "shape",
+                "type": "VoxelShape",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "direction",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 116
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "createBlockStateDefinition",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "builder",
+                "type": "BlockState>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 122
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getStateForPlacement",
+            "returnType": "BlockState",
+            "parameters": [
+              {
+                "name": "context",
+                "type": "BlockPlaceContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 125,
+              "end": 133
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasCustomShape",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 135,
+              "end": 137
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getShape",
+            "returnType": "VoxelShape",
+            "parameters": [
+              {
+                "name": "state",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "level",
+                "type": "BlockGetter",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "context",
+                "type": "CollisionContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 141,
+              "end": 143
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "FACING",
+            "type": "DirectionProperty",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "BlockStateProperties.HORIZONTAL_FACING",
+            "lineRange": {
+              "start": 93,
+              "end": 93
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 92,
+          "end": 144
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/HorizontalDirectionalBlockBuilder/HorizontalDirectionalBlockJS.java"
+      },
+      {
+        "className": "WithEntity",
+        "fullName": "dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder.WithEntity",
+        "packageName": "dev.latvian.mods.kubejs.block.custom",
+        "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\HorizontalDirectionalBlockBuilder.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "HorizontalDirectionalBlockJS",
+        "interfaces": [
+          "EntityBlock"
+        ],
+        "imports": [
+          "dev.latvian.mods.kubejs.block.BlockBuilder",
+          "dev.latvian.mods.kubejs.client.ModelGenerator",
+          "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+          "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.StateDefinition",
+          "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+          "net.minecraft.world.level.block.state.properties.DirectionProperty",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape",
+          "org.jetbrains.annotations.NotNull",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.ArrayList",
+          "java.util.HashMap",
+          "java.util.List",
+          "java.util.Map"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "WithEntity",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "p",
+                "type": "BlockBuilder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 147,
+              "end": 149
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "newBlockEntity",
+            "returnType": "BlockEntity",
+            "parameters": [
+              {
+                "name": "blockPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "blockState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 153,
+              "end": 155
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 146,
+          "end": 162
+        },
+        "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/HorizontalDirectionalBlockBuilder/WithEntity.java"
+      }
+    ],
+    "lineRange": {
+      "start": 35,
+      "end": 163
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/HorizontalDirectionalBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.MultipartShapedBlockBuilder": {
+    "className": "MultipartShapedBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.MultipartShapedBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\MultipartShapedBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.MultipartBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MultipartShapedBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "suffixes",
+            "type": "String[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 10
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "generateAssetJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateMultipartBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "MultipartBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/MultipartShapedBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.PressurePlateBlockBuilder": {
+    "className": "PressurePlateBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.PressurePlateBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\PressurePlateBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.PressurePlateBlock",
+      "net.minecraft.world.level.block.state.properties.BlockSetType"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PressurePlateBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "behaviour",
+        "returnType": "PressurePlateBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "BlockSetType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "behaviour",
+        "returnType": "PressurePlateBlockBuilder",
+        "parameters": [
+          {
+            "name": "wt",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "behaviour",
+        "type": "transient BlockSetType",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 69
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/PressurePlateBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.ShapedBlockBuilder": {
+    "className": "ShapedBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.ShapedBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\ShapedBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "BlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.BlockBuilder",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ShapedBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "suffixes",
+            "type": "String[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "textureAll",
+        "returnType": "BlockBuilder",
+        "parameters": [
+          {
+            "name": "tex",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/ShapedBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.SlabBlockBuilder": {
+    "className": "SlabBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.SlabBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\SlabBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.SlabBlock"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SlabBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/SlabBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.StairBlockBuilder": {
+    "className": "StairBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.StairBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\StairBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.VariantBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.StairBlock"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StairBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "VariantBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 94
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 95
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/StairBlockBuilder.java"
+  },
+  "dev.latvian.mods.kubejs.block.custom.WallBlockBuilder": {
+    "className": "WallBlockBuilder",
+    "fullName": "dev.latvian.mods.kubejs.block.custom.WallBlockBuilder",
+    "packageName": "dev.latvian.mods.kubejs.block.custom",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\block\\custom\\WallBlockBuilder.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "MultipartShapedBlockBuilder",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.client.ModelGenerator",
+      "dev.latvian.mods.kubejs.client.MultipartBlockStateGenerator",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.WallBlock"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WallBlockBuilder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "i",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createObject",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateMultipartBlockStateJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "bs",
+            "type": "MultipartBlockStateGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateItemModelJson",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "m",
+            "type": "ModelGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateBlockModelJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 65
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/block/custom/WallBlockBuilder.java"
+  }
+}

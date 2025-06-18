@@ -1,0 +1,4226 @@
+{
+  "net.minecraft.world.entity.raid.Raid": {
+    "className": "Raid",
+    "fullName": "net.minecraft.world.entity.raid.Raid",
+    "packageName": "net.minecraft.world.entity.raid",
+    "filePath": "/net\\minecraft\\world\\entity\\raid\\Raid.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "java.util.Collection",
+      "java.util.Comparator",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.advancements.CriteriaTriggers",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.SectionPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.protocol.game.ClientboundSoundPacket",
+      "net.minecraft.server.level.ServerBossEvent",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.BossEvent",
+      "net.minecraft.world.Difficulty",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.SpawnPlacements",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.BlockItem",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.NaturalSpawner",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.entity.BannerPattern",
+      "net.minecraft.world.level.block.entity.BannerPatterns",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.levelgen.Heightmap",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Raid",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCenter",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 117
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "Raid",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 142
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isOver",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBetweenWaves",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasFirstWaveSpawned",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isStopped",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isVictory",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isLoss",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalHealth",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAllRaiders",
+        "returnType": "Set<Raider>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLevel",
+        "returnType": "Level",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isStarted",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 186,
+          "end": 188
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getGroupsSpawned",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 190,
+          "end": 192
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validPlayer",
+        "returnType": "Predicate<ServerPlayer>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 194,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updatePlayers",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxBadOmenLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBadOmenLevel",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBadOmenLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBadOmenLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "absorbBadOmen",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 238
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 240,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 246,
+          "end": 395
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveRaidCenterToNearbyVillageSection",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 397,
+          "end": 402
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValidSpawnPos",
+        "returnType": "Optional<BlockPos>",
+        "parameters": [
+          {
+            "name": "pOffsetMultiplier",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 404,
+          "end": 413
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasMoreWaves",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 415,
+          "end": 421
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFinalWave",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 425
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasBonusWave",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 427,
+          "end": 429
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasSpawnedBonusWave",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 431,
+          "end": 433
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldSpawnBonusGroup",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 435,
+          "end": 437
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateRaiders",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 439,
+          "end": 472
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 474,
+          "end": 491
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnGroup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 493,
+          "end": 543
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "joinRaid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsRecruited",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 545,
+          "end": 561
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateBossbar",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 563,
+          "end": 565
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHealthOfLivingRaiders",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 567,
+          "end": 577
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldSpawnGroup",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 579,
+          "end": 581
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalRaidersAlive",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 583,
+          "end": 585
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeFromRaid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWanderedOutOfRaid",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 587,
+          "end": 602
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDirty",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 604,
+          "end": 606
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLeaderBannerInstance",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 608,
+          "end": 617
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLeader",
+        "returnType": "Raider",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 620,
+          "end": 622
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findRandomSpawnPos",
+        "returnType": "BlockPos",
+        "parameters": [
+          {
+            "name": "pOffsetMultiplier",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxTry",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 625,
+          "end": 644
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addWaveMob",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 646,
+          "end": 648
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addWaveMob",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsRecruited",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 650,
+          "end": 677
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setLeader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 679,
+          "end": 683
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeLeader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 685,
+          "end": 687
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCenter",
+        "returnType": "BlockPos",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 689,
+          "end": 691
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCenter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_37761_",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 693,
+          "end": 695
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 697,
+          "end": 699
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDefaultNumSpawns",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pRaiderType",
+            "type": "Raid.RaiderType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShouldSpawnBonusGroup",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 701,
+          "end": 703
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPotentialBonusSpawns",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pRaiderType",
+            "type": "Raid.RaiderType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShouldSpawnBonusGroup",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 705,
+          "end": 736
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isActive",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 738,
+          "end": 740
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 742,
+          "end": 765
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNumGroups",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pDifficulty",
+            "type": "Difficulty",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 767,
+          "end": 778
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getEnchantOdds",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 780,
+          "end": 791
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addHeroOfTheVillage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 793,
+          "end": 795
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SECTION_RADIUS_FOR_FINDING_NEW_VILLAGE_CENTER",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "ATTEMPT_RAID_FARTHEST",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "ATTEMPT_RAID_CLOSE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 63,
+          "end": 63
+        }
+      },
+      {
+        "name": "ATTEMPT_RAID_INSIDE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "VILLAGE_SEARCH_RADIUS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "32",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "RAID_TIMEOUT_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "48000",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "NUM_SPAWN_ATTEMPTS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 67,
+          "end": 67
+        }
+      },
+      {
+        "name": "OMINOUS_BANNER_PATTERN_NAME",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"block.minecraft.ominous_banner\"",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "RAIDERS_REMAINING",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"event.minecraft.raid.raiders_remaining\"",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "VILLAGE_RADIUS_BUFFER",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        }
+      },
+      {
+        "name": "POST_RAID_TICK_LIMIT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "40",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "DEFAULT_PRE_RAID_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "300",
+        "lineRange": {
+          "start": 72,
+          "end": 72
+        }
+      },
+      {
+        "name": "MAX_NO_ACTION_TIME",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2400",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "MAX_CELEBRATION_TICKS",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "OUTSIDE_RAID_BOUNDS_TIMEOUT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "30",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "TICKS_PER_DAY",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "24000",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "DEFAULT_MAX_BAD_OMEN_LEVEL",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "LOW_MOB_THRESHOLD",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "HERO_OF_THE_VILLAGE_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "48000",
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        }
+      },
+      {
+        "name": "VALID_RAID_RADIUS_SQR",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "9216",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      },
+      {
+        "name": "RAID_REMOVAL_THRESHOLD_SQR",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "12544",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "ticksActive",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "center",
+        "type": "BlockPos",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "level",
+        "type": "ServerLevel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        }
+      },
+      {
+        "name": "started",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 93,
+          "end": 93
+        }
+      },
+      {
+        "name": "id",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        }
+      },
+      {
+        "name": "totalHealth",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      {
+        "name": "badOmenLevel",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        }
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      },
+      {
+        "name": "groupsSpawned",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 98,
+          "end": 98
+        }
+      },
+      {
+        "name": "postRaidTicks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 100,
+          "end": 100
+        }
+      },
+      {
+        "name": "raidCooldownTicks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 101,
+          "end": 101
+        }
+      },
+      {
+        "name": "numGroups",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 103,
+          "end": 103
+        }
+      },
+      {
+        "name": "status",
+        "type": "Raid.RaidStatus",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 104,
+          "end": 104
+        }
+      },
+      {
+        "name": "celebrationTicks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 105,
+          "end": 105
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "RaidStatus",
+        "fullName": "net.minecraft.world.entity.raid.Raid.RaidStatus",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raid.java",
+        "classType": "enum",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "java.util.Collection",
+          "java.util.Comparator",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.function.Predicate",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.ListTag",
+          "net.minecraft.nbt.NbtUtils",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.protocol.game.ClientboundSoundPacket",
+          "net.minecraft.server.level.ServerBossEvent",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.stats.Stats",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.BossEvent",
+          "net.minecraft.world.Difficulty",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.SpawnPlacements",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.BlockItem",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.NaturalSpawner",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.entity.BannerPattern",
+          "net.minecraft.world.level.block.entity.BannerPatterns",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.levelgen.Heightmap",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 815,
+              "end": 817
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 797,
+          "end": 818
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raid/RaidStatus.java"
+      },
+      {
+        "className": "RaiderType",
+        "fullName": "net.minecraft.world.entity.raid.Raid.RaiderType",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raid.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "net.minecraftforge.common.IExtensibleEnum"
+        ],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "java.util.Collection",
+          "java.util.Comparator",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.UUID",
+          "java.util.function.Predicate",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.SectionPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.ListTag",
+          "net.minecraft.nbt.NbtUtils",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.protocol.game.ClientboundSoundPacket",
+          "net.minecraft.server.level.ServerBossEvent",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.stats.Stats",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.BossEvent",
+          "net.minecraft.world.Difficulty",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.SpawnPlacements",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.BlockItem",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.NaturalSpawner",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.entity.BannerPattern",
+          "net.minecraft.world.level.block.entity.BannerPatterns",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.levelgen.Heightmap",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "VINDICATOR",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "int[]{0",
+                "type": "new",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 821,
+              "end": 821
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "EVOKER",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "int[]{0",
+                "type": "new",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 822,
+              "end": 822
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "PILLAGER",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "int[]{0",
+                "type": "new",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 823,
+              "end": 823
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "WITCH",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "int[]{0",
+                "type": "new",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 824,
+              "end": 824
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "RAVAGER",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "int[]{0",
+                "type": "new",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 825,
+              "end": 825
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "RaiderType",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "extends",
+                "type": "EntityType<?",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSpawnsPerWaveBeforeBonus",
+                "type": "int[]",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 831,
+              "end": 834
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "create",
+            "returnType": "RaiderType",
+            "parameters": [
+              {
+                "name": "name",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "extends",
+                "type": "EntityType<?",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "waveCountsIn",
+                "type": "int[]",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 840,
+              "end": 842
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "init",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 846,
+              "end": 848
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "spawnsPerWaveBeforeBonus",
+            "type": "int[]",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 829,
+              "end": 829
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 820,
+          "end": 849
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raid/RaiderType.java"
+      }
+    ],
+    "lineRange": {
+      "start": 60,
+      "end": 850
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raid.java"
+  },
+  "net.minecraft.world.entity.raid.Raider": {
+    "className": "Raider",
+    "fullName": "net.minecraft.world.entity.raid.Raider",
+    "packageName": "net.minecraft.world.entity.raid",
+    "filePath": "/net\\minecraft\\world\\entity\\raid\\Raider.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "PatrollingMonster",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.EnumSet",
+      "java.util.List",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.DifficultyInstance",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.effect.MobEffectInstance",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.MobSpawnType",
+      "net.minecraft.world.entity.SpawnGroupData",
+      "net.minecraft.world.entity.ai.goal.Goal",
+      "net.minecraft.world.entity.ai.goal.PathfindToRaidGoal",
+      "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+      "net.minecraft.world.entity.ai.util.DefaultRandomPos",
+      "net.minecraft.world.entity.ai.village.poi.PoiManager",
+      "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+      "net.minecraft.world.entity.animal.Wolf",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.monster.AbstractIllager",
+      "net.minecraft.world.entity.monster.PatrollingMonster",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.ServerLevelAccessor",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Raider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "registerGoals",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyRaidBuffs",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUnusedFalse",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canJoinRaid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCanJoinRaid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCanJoinRaid",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateNoActionTime",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "die",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCause",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canJoinPatrol",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCurrentRaid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRaid",
+            "type": "Raid",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 174
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCurrentRaid",
+        "returnType": "Raid",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasActiveRaid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setWave",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWave",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWave",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 189,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCelebrating",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 195
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCelebrating",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCelebrating",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 197,
+          "end": 199
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 201,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 231
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pickUpItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 237,
+          "end": 258
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeWhenFarAway",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDistanceToClosestPlayer",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 260,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requiresCustomPersistence",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 264,
+          "end": 266
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTicksOutsideRaid",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 268,
+          "end": 270
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTicksOutsideRaid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTicksOutsideRaid",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 272,
+          "end": 274
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 279,
+          "end": 285
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizeSpawn",
+        "returnType": "SpawnGroupData",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDifficulty",
+            "type": "DifficultyInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "MobSpawnType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpawnData",
+            "type": "SpawnGroupData",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 288,
+          "end": 291
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCelebrateSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 293,
+          "end": 293
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "raid",
+        "type": "Raid",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "wave",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "canJoinRaid",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "ticksOutsideRaid",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "HoldGroundAttackGoal",
+        "fullName": "net.minecraft.world.entity.raid.Raider.HoldGroundAttackGoal",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raider.java",
+        "classType": "class",
+        "modifiers": [
+          "protected"
+        ],
+        "superClass": "Goal",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "java.util.EnumSet",
+          "java.util.List",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.ai.goal.Goal",
+          "net.minecraft.world.entity.ai.goal.PathfindToRaidGoal",
+          "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+          "net.minecraft.world.entity.ai.util.DefaultRandomPos",
+          "net.minecraft.world.entity.ai.village.poi.PoiManager",
+          "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+          "net.minecraft.world.entity.animal.Wolf",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.monster.AbstractIllager",
+          "net.minecraft.world.entity.monster.PatrollingMonster",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "HoldGroundAttackGoal",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMob",
+                "type": "AbstractIllager",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHostileRadiusSquare",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 300,
+              "end": 304
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canUse",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 310,
+              "end": 313
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 318,
+              "end": 326
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 331,
+              "end": 343
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "requiresUpdateEveryTick",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 345,
+              "end": 347
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 352,
+              "end": 366
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "mob",
+            "type": "Raider",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 296,
+              "end": 296
+            }
+          },
+          {
+            "name": "hostileRadiusSqr",
+            "type": "float",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 297,
+              "end": 297
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 295,
+          "end": 367
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raider/HoldGroundAttackGoal.java"
+      },
+      {
+        "className": "ObtainRaidLeaderBannerGoal",
+        "fullName": "net.minecraft.world.entity.raid.Raider.ObtainRaidLeaderBannerGoal",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raider.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "java.util.EnumSet",
+          "java.util.List",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.ai.goal.Goal",
+          "net.minecraft.world.entity.ai.goal.PathfindToRaidGoal",
+          "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+          "net.minecraft.world.entity.ai.util.DefaultRandomPos",
+          "net.minecraft.world.entity.ai.village.poi.PoiManager",
+          "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+          "net.minecraft.world.entity.animal.Wolf",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.monster.AbstractIllager",
+          "net.minecraft.world.entity.monster.PatrollingMonster",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ObtainRaidLeaderBannerGoal",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMob",
+                "type": "T",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 372,
+              "end": 375
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canUse",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 381,
+              "end": 396
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 401,
+              "end": 409
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "mob",
+            "type": "T",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 370,
+              "end": 370
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 369,
+          "end": 410
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raider/ObtainRaidLeaderBannerGoal.java"
+      },
+      {
+        "className": "RaiderCelebration",
+        "fullName": "net.minecraft.world.entity.raid.Raider.RaiderCelebration",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raider.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "Goal",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "java.util.EnumSet",
+          "java.util.List",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.ai.goal.Goal",
+          "net.minecraft.world.entity.ai.goal.PathfindToRaidGoal",
+          "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+          "net.minecraft.world.entity.ai.util.DefaultRandomPos",
+          "net.minecraft.world.entity.ai.village.poi.PoiManager",
+          "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+          "net.minecraft.world.entity.animal.Wolf",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.monster.AbstractIllager",
+          "net.minecraft.world.entity.monster.PatrollingMonster",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RaiderCelebration",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMob",
+                "type": "Raider",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 415,
+              "end": 418
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canUse",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 424,
+              "end": 427
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 432,
+              "end": 435
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 440,
+              "end": 443
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 448,
+              "end": 458
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "mob",
+            "type": "Raider",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 413,
+              "end": 413
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 412,
+          "end": 459
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raider/RaiderCelebration.java"
+      },
+      {
+        "className": "RaiderMoveThroughVillageGoal",
+        "fullName": "net.minecraft.world.entity.raid.Raider.RaiderMoveThroughVillageGoal",
+        "packageName": "net.minecraft.world.entity.raid",
+        "filePath": "/net\\minecraft\\world\\entity\\raid\\Raider.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "Goal",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "java.util.EnumSet",
+          "java.util.List",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.DifficultyInstance",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.effect.MobEffectInstance",
+          "net.minecraft.world.effect.MobEffects",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.MobSpawnType",
+          "net.minecraft.world.entity.SpawnGroupData",
+          "net.minecraft.world.entity.ai.goal.Goal",
+          "net.minecraft.world.entity.ai.goal.PathfindToRaidGoal",
+          "net.minecraft.world.entity.ai.targeting.TargetingConditions",
+          "net.minecraft.world.entity.ai.util.DefaultRandomPos",
+          "net.minecraft.world.entity.ai.village.poi.PoiManager",
+          "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+          "net.minecraft.world.entity.animal.Wolf",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.monster.AbstractIllager",
+          "net.minecraft.world.entity.monster.PatrollingMonster",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.ServerLevelAccessor",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "RaiderMoveThroughVillageGoal",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pRaider",
+                "type": "Raider",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSpeedModifier",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDistanceToPoi",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 469,
+              "end": 474
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canUse",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 480,
+              "end": 483
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isValidRaid",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 485,
+              "end": 487
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasSuitablePoi",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 489,
+              "end": 501
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canContinueToUse",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 506,
+              "end": 512
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "stop",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 517,
+              "end": 522
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "start",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 527,
+              "end": 532
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 537,
+              "end": 553
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasNotVisited",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "p_37943_",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 555,
+              "end": 563
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "updateVisited",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 565,
+              "end": 570
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "raider",
+            "type": "Raider",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 462,
+              "end": 462
+            }
+          },
+          {
+            "name": "speedModifier",
+            "type": "double",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 463,
+              "end": 463
+            }
+          },
+          {
+            "name": "poiPos",
+            "type": "BlockPos",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 464,
+              "end": 464
+            }
+          },
+          {
+            "name": "distanceToPoi",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 466,
+              "end": 466
+            }
+          },
+          {
+            "name": "stuck",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 467,
+              "end": 467
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 461,
+          "end": 571
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raider/RaiderMoveThroughVillageGoal.java"
+      }
+    ],
+    "lineRange": {
+      "start": 45,
+      "end": 572
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raider.java"
+  },
+  "net.minecraft.world.entity.raid.Raids": {
+    "className": "Raids",
+    "fullName": "net.minecraft.world.entity.raid.Raids",
+    "packageName": "net.minecraft.world.entity.raid",
+    "filePath": "/net\\minecraft\\world\\entity\\raid\\Raids.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SavedData",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.advancements.CriteriaTriggers",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Holder",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.network.protocol.game.ClientboundEntityEventPacket",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.tags.PoiTypeTags",
+      "net.minecraft.world.effect.MobEffects",
+      "net.minecraft.world.entity.ai.village.poi.PoiManager",
+      "net.minecraft.world.entity.ai.village.poi.PoiRecord",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.dimension.BuiltinDimensionTypes",
+      "net.minecraft.world.level.dimension.DimensionType",
+      "net.minecraft.world.level.saveddata.SavedData",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Raids",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "get",
+        "returnType": "Raid",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canJoinRaid",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pRaider",
+            "type": "Raider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRaid",
+            "type": "Raid",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createOrExtendRaid",
+        "returnType": "Raid",
+        "parameters": [
+          {
+            "name": "pServerPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOrCreateRaid",
+        "returnType": "Raid",
+        "parameters": [
+          {
+            "name": "pServerLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "Raids",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFileId",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pDimensionTypeHolder",
+            "type": "Holder<DimensionType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUniqueId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNearbyRaid",
+        "returnType": "Raid",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 201
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RAID_FILE_ID",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"raids\"",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "level",
+        "type": "ServerLevel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "nextAvailableID",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "tick",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 202
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/entity/raid/Raids.java"
+  }
+}

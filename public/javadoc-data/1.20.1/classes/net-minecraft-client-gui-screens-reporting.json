@@ -1,0 +1,4033 @@
+{
+  "net.minecraft.client.gui.screens.reporting.ChatReportScreen": {
+    "className": "ChatReportScreen",
+    "fullName": "net.minecraft.client.gui.screens.reporting.ChatReportScreen",
+    "packageName": "net.minecraft.client.gui.screens.reporting",
+    "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatReportScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Screen",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.ints.IntSet",
+      "java.util.UUID",
+      "java.util.concurrent.CancellationException",
+      "java.util.concurrent.CompletableFuture",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.Optionull",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.MultiLineEditBox",
+      "net.minecraft.client.gui.components.MultiLineLabel",
+      "net.minecraft.client.gui.components.Tooltip",
+      "net.minecraft.client.gui.screens.GenericWaitingScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.gui.screens.multiplayer.WarningScreen",
+      "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+      "net.minecraft.client.multiplayer.chat.report.ReportReason",
+      "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.ThrowingComponent",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChatReportScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportingContext",
+            "type": "ReportingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportBuilder",
+            "type": "ChatReportBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ChatReportScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportingContext",
+            "type": "ReportingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportId",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ChatReportScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportingContext",
+            "type": "ReportingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReport",
+            "type": "ChatReportBuilder.ChatReport",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onReportChanged",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendReport",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 155
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onReportSendSuccess",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onReportSendError",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pThrowable",
+            "type": "Throwable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "displayReportSendError",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveDraft",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearDraft",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 213
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 218
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 220,
+          "end": 227
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removed",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 229,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mouseReleased",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMouseX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButton",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 242,
+          "end": 244
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentLeft",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 246,
+          "end": 248
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentRight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 250,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 256
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentBottom",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 258,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectChatTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 262,
+          "end": 264
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectInfoTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 266,
+          "end": 268
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "commentBoxTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 270,
+          "end": 277
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "commentBoxBottom",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 279,
+          "end": 281
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "completeButtonTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 283,
+          "end": 285
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BUTTON_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "120",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "BUTTON_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "BUTTON_MARGIN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "BUTTON_MARGIN_HALF",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "LABEL_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "25",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "SCREEN_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "280",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "SCREEN_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "300",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "reportingContext",
+        "type": "ReportingContext",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "reasonDescriptionLabel",
+        "type": "MultiLineLabel",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "commentBox",
+        "type": "MultiLineEditBox",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "sendButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "reportBuilder",
+        "type": "ChatReportBuilder",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "cannotBuildReason",
+        "type": "ChatReportBuilder.CannotBuildReason",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "DiscardReportWarningScreen",
+        "fullName": "net.minecraft.client.gui.screens.reporting.ChatReportScreen.DiscardReportWarningScreen",
+        "packageName": "net.minecraft.client.gui.screens.reporting",
+        "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatReportScreen.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "WarningScreen",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.util.UUID",
+          "java.util.concurrent.CancellationException",
+          "java.util.concurrent.CompletableFuture",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Optionull",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.MultiLineEditBox",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.Tooltip",
+          "net.minecraft.client.gui.screens.GenericWaitingScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.gui.screens.multiplayer.WarningScreen",
+          "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+          "net.minecraft.client.multiplayer.chat.report.ReportReason",
+          "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.ThrowingComponent",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "DiscardReportWarningScreen",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 295,
+              "end": 297
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "initButtons",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_239753_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 299,
+              "end": 312
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onClose",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 314,
+              "end": 316
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "shouldCloseOnEsc",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 318,
+              "end": 320
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderTitle",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_282506_",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 322,
+              "end": 324
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 288,
+          "end": 325
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatReportScreen/DiscardReportWarningScreen.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 326
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatReportScreen.java"
+  },
+  "net.minecraft.client.gui.screens.reporting.ChatSelectionLogFiller": {
+    "className": "ChatSelectionLogFiller",
+    "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionLogFiller",
+    "packageName": "net.minecraft.client.gui.screens.reporting",
+    "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionLogFiller.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.client.multiplayer.chat.ChatLog",
+      "net.minecraft.client.multiplayer.chat.LoggedChatEvent",
+      "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+      "net.minecraft.client.multiplayer.chat.report.ChatReportContextBuilder",
+      "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.PlayerChatMessage",
+      "net.minecraft.network.chat.SignedMessageLink",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChatSelectionLogFiller",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pReportingContext",
+            "type": "ReportingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCanReport",
+            "type": "Predicate<LoggedChatMessage.Player>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "fillNextPage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMaxVisibleEntries",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "ChatSelectionLogFiller.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acceptMessage",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "ChatSelectionLogFiller.Output",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "LoggedChatMessage.Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 81
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "log",
+        "type": "ChatLog",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "contextBuilder",
+        "type": "ChatReportContextBuilder",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "canReport",
+        "type": "Predicate<LoggedChatMessage.Player>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "previousLink",
+        "type": "SignedMessageLink",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "eventId",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "missedCount",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "lastMessage",
+        "type": "PlayerChatMessage",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Output",
+        "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionLogFiller.Output",
+        "packageName": "net.minecraft.client.gui.screens.reporting",
+        "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionLogFiller.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.client.multiplayer.chat.ChatLog",
+          "net.minecraft.client.multiplayer.chat.LoggedChatEvent",
+          "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+          "net.minecraft.client.multiplayer.chat.report.ChatReportContextBuilder",
+          "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.PlayerChatMessage",
+          "net.minecraft.network.chat.SignedMessageLink",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "acceptMessage",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pChatId",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPlayerMessage",
+                "type": "LoggedChatMessage.Player",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 85,
+              "end": 85
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "acceptDivider",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pText",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 87,
+              "end": 87
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 84,
+          "end": 88
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionLogFiller/Output.java"
+      }
+    ],
+    "lineRange": {
+      "start": 18,
+      "end": 89
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionLogFiller.java"
+  },
+  "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen": {
+    "className": "ChatSelectionScreen",
+    "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen",
+    "packageName": "net.minecraft.client.gui.screens.reporting",
+    "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Screen",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "java.util.List",
+      "java.util.UUID",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.Optionull",
+      "net.minecraft.client.GuiMessageTag",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.MultiLineLabel",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraft.client.gui.components.PlayerFaceRenderer",
+      "net.minecraft.client.gui.navigation.CommonInputs",
+      "net.minecraft.client.gui.navigation.ScreenDirection",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+      "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+      "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+      "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+      "net.minecraft.locale.Language",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.FormattedText",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.FormattedCharSequence",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChatSelectionScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReportingContext",
+            "type": "ReportingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReport",
+            "type": "ChatReportBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnSelected",
+            "type": "Consumer<ChatReportBuilder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 57
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canReport",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_242240_",
+            "type": "LoggedChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "extendLog",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onReachedScrollTop",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateConfirmSelectedButton",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNarrationMessage",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 118,
+          "end": 120
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "reportingContext",
+        "type": "ReportingContext",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "confirmSelectedButton",
+        "type": "Button",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "contextInfoLabel",
+        "type": "MultiLineLabel",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "chatSelectionList",
+        "type": "ChatSelectionScreen.ChatSelectionList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "report",
+        "type": "ChatReportBuilder",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "onSelected",
+        "type": "Consumer<ChatReportBuilder>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "chatLogFiller",
+        "type": "ChatSelectionLogFiller",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ChatSelectionList",
+        "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList",
+        "packageName": "net.minecraft.client.gui.screens.reporting",
+        "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "ObjectSelectionList<ChatSelectionScreen.ChatSelectionList.Entry>",
+        "interfaces": [
+          "ChatSelectionLogFiller.Output"
+        ],
+        "imports": [
+          "com.mojang.authlib.GameProfile",
+          "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "java.util.List",
+          "java.util.UUID",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.Optionull",
+          "net.minecraft.client.GuiMessageTag",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.MultiLineLabel",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.components.PlayerFaceRenderer",
+          "net.minecraft.client.gui.navigation.CommonInputs",
+          "net.minecraft.client.gui.navigation.ScreenDirection",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+          "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+          "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+          "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+          "net.minecraft.locale.Language",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.FormattedText",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.FormattedCharSequence",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ChatSelectionList",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinecraft",
+                "type": "Minecraft",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_239061_",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 127,
+              "end": 129
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "setScrollAmount",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pScroll",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 131,
+              "end": 138
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "acceptMessage",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pChatId",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPlayerMessage",
+                "type": "LoggedChatMessage.Player",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 147
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "updateHeading",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLoggedPlayerChatMessage",
+                "type": "LoggedChatMessage.Player",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCanReport",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 149,
+              "end": 158
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "acceptDivider",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pText",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 160,
+              "end": 165
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getScrollbarPosition",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 167,
+              "end": 169
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getRowWidth",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 171,
+              "end": 173
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getMaxVisibleEntries",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 175,
+              "end": 177
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "renderItem",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pGuiGraphics",
+                "type": "GuiGraphics",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMouseY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPartialTick",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLeft",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTop",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 179,
+              "end": 188
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "shouldHighlightEntry",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pEntry",
+                "type": "ChatSelectionScreen.ChatSelectionList.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 190,
+              "end": 199
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setSelected",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pSelected",
+                "type": "ChatSelectionScreen.ChatSelectionList.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 213
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "keyPressed",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pKeyCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pScanCode",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pModifiers",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 223,
+              "end": 226
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getFooterTop",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 228,
+              "end": 230
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "Heading",
+            "returnType": "record",
+            "parameters": [
+              {
+                "name": "sender",
+                "type": "UUID",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "entry",
+                "type": "ChatSelectionScreen.ChatSelectionList.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 275,
+              "end": 279
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "previousHeading",
+            "type": "ChatSelectionScreen.ChatSelectionList.Heading",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 125,
+              "end": 125
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "DividerEntry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList.DividerEntry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "ChatSelectionScreen.ChatSelectionList.Entry",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.authlib.GameProfile",
+              "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+              "com.mojang.blaze3d.systems.RenderSystem",
+              "java.util.List",
+              "java.util.UUID",
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.ChatFormatting",
+              "net.minecraft.Optionull",
+              "net.minecraft.client.GuiMessageTag",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.MultiLineLabel",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.components.PlayerFaceRenderer",
+              "net.minecraft.client.gui.navigation.CommonInputs",
+              "net.minecraft.client.gui.navigation.ScreenDirection",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+              "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+              "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+              "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+              "net.minecraft.locale.Language",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraft.network.chat.FormattedText",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.FormattedCharSequence",
+              "net.minecraft.util.Mth",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "DividerEntry",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pText",
+                    "type": "Component",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 237,
+                  "end": 239
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "render",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTop",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pLeft",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pWidth",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHovering",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pPartialTick",
+                    "type": "float",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 241,
+                  "end": 248
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getNarration",
+                "returnType": "Component",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 250,
+                  "end": 252
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "COLOR",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "-6250336",
+                "lineRange": {
+                  "start": 234,
+                  "end": 234
+                }
+              },
+              {
+                "name": "text",
+                "type": "Component",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 235,
+                  "end": 235
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 233,
+              "end": 253
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList/DividerEntry.java"
+          },
+          {
+            "className": "Entry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList.Entry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public",
+              "abstract"
+            ],
+            "superClass": "ObjectSelectionList.Entry<ChatSelectionScreen.ChatSelectionList.Entry>",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.authlib.GameProfile",
+              "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+              "com.mojang.blaze3d.systems.RenderSystem",
+              "java.util.List",
+              "java.util.UUID",
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.ChatFormatting",
+              "net.minecraft.Optionull",
+              "net.minecraft.client.GuiMessageTag",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.MultiLineLabel",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.components.PlayerFaceRenderer",
+              "net.minecraft.client.gui.navigation.CommonInputs",
+              "net.minecraft.client.gui.navigation.ScreenDirection",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+              "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+              "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+              "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+              "net.minecraft.locale.Language",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraft.network.chat.FormattedText",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.FormattedCharSequence",
+              "net.minecraft.util.Mth",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "getNarration",
+                "returnType": "Component",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 257,
+                  "end": 259
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "isSelected",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 261,
+                  "end": 263
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "canSelect",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 265,
+                  "end": 267
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "canReport",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 269,
+                  "end": 271
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 256,
+              "end": 272
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList/Entry.java"
+          },
+          {
+            "className": "MessageEntry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList.MessageEntry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "ChatSelectionScreen.ChatSelectionList.Entry",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.authlib.GameProfile",
+              "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+              "com.mojang.blaze3d.systems.RenderSystem",
+              "java.util.List",
+              "java.util.UUID",
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.ChatFormatting",
+              "net.minecraft.Optionull",
+              "net.minecraft.client.GuiMessageTag",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.MultiLineLabel",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.components.PlayerFaceRenderer",
+              "net.minecraft.client.gui.navigation.CommonInputs",
+              "net.minecraft.client.gui.navigation.ScreenDirection",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+              "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+              "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+              "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+              "net.minecraft.locale.Language",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraft.network.chat.FormattedText",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.FormattedCharSequence",
+              "net.minecraft.util.Mth",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "MessageEntry",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pChatId",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pText",
+                    "type": "Component",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pNarration",
+                    "type": "Component",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTagIcon",
+                    "type": "GuiMessageTag",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pCanReport",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pPlayerMessage",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 300,
+                  "end": 316
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "render",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTop",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pLeft",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pWidth",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHovering",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pPartialTick",
+                    "type": "float",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 318,
+                  "end": 332
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "renderTag",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "private"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 334,
+                  "end": 343
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "renderSelectedCheckmark",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTop",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pLeft",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "private"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 345,
+                  "end": 350
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getMaximumTextWidth",
+                "returnType": "int",
+                "parameters": [],
+                "modifiers": [
+                  "private"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 352,
+                  "end": 355
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getTextIndent",
+                "returnType": "int",
+                "parameters": [],
+                "modifiers": [
+                  "private"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 357,
+                  "end": 359
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getNarration",
+                "returnType": "Component",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 361,
+                  "end": 363
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "mouseClicked",
+                "returnType": "boolean",
+                "parameters": [
+                  {
+                    "name": "pMouseX",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pButton",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 373,
+                  "end": 380
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "keyPressed",
+                "returnType": "boolean",
+                "parameters": [
+                  {
+                    "name": "pKeyCode",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pScanCode",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pModifiers",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 390,
+                  "end": 392
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "isSelected",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 394,
+                  "end": 396
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "canSelect",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 398,
+                  "end": 400
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "canReport",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 402,
+                  "end": 404
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "toggleReport",
+                "returnType": "boolean",
+                "parameters": [],
+                "modifiers": [
+                  "private"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 406,
+                  "end": 414
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "CHECKMARK_WIDTH",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "9",
+                "lineRange": {
+                  "start": 284,
+                  "end": 284
+                }
+              },
+              {
+                "name": "CHECKMARK_HEIGHT",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "8",
+                "lineRange": {
+                  "start": 285,
+                  "end": 285
+                }
+              },
+              {
+                "name": "INDENT_AMOUNT",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "11",
+                "lineRange": {
+                  "start": 286,
+                  "end": 286
+                }
+              },
+              {
+                "name": "TAG_MARGIN_LEFT",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "4",
+                "lineRange": {
+                  "start": 287,
+                  "end": 287
+                }
+              },
+              {
+                "name": "chatId",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 288,
+                  "end": 288
+                }
+              },
+              {
+                "name": "text",
+                "type": "FormattedText",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 289,
+                  "end": 289
+                }
+              },
+              {
+                "name": "narration",
+                "type": "Component",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 290,
+                  "end": 290
+                }
+              },
+              {
+                "name": "hoverText",
+                "type": "List<FormattedCharSequence>",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 292,
+                  "end": 292
+                }
+              },
+              {
+                "name": "tagIcon",
+                "type": "GuiMessageTag.Icon",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 294,
+                  "end": 294
+                }
+              },
+              {
+                "name": "tagHoverText",
+                "type": "List<FormattedCharSequence>",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 296,
+                  "end": 296
+                }
+              },
+              {
+                "name": "canReport",
+                "type": "boolean",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 297,
+                  "end": 297
+                }
+              },
+              {
+                "name": "playerMessage",
+                "type": "boolean",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 298,
+                  "end": 298
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 282,
+              "end": 415
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList/MessageEntry.java"
+          },
+          {
+            "className": "MessageHeadingEntry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList.MessageHeadingEntry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "ChatSelectionScreen.ChatSelectionList.Entry",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.authlib.GameProfile",
+              "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+              "com.mojang.blaze3d.systems.RenderSystem",
+              "java.util.List",
+              "java.util.UUID",
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.ChatFormatting",
+              "net.minecraft.Optionull",
+              "net.minecraft.client.GuiMessageTag",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.MultiLineLabel",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.components.PlayerFaceRenderer",
+              "net.minecraft.client.gui.navigation.CommonInputs",
+              "net.minecraft.client.gui.navigation.ScreenDirection",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+              "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+              "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+              "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+              "net.minecraft.locale.Language",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraft.network.chat.FormattedText",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.FormattedCharSequence",
+              "net.minecraft.util.Mth",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "MessageHeadingEntry",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pProfile",
+                    "type": "GameProfile",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeading",
+                    "type": "Component",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pCanReport",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 424,
+                  "end": 428
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "render",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTop",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pLeft",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pWidth",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHovering",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pPartialTick",
+                    "type": "float",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 430,
+                  "end": 436
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "FACE_SIZE",
+                "type": "int",
+                "modifiers": [
+                  "private",
+                  "static",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "12",
+                "lineRange": {
+                  "start": 419,
+                  "end": 419
+                }
+              },
+              {
+                "name": "heading",
+                "type": "Component",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 420,
+                  "end": 420
+                }
+              },
+              {
+                "name": "skin",
+                "type": "ResourceLocation",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 421,
+                  "end": 421
+                }
+              },
+              {
+                "name": "canReport",
+                "type": "boolean",
+                "modifiers": [
+                  "private",
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 422,
+                  "end": 422
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 418,
+              "end": 437
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList/MessageHeadingEntry.java"
+          },
+          {
+            "className": "PaddingEntry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ChatSelectionScreen.ChatSelectionList.PaddingEntry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ChatSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "ChatSelectionScreen.ChatSelectionList.Entry",
+            "interfaces": [],
+            "imports": [
+              "com.mojang.authlib.GameProfile",
+              "com.mojang.authlib.minecraft.report.AbuseReportLimits",
+              "com.mojang.blaze3d.systems.RenderSystem",
+              "java.util.List",
+              "java.util.UUID",
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.ChatFormatting",
+              "net.minecraft.Optionull",
+              "net.minecraft.client.GuiMessageTag",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.MultiLineLabel",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.components.PlayerFaceRenderer",
+              "net.minecraft.client.gui.navigation.CommonInputs",
+              "net.minecraft.client.gui.navigation.ScreenDirection",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+              "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+              "net.minecraft.client.multiplayer.chat.report.ChatReportBuilder",
+              "net.minecraft.client.multiplayer.chat.report.ReportingContext",
+              "net.minecraft.locale.Language",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraft.network.chat.FormattedText",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.FormattedCharSequence",
+              "net.minecraft.util.Mth",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "render",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "p_282007_",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240110_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240111_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240112_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240113_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240114_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240115_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240116_",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240117_",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "p_240118_",
+                    "type": "float",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 441,
+                  "end": 442
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 440,
+              "end": 443
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList/PaddingEntry.java"
+          }
+        ],
+        "lineRange": {
+          "start": 123,
+          "end": 444
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen/ChatSelectionList.java"
+      }
+    ],
+    "lineRange": {
+      "start": 37,
+      "end": 445
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ChatSelectionScreen.java"
+  },
+  "net.minecraft.client.gui.screens.reporting.ReportReasonSelectionScreen": {
+    "className": "ReportReasonSelectionScreen",
+    "fullName": "net.minecraft.client.gui.screens.reporting.ReportReasonSelectionScreen",
+    "packageName": "net.minecraft.client.gui.screens.reporting",
+    "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ReportReasonSelectionScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Screen",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.Optionull",
+      "net.minecraft.Util",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.multiplayer.chat.report.ReportReason",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ReportReasonSelectionScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLastScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCurrentlySelectedReason",
+            "type": "ReportReason",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnSelectedReason",
+            "type": "Consumer<ReportReason>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "buttonTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentLeft",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contentRight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "descriptionTop",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "descriptionBottom",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FOOTER_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "95",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "BUTTON_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "150",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "BUTTON_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "CONTENT_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "320",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "PADDING",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "lastScreen",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "reasonSelectionList",
+        "type": "ReportReasonSelectionScreen.ReasonSelectionList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "currentlySelectedReason",
+        "type": "ReportReason",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "onSelectedReason",
+        "type": "Consumer<ReportReason>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "ReasonSelectionList",
+        "fullName": "net.minecraft.client.gui.screens.reporting.ReportReasonSelectionScreen.ReasonSelectionList",
+        "packageName": "net.minecraft.client.gui.screens.reporting",
+        "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ReportReasonSelectionScreen.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "ObjectSelectionList<ReportReasonSelectionScreen.ReasonSelectionList.Entry>",
+        "interfaces": [],
+        "imports": [
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.Optionull",
+          "net.minecraft.Util",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.client.gui.components.ObjectSelectionList",
+          "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+          "net.minecraft.client.gui.screens.Screen",
+          "net.minecraft.client.multiplayer.chat.report.ReportReason",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ReasonSelectionList",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMinecraft",
+                "type": "Minecraft",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 133
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getRowWidth",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 142,
+              "end": 144
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getScrollbarPosition",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 146,
+              "end": 148
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setSelected",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pSelected",
+                "type": "ReportReasonSelectionScreen.ReasonSelectionList.Entry",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 150,
+              "end": 153
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [
+          {
+            "className": "Entry",
+            "fullName": "net.minecraft.client.gui.screens.reporting.ReportReasonSelectionScreen.ReasonSelectionList.Entry",
+            "packageName": "net.minecraft.client.gui.screens.reporting",
+            "filePath": "/net\\minecraft\\client\\gui\\screens\\reporting\\ReportReasonSelectionScreen.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "ObjectSelectionList.Entry<ReportReasonSelectionScreen.ReasonSelectionList.Entry>",
+            "interfaces": [],
+            "imports": [
+              "java.util.function.Consumer",
+              "javax.annotation.Nullable",
+              "net.minecraft.Optionull",
+              "net.minecraft.Util",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.gui.GuiGraphics",
+              "net.minecraft.client.gui.components.Button",
+              "net.minecraft.client.gui.components.ObjectSelectionList",
+              "net.minecraft.client.gui.screens.ConfirmLinkScreen",
+              "net.minecraft.client.gui.screens.Screen",
+              "net.minecraft.client.multiplayer.chat.report.ReportReason",
+              "net.minecraft.network.chat.CommonComponents",
+              "net.minecraft.network.chat.Component",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "Entry",
+                "returnType": "",
+                "parameters": [
+                  {
+                    "name": "pReason",
+                    "type": "ReportReason",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 159,
+                  "end": 161
+                },
+                "isConstructor": true
+              },
+              {
+                "name": "render",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pGuiGraphics",
+                    "type": "GuiGraphics",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pTop",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pLeft",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pWidth",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHeight",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseX",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pHovering",
+                    "type": "boolean",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pPartialTick",
+                    "type": "float",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 163,
+                  "end": 167
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getNarration",
+                "returnType": "Component",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 169,
+                  "end": 171
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "mouseClicked",
+                "returnType": "boolean",
+                "parameters": [
+                  {
+                    "name": "pMouseX",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pMouseY",
+                    "type": "double",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pButton",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 181,
+                  "end": 188
+                },
+                "isConstructor": false
+              },
+              {
+                "name": "getReason",
+                "returnType": "ReportReason",
+                "parameters": [],
+                "modifiers": [
+                  "public"
+                ],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 190,
+                  "end": 192
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [
+              {
+                "name": "reason",
+                "type": "ReportReason",
+                "modifiers": [
+                  "final"
+                ],
+                "comment": "",
+                "initialValue": "",
+                "lineRange": {
+                  "start": 157,
+                  "end": 157
+                }
+              }
+            ],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 156,
+              "end": 193
+            },
+            "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ReportReasonSelectionScreen/ReasonSelectionList/Entry.java"
+          }
+        ],
+        "lineRange": {
+          "start": 125,
+          "end": 194
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ReportReasonSelectionScreen/ReasonSelectionList.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 195
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/gui/screens/reporting/ReportReasonSelectionScreen.java"
+  }
+}

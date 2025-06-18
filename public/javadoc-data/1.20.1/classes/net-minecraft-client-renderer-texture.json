@@ -1,0 +1,6249 @@
+{
+  "net.minecraft.client.renderer.texture.AbstractTexture": {
+    "className": "AbstractTexture",
+    "fullName": "net.minecraft.client.renderer.texture.AbstractTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\AbstractTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "java.io.IOException",
+      "java.util.concurrent.Executor",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "setFilter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBlur",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMipmap",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBlurMipmap",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "blur",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mipmap",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "restoreLastBlurMipmap",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getId",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "releaseId",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 82,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bind",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTextureManager",
+            "type": "TextureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 100
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NOT_ASSIGNED",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "id",
+        "type": "int",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "blur",
+        "type": "boolean",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "mipmap",
+        "type": "boolean",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "lastBlur",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "FORGE: This seems to have been stripped out, but we need it",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "lastMipmap",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 101
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/AbstractTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.Dumpable": {
+    "className": "Dumpable",
+    "fullName": "net.minecraft.client.renderer.texture.Dumpable",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\Dumpable.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "dumpContents",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 12
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Dumpable.java"
+  },
+  "net.minecraft.client.renderer.texture.DynamicTexture": {
+    "className": "DynamicTexture",
+    "fullName": "net.minecraft.client.renderer.texture.DynamicTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\DynamicTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractTexture",
+    "interfaces": [
+      "Dumpable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "javax.annotation.Nullable",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DynamicTexture",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPixels",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "DynamicTexture",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseCalloc",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPixels",
+        "returnType": "NativeImage",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPixels",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPixels",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dumpContents",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 77,
+          "end": 84
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "pixels",
+        "type": "NativeImage",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 85
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/DynamicTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.HttpTexture": {
+    "className": "HttpTexture",
+    "fullName": "net.minecraft.client.renderer.texture.HttpTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\HttpTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SimpleTexture",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "java.io.File",
+      "java.io.FileInputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.net.HttpURLConnection",
+      "java.net.URL",
+      "java.util.concurrent.CompletableFuture",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.io.FileUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "HttpTexture",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "File",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUrlString",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProcessLegacySkin",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnDownloaded",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "loadCallback",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 71,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "NativeImage",
+        "parameters": [
+          {
+            "name": "pStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processLegacySkin",
+        "returnType": "NativeImage",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doNotchTransparencyHack",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 212
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setNoAlpha",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 214,
+          "end": 221
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SKIN_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "SKIN_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "LEGACY_SKIN_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "32",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "file",
+        "type": "File",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "urlString",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "processLegacySkin",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "onDownloaded",
+        "type": "Runnable",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "uploaded",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 222
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/HttpTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.MipmapGenerator": {
+    "className": "MipmapGenerator",
+    "fullName": "net.minecraft.client.renderer.texture.MipmapGenerator",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\MipmapGenerator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "net.minecraft.Util",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MipmapGenerator",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "generateMipLevels",
+        "returnType": "NativeImage[]",
+        "parameters": [
+          {
+            "name": "pImages",
+            "type": "NativeImage[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTransparentPixel",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "alphaBlend",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pCol0",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol2",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol3",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTransparent",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gammaBlend",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pCol0",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol2",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCol3",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBitOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPow22",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 135
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ALPHA_CUTOUT_CUTOFF",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "96",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 136
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/MipmapGenerator.java"
+  },
+  "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite": {
+    "className": "MissingTextureAtlasSprite",
+    "fullName": "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\MissingTextureAtlasSprite.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.resources.metadata.animation.AnimationFrame",
+      "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+      "net.minecraft.client.resources.metadata.animation.FrameSize",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "generateMissingImage",
+        "returnType": "NativeImage",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "SpriteContents",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTexture",
+        "returnType": "DynamicTexture",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 60
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MISSING_IMAGE_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "MISSING_IMAGE_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "MISSING_TEXTURE_NAME",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"missingno\"",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "missingTexture",
+        "type": "DynamicTexture",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 61
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/MissingTextureAtlasSprite.java"
+  },
+  "net.minecraft.client.renderer.texture.OverlayTexture": {
+    "className": "OverlayTexture",
+    "fullName": "net.minecraft.client.renderer.texture.OverlayTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\OverlayTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "OverlayTexture",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 35
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupOverlayColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "u",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "v",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pHurt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pack",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pV",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pack",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHurt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "teardownOverlayColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "NO_WHITE_U",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "RED_OVERLAY_V",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "WHITE_OVERLAY_V",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/OverlayTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.PreloadedTexture": {
+    "className": "PreloadedTexture",
+    "fullName": "net.minecraft.client.renderer.texture.PreloadedTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\PreloadedTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SimpleTexture",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PreloadedTexture",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getFuture",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reset",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTextureManager",
+            "type": "TextureManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executor",
+        "returnType": "Executor",
+        "parameters": [
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "future",
+        "type": "CompletableFuture<SimpleTexture.TextureImage>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 57
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/PreloadedTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.SimpleTexture": {
+    "className": "SimpleTexture",
+    "fullName": "net.minecraft.client.renderer.texture.SimpleTexture",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\SimpleTexture.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractTexture",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "java.io.Closeable",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.resources.metadata.texture.TextureMetadataSection",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SimpleTexture",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 28,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doLoad",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlur",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pClamp",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "location",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "TextureImage",
+        "fullName": "net.minecraft.client.renderer.texture.SimpleTexture.TextureImage",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\SimpleTexture.java",
+        "classType": "class",
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "Closeable"
+        ],
+        "imports": [
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.blaze3d.platform.TextureUtil",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "java.io.Closeable",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.resources.metadata.texture.TextureMetadataSection",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.resources.Resource",
+          "net.minecraft.server.packs.resources.ResourceManager",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "TextureImage",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pException",
+                "type": "IOException",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 71,
+              "end": 75
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "TextureImage",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pMetadata",
+                "type": "TextureMetadataSection",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pImage",
+                "type": "NativeImage",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 77,
+              "end": 81
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getTextureMetadata",
+            "returnType": "TextureMetadataSection",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 107,
+              "end": 109
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getImage",
+            "returnType": "NativeImage",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 111,
+              "end": 117
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 119,
+              "end": 124
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "throwIfError",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 126,
+              "end": 130
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "metadata",
+            "type": "TextureMetadataSection",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 65,
+              "end": 65
+            }
+          },
+          {
+            "name": "image",
+            "type": "NativeImage",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 67,
+              "end": 67
+            }
+          },
+          {
+            "name": "exception",
+            "type": "IOException",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 69,
+              "end": 69
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 63,
+          "end": 131
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SimpleTexture/TextureImage.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 132
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SimpleTexture.java"
+  },
+  "net.minecraft.client.renderer.texture.SpriteContents": {
+    "className": "SpriteContents",
+    "fullName": "net.minecraft.client.renderer.texture.SpriteContents",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteContents.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Stitcher.Entry",
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+      "it.unimi.dsi.fastutil.ints.IntSet",
+      "java.util.ArrayList",
+      "java.util.Arrays",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.stream.IntStream",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+      "net.minecraft.client.resources.metadata.animation.FrameSize",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SpriteContents",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrameSize",
+            "type": "FrameSize",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginalImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMetadata",
+            "type": "AnimationMetadataSection",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "SpriteContents",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrameSize",
+            "type": "FrameSize",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginalImage",
+            "type": "NativeImage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMetadata",
+            "type": "AnimationMetadataSection",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "forgeMeta",
+            "type": "net.minecraftforge.client.textures.ForgeTextureMetadata",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 54
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getOriginalImage",
+        "returnType": "NativeImage",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "increaseMipLevel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFrameCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrameX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrameY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAtlasData",
+            "type": "NativeImage[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "width",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "height",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "name",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 158,
+          "end": 160
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUniqueFrames",
+        "returnType": "IntStream",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 162,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTicker",
+        "returnType": "SpriteTicker",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isTransparent",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFrame",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 191
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uploadFirstFrame",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 193,
+          "end": 200
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "originalImage",
+        "type": "NativeImage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "byMipLevel",
+        "type": "NativeImage[]",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "animatedTexture",
+        "type": "SpriteContents.AnimatedTexture",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "forgeMeta",
+        "type": "net.minecraftforge.client.textures.ForgeTextureMetadata",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AnimatedTexture",
+        "fullName": "net.minecraft.client.renderer.texture.SpriteContents.AnimatedTexture",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteContents.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.util.ArrayList",
+          "java.util.Arrays",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.stream.IntStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.CrashReportCategory",
+          "net.minecraft.ReportedException",
+          "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+          "net.minecraft.client.resources.metadata.animation.FrameSize",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AnimatedTexture",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pFrames",
+                "type": "List<SpriteContents.FrameInfo>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pFrameRowSize",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pInterpolateFrames",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 208,
+              "end": 212
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getFrameX",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pFrameIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 214,
+              "end": 216
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getFrameY",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pFrameIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 218,
+              "end": 220
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uploadFrame",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pFrameIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 222,
+              "end": 226
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "createTicker",
+            "returnType": "SpriteTicker",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 228,
+              "end": 230
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "uploadFirstFrame",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 232,
+              "end": 234
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getUniqueFrames",
+            "returnType": "IntStream",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 236,
+              "end": 240
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "frames",
+            "type": "List<SpriteContents.FrameInfo>",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 204,
+              "end": 204
+            }
+          },
+          {
+            "name": "frameRowSize",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 205,
+              "end": 205
+            }
+          },
+          {
+            "name": "interpolateFrames",
+            "type": "boolean",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 206,
+              "end": 206
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 203,
+          "end": 241
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteContents/AnimatedTexture.java"
+      },
+      {
+        "className": "FrameInfo",
+        "fullName": "net.minecraft.client.renderer.texture.SpriteContents.FrameInfo",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteContents.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.util.ArrayList",
+          "java.util.Arrays",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.stream.IntStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.CrashReportCategory",
+          "net.minecraft.ReportedException",
+          "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+          "net.minecraft.client.resources.metadata.animation.FrameSize",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FrameInfo",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTime",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 248,
+              "end": 251
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "index",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 245,
+              "end": 245
+            }
+          },
+          {
+            "name": "time",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 246,
+              "end": 246
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 244,
+          "end": 252
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteContents/FrameInfo.java"
+      },
+      {
+        "className": "InterpolationData",
+        "fullName": "net.minecraft.client.renderer.texture.SpriteContents.InterpolationData",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteContents.java",
+        "classType": "class",
+        "modifiers": [
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "AutoCloseable"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.util.ArrayList",
+          "java.util.Arrays",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.stream.IntStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.CrashReportCategory",
+          "net.minecraft.ReportedException",
+          "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+          "net.minecraft.client.resources.metadata.animation.FrameSize",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "InterpolationData",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 258,
+              "end": 266
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "uploadInterpolatedFrame",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTicker",
+                "type": "SpriteContents.Ticker",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 268,
+              "end": 298
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPixel",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pAnimatedTexture",
+                "type": "SpriteContents.AnimatedTexture",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pFrameIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMipLevel",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 300,
+              "end": 302
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "mix",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pDelta",
+                "type": "double",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pColor1",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pColor2",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 304,
+              "end": 306
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 308,
+              "end": 313
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "activeFrame",
+            "type": "NativeImage[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "new NativeImage[SpriteContents.this.byMipLevel.length]",
+            "lineRange": {
+              "start": 256,
+              "end": 256
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 255,
+          "end": 314
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteContents/InterpolationData.java"
+      },
+      {
+        "className": "Ticker",
+        "fullName": "net.minecraft.client.renderer.texture.SpriteContents.Ticker",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteContents.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "SpriteTicker"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.blaze3d.platform.NativeImage",
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.ints.IntOpenHashSet",
+          "it.unimi.dsi.fastutil.ints.IntSet",
+          "java.util.ArrayList",
+          "java.util.Arrays",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.stream.IntStream",
+          "javax.annotation.Nullable",
+          "net.minecraft.CrashReport",
+          "net.minecraft.CrashReportCategory",
+          "net.minecraft.ReportedException",
+          "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+          "net.minecraft.client.resources.metadata.animation.FrameSize",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Ticker",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pAnimationInfo",
+                "type": "SpriteContents.AnimatedTexture",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pInterpolationData",
+                "type": "SpriteContents.InterpolationData",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 324,
+              "end": 327
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "tickAndUpload",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 329,
+              "end": 350
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 352,
+              "end": 357
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "frame",
+            "type": "int",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 318,
+              "end": 318
+            }
+          },
+          {
+            "name": "subFrame",
+            "type": "int",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 319,
+              "end": 319
+            }
+          },
+          {
+            "name": "animationInfo",
+            "type": "SpriteContents.AnimatedTexture",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 320,
+              "end": 320
+            }
+          },
+          {
+            "name": "interpolationData",
+            "type": "SpriteContents.InterpolationData",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 322,
+              "end": 322
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 317,
+          "end": 358
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteContents/Ticker.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 359
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteContents.java"
+  },
+  "net.minecraft.client.renderer.texture.SpriteLoader": {
+    "className": "SpriteLoader",
+    "fullName": "net.minecraft.client.renderer.texture.SpriteLoader",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteLoader.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.platform.NativeImage",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Objects",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.function.Supplier",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.Util",
+      "net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader",
+      "net.minecraft.client.resources.metadata.animation.AnimationMetadataSection",
+      "net.minecraft.client.resources.metadata.animation.FrameSize",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.Resource",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SpriteLoader",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxSupportedTextureSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 45
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "SpriteLoader",
+        "parameters": [
+          {
+            "name": "pAtlas",
+            "type": "TextureAtlas",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runSpriteSuppliers",
+        "returnType": "CompletableFuture<List<SpriteContents>>",
+        "parameters": [
+          {
+            "name": "pSpriteSuppliers",
+            "type": "List<Supplier<SpriteContents>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadAndStitch",
+        "returnType": "CompletableFuture<SpriteLoader.Preparations>",
+        "parameters": [
+          {
+            "name": "pResouceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadSprite",
+        "returnType": "SpriteContents",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResource",
+            "type": "Resource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 156
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStitchedSprites",
+        "returnType": "Map<ResourceLocation, TextureAtlasSprite>",
+        "parameters": [
+          {
+            "name": "pStitcher",
+            "type": "Stitcher<SpriteContents>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 158,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Preparations",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "width",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "height",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "mipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "missing",
+            "type": "TextureAtlasSprite",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "regions",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "readyForUpload",
+            "type": "CompletableFuture<Void>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 178
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "location",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "maxSupportedTextureSize",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "minWidth",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "minHeight",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 33,
+      "end": 179
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteLoader.java"
+  },
+  "net.minecraft.client.renderer.texture.SpriteTicker": {
+    "className": "SpriteTicker",
+    "fullName": "net.minecraft.client.renderer.texture.SpriteTicker",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\SpriteTicker.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AutoCloseable",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "tickAndUpload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/SpriteTicker.java"
+  },
+  "net.minecraft.client.renderer.texture.Stitcher": {
+    "className": "Stitcher",
+    "fullName": "net.minecraft.client.renderer.texture.Stitcher",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\Stitcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "java.util.ArrayList",
+      "java.util.Comparator",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Stitcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMaxWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 36
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerSprite",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pStitcherEntry",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stitch",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gatherSprites",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLoader",
+            "type": "Stitcher.SpriteLoader<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "smallestFittingMinTexel",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pDimension",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMipLevel",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addToStorage",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pHolder",
+            "type": "Stitcher.Holder<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "expand",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pHolder",
+            "type": "Stitcher.Holder<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 140
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "mipLevel",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "storageX",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "storageY",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "maxWidth",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "maxHeight",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Entry",
+        "fullName": "net.minecraft.client.renderer.texture.Stitcher.Entry",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\Stitcher.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "java.util.ArrayList",
+          "java.util.Comparator",
+          "java.util.List",
+          "javax.annotation.Nullable",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "width",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 144,
+              "end": 144
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "height",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 146,
+              "end": 146
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "name",
+            "returnType": "ResourceLocation",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 148,
+              "end": 148
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 143,
+          "end": 149
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Stitcher/Entry.java"
+      },
+      {
+        "className": "Region",
+        "fullName": "net.minecraft.client.renderer.texture.Stitcher.Region",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\Stitcher.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "java.util.ArrayList",
+          "java.util.Comparator",
+          "java.util.List",
+          "javax.annotation.Nullable",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Region",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOriginX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOriginY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pWidth",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pHeight",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 169,
+              "end": 174
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getX",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 176,
+              "end": 178
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getY",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 180,
+              "end": 182
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "add",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pHolder",
+                "type": "Stitcher.Holder<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 184,
+              "end": 229
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "walk",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pSpriteLoader",
+                "type": "Stitcher.SpriteLoader<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 231,
+              "end": 240
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toString",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 242,
+              "end": 244
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "originX",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 160,
+              "end": 160
+            }
+          },
+          {
+            "name": "originY",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 161,
+              "end": 161
+            }
+          },
+          {
+            "name": "width",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 162,
+              "end": 162
+            }
+          },
+          {
+            "name": "height",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 163,
+              "end": 163
+            }
+          },
+          {
+            "name": "subSlots",
+            "type": "List<Stitcher.Region<T>>",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 165,
+              "end": 165
+            }
+          },
+          {
+            "name": "holder",
+            "type": "Stitcher.Holder<T>",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 167,
+              "end": 167
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 159,
+          "end": 245
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Stitcher/Region.java"
+      },
+      {
+        "className": "SpriteLoader",
+        "fullName": "net.minecraft.client.renderer.texture.Stitcher.SpriteLoader",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\Stitcher.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "java.util.ArrayList",
+          "java.util.Comparator",
+          "java.util.List",
+          "javax.annotation.Nullable",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.Mth",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "load",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pEntry",
+                "type": "T",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pX",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pY",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 249,
+              "end": 249
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 248,
+          "end": 250
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Stitcher/SpriteLoader.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 251
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Stitcher.java"
+  },
+  "net.minecraft.client.renderer.texture.StitcherException": {
+    "className": "StitcherException",
+    "fullName": "net.minecraft.client.renderer.texture.StitcherException",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\StitcherException.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RuntimeException",
+    "interfaces": [],
+    "imports": [
+      "java.util.Collection",
+      "java.util.Locale",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StitcherException",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "Stitcher.Entry",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllSprites",
+            "type": "Collection<Stitcher.Entry>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getAllSprites",
+        "returnType": "Collection<Stitcher.Entry>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "allSprites",
+        "type": "Collection<Stitcher.Entry>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/StitcherException.java"
+  },
+  "net.minecraft.client.renderer.texture.TextureAtlas": {
+    "className": "TextureAtlas",
+    "fullName": "net.minecraft.client.renderer.texture.TextureAtlas",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\TextureAtlas.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractTexture",
+    "interfaces": [
+      "Dumpable",
+      "Tickable"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.platform.TextureUtil",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.Writer",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Map.Entry",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.world.inventory.InventoryMenu",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TextureAtlas",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "upload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPreparations",
+            "type": "SpriteLoader.Preparations",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dumpContents",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 87,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dumpSpriteNames",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOutputDir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutputFilename",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_261722_",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "cycleAnimationFrames",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSprite",
+        "returnType": "TextureAtlasSprite",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearTextureData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "location",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxSupportedTextureSize",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateFilter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPreparations",
+            "type": "SpriteLoader.Preparations",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 156
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "LOCATION_BLOCKS",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "InventoryMenu.BLOCK_ATLAS",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "location",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "maxSupportedTextureSize",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "mipLevel",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 164
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/TextureAtlas.java"
+  },
+  "net.minecraft.client.renderer.texture.TextureAtlasSprite": {
+    "className": "TextureAtlasSprite",
+    "fullName": "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\TextureAtlasSprite.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.renderer.SpriteCoordinateExpander",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TextureAtlasSprite",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pAtlasLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContents",
+            "type": "SpriteContents",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOriginY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getX",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getY",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getU0",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getU1",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contents",
+        "returnType": "SpriteContents",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getU",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pU",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUOffset",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pOffset",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getV0",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getV1",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getV",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pV",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVOffset",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pOffset",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "atlasLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uploadFirstFrame",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 122
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "atlasSize",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uvShrinkRatio",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrap",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "pConsumer",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 136
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPixelRGBA",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "frameIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "x",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "Forge Start",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 153
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "atlasLocation",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "contents",
+        "type": "SpriteContents",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "x",
+        "type": "int",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "y",
+        "type": "int",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "u0",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "u1",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "v0",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "v1",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Ticker",
+        "fullName": "net.minecraft.client.renderer.texture.TextureAtlasSprite.Ticker",
+        "packageName": "net.minecraft.client.renderer.texture",
+        "filePath": "/net\\minecraft\\client\\renderer\\texture\\TextureAtlasSprite.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "AutoCloseable",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.vertex.VertexConsumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.renderer.SpriteCoordinateExpander",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "tickAndUpload",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 140
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 142,
+              "end": 142
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 139,
+          "end": 143
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/TextureAtlasSprite/Ticker.java"
+      }
+    ],
+    "lineRange": {
+      "start": 11,
+      "end": 154
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/TextureAtlasSprite.java"
+  },
+  "net.minecraft.client.renderer.texture.TextureManager": {
+    "className": "TextureManager",
+    "fullName": "net.minecraft.client.renderer.texture.TextureManager",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\TextureManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "PreparableReloadListener",
+      "Tickable",
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.RealmsMainScreen",
+      "java.io.IOException",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.Iterator",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "net.minecraft.CrashReport",
+      "net.minecraft.CrashReportCategory",
+      "net.minecraft.ReportedException",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.components.AbstractWidget",
+      "net.minecraft.client.gui.screens.TitleScreen",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.resources.PreparableReloadListener",
+      "net.minecraft.server.packs.resources.ResourceManager",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TextureManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "bindForSetup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_bind",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "register",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexture",
+            "type": "AbstractTexture",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "safeClose",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_118509_",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_118510_",
+            "type": "AbstractTexture",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadTexture",
+        "returnType": "AbstractTexture",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexture",
+            "type": "AbstractTexture",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTexture",
+        "returnType": "AbstractTexture",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTexture",
+        "returnType": "AbstractTexture",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultTexture",
+            "type": "AbstractTexture",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "register",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexture",
+            "type": "DynamicTexture",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 129,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "preload",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 143,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_118489_",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "release",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reload",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pStage",
+            "type": "PreparableReloadListener.PreparationBarrier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreparationsProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReloadProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 209
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dumpAllSheets",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 211,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_dumpAllSheets",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 222,
+          "end": 240
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resourceManager",
+        "type": "ResourceManager",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 32,
+      "end": 241
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/TextureManager.java"
+  },
+  "net.minecraft.client.renderer.texture.Tickable": {
+    "className": "Tickable",
+    "fullName": "net.minecraft.client.renderer.texture.Tickable",
+    "packageName": "net.minecraft.client.renderer.texture",
+    "filePath": "/net\\minecraft\\client\\renderer\\texture\\Tickable.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 9
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/client/renderer/texture/Tickable.java"
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "com.mojang.authlib.legacy.LegacyAuthenticationService": {
+    "className": "LegacyAuthenticationService",
+    "fullName": "com.mojang.authlib.legacy.LegacyAuthenticationService",
+    "packageName": "com.mojang.authlib.legacy",
+    "filePath": "/com\\mojang\\authlib\\legacy\\LegacyAuthenticationService.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "HttpAuthenticationService",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.Agent",
+      "com.mojang.authlib.GameProfileRepository",
+      "com.mojang.authlib.HttpAuthenticationService",
+      "org.apache.commons.lang3.Validate",
+      "java.net.Proxy"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LegacyAuthenticationService",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "proxy",
+            "type": "Proxy",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createUserAuthentication",
+        "returnType": "LegacyUserAuthentication",
+        "parameters": [
+          {
+            "name": "agent",
+            "type": "Agent",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createMinecraftSessionService",
+        "returnType": "LegacyMinecraftSessionService",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createProfileRepository",
+        "returnType": "GameProfileRepository",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 51
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/authlib/legacy/LegacyAuthenticationService.java"
+  },
+  "com.mojang.authlib.legacy.LegacyMinecraftSessionService": {
+    "className": "LegacyMinecraftSessionService",
+    "fullName": "com.mojang.authlib.legacy.LegacyMinecraftSessionService",
+    "packageName": "com.mojang.authlib.legacy",
+    "filePath": "/com\\mojang\\authlib\\legacy\\LegacyMinecraftSessionService.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "HttpMinecraftSessionService",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.exceptions.AuthenticationException",
+      "com.mojang.authlib.exceptions.AuthenticationUnavailableException",
+      "com.mojang.authlib.minecraft.HttpMinecraftSessionService",
+      "com.mojang.authlib.minecraft.InsecurePublicKeyException",
+      "com.mojang.authlib.minecraft.MinecraftProfileTexture",
+      "com.mojang.authlib.properties.Property",
+      "java.io.IOException",
+      "java.net.InetAddress",
+      "java.net.URL",
+      "java.util.HashMap",
+      "java.util.Map",
+      "com.mojang.authlib.HttpAuthenticationService.buildQuery",
+      "com.mojang.authlib.HttpAuthenticationService.concatenateURL",
+      "com.mojang.authlib.HttpAuthenticationService.constantURL"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LegacyMinecraftSessionService",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "authenticationService",
+            "type": "LegacyAuthenticationService",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "joinServer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "authenticationToken",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "serverId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "AuthenticationException"
+        ],
+        "lineRange": {
+          "start": 32,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasJoinedServer",
+        "returnType": "GameProfile",
+        "parameters": [
+          {
+            "name": "user",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "serverId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "address",
+            "type": "InetAddress",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "AuthenticationUnavailableException"
+        ],
+        "lineRange": {
+          "start": 53,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTextures",
+        "returnType": "Map<MinecraftProfileTexture.Type, MinecraftProfileTexture>",
+        "parameters": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "requireSecure",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillProfileProperties",
+        "returnType": "GameProfile",
+        "parameters": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "requireSecure",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAuthenticationService",
+        "returnType": "LegacyAuthenticationService",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSecurePropertyValue",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "property",
+            "type": "Property",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "InsecurePublicKeyException"
+        ],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BASE_URL",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"http://session.minecraft.net/game/\"",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 89
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/authlib/legacy/LegacyMinecraftSessionService.java"
+  },
+  "com.mojang.authlib.legacy.LegacyUserAuthentication": {
+    "className": "LegacyUserAuthentication",
+    "fullName": "com.mojang.authlib.legacy.LegacyUserAuthentication",
+    "packageName": "com.mojang.authlib.legacy",
+    "filePath": "/com\\mojang\\authlib\\legacy\\LegacyUserAuthentication.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "HttpUserAuthentication",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.authlib.HttpAuthenticationService",
+      "com.mojang.authlib.HttpUserAuthentication",
+      "com.mojang.authlib.UserType",
+      "com.mojang.authlib.exceptions.AuthenticationException",
+      "com.mojang.authlib.exceptions.InvalidCredentialsException",
+      "com.mojang.util.UUIDTypeAdapter",
+      "org.apache.commons.lang3.StringUtils",
+      "java.io.IOException",
+      "java.net.URL",
+      "java.util.HashMap",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LegacyUserAuthentication",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "authenticationService",
+            "type": "LegacyAuthenticationService",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "logIn",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "AuthenticationException"
+        ],
+        "lineRange": {
+          "start": 35,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "logOut",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlayOnline",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAvailableProfiles",
+        "returnType": "GameProfile[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectGameProfile",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "AuthenticationException"
+        ],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAuthenticatedToken",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getUserID",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAuthenticationService",
+        "returnType": "LegacyAuthenticationService",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "AUTHENTICATION_VERSION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "14",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "RESPONSE_PART_PROFILE_NAME",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "deprecated,deprecated,profile name,session id,profile id",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "RESPONSE_PART_SESSION_TOKEN",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "RESPONSE_PART_PROFILE_ID",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "sessionToken",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 118
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/authlib/legacy/LegacyUserAuthentication.java"
+  }
+}

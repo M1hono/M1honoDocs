@@ -10,12 +10,19 @@ const __dirname = path.dirname(__filename);
 console.log("🚀 开始构建JavaDoc数据...");
 
 class JavaDocDataBuilder {
-    constructor() {
-        this.sourceDir = path.join(__dirname, "../forge-1.20.1-47.1.99");
-        this.outputDir = path.join(__dirname, "../public/javadoc-data");
-        this.sourceOutputDir = path.join(__dirname, "../public/java-sources");
+    constructor(version) {
+        this.version = version;
+        this.sourceDir = path.join(__dirname, `../source/${version}`);
+        this.outputDir = path.join(
+            __dirname,
+            `../public/javadoc-data/${version}`
+        );
+        this.sourceOutputDir = path.join(
+            __dirname,
+            `../public/java-sources/${version}`
+        );
 
-        this.classes = new Map(); 
+        this.classes = new Map();
         this.packages = new Map();
         this.classHierarchy = new Map();
         this.references = new Map();
@@ -29,7 +36,7 @@ class JavaDocDataBuilder {
     }
 
     async build() {
-        console.log("🔨 开始预构建 JavaDoc 数据...");
+        console.log(`🔨 开始为版本 [${this.version}] 构建 JavaDoc 数据...`);
 
         if (!fs.existsSync(this.outputDir)) {
             fs.mkdirSync(this.outputDir, { recursive: true });
@@ -39,7 +46,7 @@ class JavaDocDataBuilder {
         }
 
         const javaFiles = this.scanJavaFiles();
-        console.log(`📁 发现 ${javaFiles.length} 个Java文件`);
+        console.log(`📁 [${this.version}] 发现 ${javaFiles.length} 个Java文件`);
 
         let processedFiles = 0;
         let totalClasses = 0;
@@ -52,16 +59,16 @@ class JavaDocDataBuilder {
 
                 if (processedFiles % 100 === 0) {
                     console.log(
-                        `  已解析 ${processedFiles}/${javaFiles.length} 个文件，发现 ${totalClasses} 个类...`
+                        `  [${this.version}] 已解析 ${processedFiles}/${javaFiles.length} 个文件，发现 ${totalClasses} 个类...`
                     );
                 }
             } catch (error) {
-                console.warn(`⚠️  解析失败: ${filePath}`, error.message);
+                console.warn(`⚠️  [${this.version}] 解析失败: ${filePath}`, error.message);
             }
         }
 
         console.log(
-            `✅ 解析完成: ${this.classes.size} 个类（包括内部类）, ${this.packages.size} 个包`
+            `✅ [${this.version}] 解析完成: ${this.classes.size} 个类（包括内部类）, ${this.packages.size} 个包`
         );
 
         this.buildRelationships();
@@ -121,7 +128,7 @@ class JavaDocDataBuilder {
             for (const classDoc of allClasses) {
                 const { fullName, packageName } = classDoc;
 
-                console.log(`📋 解析类: ${fullName}`);
+                console.log(`📋 [${this.version}] 解析类: ${fullName}`);
 
                 this.classes.set(fullName, {
                     ...classDoc,
@@ -226,10 +233,9 @@ class JavaDocDataBuilder {
                     fields,
                     innerClasses: [],
                     lineRange: { start: i + 1, end: classEndLine + 1 },
-                    sourceFilePath: `/java-sources/${fullName.replace(
-                        /\./g,
-                        "/"
-                    )}.java`,
+                    sourceFilePath: `/java-sources/${
+                        this.version
+                    }/${fullName.replace(/\./g, "/")}.java`,
                 };
 
                 this.findAllClasses(
@@ -605,7 +611,7 @@ class JavaDocDataBuilder {
     }
 
     buildRelationships() {
-        console.log("🔗 建立继承关系和引用关系...");
+        console.log(`🔗 [${this.version}] 建立继承关系和引用关系...`);
 
         for (const [className, classDoc] of this.classes) {
             if (classDoc.superClass && classDoc.superClass !== "Object") {
@@ -738,7 +744,7 @@ class JavaDocDataBuilder {
     }
 
     async generateDataFiles() {
-        console.log("📄 生成数据文件...");
+        console.log(`📄 [${this.version}] 生成数据文件...`);
 
         const packageFileNames = [];
         for (const packageName of this.packages.keys()) {
@@ -810,7 +816,7 @@ class JavaDocDataBuilder {
             );
         }
 
-        console.log(`✅ 数据文件生成完成:`);
+        console.log(`✅ [${this.version}] 数据文件生成完成:`);
         console.log(`  - 主索引: index.json`);
         console.log(`  - 包索引: packages.json`);
         console.log(`  - 继承关系: hierarchy.json`);
@@ -819,9 +825,29 @@ class JavaDocDataBuilder {
     }
 }
 
-const builder = new JavaDocDataBuilder();
-builder.build().catch((error) => {
-    console.error("❌ 构建失败:", error);
+async function main() {
+    const versionsPath = path.join(__dirname, "../public/versions.json");
+    if (!fs.existsSync(versionsPath)) {
+        console.error(`❌ versions.json not found at ${versionsPath}`);
+        process.exit(1);
+    }
+    const versions = JSON.parse(fs.readFileSync(versionsPath, "utf-8"));
+
+    for (const version of versions) {
+        console.log(`\n\n🚀 开始为版本 [${version}] 构建...`);
+        try {
+            const builder = new JavaDocDataBuilder(version);
+            await builder.build();
+            console.log(`🎉 成功完成版本 [${version}] 的构建`);
+        } catch (error) {
+            console.error(`❌ 构建失败 for version ${version}:`, error);
+        }
+    }
+    console.log("\n\n✅ 所有版本构建完成!");
+}
+
+main().catch((error) => {
+    console.error("❌ 构建过程发生严重错误:", error);
     process.exit(1);
 });
 

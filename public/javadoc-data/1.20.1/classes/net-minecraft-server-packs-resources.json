@@ -1,0 +1,3705 @@
+{
+  "net.minecraft.server.packs.resources.CloseableResourceManager": {
+    "className": "CloseableResourceManager",
+    "fullName": "net.minecraft.server.packs.resources.CloseableResourceManager",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\CloseableResourceManager.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResourceManager",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 5
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/CloseableResourceManager.java"
+  },
+  "net.minecraft.server.packs.resources.FallbackResourceManager": {
+    "className": "FallbackResourceManager",
+    "fullName": "net.minecraft.server.packs.resources.FallbackResourceManager",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\FallbackResourceManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ResourceManager"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap",
+      "java.io.FilterInputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.PrintWriter",
+      "java.io.StringWriter",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Objects",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.TreeMap",
+      "java.util.function.Predicate",
+      "java.util.function.Supplier",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.PackType",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FallbackResourceManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNamespace",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pushFilterOnly",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pushInternal",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResource",
+        "returnType": "Optional<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createResource",
+        "returnType": "Resource",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStreamSupplier",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMetadataSupplier",
+            "type": "IoSupplier<ResourceMetadata>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wrapForDebug",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackResources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_249116_",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceStack",
+        "returnType": "List<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isMetadata",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceLocationFromMetadata",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pMetadataResourceLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMetadataLocation",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 149,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "Map<ResourceLocation, Resource>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 153,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createStackMetadataFinder",
+        "returnType": "IoSupplier<ResourceMetadata>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFallbackIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 196,
+          "end": 217
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertToMetadata",
+        "returnType": "IoSupplier<ResourceMetadata>",
+        "parameters": [
+          {
+            "name": "pStreamSupplier",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 219,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseMetadata",
+        "returnType": "ResourceMetadata",
+        "parameters": [
+          {
+            "name": "pStreamSupplier",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 225,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyPackFiltersToExistingResources",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPackEntry",
+            "type": "FallbackResourceManager.PackEntry",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResources",
+            "type": "FallbackResourceManager.EntryStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listPackResources",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "FallbackResourceManager.PackEntry",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "FallbackResourceManager.EntryStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 242,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResourceStacks",
+        "returnType": "Map<ResourceLocation, List<Resource>>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 265,
+          "end": 291
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listPacks",
+        "returnType": "Stream<PackResources>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 293,
+          "end": 297
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "EntryStack",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "fileLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "metadataLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fileSources",
+            "type": "List<FallbackResourceManager.ResourceWithSource>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "metaSources",
+            "type": "IoSupplier<InputStream>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 299,
+          "end": 303
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PackEntry",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 333,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ResourceWithSource",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "source",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "resource",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 346,
+          "end": 347
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "type",
+        "type": "PackType",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "namespace",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "LeakedResourceWarningInputStream",
+        "fullName": "net.minecraft.server.packs.resources.FallbackResourceManager.LeakedResourceWarningInputStream",
+        "packageName": "net.minecraft.server.packs.resources",
+        "filePath": "/net\\minecraft\\server\\packs\\resources\\FallbackResourceManager.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "FilterInputStream",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableSet",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.logging.LogUtils",
+          "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap",
+          "java.io.FilterInputStream",
+          "java.io.IOException",
+          "java.io.InputStream",
+          "java.io.PrintWriter",
+          "java.io.StringWriter",
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.HashMap",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Objects",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.TreeMap",
+          "java.util.function.Predicate",
+          "java.util.function.Supplier",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.PackResources",
+          "net.minecraft.server.packs.PackType",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "LeakedResourceWarningInputStream",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pInputStream",
+                "type": "InputStream",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pResourceLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPackName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 309,
+              "end": 317
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "close",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "IOException"
+            ],
+            "lineRange": {
+              "start": 319,
+              "end": 322
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "finalize",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "protected"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "Throwable"
+            ],
+            "lineRange": {
+              "start": 324,
+              "end": 330
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "message",
+            "type": "Supplier<String>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 306,
+              "end": 306
+            }
+          },
+          {
+            "name": "closed",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 307,
+              "end": 307
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 305,
+          "end": 331
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/FallbackResourceManager/LeakedResourceWarningInputStream.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 348
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/FallbackResourceManager.java"
+  },
+  "net.minecraft.server.packs.resources.IoSupplier": {
+    "className": "IoSupplier",
+    "fullName": "net.minecraft.server.packs.resources.IoSupplier",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\IoSupplier.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.zip.ZipEntry",
+      "java.util.zip.ZipFile"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "IoSupplier<InputStream>",
+        "parameters": [
+          {
+            "name": "pZipFile",
+            "type": "ZipFile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pZipEntry",
+            "type": "ZipEntry",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "T",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/IoSupplier.java"
+  },
+  "net.minecraft.server.packs.resources.MultiPackResourceManager": {
+    "className": "MultiPackResourceManager",
+    "fullName": "net.minecraft.server.packs.resources.MultiPackResourceManager",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\MultiPackResourceManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "CloseableResourceManager"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.TreeMap",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.PackType",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MultiPackResourceManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPacks",
+            "type": "List<PackResources>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 60
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getPackFilterSection",
+        "returnType": "ResourceFilterSection",
+        "parameters": [
+          {
+            "name": "pPackResources",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResource",
+        "returnType": "Optional<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceStack",
+        "returnType": "List<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "Map<ResourceLocation, Resource>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResourceStacks",
+        "returnType": "Map<ResourceLocation, List<Resource>>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkTrailingDirectoryPath",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listPacks",
+        "returnType": "Stream<PackResources>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 121
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "namespacedManagers",
+        "type": "Map<String, FallbackResourceManager>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "packs",
+        "type": "List<PackResources>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 122
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/MultiPackResourceManager.java"
+  },
+  "net.minecraft.server.packs.resources.PreparableReloadListener": {
+    "className": "PreparableReloadListener",
+    "fullName": "net.minecraft.server.packs.resources.PreparableReloadListener",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\PreparableReloadListener.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "net.minecraft.util.profiling.ProfilerFiller"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "reload",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pPreparationBarrier",
+            "type": "PreparableReloadListener.PreparationBarrier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreparationsProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReloadProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "PreparationBarrier",
+        "fullName": "net.minecraft.server.packs.resources.PreparableReloadListener.PreparationBarrier",
+        "packageName": "net.minecraft.server.packs.resources",
+        "filePath": "/net\\minecraft\\server\\packs\\resources\\PreparableReloadListener.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "net.minecraft.util.profiling.ProfilerFiller"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/PreparableReloadListener/PreparationBarrier.java"
+      }
+    ],
+    "lineRange": {
+      "start": 7,
+      "end": 17
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/PreparableReloadListener.java"
+  },
+  "net.minecraft.server.packs.resources.ProfiledReloadInstance": {
+    "className": "ProfiledReloadInstance",
+    "fullName": "net.minecraft.server.packs.resources.ProfiledReloadInstance",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ProfiledReloadInstance.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "SimpleReloadInstance<ProfiledReloadInstance.State>",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Stopwatch",
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.TimeUnit",
+      "java.util.concurrent.atomic.AtomicLong",
+      "net.minecraft.Util",
+      "net.minecraft.util.Unit",
+      "net.minecraft.util.profiling.ActiveProfiler",
+      "net.minecraft.util.profiling.ProfileResults",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ProfiledReloadInstance",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListeners",
+            "type": "List<PreparableReloadListener>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlsoWaitedFor",
+            "type": "CompletableFuture<Unit>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "finish",
+        "returnType": "List<ProfiledReloadInstance.State>",
+        "parameters": [
+          {
+            "name": "p_215484_",
+            "type": "List<ProfiledReloadInstance.State>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 70
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "State",
+        "fullName": "net.minecraft.server.packs.resources.ProfiledReloadInstance.State",
+        "packageName": "net.minecraft.server.packs.resources",
+        "filePath": "/net\\minecraft\\server\\packs\\resources\\ProfiledReloadInstance.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Stopwatch",
+          "com.mojang.logging.LogUtils",
+          "java.util.List",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.TimeUnit",
+          "java.util.concurrent.atomic.AtomicLong",
+          "net.minecraft.Util",
+          "net.minecraft.util.Unit",
+          "net.minecraft.util.profiling.ActiveProfiler",
+          "net.minecraft.util.profiling.ProfileResults",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "State",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPreperationResult",
+                "type": "ProfileResults",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReloadResult",
+                "type": "ProfileResults",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPreperationNanos",
+                "type": "AtomicLong",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReloadNanos",
+                "type": "AtomicLong",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 79,
+              "end": 85
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 73,
+              "end": 73
+            }
+          },
+          {
+            "name": "preparationResult",
+            "type": "ProfileResults",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 74,
+              "end": 74
+            }
+          },
+          {
+            "name": "reloadResult",
+            "type": "ProfileResults",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 75,
+              "end": 75
+            }
+          },
+          {
+            "name": "preparationNanos",
+            "type": "AtomicLong",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 76,
+              "end": 76
+            }
+          },
+          {
+            "name": "reloadNanos",
+            "type": "AtomicLong",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 77,
+              "end": 77
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 72,
+          "end": 86
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ProfiledReloadInstance/State.java"
+      }
+    ],
+    "lineRange": {
+      "start": 16,
+      "end": 87
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ProfiledReloadInstance.java"
+  },
+  "net.minecraft.server.packs.resources.ReloadInstance": {
+    "className": "ReloadInstance",
+    "fullName": "net.minecraft.server.packs.resources.ReloadInstance",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ReloadInstance.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.CompletableFuture"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getActualProgress",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 21
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ReloadInstance.java"
+  },
+  "net.minecraft.server.packs.resources.ReloadableResourceManager": {
+    "className": "ReloadableResourceManager",
+    "fullName": "net.minecraft.server.packs.resources.ReloadableResourceManager",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ReloadableResourceManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ResourceManager",
+      "AutoCloseable"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.logging.LogUtils",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.function.Predicate",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.PackResources",
+      "net.minecraft.server.packs.PackType",
+      "net.minecraft.util.Unit",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ReloadableResourceManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "close",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerReloadListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "PreparableReloadListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createReload",
+        "returnType": "ReloadInstance",
+        "parameters": [
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWaitingFor",
+            "type": "CompletableFuture<Unit>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourcePacks",
+            "type": "List<PackResources>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResource",
+        "returnType": "Optional<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceStack",
+        "returnType": "List<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "Map<ResourceLocation, Resource>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResourceStacks",
+        "returnType": "Map<ResourceLocation, List<Resource>>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listPacks",
+        "returnType": "Stream<PackResources>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerReloadListenerIfNotPresent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "listener",
+            "type": "PreparableReloadListener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 76
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "resources",
+        "type": "CloseableResourceManager",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "type",
+        "type": "PackType",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 77
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ReloadableResourceManager.java"
+  },
+  "net.minecraft.server.packs.resources.Resource": {
+    "className": "Resource",
+    "fullName": "net.minecraft.server.packs.resources.Resource",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\Resource.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.BufferedReader",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.InputStreamReader",
+      "java.nio.charset.StandardCharsets",
+      "javax.annotation.Nullable",
+      "net.minecraft.server.packs.PackResources"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Resource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStreamSupplier",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMetadataSupplier",
+            "type": "IoSupplier<ResourceMetadata>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "Resource",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "PackResources",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStreamSupplier",
+            "type": "IoSupplier<InputStream>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "source",
+        "returnType": "PackResources",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sourcePackId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isBuiltin",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "open",
+        "returnType": "InputStream",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openAsReader",
+        "returnType": "BufferedReader",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "metadata",
+        "returnType": "ResourceMetadata",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 51,
+          "end": 57
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "source",
+        "type": "PackResources",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "streamSupplier",
+        "type": "IoSupplier<InputStream>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "metadataSupplier",
+        "type": "IoSupplier<ResourceMetadata>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "cachedMetadata",
+        "type": "ResourceMetadata",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/Resource.java"
+  },
+  "net.minecraft.server.packs.resources.ResourceFilterSection": {
+    "className": "ResourceFilterSection",
+    "fullName": "net.minecraft.server.packs.resources.ResourceFilterSection",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceFilterSection.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "net.minecraft.server.packs.metadata.MetadataSectionType",
+      "net.minecraft.util.ResourceLocationPattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ResourceFilterSection",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_215518_",
+            "type": "List<ResourceLocationPattern>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isNamespaceFiltered",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pNamespace",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPathFiltered",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blockList",
+        "type": "List<ResourceLocationPattern>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceFilterSection.java"
+  },
+  "net.minecraft.server.packs.resources.ResourceManager": {
+    "className": "ResourceManager",
+    "fullName": "net.minecraft.server.packs.resources.ResourceManager",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceManager.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "ResourceProvider",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.function.Predicate",
+      "java.util.stream.Stream",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.packs.PackResources"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getNamespaces",
+        "returnType": "Set<String>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResourceStack",
+        "returnType": "List<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResources",
+        "returnType": "Map<ResourceLocation, Resource>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listResourceStacks",
+        "returnType": "Map<ResourceLocation, List<Resource>>",
+        "parameters": [
+          {
+            "name": "pPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFilter",
+            "type": "Predicate<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listPacks",
+        "returnType": "Stream<PackResources>",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Empty",
+        "fullName": "net.minecraft.server.packs.resources.ResourceManager.Empty",
+        "packageName": "net.minecraft.server.packs.resources",
+        "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceManager.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "ResourceManager"
+        ],
+        "imports": [
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Predicate",
+          "java.util.stream.Stream",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.packs.PackResources"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getNamespaces",
+            "returnType": "Set<String>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 26,
+              "end": 28
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getResource",
+            "returnType": "Optional<Resource>",
+            "parameters": [
+              {
+                "name": "p_215576_",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 30,
+              "end": 32
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getResourceStack",
+            "returnType": "List<Resource>",
+            "parameters": [
+              {
+                "name": "p_215568_",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 34,
+              "end": 36
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "listResources",
+            "returnType": "Map<ResourceLocation, Resource>",
+            "parameters": [
+              {
+                "name": "p_215570_",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_215571_",
+                "type": "Predicate<ResourceLocation>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 38,
+              "end": 40
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "listResourceStacks",
+            "returnType": "Map<ResourceLocation, List<Resource>>",
+            "parameters": [
+              {
+                "name": "p_215573_",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_215574_",
+                "type": "Predicate<ResourceLocation>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 42,
+              "end": 44
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "listPacks",
+            "returnType": "Stream<PackResources>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 46,
+              "end": 48
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 23,
+          "end": 49
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceManager/Empty.java"
+      }
+    ],
+    "lineRange": {
+      "start": 12,
+      "end": 50
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceManager.java"
+  },
+  "net.minecraft.server.packs.resources.ResourceManagerReloadListener": {
+    "className": "ResourceManagerReloadListener",
+    "fullName": "net.minecraft.server.packs.resources.ResourceManagerReloadListener",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceManagerReloadListener.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "PreparableReloadListener",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "net.minecraft.util.Unit",
+      "net.minecraft.util.profiling.ProfilerFiller"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "onResourceManagerReload",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceManagerReloadListener.java"
+  },
+  "net.minecraft.server.packs.resources.ResourceMetadata": {
+    "className": "ResourceMetadata",
+    "fullName": "net.minecraft.server.packs.resources.ResourceMetadata",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceMetadata.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "java.io.BufferedReader",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.io.InputStreamReader",
+      "java.nio.charset.StandardCharsets",
+      "java.util.Optional",
+      "net.minecraft.server.packs.metadata.MetadataSectionSerializer",
+      "net.minecraft.util.GsonHelper"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "fromJsonStream",
+        "returnType": "ResourceMetadata",
+        "parameters": [
+          {
+            "name": "pStream",
+            "type": "InputStream",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 23,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceMetadata.java"
+  },
+  "net.minecraft.server.packs.resources.ResourceProvider": {
+    "className": "ResourceProvider",
+    "fullName": "net.minecraft.server.packs.resources.ResourceProvider",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\ResourceProvider.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.io.BufferedReader",
+      "java.io.FileNotFoundException",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.util.Map",
+      "java.util.Optional",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getResource",
+        "returnType": "Optional<Resource>",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromMap",
+        "returnType": "ResourceProvider",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResources",
+            "type": "Resource>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 34
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/ResourceProvider.java"
+  },
+  "net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener": {
+    "className": "SimpleJsonResourceReloadListener",
+    "fullName": "net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\SimpleJsonResourceReloadListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "SimplePreparableReloadListener<Map<ResourceLocation",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.Gson",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonParseException",
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.Reader",
+      "java.util.HashMap",
+      "java.util.Map",
+      "net.minecraft.resources.FileToIdConverter",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.util.profiling.ProfilerFiller",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SimpleJsonResourceReloadListener",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pGson",
+            "type": "Gson",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectory",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "prepare",
+        "returnType": "Map<ResourceLocation, JsonElement>",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "scanDirectory",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGson",
+            "type": "Gson",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutput",
+            "type": "JsonElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPreparedPath",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "rl",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "gson",
+        "type": "Gson",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "directory",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/SimpleJsonResourceReloadListener.java"
+  },
+  "net.minecraft.server.packs.resources.SimplePreparableReloadListener": {
+    "className": "SimplePreparableReloadListener",
+    "fullName": "net.minecraft.server.packs.resources.SimplePreparableReloadListener",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\SimplePreparableReloadListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "net.minecraft.util.profiling.ProfilerFiller"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "reload",
+        "returnType": "CompletableFuture<Void>",
+        "parameters": [
+          {
+            "name": "pStage",
+            "type": "PreparableReloadListener.PreparationBarrier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreparationsProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReloadProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "prepare",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "apply",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pObject",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfiler",
+            "type": "ProfilerFiller",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/SimplePreparableReloadListener.java"
+  },
+  "net.minecraft.server.packs.resources.SimpleReloadInstance": {
+    "className": "SimpleReloadInstance",
+    "fullName": "net.minecraft.server.packs.resources.SimpleReloadInstance",
+    "packageName": "net.minecraft.server.packs.resources",
+    "filePath": "/net\\minecraft\\server\\packs\\resources\\SimpleReloadInstance.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Sets",
+      "java.util.List",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.atomic.AtomicInteger",
+      "net.minecraft.Util",
+      "net.minecraft.util.Unit",
+      "net.minecraft.util.profiling.InactiveProfiler"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "of",
+        "returnType": "SimpleReloadInstance<Void>",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListeners",
+            "type": "List<PreparableReloadListener>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlsoWaitedFor",
+            "type": "CompletableFuture<Unit>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "SimpleReloadInstance",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListeners",
+            "type": "List<PreparableReloadListener>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_10812_",
+            "type": "SimpleReloadInstance.StateFactory<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlsoWaitedFor",
+            "type": "CompletableFuture<Unit>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 74
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getActualProgress",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "ReloadInstance",
+        "parameters": [
+          {
+            "name": "pResourceManager",
+            "type": "ResourceManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListeners",
+            "type": "List<PreparableReloadListener>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackgroundExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlsoWaitedFor",
+            "type": "CompletableFuture<Unit>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfiled",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PREPARATION_PROGRESS_WEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "EXTRA_RELOAD_PROGRESS_WEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "LISTENER_PROGRESS_WEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "allDone",
+        "type": "CompletableFuture<List<S>>",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "preparingListeners",
+        "type": "Set<PreparableReloadListener>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "listenerCount",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "startedReloads",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "finishedReloads",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "StateFactory",
+        "fullName": "net.minecraft.server.packs.resources.SimpleReloadInstance.StateFactory",
+        "packageName": "net.minecraft.server.packs.resources",
+        "filePath": "/net\\minecraft\\server\\packs\\resources\\SimpleReloadInstance.java",
+        "classType": "interface",
+        "modifiers": [
+          "protected"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Sets",
+          "java.util.List",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.atomic.AtomicInteger",
+          "net.minecraft.Util",
+          "net.minecraft.util.Unit",
+          "net.minecraft.util.profiling.InactiveProfiler"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "create",
+            "returnType": "CompletableFuture<S>",
+            "parameters": [
+              {
+                "name": "pPreperationBarrier",
+                "type": "PreparableReloadListener.PreparationBarrier",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pResourceManager",
+                "type": "ResourceManager",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pListener",
+                "type": "PreparableReloadListener",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pBackgroundExecutor",
+                "type": "Executor",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameExecutor",
+                "type": "Executor",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 92,
+              "end": 92
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/SimpleReloadInstance/StateFactory.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 94
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/server/packs/resources/SimpleReloadInstance.java"
+  }
+}

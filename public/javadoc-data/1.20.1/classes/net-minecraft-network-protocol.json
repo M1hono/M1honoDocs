@@ -1,0 +1,471 @@
+{
+  "net.minecraft.network.protocol.BundleDelimiterPacket": {
+    "className": "BundleDelimiterPacket",
+    "fullName": "net.minecraft.network.protocol.BundleDelimiterPacket",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\BundleDelimiterPacket.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.PacketListener"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_265437_",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handle",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_265392_",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 19
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/BundleDelimiterPacket.java"
+  },
+  "net.minecraft.network.protocol.BundlePacket": {
+    "className": "BundlePacket",
+    "fullName": "net.minecraft.network.protocol.BundlePacket",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\BundlePacket.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.PacketListener"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BundlePacket",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPackets",
+            "type": "Iterable<Packet<T>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "subPackets",
+        "returnType": "Iterable<Packet<T>>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "packets",
+        "type": "Iterable<Packet<T>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/BundlePacket.java"
+  },
+  "net.minecraft.network.protocol.BundlerInfo": {
+    "className": "BundlerInfo",
+    "fullName": "net.minecraft.network.protocol.BundlerInfo",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\BundlerInfo.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "io.netty.util.AttributeKey",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Consumer",
+      "java.util.function.Function",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.PacketListener"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "unbundlePacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPacket",
+            "type": "Packet<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "Consumer<Packet<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "BUNDLE_SIZE_LIMIT",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "4096",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Bundler",
+        "fullName": "net.minecraft.network.protocol.BundlerInfo.Bundler",
+        "packageName": "net.minecraft.network.protocol",
+        "filePath": "/net\\minecraft\\network\\protocol\\BundlerInfo.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "io.netty.util.AttributeKey",
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "javax.annotation.Nullable",
+          "net.minecraft.network.PacketListener"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 65,
+          "end": 68
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/BundlerInfo/Bundler.java"
+      },
+      {
+        "className": "Provider",
+        "fullName": "net.minecraft.network.protocol.BundlerInfo.Provider",
+        "packageName": "net.minecraft.network.protocol",
+        "filePath": "/net\\minecraft\\network\\protocol\\BundlerInfo.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "io.netty.util.AttributeKey",
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "javax.annotation.Nullable",
+          "net.minecraft.network.PacketListener"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getBundlerInfo",
+            "returnType": "BundlerInfo",
+            "parameters": [
+              {
+                "name": "pFlow",
+                "type": "PacketFlow",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/BundlerInfo/Provider.java"
+      }
+    ],
+    "lineRange": {
+      "start": 11,
+      "end": 73
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/BundlerInfo.java"
+  },
+  "net.minecraft.network.protocol.Packet": {
+    "className": "Packet",
+    "fullName": "net.minecraft.network.protocol.Packet",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\Packet.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.PacketListener"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handle",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pHandler",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 23
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/Packet.java"
+  },
+  "net.minecraft.network.protocol.PacketFlow": {
+    "className": "PacketFlow",
+    "fullName": "net.minecraft.network.protocol.PacketFlow",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\PacketFlow.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getOpposite",
+        "returnType": "PacketFlow",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/PacketFlow.java"
+  },
+  "net.minecraft.network.protocol.PacketUtils": {
+    "className": "PacketUtils",
+    "fullName": "net.minecraft.network.protocol.PacketUtils",
+    "packageName": "net.minecraft.network.protocol",
+    "filePath": "/net\\minecraft\\network\\protocol\\PacketUtils.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "net.minecraft.network.PacketListener",
+      "net.minecraft.server.RunningOnDifferentThreadException",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.thread.BlockableEventLoop",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/network/protocol/PacketUtils.java"
+  }
+}

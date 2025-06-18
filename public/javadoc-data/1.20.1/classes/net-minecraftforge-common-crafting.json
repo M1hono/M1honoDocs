@@ -1,0 +1,3770 @@
+{
+  "net.minecraftforge.common.crafting.AbstractIngredient": {
+    "className": "AbstractIngredient",
+    "fullName": "net.minecraftforge.common.crafting.AbstractIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\AbstractIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Ingredient",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.level.ItemLike",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.stream.Stream",
+      "net.minecraft.world.item.crafting.Ingredient.Value"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AbstractIngredient",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "AbstractIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "Stream<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromValues",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "Stream<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "Ingredient",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 65
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/AbstractIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.CompoundIngredient": {
+    "className": "CompoundIngredient",
+    "fullName": "net.minecraftforge.common.crafting.CompoundIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\CompoundIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractIngredient",
+    "interfaces": [],
+    "imports": [
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "com.google.common.collect.Lists",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "it.unimi.dsi.fastutil.ints.IntArrayList",
+      "it.unimi.dsi.fastutil.ints.IntComparators",
+      "it.unimi.dsi.fastutil.ints.IntList",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.network.FriendlyByteBuf",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CompoundIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "children",
+            "type": "List<Ingredient>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "of",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "children",
+            "type": "Ingredient[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItems",
+        "returnType": "ItemStack[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStackingIds",
+        "returnType": "IntList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChildren",
+        "returnType": "Collection<Ingredient>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 158
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "children",
+        "type": "List<Ingredient>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "stacks",
+        "type": "ItemStack[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "itemIds",
+        "type": "IntList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "isSimple",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.CompoundIngredient.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\CompoundIngredient.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "IIngredientSerializer<CompoundIngredient>"
+        ],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.Collection",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "com.google.common.collect.Lists",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "it.unimi.dsi.fastutil.ints.IntArrayList",
+          "it.unimi.dsi.fastutil.ints.IntComparators",
+          "it.unimi.dsi.fastutil.ints.IntList",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.network.FriendlyByteBuf",
+          "org.jetbrains.annotations.NotNull",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "parse",
+            "returnType": "CompoundIngredient",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 165,
+              "end": 168
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "parse",
+            "returnType": "CompoundIngredient",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 171,
+              "end": 174
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "ingredient",
+                "type": "CompoundIngredient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 177,
+              "end": 181
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 160,
+          "end": 183
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/CompoundIngredient/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 31,
+      "end": 184
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/CompoundIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.ConditionalAdvancement": {
+    "className": "ConditionalAdvancement",
+    "fullName": "net.minecraftforge.common.crafting.ConditionalAdvancement",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalAdvancement.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Consumer",
+      "java.util.function.Supplier",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "net.minecraft.advancements.Advancement",
+      "net.minecraft.data.recipes.FinishedRecipe",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraftforge.common.crafting.conditions.ICondition",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "builder",
+        "returnType": "Builder",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processConditional",
+        "returnType": "JsonObject",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "context",
+            "type": "ICondition.IContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraftforge.common.crafting.ConditionalAdvancement.Builder",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalAdvancement.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "java.util.function.Supplier",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "net.minecraft.advancements.Advancement",
+          "net.minecraft.data.recipes.FinishedRecipe",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraftforge.common.crafting.conditions.ICondition",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "addCondition",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "condition",
+                "type": "ICondition",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 64,
+              "end": 70
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "callable",
+                "type": "Consumer<Consumer<Advancement.Builder>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 72,
+              "end": 78
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "advancement",
+                "type": "Advancement.Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 83
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "fromRecipe",
+                "type": "FinishedRecipe",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 85,
+              "end": 88
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "jsonSupplier",
+                "type": "Supplier<JsonElement>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 100
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "JsonObject",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 102,
+              "end": 128
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "locked",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "false",
+            "lineRange": {
+              "start": 62,
+              "end": 62
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 56,
+          "end": 129
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalAdvancement/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 24,
+      "end": 130
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalAdvancement.java"
+  },
+  "net.minecraftforge.common.crafting.ConditionalRecipe": {
+    "className": "ConditionalRecipe",
+    "fullName": "net.minecraftforge.common.crafting.ConditionalRecipe",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalRecipe.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Consumer",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "net.minecraft.data.recipes.FinishedRecipe",
+      "net.minecraft.world.item.crafting.Recipe",
+      "net.minecraft.world.item.crafting.RecipeSerializer",
+      "net.minecraft.world.item.crafting.RecipeManager",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.common.crafting.conditions.ICondition",
+      "net.minecraftforge.registries.ObjectHolder",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "builder",
+        "returnType": "Builder",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.ConditionalRecipe.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalRecipe.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "net.minecraft.data.recipes.FinishedRecipe",
+          "net.minecraft.world.item.crafting.Recipe",
+          "net.minecraft.world.item.crafting.RecipeSerializer",
+          "net.minecraft.world.item.crafting.RecipeManager",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.common.crafting.conditions.ICondition",
+          "net.minecraftforge.registries.ObjectHolder",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "fromJson",
+            "returnType": "T",
+            "parameters": [
+              {
+                "name": "recipeId",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 41,
+              "end": 44
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "fromJson",
+            "returnType": "T",
+            "parameters": [
+              {
+                "name": "recipeId",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "context",
+                "type": "ICondition.IContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 48,
+              "end": 61
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 38,
+          "end": 66
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalRecipe/Serializer.java"
+      },
+      {
+        "className": "Builder",
+        "fullName": "net.minecraftforge.common.crafting.ConditionalRecipe.Builder",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalRecipe.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "net.minecraft.data.recipes.FinishedRecipe",
+          "net.minecraft.world.item.crafting.Recipe",
+          "net.minecraft.world.item.crafting.RecipeSerializer",
+          "net.minecraft.world.item.crafting.RecipeManager",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.common.crafting.conditions.ICondition",
+          "net.minecraftforge.registries.ObjectHolder",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "addCondition",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "condition",
+                "type": "ICondition",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 77,
+              "end": 81
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addRecipe",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "callable",
+                "type": "Consumer<Consumer<FinishedRecipe>>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 83,
+              "end": 87
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "addRecipe",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "recipe",
+                "type": "FinishedRecipe",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 89,
+              "end": 97
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateAdvancement",
+            "returnType": "Builder",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 102
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "generateAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 104,
+              "end": 114
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "advancement",
+                "type": "ConditionalAdvancement.Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 116,
+              "end": 119
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "namespace",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "path",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "advancement",
+                "type": "ConditionalAdvancement.Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 124
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setAdvancement",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "advancement",
+                "type": "ConditionalAdvancement.Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 133
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "consumer",
+                "type": "Consumer<FinishedRecipe>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "namespace",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "path",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 135,
+              "end": 138
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "consumer",
+                "type": "Consumer<FinishedRecipe>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 153
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "advId",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 72,
+              "end": 72
+            }
+          },
+          {
+            "name": "adv",
+            "type": "ConditionalAdvancement.Builder",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 73,
+              "end": 73
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 68,
+          "end": 154
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalRecipe/Builder.java"
+      },
+      {
+        "className": "Finished",
+        "fullName": "net.minecraftforge.common.crafting.ConditionalRecipe.Finished",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\ConditionalRecipe.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "FinishedRecipe"
+        ],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.function.Consumer",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "net.minecraft.data.recipes.FinishedRecipe",
+          "net.minecraft.world.item.crafting.Recipe",
+          "net.minecraft.world.item.crafting.RecipeSerializer",
+          "net.minecraft.world.item.crafting.RecipeManager",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.common.crafting.conditions.ICondition",
+          "net.minecraftforge.registries.ObjectHolder",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Finished",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "id",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "conditions",
+                "type": "List<ICondition[]>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "recipes",
+                "type": "List<FinishedRecipe>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "advId",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "adv",
+                "type": "ConditionalAdvancement.Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 164,
+              "end": 171
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "serializeRecipeData",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 174,
+              "end": 189
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getId",
+            "returnType": "ResourceLocation",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 192,
+              "end": 194
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "serializeAdvancement",
+            "returnType": "JsonObject",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 203,
+              "end": 205
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getAdvancementId",
+            "returnType": "ResourceLocation",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 208,
+              "end": 210
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 158,
+              "end": 158
+            }
+          },
+          {
+            "name": "conditions",
+            "type": "List<ICondition[]>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 159,
+              "end": 159
+            }
+          },
+          {
+            "name": "recipes",
+            "type": "List<FinishedRecipe>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 160,
+              "end": 160
+            }
+          },
+          {
+            "name": "advId",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 161,
+              "end": 161
+            }
+          },
+          {
+            "name": "adv",
+            "type": "ConditionalAdvancement.Builder",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 162,
+              "end": 162
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 156,
+          "end": 211
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalRecipe/Finished.java"
+      }
+    ],
+    "lineRange": {
+      "start": 28,
+      "end": 212
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/ConditionalRecipe.java"
+  },
+  "net.minecraftforge.common.crafting.CraftingHelper": {
+    "className": "CraftingHelper",
+    "fullName": "net.minecraftforge.common.crafting.CraftingHelper",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\CraftingHelper.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Objects",
+      "com.google.common.collect.BiMap",
+      "com.google.common.collect.HashBiMap",
+      "com.google.common.collect.Lists",
+      "com.google.gson.Gson",
+      "com.google.gson.GsonBuilder",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraftforge.common.crafting.conditions.ICondition",
+      "net.minecraftforge.common.crafting.conditions.IConditionSerializer",
+      "net.minecraft.nbt.TagParser",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger",
+      "org.apache.logging.log4j.Marker",
+      "org.apache.logging.log4j.MarkerManager",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getID",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "serializer",
+            "type": "IIngredientSerializer<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIngredient",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "buffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIngredient",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "allowEmpty",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItemStack",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "readNBT",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItem",
+        "returnType": "Item",
+        "parameters": [
+          {
+            "name": "itemName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "disallowsAirInRecipe",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNBT",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "JsonElement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItemStack",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "readNBT",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "disallowsAirInRecipe",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processConditions",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "memberName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "context",
+            "type": "ICondition.IContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 207,
+          "end": 210
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "processConditions",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "conditions",
+            "type": "JsonArray",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "context",
+            "type": "ICondition.IContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 224
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCondition",
+        "returnType": "ICondition",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 226,
+          "end": 233
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "JsonArray",
+        "parameters": [
+          {
+            "name": "conditions",
+            "type": "ICondition[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 244,
+          "end": 252
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 43,
+      "end": 253
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/CraftingHelper.java"
+  },
+  "net.minecraftforge.common.crafting.DifferenceIngredient": {
+    "className": "DifferenceIngredient",
+    "fullName": "net.minecraftforge.common.crafting.DifferenceIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\DifferenceIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractIngredient",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "it.unimi.dsi.fastutil.ints.IntArrayList",
+      "it.unimi.dsi.fastutil.ints.IntComparators",
+      "it.unimi.dsi.fastutil.ints.IntList",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.world.entity.player.StackedContents",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Arrays"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DifferenceIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "base",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "subtracted",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "of",
+        "returnType": "DifferenceIngredient",
+        "parameters": [
+          {
+            "name": "base",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "subtracted",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItems",
+        "returnType": "ItemStack[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStackingIds",
+        "returnType": "IntList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSerializer",
+        "returnType": "IIngredientSerializer<DifferenceIngredient>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 111,
+          "end": 114
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "base",
+        "type": "Ingredient",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "subtracted",
+        "type": "Ingredient",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "filteredMatchingStacks",
+        "type": "ItemStack[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "packedMatchingStacks",
+        "type": "IntList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.DifferenceIngredient.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\DifferenceIngredient.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "IIngredientSerializer<DifferenceIngredient>"
+        ],
+        "imports": [
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "it.unimi.dsi.fastutil.ints.IntArrayList",
+          "it.unimi.dsi.fastutil.ints.IntComparators",
+          "it.unimi.dsi.fastutil.ints.IntList",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.world.entity.player.StackedContents",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Arrays"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "parse",
+            "returnType": "DifferenceIngredient",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 121,
+              "end": 126
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "parse",
+            "returnType": "DifferenceIngredient",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 129,
+              "end": 134
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "ingredient",
+                "type": "DifferenceIngredient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 137,
+              "end": 141
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 116,
+          "end": 142
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/DifferenceIngredient/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 22,
+      "end": 143
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/DifferenceIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.IIngredientSerializer": {
+    "className": "IIngredientSerializer",
+    "fullName": "net.minecraftforge.common.crafting.IIngredientSerializer",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\IIngredientSerializer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.network.FriendlyByteBuf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "parse",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "buffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "buffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ingredient",
+            "type": "T",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/IIngredientSerializer.java"
+  },
+  "net.minecraftforge.common.crafting.IRecipeContainer": {
+    "className": "IRecipeContainer",
+    "fullName": "net.minecraftforge.common.crafting.IRecipeContainer",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\IRecipeContainer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.inventory.CraftingMenu",
+      "net.minecraft.world.inventory.InventoryMenu",
+      "net.minecraft.world.inventory.ResultContainer",
+      "net.minecraft.world.inventory.CraftingContainer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getCraftResult",
+        "returnType": "ResultContainer",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCraftMatrix",
+        "returnType": "CraftingContainer",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/IRecipeContainer.java"
+  },
+  "net.minecraftforge.common.crafting.IShapedRecipe": {
+    "className": "IShapedRecipe",
+    "fullName": "net.minecraftforge.common.crafting.IShapedRecipe",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\IShapedRecipe.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.Container",
+      "net.minecraft.world.item.crafting.Recipe"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getRecipeWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRecipeHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/IShapedRecipe.java"
+  },
+  "net.minecraftforge.common.crafting.IntersectionIngredient": {
+    "className": "IntersectionIngredient",
+    "fullName": "net.minecraftforge.common.crafting.IntersectionIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\IntersectionIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractIngredient",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "it.unimi.dsi.fastutil.ints.IntArrayList",
+      "it.unimi.dsi.fastutil.ints.IntComparators",
+      "it.unimi.dsi.fastutil.ints.IntList",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.entity.player.StackedContents",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Arrays",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.stream.IntStream",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "IntersectionIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "children",
+            "type": "List<Ingredient>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "of",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "ingredients",
+            "type": "Ingredient[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItems",
+        "returnType": "ItemStack[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 98,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStackingIds",
+        "returnType": "IntList",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSerializer",
+        "returnType": "IIngredientSerializer<IntersectionIngredient>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 143
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "children",
+        "type": "List<Ingredient>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "isSimple",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "intersectedMatchingStacks",
+        "type": "ItemStack[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "packedMatchingStacks",
+        "type": "IntList",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.IntersectionIngredient.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\IntersectionIngredient.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "IIngredientSerializer<IntersectionIngredient>"
+        ],
+        "imports": [
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "it.unimi.dsi.fastutil.ints.IntArrayList",
+          "it.unimi.dsi.fastutil.ints.IntComparators",
+          "it.unimi.dsi.fastutil.ints.IntList",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.entity.player.StackedContents",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.stream.IntStream",
+          "java.util.stream.Stream"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "parse",
+            "returnType": "IntersectionIngredient",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 150,
+              "end": 161
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "parse",
+            "returnType": "IntersectionIngredient",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 164,
+              "end": 167
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "intersection",
+                "type": "IntersectionIngredient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 170,
+              "end": 175
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 145,
+          "end": 176
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/IntersectionIngredient/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 29,
+      "end": 177
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/IntersectionIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.MultiItemValue": {
+    "className": "MultiItemValue",
+    "fullName": "net.minecraftforge.common.crafting.MultiItemValue",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\MultiItemValue.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Value"
+    ],
+    "imports": [
+      "java.util.Collection",
+      "java.util.Collections",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonObject",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient.Value",
+      "net.minecraftforge.registries.ForgeRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MultiItemValue",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "items",
+            "type": "Collection<ItemStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getItems",
+        "returnType": "Collection<ItemStack>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "JsonObject",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonObject",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "items",
+        "type": "Collection<ItemStack>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 56
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/MultiItemValue.java"
+  },
+  "net.minecraftforge.common.crafting.PartialNBTIngredient": {
+    "className": "PartialNBTIngredient",
+    "fullName": "net.minecraftforge.common.crafting.PartialNBTIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\PartialNBTIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractIngredient",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "net.minecraft.advancements.critereon.NbtPredicate",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.level.ItemLike",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Arrays",
+      "java.util.Collections",
+      "java.util.Objects",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PartialNBTIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "items",
+            "type": "Set<Item>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 53
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "of",
+        "returnType": "PartialNBTIngredient",
+        "parameters": [
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "items",
+            "type": "ItemLike[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "PartialNBTIngredient",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "ItemLike",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 105
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "items",
+        "type": "Set<Item>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "nbt",
+        "type": "CompoundTag",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "predicate",
+        "type": "NbtPredicate",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.PartialNBTIngredient.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\PartialNBTIngredient.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "IIngredientSerializer<PartialNBTIngredient>"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableSet",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "net.minecraft.advancements.critereon.NbtPredicate",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.world.level.ItemLike",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "parse",
+            "returnType": "PartialNBTIngredient",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 137
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "parse",
+            "returnType": "PartialNBTIngredient",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 145
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "ingredient",
+                "type": "PartialNBTIngredient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 148,
+              "end": 154
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 107,
+          "end": 155
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/PartialNBTIngredient/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 32,
+      "end": 156
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/PartialNBTIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.StrictNBTIngredient": {
+    "className": "StrictNBTIngredient",
+    "fullName": "net.minecraftforge.common.crafting.StrictNBTIngredient",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\StrictNBTIngredient.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "AbstractIngredient",
+    "interfaces": [],
+    "imports": [
+      "java.util.stream.Stream",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StrictNBTIngredient",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "of",
+        "returnType": "StrictNBTIngredient",
+        "parameters": [
+          {
+            "name": "stack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSimple",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 66
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "stack",
+        "type": "ItemStack",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraftforge.common.crafting.StrictNBTIngredient.Serializer",
+        "packageName": "net.minecraftforge.common.crafting",
+        "filePath": "/net\\minecraftforge\\common\\crafting\\StrictNBTIngredient.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "IIngredientSerializer<StrictNBTIngredient>"
+        ],
+        "imports": [
+          "java.util.stream.Stream",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "parse",
+            "returnType": "StrictNBTIngredient",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 73,
+              "end": 75
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "parse",
+            "returnType": "StrictNBTIngredient",
+            "parameters": [
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 78,
+              "end": 80
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "write",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "ingredient",
+                "type": "StrictNBTIngredient",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 83,
+              "end": 85
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 68,
+          "end": 86
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/StrictNBTIngredient/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 87
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/StrictNBTIngredient.java"
+  },
+  "net.minecraftforge.common.crafting.VanillaIngredientSerializer": {
+    "className": "VanillaIngredientSerializer",
+    "fullName": "net.minecraftforge.common.crafting.VanillaIngredientSerializer",
+    "packageName": "net.minecraftforge.common.crafting",
+    "filePath": "/net\\minecraftforge\\common\\crafting\\VanillaIngredientSerializer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "IIngredientSerializer<Ingredient>"
+    ],
+    "imports": [
+      "java.util.stream.Stream",
+      "com.google.gson.JsonObject",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.network.FriendlyByteBuf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "parse",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "buffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "Ingredient",
+        "parameters": [
+          {
+            "name": "json",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "write",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "buffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "ingredient",
+            "type": "Ingredient",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraftforge/common/crafting/VanillaIngredientSerializer.java"
+  }
+}

@@ -1,0 +1,1232 @@
+{
+  "net.minecraft.world.level.portal.PortalForcer": {
+    "className": "PortalForcer",
+    "fullName": "net.minecraft.world.level.portal.PortalForcer",
+    "packageName": "net.minecraft.world.level.portal",
+    "filePath": "/net\\minecraft\\world\\level\\portal\\PortalForcer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "net.minecraftforge.common.util.ITeleporter"
+    ],
+    "imports": [
+      "java.util.Comparator",
+      "java.util.Optional",
+      "net.minecraft.BlockUtil",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.TicketType",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.ai.village.poi.PoiManager",
+      "net.minecraft.world.entity.ai.village.poi.PoiRecord",
+      "net.minecraft.world.entity.ai.village.poi.PoiTypes",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.NetherPortalBlock",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.border.WorldBorder",
+      "net.minecraft.world.level.levelgen.Heightmap"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PortalForcer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 40
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "findPortalAround",
+        "returnType": "Optional<BlockUtil.FoundRectangle>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsNether",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWorldBorder",
+            "type": "WorldBorder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPortal",
+        "returnType": "Optional<BlockUtil.FoundRectangle>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPortalReplaceBlock",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos.MutableBlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 163,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canHostFrame",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOriginalPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffsetPos",
+            "type": "BlockPos.MutableBlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOffsetScale",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 185
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TICKET_RADIUS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "SEARCH_RADIUS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "128",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "CREATE_RADIUS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "FRAME_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "FRAME_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "FRAME_BOX",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "FRAME_HEIGHT_START",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "FRAME_HEIGHT_END",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "FRAME_WIDTH_START",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "FRAME_WIDTH_END",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "FRAME_BOX_START",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "FRAME_BOX_END",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "NOTHING_FOUND",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "level",
+        "type": "ServerLevel",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 186
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/portal/PortalForcer.java"
+  },
+  "net.minecraft.world.level.portal.PortalInfo": {
+    "className": "PortalInfo",
+    "fullName": "net.minecraft.world.level.portal.PortalInfo",
+    "packageName": "net.minecraft.world.level.portal",
+    "filePath": "/net\\minecraft\\world\\level\\portal\\PortalInfo.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "PortalInfo",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSpeed",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 16
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "pos",
+        "type": "Vec3",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        }
+      },
+      {
+        "name": "speed",
+        "type": "Vec3",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "yRot",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "xRot",
+        "type": "float",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 17
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/portal/PortalInfo.java"
+  },
+  "net.minecraft.world.level.portal.PortalShape": {
+    "className": "PortalShape",
+    "fullName": "net.minecraft.world.level.portal.PortalShape",
+    "packageName": "net.minecraft.world.level.portal",
+    "filePath": "/net\\minecraft\\world\\level\\portal\\PortalShape.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Optional",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.BlockUtil",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.NetherPortalBlock",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "findEmptyPortalShape",
+        "returnType": "Optional<PortalShape>",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBottomLeft",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findPortalShape",
+        "returnType": "Optional<PortalShape>",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBottomLeft",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPredicate",
+            "type": "Predicate<PortalShape>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PortalShape",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBottomLeft",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 76
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "calculateBottomLeft",
+        "returnType": "BlockPos",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDistanceUntilEdgeAboveFrame",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateHeight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasTopFrame",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos.MutableBlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDistanceToTop",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDistanceUntilTop",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos.MutableBlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmpty",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isValid",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPortalBlocks",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isComplete",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 175,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRelativePosition",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pFoundRectangle",
+            "type": "BlockUtil.FoundRectangle",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntityDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createPortalInfo",
+        "returnType": "PortalInfo",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPortalPos",
+            "type": "BlockUtil.FoundRectangle",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAxis",
+            "type": "Direction.Axis",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRelativePos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVelocity",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXRot",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findCollisionFreePosition",
+        "returnType": "Vec3",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 222,
+          "end": 235
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MIN_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "MAX_WIDTH",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "21",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "MIN_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "MAX_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "21",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "SAFE_TRAVEL_MAX_ENTITY_XY",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4.0F",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "SAFE_TRAVEL_MAX_VERTICAL_DELTA",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0D",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "level",
+        "type": "LevelAccessor",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "axis",
+        "type": "Direction.Axis",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "rightDir",
+        "type": "Direction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "numPortalBlocks",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "bottomLeft",
+        "type": "BlockPos",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 236
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/portal/PortalShape.java"
+  }
+}

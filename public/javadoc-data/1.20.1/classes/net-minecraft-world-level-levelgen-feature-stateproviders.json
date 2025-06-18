@@ -1,0 +1,1488 @@
+{
+  "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider": {
+    "className": "BlockStateProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\BlockStateProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "simple",
+        "returnType": "SimpleStateProvider",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "simple",
+        "returnType": "SimpleStateProvider",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/BlockStateProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType": {
+    "className": "BlockStateProviderType",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\BlockStateProviderType.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.BuiltInRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockStateProviderType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pCodec",
+            "type": "Codec<P>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "codec",
+        "returnType": "Codec<P>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Codec<P>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 28
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/BlockStateProviderType.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.DualNoiseProvider": {
+    "className": "DualNoiseProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.DualNoiseProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\DualNoiseProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "NoiseProvider",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.InclusiveRange",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.WorldgenRandom",
+      "net.minecraft.world.level.levelgen.synth.NormalNoise"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DualNoiseProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_191396_",
+            "type": "InclusiveRange<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191397_",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191398_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191399_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191400_",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191401_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191402_",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSlowNoiseValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "variety",
+        "type": "InclusiveRange<Integer>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "slowNoiseParameters",
+        "type": "NormalNoise.NoiseParameters",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "slowScale",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "slowNoise",
+        "type": "NormalNoise",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/DualNoiseProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseBasedStateProvider": {
+    "className": "NoiseBasedStateProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseBasedStateProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\NoiseBasedStateProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "BlockStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.Products",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.world.level.levelgen.LegacyRandomSource",
+      "net.minecraft.world.level.levelgen.WorldgenRandom",
+      "net.minecraft.world.level.levelgen.synth.NormalNoise"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NoiseBasedStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSeed",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameters",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pScale",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getNoiseValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelta",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "seed",
+        "type": "long",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "parameters",
+        "type": "NormalNoise.NoiseParameters",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "scale",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "noise",
+        "type": "NormalNoise",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/NoiseBasedStateProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider": {
+    "className": "NoiseProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\NoiseProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "NoiseBasedStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.Products",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.levelgen.synth.NormalNoise"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NoiseProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_191442_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191443_",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191444_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191445_",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRandomState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pPossibleStates",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelta",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRandomState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pPossibleStates",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDelta",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 46
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "states",
+        "type": "List<BlockState>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 47
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/NoiseProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseThresholdProvider": {
+    "className": "NoiseThresholdProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.NoiseThresholdProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\NoiseThresholdProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "NoiseBasedStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "net.minecraft.Util",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.levelgen.synth.NormalNoise"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NoiseThresholdProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_191471_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191472_",
+            "type": "NormalNoise.NoiseParameters",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191473_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191474_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191475_",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191476_",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191477_",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_191478_",
+            "type": "List<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 52
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "threshold",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "highChance",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "defaultState",
+        "type": "BlockState",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "lowStates",
+        "type": "List<BlockState>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "highStates",
+        "type": "List<BlockState>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 53
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/NoiseThresholdProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider": {
+    "className": "RandomizedIntStateProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\RandomizedIntStateProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Collection",
+      "java.util.Optional",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.valueproviders.IntProvider",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.IntegerProperty",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RandomizedIntStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "BlockStateProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProperty",
+            "type": "IntegerProperty",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValues",
+            "type": "IntProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "RandomizedIntStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_161566_",
+            "type": "BlockStateProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_161567_",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_161568_",
+            "type": "IntProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findProperty",
+        "returnType": "IntegerProperty",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPropertyName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 77
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "source",
+        "type": "BlockStateProvider",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "propertyName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "property",
+        "type": "IntegerProperty",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "values",
+        "type": "IntProvider",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 78
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/RandomizedIntStateProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.RotatedBlockProvider": {
+    "className": "RotatedBlockProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.RotatedBlockProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\RotatedBlockProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.RotatedPillarBlock",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RotatedBlockProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_68790_",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 20
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "block",
+        "type": "Block",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 30
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/RotatedBlockProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider": {
+    "className": "SimpleStateProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\SimpleStateProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SimpleStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_68801_",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "state",
+        "type": "BlockState",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 25
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/SimpleStateProvider.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider": {
+    "className": "WeightedStateProvider",
+    "fullName": "net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider",
+    "packageName": "net.minecraft.world.level.levelgen.feature.stateproviders",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\stateproviders\\WeightedStateProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockStateProvider",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.random.SimpleWeightedRandomList",
+      "net.minecraft.world.level.block.state.BlockState"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "DataResult<WeightedStateProvider>",
+        "parameters": [
+          {
+            "name": "p_161598_",
+            "type": "SimpleWeightedRandomList<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "WeightedStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWeightedList",
+            "type": "SimpleWeightedRandomList<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WeightedStateProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "SimpleWeightedRandomList.Builder<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "weightedList",
+        "type": "SimpleWeightedRandomList<BlockState>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 37
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/stateproviders/WeightedStateProvider.java"
+  }
+}

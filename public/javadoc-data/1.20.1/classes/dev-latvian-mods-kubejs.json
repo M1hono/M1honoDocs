@@ -1,0 +1,2709 @@
+{
+  "dev.latvian.mods.kubejs.BuiltinKubeJSPlugin": {
+    "className": "BuiltinKubeJSPlugin",
+    "fullName": "dev.latvian.mods.kubejs.BuiltinKubeJSPlugin",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\BuiltinKubeJSPlugin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "KubeJSPlugin",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonPrimitive",
+      "dev.architectury.platform.Platform",
+      "dev.latvian.mods.kubejs.bindings.BlockWrapper",
+      "dev.latvian.mods.kubejs.bindings.IngredientWrapper",
+      "dev.latvian.mods.kubejs.bindings.ItemWrapper",
+      "dev.latvian.mods.kubejs.bindings.JavaWrapper",
+      "dev.latvian.mods.kubejs.bindings.KMath",
+      "dev.latvian.mods.kubejs.bindings.TextWrapper",
+      "dev.latvian.mods.kubejs.bindings.UtilsWrapper",
+      "dev.latvian.mods.kubejs.bindings.event.BlockEvents",
+      "dev.latvian.mods.kubejs.bindings.event.EntityEvents",
+      "dev.latvian.mods.kubejs.bindings.event.ItemEvents",
+      "dev.latvian.mods.kubejs.bindings.event.LevelEvents",
+      "dev.latvian.mods.kubejs.bindings.event.NetworkEvents",
+      "dev.latvian.mods.kubejs.bindings.event.PlayerEvents",
+      "dev.latvian.mods.kubejs.bindings.event.ServerEvents",
+      "dev.latvian.mods.kubejs.bindings.event.StartupEvents",
+      "dev.latvian.mods.kubejs.bindings.event.WorldgenEvents",
+      "dev.latvian.mods.kubejs.block.BlockTintFunction",
+      "dev.latvian.mods.kubejs.block.DetectorBlock",
+      "dev.latvian.mods.kubejs.block.MapColorHelper",
+      "dev.latvian.mods.kubejs.block.SoundTypeWrapper",
+      "dev.latvian.mods.kubejs.block.custom.BasicBlockJS",
+      "dev.latvian.mods.kubejs.block.custom.CarpetBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.ButtonBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.CropBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.FallingBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.FenceBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.FenceGateBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.PressurePlateBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.SlabBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.StairBlockBuilder",
+      "dev.latvian.mods.kubejs.block.custom.WallBlockBuilder",
+      "dev.latvian.mods.kubejs.block.entity.BlockEntityAttachmentType",
+      "dev.latvian.mods.kubejs.block.entity.InventoryAttachment",
+      "dev.latvian.mods.kubejs.block.state.BlockStatePredicate",
+      "dev.latvian.mods.kubejs.client.painter.Painter",
+      "dev.latvian.mods.kubejs.core.PlayerSelector",
+      "dev.latvian.mods.kubejs.event.EventGroup",
+      "dev.latvian.mods.kubejs.event.EventGroupWrapper",
+      "dev.latvian.mods.kubejs.fluid.FluidBuilder",
+      "dev.latvian.mods.kubejs.fluid.FluidStackJS",
+      "dev.latvian.mods.kubejs.fluid.FluidWrapper",
+      "dev.latvian.mods.kubejs.integration.rei.REIEvents",
+      "dev.latvian.mods.kubejs.item.InputItem",
+      "dev.latvian.mods.kubejs.item.ItemBuilder",
+      "dev.latvian.mods.kubejs.item.ItemStackJS",
+      "dev.latvian.mods.kubejs.item.ItemTintFunction",
+      "dev.latvian.mods.kubejs.item.OutputItem",
+      "dev.latvian.mods.kubejs.item.creativetab.CreativeTabBuilder",
+      "dev.latvian.mods.kubejs.item.custom.ArmorItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.AxeItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.BasicItemJS",
+      "dev.latvian.mods.kubejs.item.custom.HoeItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.ItemArmorTierRegistryEventJS",
+      "dev.latvian.mods.kubejs.item.custom.ItemToolTierRegistryEventJS",
+      "dev.latvian.mods.kubejs.item.custom.PickaxeItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.RecordItemJS",
+      "dev.latvian.mods.kubejs.item.custom.ShearsItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.ShovelItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.SmithingTemplateItemBuilder",
+      "dev.latvian.mods.kubejs.item.custom.SwordItemBuilder",
+      "dev.latvian.mods.kubejs.item.ingredient.IngredientJS",
+      "dev.latvian.mods.kubejs.level.gen.filter.biome.BiomeFilter",
+      "dev.latvian.mods.kubejs.level.gen.filter.mob.MobFilter",
+      "dev.latvian.mods.kubejs.level.gen.ruletest.KubeJSRuleTests",
+      "dev.latvian.mods.kubejs.misc.BasicMobEffect",
+      "dev.latvian.mods.kubejs.misc.CustomStatBuilder",
+      "dev.latvian.mods.kubejs.misc.EnchantmentBuilder",
+      "dev.latvian.mods.kubejs.misc.PaintingVariantBuilder",
+      "dev.latvian.mods.kubejs.misc.ParticleTypeBuilder",
+      "dev.latvian.mods.kubejs.misc.PoiTypeBuilder",
+      "dev.latvian.mods.kubejs.misc.PotionBuilder",
+      "dev.latvian.mods.kubejs.misc.SoundEventBuilder",
+      "dev.latvian.mods.kubejs.misc.VillagerProfessionBuilder",
+      "dev.latvian.mods.kubejs.misc.VillagerTypeBuilder",
+      "dev.latvian.mods.kubejs.platform.IngredientPlatformHelper",
+      "dev.latvian.mods.kubejs.player.PlayerStatsJS",
+      "dev.latvian.mods.kubejs.recipe.InputReplacement",
+      "dev.latvian.mods.kubejs.recipe.OutputReplacement",
+      "dev.latvian.mods.kubejs.recipe.ReplacementMatch",
+      "dev.latvian.mods.kubejs.recipe.component.BlockComponent",
+      "dev.latvian.mods.kubejs.recipe.component.BlockStateComponent",
+      "dev.latvian.mods.kubejs.recipe.component.BooleanComponent",
+      "dev.latvian.mods.kubejs.recipe.component.EnumComponent",
+      "dev.latvian.mods.kubejs.recipe.component.FluidComponents",
+      "dev.latvian.mods.kubejs.recipe.component.ItemComponents",
+      "dev.latvian.mods.kubejs.recipe.component.NumberComponent",
+      "dev.latvian.mods.kubejs.recipe.component.RegistryComponent",
+      "dev.latvian.mods.kubejs.recipe.component.StringComponent",
+      "dev.latvian.mods.kubejs.recipe.component.TagKeyComponent",
+      "dev.latvian.mods.kubejs.recipe.component.TimeComponent",
+      "dev.latvian.mods.kubejs.recipe.filter.RecipeFilter",
+      "dev.latvian.mods.kubejs.recipe.ingredientaction.IngredientActionFilter",
+      "dev.latvian.mods.kubejs.recipe.schema.RecipeComponentFactoryRegistryEvent",
+      "dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent",
+      "dev.latvian.mods.kubejs.recipe.schema.minecraft.CookingRecipeSchema",
+      "dev.latvian.mods.kubejs.recipe.schema.minecraft.SmithingTransformRecipeSchema",
+      "dev.latvian.mods.kubejs.recipe.schema.minecraft.SmithingTrimRecipeSchema",
+      "dev.latvian.mods.kubejs.recipe.schema.minecraft.StonecuttingRecipeSchema",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.script.BindingsEvent",
+      "dev.latvian.mods.kubejs.script.CustomJavaToJsWrappersEvent",
+      "dev.latvian.mods.kubejs.script.PlatformWrapper",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.server.ServerScriptManager",
+      "dev.latvian.mods.kubejs.util.ClassFilter",
+      "dev.latvian.mods.kubejs.util.FluidAmounts",
+      "dev.latvian.mods.kubejs.util.JsonIO",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "dev.latvian.mods.kubejs.util.LegacyCodeHandler",
+      "dev.latvian.mods.kubejs.util.ListJS",
+      "dev.latvian.mods.kubejs.util.MapJS",
+      "dev.latvian.mods.kubejs.util.NBTIOWrapper",
+      "dev.latvian.mods.kubejs.util.NotificationBuilder",
+      "dev.latvian.mods.kubejs.util.RotationAxis",
+      "dev.latvian.mods.kubejs.util.ScheduledEvents",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "dev.latvian.mods.rhino.mod.util.CollectionTagWrapper",
+      "dev.latvian.mods.rhino.mod.util.CompoundTagWrapper",
+      "dev.latvian.mods.rhino.mod.util.NBTUtils",
+      "dev.latvian.mods.rhino.mod.util.color.Color",
+      "dev.latvian.mods.rhino.mod.wrapper.AABBWrapper",
+      "dev.latvian.mods.rhino.mod.wrapper.ColorWrapper",
+      "dev.latvian.mods.rhino.mod.wrapper.DirectionWrapper",
+      "dev.latvian.mods.rhino.mod.wrapper.UUIDWrapper",
+      "dev.latvian.mods.rhino.util.wrap.TypeWrappers",
+      "dev.latvian.mods.unit.Unit",
+      "net.minecraft.commands.arguments.selector.EntitySelector",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.core.particles.ParticleOptions",
+      "net.minecraft.nbt.CollectionTag",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.network.chat.ClickEvent",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.network.chat.TextColor",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.stats.Stat",
+      "net.minecraft.stats.Stats",
+      "net.minecraft.util.valueproviders.IntProvider",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.MobCategory",
+      "net.minecraft.world.item.ArmorMaterial",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.Tier",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.level.ItemLike",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.SoundType",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest",
+      "net.minecraft.world.level.material.MapColor",
+      "net.minecraft.world.level.storage.loot.LootContext",
+      "net.minecraft.world.level.storage.loot.functions.CopyNameFunction",
+      "net.minecraft.world.level.storage.loot.providers.number.NumberProvider",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.Vec3",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f",
+      "org.joml.Quaternionf",
+      "org.joml.Vector3f",
+      "org.joml.Vector4f",
+      "java.io.File",
+      "java.nio.file.Path",
+      "java.time.Duration",
+      "java.time.temporal.TemporalAmount",
+      "java.util.Collection",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.regex.Pattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 236
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initStartup",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerEvents",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 252,
+          "end": 266
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerClasses",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "ClassFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 269,
+          "end": 337
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBindings",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "BindingsEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 340,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerTypeWrappers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "typeWrappers",
+            "type": "TypeWrappers",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 419,
+          "end": 494
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerCustomJavaToJsWrappers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "CustomJavaToJsWrappersEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 497,
+          "end": 500
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerRecipeSchemas",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "RegisterRecipeSchemasEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 503,
+          "end": 547
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerRecipeComponents",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "RecipeComponentFactoryRegistryEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 550,
+          "end": 616
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBlockEntityAttachments",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "types",
+            "type": "List<BlockEntityAttachmentType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 619,
+          "end": 621
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearCaches",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 624,
+          "end": 626
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 188,
+      "end": 627
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/BuiltinKubeJSPlugin.java"
+  },
+  "dev.latvian.mods.kubejs.CommonProperties": {
+    "className": "CommonProperties",
+    "fullName": "dev.latvian.mods.kubejs.CommonProperties",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\CommonProperties.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "java.nio.file.Files",
+      "java.util.Properties"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "get",
+        "returnType": "CommonProperties",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "CommonProperties",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 74
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setPackMode",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "s",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 113
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "instance",
+        "type": "CommonProperties",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "properties",
+        "type": "Properties",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "writeProperties",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "hideServerScriptErrors",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "serverOnly",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "announceReload",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "packMode",
+        "type": "String",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "saveDevPropertiesInConfig",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "allowAsyncStreams",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "matchJsonRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "ignoreCustomUniqueRecipeIds",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "startupErrorGUI",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "startupErrorReportUrl",
+        "type": "String",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "creativeModeTabIcon",
+        "type": "String",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 114
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/CommonProperties.java"
+  },
+  "dev.latvian.mods.kubejs.DevProperties": {
+    "className": "DevProperties",
+    "fullName": "dev.latvian.mods.kubejs.DevProperties",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\DevProperties.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.platform.Platform",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "java.io.Reader",
+      "java.io.Writer",
+      "java.nio.file.Files",
+      "java.util.Properties"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "get",
+        "returnType": "DevProperties",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "DevProperties",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 82
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "def",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 115
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "instance",
+        "type": "DevProperties",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "properties",
+        "type": "Properties",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "writeProperties",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "debugInfo",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "dataPackOutput",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "logAddedRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "logRemovedRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "logModifiedRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "logSkippedRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "logSkippedTags",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "logErroringRecipes",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "logInvalidRecipeHandlers",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "logSkippedPlugins",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "logGeneratedData",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "strictTags",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "alwaysCaptureErrors",
+        "type": "boolean",
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 116
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/DevProperties.java"
+  },
+  "dev.latvian.mods.kubejs.KubeJS": {
+    "className": "KubeJS",
+    "fullName": "dev.latvian.mods.kubejs.KubeJS",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\KubeJS.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.Stopwatch",
+      "dev.architectury.platform.Mod",
+      "dev.architectury.platform.Platform",
+      "dev.architectury.utils.Env",
+      "dev.architectury.utils.EnvExecutor",
+      "dev.latvian.mods.kubejs.bindings.event.StartupEvents",
+      "dev.latvian.mods.kubejs.block.KubeJSBlockEventHandler",
+      "dev.latvian.mods.kubejs.client.KubeJSClient",
+      "dev.latvian.mods.kubejs.entity.KubeJSEntityEventHandler",
+      "dev.latvian.mods.kubejs.event.StartupEventJS",
+      "dev.latvian.mods.kubejs.gui.KubeJSMenu",
+      "dev.latvian.mods.kubejs.item.KubeJSItemEventHandler",
+      "dev.latvian.mods.kubejs.level.KubeJSWorldEventHandler",
+      "dev.latvian.mods.kubejs.net.KubeJSNet",
+      "dev.latvian.mods.kubejs.platform.MiscPlatformHelper",
+      "dev.latvian.mods.kubejs.player.KubeJSPlayerEventHandler",
+      "dev.latvian.mods.kubejs.recipe.KubeJSRecipeEventHandler",
+      "dev.latvian.mods.kubejs.recipe.schema.RecipeNamespace",
+      "dev.latvian.mods.kubejs.registry.RegistryInfo",
+      "dev.latvian.mods.kubejs.script.ConsoleLine",
+      "dev.latvian.mods.kubejs.script.PlatformWrapper",
+      "dev.latvian.mods.kubejs.script.ScriptFileInfo",
+      "dev.latvian.mods.kubejs.script.ScriptManager",
+      "dev.latvian.mods.kubejs.script.ScriptPack",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.script.ScriptsLoadedEvent",
+      "dev.latvian.mods.kubejs.script.data.GeneratedResourcePack",
+      "dev.latvian.mods.kubejs.server.KubeJSServerEventHandler",
+      "dev.latvian.mods.kubejs.util.ConsoleJS",
+      "dev.latvian.mods.kubejs.util.KubeJSBackgroundThread",
+      "dev.latvian.mods.kubejs.util.KubeJSPlugins",
+      "dev.latvian.mods.kubejs.util.UtilsJS",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "org.slf4j.Logger",
+      "org.slf4j.LoggerFactory",
+      "java.io.File",
+      "java.io.IOException",
+      "java.net.URI",
+      "java.net.URLEncoder",
+      "java.net.http.HttpClient",
+      "java.net.http.HttpRequest",
+      "java.net.http.HttpResponse",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.FileVisitOption",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.time.Duration",
+      "java.util.ArrayList"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "id",
+        "returnType": "ResourceLocation",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartupScriptManager",
+        "returnType": "ScriptManager",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getClientScriptManager",
+        "returnType": "ScriptManager",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "KubeJS",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "Throwable"
+        ],
+        "lineRange": {
+          "start": 85,
+          "end": 160
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "loadScripts",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pack",
+            "type": "ScriptPack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "path",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 162,
+          "end": 180
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendModId",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 184
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getGameDirectory",
+        "returnType": "Path",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 186,
+          "end": 188
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "verifyFilePath",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 190,
+          "end": 196
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setup",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadComplete",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 254
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MOD_ID",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"kubejs\"",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "MOD_NAME",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"KubeJS\"",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "MC_VERSION_NUMBER",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2001",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "MC_VERSION_STRING",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"1.20.1\"",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      },
+      {
+        "name": "QUERY",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "instance",
+        "type": "KubeJS",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 68,
+          "end": 68
+        }
+      },
+      {
+        "name": "gameDirectory",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      },
+      {
+        "name": "PROXY",
+        "type": "KubeJSCommon",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "clientScriptManager",
+        "type": "ScriptManager startupScriptManager,",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "thisMod",
+        "type": "Mod",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 55,
+      "end": 255
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/KubeJS.java"
+  },
+  "dev.latvian.mods.kubejs.KubeJSCommon": {
+    "className": "KubeJSCommon",
+    "fullName": "dev.latvian.mods.kubejs.KubeJSCommon",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\KubeJSCommon.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.script.ConsoleLine",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.script.data.ExportablePackResources",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.world.entity.player.Player",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clientSetup",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadClientInternal",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleDataFromServerPacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "channel",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "data",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 24
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getClientPlayer",
+        "returnType": "Player",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "paint",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadTextures",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadLang",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateTypings",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "source",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadConfig",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reloadStartupScripts",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "dedicated",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "export",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "packs",
+            "type": "List<ExportablePackResources>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openErrors",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "openErrors",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "errors",
+            "type": "List<ConsoleLine>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "warnings",
+            "type": "List<ConsoleLine>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/KubeJSCommon.java"
+  },
+  "dev.latvian.mods.kubejs.KubeJSPaths": {
+    "className": "KubeJSPaths",
+    "fullName": "dev.latvian.mods.kubejs.KubeJSPaths",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\KubeJSPaths.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.architectury.platform.Platform",
+      "net.minecraft.server.packs.PackType",
+      "org.apache.commons.lang3.mutable.MutableBoolean",
+      "java.nio.file.Files",
+      "java.nio.file.Path"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "dir",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "dir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "markFirstRun",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dir",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "dir",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "PackType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLocalDevProperties",
+        "returnType": "Path",
+        "parameters": [],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/KubeJSPaths.java"
+  },
+  "dev.latvian.mods.kubejs.KubeJSPlugin": {
+    "className": "KubeJSPlugin",
+    "fullName": "dev.latvian.mods.kubejs.KubeJSPlugin",
+    "packageName": "dev.latvian.mods.kubejs",
+    "filePath": "/dev\\latvian\\mods\\kubejs\\KubeJSPlugin.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "dev.latvian.mods.kubejs.block.entity.BlockEntityAttachmentType",
+      "dev.latvian.mods.kubejs.client.ClientProperties",
+      "dev.latvian.mods.kubejs.client.LangEventJS",
+      "dev.latvian.mods.kubejs.event.EventGroup",
+      "dev.latvian.mods.kubejs.generator.AssetJsonGenerator",
+      "dev.latvian.mods.kubejs.generator.DataJsonGenerator",
+      "dev.latvian.mods.kubejs.recipe.RecipesEventJS",
+      "dev.latvian.mods.kubejs.recipe.schema.RecipeComponentFactoryRegistryEvent",
+      "dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent",
+      "dev.latvian.mods.kubejs.script.BindingsEvent",
+      "dev.latvian.mods.kubejs.script.CustomJavaToJsWrappersEvent",
+      "dev.latvian.mods.kubejs.script.ScriptType",
+      "dev.latvian.mods.kubejs.server.DataExport",
+      "dev.latvian.mods.kubejs.util.AttachedData",
+      "dev.latvian.mods.kubejs.util.ClassFilter",
+      "dev.latvian.mods.rhino.util.wrap.TypeWrappers",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.crafting.Recipe",
+      "net.minecraft.world.item.crafting.RecipeManager",
+      "net.minecraft.world.level.Level",
+      "java.util.List",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initStartup",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clientInit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "afterInit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onServerReload",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerEvents",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerClasses",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "filter",
+            "type": "ClassFilter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBindings",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "BindingsEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerTypeWrappers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "ScriptType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "typeWrappers",
+            "type": "TypeWrappers",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerCustomJavaToJsWrappers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "CustomJavaToJsWrappersEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerRecipeSchemas",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "RegisterRecipeSchemasEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerRecipeComponents",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "RecipeComponentFactoryRegistryEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "registerBlockEntityAttachments",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "types",
+            "type": "List<BlockEntityAttachmentType>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "attachServerData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "AttachedData<MinecraftServer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "attachLevelData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "AttachedData<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "attachPlayerData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "AttachedData<Player>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateDataJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "DataJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateAssetJsons",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "generator",
+            "type": "AssetJsonGenerator",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "generateLang",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "LangEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadCommonProperties",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "CommonProperties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 91
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadClientProperties",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "ClientProperties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 93,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "loadDevProperties",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "DevProperties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearCaches",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exportServerData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "export",
+            "type": "DataExport",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "injectRuntimeRecipes",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "RecipesEventJS",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "manager",
+            "type": "RecipeManager",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "recipesByName",
+            "type": "Recipe<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 114
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 115
+    },
+    "sourceFilePath": "/java-sources/1.20.1/dev/latvian/mods/kubejs/KubeJSPlugin.java"
+  }
+}

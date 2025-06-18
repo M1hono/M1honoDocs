@@ -1,0 +1,1034 @@
+{
+  "com.mojang.text2speech.Narrator": {
+    "className": "Narrator",
+    "fullName": "com.mojang.text2speech.Narrator",
+    "packageName": "com.mojang.text2speech",
+    "filePath": "/com\\mojang\\text2speech\\Narrator.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "org.slf4j.Logger",
+      "org.slf4j.LoggerFactory"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "say",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "interrupt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNarrator",
+        "returnType": "Narrator",
+        "parameters": [],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 50
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "InitializeException",
+        "fullName": "com.mojang.text2speech.Narrator.InitializeException",
+        "packageName": "com.mojang.text2speech",
+        "filePath": "/com\\mojang\\text2speech\\Narrator.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "Exception",
+        "interfaces": [],
+        "imports": [
+          "org.slf4j.Logger",
+          "org.slf4j.LoggerFactory"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "InitializeException",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "message",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": true
+              },
+              {
+                "name": "cause",
+                "type": "Throwable",
+                "isVarArgs": false,
+                "isFinal": true
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 53,
+              "end": 55
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "InitializeException",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "message",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": true
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 57,
+              "end": 59
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 52,
+          "end": 60
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/Narrator/InitializeException.java"
+      }
+    ],
+    "lineRange": {
+      "start": 6,
+      "end": 61
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/Narrator.java"
+  },
+  "com.mojang.text2speech.NarratorLinux": {
+    "className": "NarratorLinux",
+    "fullName": "com.mojang.text2speech.NarratorLinux",
+    "packageName": "com.mojang.text2speech",
+    "filePath": "/com\\mojang\\text2speech\\NarratorLinux.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Narrator"
+    ],
+    "imports": [
+      "com.sun.jna.Native",
+      "com.sun.jna.NativeLibrary",
+      "com.sun.jna.Pointer",
+      "java.util.Arrays",
+      "java.util.concurrent.ExecutorService",
+      "java.util.concurrent.Executors",
+      "java.util.concurrent.atomic.AtomicInteger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NarratorLinux",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "InitializeException"
+        ],
+        "lineRange": {
+          "start": 17,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "say",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "interrupt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 57,
+          "end": 59
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "voiceCmuUsKal16",
+        "type": "Pointer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "executor",
+        "type": "ExecutorService",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "FliteLibrary",
+        "fullName": "com.mojang.text2speech.NarratorLinux.FliteLibrary",
+        "packageName": "com.mojang.text2speech",
+        "filePath": "/com\\mojang\\text2speech\\NarratorLinux.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.sun.jna.Native",
+          "com.sun.jna.NativeLibrary",
+          "com.sun.jna.Pointer",
+          "java.util.Arrays",
+          "java.util.concurrent.ExecutorService",
+          "java.util.concurrent.Executors",
+          "java.util.concurrent.atomic.AtomicInteger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "loadNative",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "InitializeException"
+            ],
+            "lineRange": {
+              "start": 65,
+              "end": 71
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "SUCCESS",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "0",
+            "lineRange": {
+              "start": 62,
+              "end": 62
+            }
+          },
+          {
+            "name": "NATIVE_LIBRARY_NAME",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "\"flite\"",
+            "lineRange": {
+              "start": 63,
+              "end": 63
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "CmuUsKal16",
+            "fullName": "com.mojang.text2speech.NarratorLinux.FliteLibrary.CmuUsKal16",
+            "packageName": "com.mojang.text2speech",
+            "filePath": "/com\\mojang\\text2speech\\NarratorLinux.java",
+            "classType": "class",
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "superClass": "",
+            "interfaces": [],
+            "imports": [
+              "com.sun.jna.Native",
+              "com.sun.jna.NativeLibrary",
+              "com.sun.jna.Pointer",
+              "java.util.Arrays",
+              "java.util.concurrent.ExecutorService",
+              "java.util.concurrent.Executors",
+              "java.util.concurrent.atomic.AtomicInteger"
+            ],
+            "classComment": "",
+            "methods": [],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 77,
+              "end": 89
+            },
+            "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/NarratorLinux/FliteLibrary/CmuUsKal16.java"
+          }
+        ],
+        "lineRange": {
+          "start": 61,
+          "end": 90
+        },
+        "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/NarratorLinux/FliteLibrary.java"
+      }
+    ],
+    "lineRange": {
+      "start": 12,
+      "end": 91
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/NarratorLinux.java"
+  },
+  "com.mojang.text2speech.NarratorMac": {
+    "className": "NarratorMac",
+    "fullName": "com.mojang.text2speech.NarratorMac",
+    "packageName": "com.mojang.text2speech",
+    "filePath": "/com\\mojang\\text2speech\\NarratorMac.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "NSObject",
+    "interfaces": [
+      "Narrator"
+    ],
+    "imports": [
+      "ca.weblite.objc.Client",
+      "ca.weblite.objc.NSObject",
+      "ca.weblite.objc.Proxy",
+      "ca.weblite.objc.annotations.Msg",
+      "com.google.common.collect.Queues",
+      "org.slf4j.Logger",
+      "org.slf4j.LoggerFactory",
+      "java.util.Queue"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NarratorMac",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "startSpeaking",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "message",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "didFinishSpeaking",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "naturally",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "say",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "interrupt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 71
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "speaking",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "crashed",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 72
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/NarratorMac.java"
+  },
+  "com.mojang.text2speech.NarratorWindows": {
+    "className": "NarratorWindows",
+    "fullName": "com.mojang.text2speech.NarratorWindows",
+    "packageName": "com.mojang.text2speech",
+    "filePath": "/com\\mojang\\text2speech\\NarratorWindows.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Unknown",
+    "interfaces": [
+      "Narrator"
+    ],
+    "imports": [
+      "com.sun.jna.Pointer",
+      "com.sun.jna.WString",
+      "com.sun.jna.platform.win32.COM.COMUtils",
+      "com.sun.jna.platform.win32.COM.Unknown",
+      "com.sun.jna.platform.win32.Guid",
+      "com.sun.jna.platform.win32.Ole32",
+      "com.sun.jna.platform.win32.WTypes",
+      "com.sun.jna.platform.win32.WinNT",
+      "com.sun.jna.ptr.IntByReference",
+      "com.sun.jna.ptr.PointerByReference"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initSAPI",
+        "returnType": "Pointer",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "InitializeException"
+        ],
+        "lineRange": {
+          "start": 29,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "NarratorWindows",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "InitializeException"
+        ],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "say",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "interrupt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "destroy",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 84
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "COM_CLASS_SP_VOICE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "GUIDs taken from Win32 sapi.h",
+        "initialValue": "\"96749377-3391-11D2-9EE3-00C04F797396\"",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "INTERFACE_SP_VOICE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"6C44DF74-72B9-4992-A1EC-EF996E0422D4\"",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "VTABLE_INDEX_SPEAK",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "struct ISpVoice vtable offsets calculated from Win32 sapi.h",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "VTABLE_INDEX_SKIP",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "23",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "SPF_ASYNC",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "enum SPEAKFLAGS from Win32 sapi.h",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "SPF_PURGEBEFORESPEAK",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1 << 1",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "SPF_IS_NOT_XML",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1 << 4",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "MAX_NUM_ITEMS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "Integer.MAX_VALUE",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 85
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/NarratorWindows.java"
+  },
+  "com.mojang.text2speech.OperatingSystem": {
+    "className": "OperatingSystem",
+    "fullName": "com.mojang.text2speech.OperatingSystem",
+    "packageName": "com.mojang.text2speech",
+    "filePath": "/com\\mojang\\text2speech\\OperatingSystem.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.Nullable",
+      "java.util.Locale"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LINUX",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "WINDOWS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "MAC_OS",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "UNSUPPORTED",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "OperatingSystem",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "detectWith",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "get",
+        "returnType": "OperatingSystem",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 32
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "detectWith",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/1.20.1/com/mojang/text2speech/OperatingSystem.java"
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "net.minecraft.util.profiling.jfr.parse.JfrStatsParser": {
+    "className": "JfrStatsParser",
+    "fullName": "net.minecraft.util.profiling.jfr.parse.JfrStatsParser",
+    "packageName": "net.minecraft.util.profiling.jfr.parse",
+    "filePath": "/net\\minecraft\\util\\profiling\\jfr\\parse\\JfrStatsParser.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.mojang.datafixers.util.Pair",
+      "java.io.IOException",
+      "java.io.UncheckedIOException",
+      "java.nio.file.Path",
+      "java.time.Duration",
+      "java.time.Instant",
+      "java.util.Iterator",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.NoSuchElementException",
+      "java.util.Spliterators",
+      "java.util.stream.Stream",
+      "java.util.stream.StreamSupport",
+      "javax.annotation.Nullable",
+      "jdk.jfr.consumer.RecordedEvent",
+      "jdk.jfr.consumer.RecordingFile",
+      "net.minecraft.util.profiling.jfr.stats.ChunkGenStat",
+      "net.minecraft.util.profiling.jfr.stats.CpuLoadStat",
+      "net.minecraft.util.profiling.jfr.stats.FileIOStat",
+      "net.minecraft.util.profiling.jfr.stats.GcHeapStat",
+      "net.minecraft.util.profiling.jfr.stats.NetworkPacketSummary",
+      "net.minecraft.util.profiling.jfr.stats.ThreadAllocationStat",
+      "net.minecraft.util.profiling.jfr.stats.TickTimeStat"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "JfrStatsParser",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pEvents",
+            "type": "Stream<RecordedEvent>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "parse",
+        "returnType": "JfrStatsResult",
+        "parameters": [
+          {
+            "name": "pFile",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "results",
+        "returnType": "JfrStatsResult",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "capture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEvents",
+            "type": "Stream<RecordedEvent>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "incrementPacket",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEvent",
+            "type": "RecordedEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIncrement",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackets",
+            "type": "JfrStatsParser.MutableCountAndSize>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "appendFileIO",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEvent",
+            "type": "RecordedEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStats",
+            "type": "List<FileIOStat>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "collectPacketStats",
+        "returnType": "NetworkPacketSummary",
+        "parameters": [
+          {
+            "name": "pRecordingDuration",
+            "type": "Duration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPackets",
+            "type": "JfrStatsParser.MutableCountAndSize>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 145
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "recordingStarted",
+        "type": "Instant",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Instant.EPOCH",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "recordingEnded",
+        "type": "Instant",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Instant.EPOCH",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "garbageCollections",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "gcTotalDuration",
+        "type": "Duration",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Duration.ZERO",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "worldCreationDuration",
+        "type": "Duration",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "MutableCountAndSize",
+        "fullName": "net.minecraft.util.profiling.jfr.parse.JfrStatsParser.MutableCountAndSize",
+        "packageName": "net.minecraft.util.profiling.jfr.parse",
+        "filePath": "/net\\minecraft\\util\\profiling\\jfr\\parse\\JfrStatsParser.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.datafixers.util.Pair",
+          "java.io.IOException",
+          "java.io.UncheckedIOException",
+          "java.nio.file.Path",
+          "java.time.Duration",
+          "java.time.Instant",
+          "java.util.Iterator",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.NoSuchElementException",
+          "java.util.Spliterators",
+          "java.util.stream.Stream",
+          "java.util.stream.StreamSupport",
+          "javax.annotation.Nullable",
+          "jdk.jfr.consumer.RecordedEvent",
+          "jdk.jfr.consumer.RecordingFile",
+          "net.minecraft.util.profiling.jfr.stats.ChunkGenStat",
+          "net.minecraft.util.profiling.jfr.stats.CpuLoadStat",
+          "net.minecraft.util.profiling.jfr.stats.FileIOStat",
+          "net.minecraft.util.profiling.jfr.stats.GcHeapStat",
+          "net.minecraft.util.profiling.jfr.stats.NetworkPacketSummary",
+          "net.minecraft.util.profiling.jfr.stats.ThreadAllocationStat",
+          "net.minecraft.util.profiling.jfr.stats.TickTimeStat"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "increment",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pIncrement",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 151,
+              "end": 154
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "count",
+            "type": "long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 148,
+              "end": 148
+            }
+          },
+          {
+            "name": "totalSize",
+            "type": "long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 149,
+              "end": 149
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 147,
+          "end": 159
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/profiling/jfr/parse/JfrStatsParser/MutableCountAndSize.java"
+      }
+    ],
+    "lineRange": {
+      "start": 29,
+      "end": 160
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/util/profiling/jfr/parse/JfrStatsParser.java"
+  }
+}

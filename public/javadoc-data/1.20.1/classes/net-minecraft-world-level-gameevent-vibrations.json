@@ -1,0 +1,1379 @@
+{
+  "net.minecraft.world.level.gameevent.vibrations.VibrationSelector": {
+    "className": "VibrationSelector",
+    "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSelector",
+    "packageName": "net.minecraft.world.level.gameevent.vibrations",
+    "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSelector.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "org.apache.commons.lang3.tuple.Pair"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VibrationSelector",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_251736_",
+            "type": "Optional<VibrationInfo>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_251649_",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "VibrationSelector",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addCandidate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pVibrationInfo",
+            "type": "VibrationInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTick",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldReplaceVibration",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pVibrationInfo",
+            "type": "VibrationInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTick",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "chosenCandidate",
+        "returnType": "Optional<VibrationInfo>",
+        "parameters": [
+          {
+            "name": "pTick",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startOver",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "currentVibrationData",
+        "type": "Optional<Pair<VibrationInfo, Long>>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 67
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSelector.java"
+  },
+  "net.minecraft.world.level.gameevent.vibrations.VibrationSystem": {
+    "className": "VibrationSystem",
+    "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSystem",
+    "packageName": "net.minecraft.world.level.gameevent.vibrations",
+    "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSystem.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+      "java.util.Optional",
+      "java.util.function.ToIntFunction",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.advancements.CriteriaTriggers",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.particles.VibrationParticleOption",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.tags.BlockTags",
+      "net.minecraft.tags.GameEventTags",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.ClipBlockStateContext",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.chunk.ChunkAccess",
+      "net.minecraft.world.level.gameevent.GameEvent",
+      "net.minecraft.world.level.gameevent.GameEventListener",
+      "net.minecraft.world.level.gameevent.PositionSource",
+      "net.minecraft.world.phys.HitResult",
+      "net.minecraft.world.phys.Vec3"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getGameEventFrequency",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pGameEvent",
+            "type": "GameEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getResonanceEventByFrequency",
+        "returnType": "GameEvent",
+        "parameters": [
+          {
+            "name": "pFrequency",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRedstoneStrengthForDistance",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pDistance",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaxDistance",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 98
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "RESONANCE_EVENTS",
+        "type": "GameEvent[]",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "new GameEvent[]{GameEvent.RESONATE_1, GameEvent.RESONATE_2, GameEvent.RESONATE_3, GameEvent.RESONATE_4, GameEvent.RESONATE_5, GameEvent.RESONATE_6, GameEvent.RESONATE_7, GameEvent.RESONATE_8, GameEvent.RESONATE_9, GameEvent.RESONATE_10, GameEvent.RESONATE_11, GameEvent.RESONATE_12, GameEvent.RESONATE_13, GameEvent.RESONATE_14, GameEvent.RESONATE_15}",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Data",
+        "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSystem.Data",
+        "packageName": "net.minecraft.world.level.gameevent.vibrations",
+        "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSystem.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "java.util.Optional",
+          "java.util.function.ToIntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.particles.VibrationParticleOption",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.ClipBlockStateContext",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.chunk.ChunkAccess",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.phys.HitResult",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Data",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pCurrentVibration",
+                "type": "VibrationInfo",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSelectionStrategy",
+                "type": "VibrationSelector",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTravelTimeInTicks",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pReloadVibrationParticle",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 115,
+              "end": 120
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Data",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 122,
+              "end": 124
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSelectionStrategy",
+            "returnType": "VibrationSelector",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 126,
+              "end": 128
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCurrentVibration",
+            "returnType": "VibrationInfo",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 131,
+              "end": 133
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setCurrentVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pCurrentVibration",
+                "type": "VibrationInfo",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 135,
+              "end": 137
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getTravelTimeInTicks",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 139,
+              "end": 141
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setTravelTimeInTicks",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pTravelTimeInTicks",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 143,
+              "end": 145
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "decrementTravelTime",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 147,
+              "end": 149
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "shouldReloadVibrationParticle",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 151,
+              "end": 153
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setReloadVibrationParticle",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pReloadVibrationParticle",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 155,
+              "end": 157
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "NBT_TAG_KEY",
+            "type": "String",
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "\"listener\"",
+            "lineRange": {
+              "start": 108,
+              "end": 108
+            }
+          },
+          {
+            "name": "currentVibration",
+            "type": "VibrationInfo",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 110,
+              "end": 110
+            }
+          },
+          {
+            "name": "travelTimeInTicks",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 111,
+              "end": 111
+            }
+          },
+          {
+            "name": "selectionStrategy",
+            "type": "VibrationSelector",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 112,
+              "end": 112
+            }
+          },
+          {
+            "name": "reloadVibrationParticle",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 113,
+              "end": 113
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 100,
+          "end": 158
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSystem/Data.java"
+      },
+      {
+        "className": "Listener",
+        "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSystem.Listener",
+        "packageName": "net.minecraft.world.level.gameevent.vibrations",
+        "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSystem.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "GameEventListener"
+        ],
+        "imports": [
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "java.util.Optional",
+          "java.util.function.ToIntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.particles.VibrationParticleOption",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.ClipBlockStateContext",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.chunk.ChunkAccess",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.phys.HitResult",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Listener",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pSystem",
+                "type": "VibrationSystem",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 163,
+              "end": 165
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getListenerSource",
+            "returnType": "PositionSource",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 170,
+              "end": 172
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getListenerRadius",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 177,
+              "end": 179
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "handleGameEvent",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 181,
+              "end": 204
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "forceScheduleVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEventPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 210
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "scheduleVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "VibrationSystem.Data",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVibrationUserPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 212,
+              "end": 214
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "distanceBetweenInBlocks",
+            "returnType": "float",
+            "parameters": [
+              {
+                "name": "pPos1",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos2",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 216,
+              "end": 218
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isOccluded",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "Level",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEventPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVibrationUserPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 220,
+              "end": 234
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "system",
+            "type": "VibrationSystem",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 161,
+              "end": 161
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 160,
+          "end": 235
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSystem/Listener.java"
+      },
+      {
+        "className": "Ticker",
+        "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSystem.Ticker",
+        "packageName": "net.minecraft.world.level.gameevent.vibrations",
+        "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSystem.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "java.util.Optional",
+          "java.util.function.ToIntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.particles.VibrationParticleOption",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.ClipBlockStateContext",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.chunk.ChunkAccess",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.phys.HitResult",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "Level",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "VibrationSystem.Data",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUser",
+                "type": "VibrationSystem.User",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 238,
+              "end": 258
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "trySelectAndScheduleVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "VibrationSystem.Data",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUser",
+                "type": "VibrationSystem.User",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 260,
+              "end": 269
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tryReloadVibrationParticle",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "VibrationSystem.Data",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUser",
+                "type": "VibrationSystem.User",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 271,
+              "end": 292
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "receiveVibration",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pData",
+                "type": "VibrationSystem.Data",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUser",
+                "type": "VibrationSystem.User",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVibrationInfo",
+                "type": "VibrationInfo",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 294,
+              "end": 304
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "areAdjacentChunksTicking",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "Level",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 306,
+              "end": 319
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 237,
+          "end": 320
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSystem/Ticker.java"
+      },
+      {
+        "className": "User",
+        "fullName": "net.minecraft.world.level.gameevent.vibrations.VibrationSystem.User",
+        "packageName": "net.minecraft.world.level.gameevent.vibrations",
+        "filePath": "/net\\minecraft\\world\\level\\gameevent\\vibrations\\VibrationSystem.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.codecs.RecordCodecBuilder",
+          "it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap",
+          "java.util.Optional",
+          "java.util.function.ToIntFunction",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.advancements.CriteriaTriggers",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.particles.VibrationParticleOption",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.tags.BlockTags",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.ExtraCodecs",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.ClipBlockStateContext",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.chunk.ChunkAccess",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.phys.HitResult",
+          "net.minecraft.world.phys.Vec3"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getListenerRadius",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 323,
+              "end": 323
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPositionSource",
+            "returnType": "PositionSource",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 325,
+              "end": 325
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canReceiveVibration",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 327,
+              "end": 327
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onReceiveVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEntity",
+                "type": "Entity",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPlayerEntity",
+                "type": "Entity",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDistance",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 329,
+              "end": 329
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 322,
+          "end": 381
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSystem/User.java"
+      }
+    ],
+    "lineRange": {
+      "start": 32,
+      "end": 382
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/gameevent/vibrations/VibrationSystem.java"
+  }
+}

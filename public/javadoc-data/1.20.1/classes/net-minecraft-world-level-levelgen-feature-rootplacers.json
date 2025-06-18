@@ -1,0 +1,774 @@
+{
+  "net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer": {
+    "className": "MangroveRootPlacer",
+    "fullName": "net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer",
+    "packageName": "net.minecraft.world.level.levelgen.feature.rootplacers",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\rootplacers\\MangroveRootPlacer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RootPlacer",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.List",
+      "java.util.Optional",
+      "java.util.function.BiConsumer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.valueproviders.IntProvider",
+      "net.minecraft.world.level.LevelSimulatedReader",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration",
+      "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MangroveRootPlacer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_225817_",
+            "type": "IntProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_225818_",
+            "type": "BlockStateProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_225819_",
+            "type": "Optional<AboveRootPlacement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_225820_",
+            "type": "MangroveRootPlacement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 31
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "placeRoots",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSetter",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTrunkOrigin",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTreeConfig",
+            "type": "TreeConfiguration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "simulateRoots",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTrunkOrigin",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRoots",
+            "type": "List<BlockPos>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLength",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "potentialRootPositions",
+        "returnType": "List<BlockPos>",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTrunkOrigin",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlaceRoot",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeRoot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSetter",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTreeConfig",
+            "type": "TreeConfiguration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 116
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ROOT_WIDTH_LIMIT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "ROOT_LENGTH_LIMIT",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "15",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "mangroveRootPlacement",
+        "type": "MangroveRootPlacement",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 121
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/rootplacers/MangroveRootPlacer.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer": {
+    "className": "RootPlacer",
+    "fullName": "net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer",
+    "packageName": "net.minecraft.world.level.levelgen.feature.rootplacers",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\rootplacers\\RootPlacer.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.Products",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.util.Optional",
+      "java.util.function.BiConsumer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.tags.FluidTags",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.util.valueproviders.IntProvider",
+      "net.minecraft.world.level.LevelSimulatedReader",
+      "net.minecraft.world.level.block.state.BlockBehaviour",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.properties.BlockStateProperties",
+      "net.minecraft.world.level.levelgen.feature.TreeFeature",
+      "net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration",
+      "net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RootPlacer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTrunkOffset",
+            "type": "IntProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRootProvider",
+            "type": "BlockStateProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAboveRootPlacement",
+            "type": "Optional<AboveRootPlacement>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "placeRoots",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSetter",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTrunkOrigin",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTreeConfig",
+            "type": "TreeConfiguration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPlaceRoot",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "placeRoot",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlockSetter",
+            "type": "BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTreeConfig",
+            "type": "TreeConfiguration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPotentiallyWaterloggedState",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "LevelSimulatedReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTrunkOrigin",
+        "returnType": "BlockPos",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "trunkOffsetY",
+        "type": "IntProvider",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "rootProvider",
+        "type": "BlockStateProvider",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "aboveRootPlacement",
+        "type": "Optional<AboveRootPlacement>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 79
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/rootplacers/RootPlacer.java"
+  },
+  "net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType": {
+    "className": "RootPlacerType",
+    "fullName": "net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType",
+    "packageName": "net.minecraft.world.level.levelgen.feature.rootplacers",
+    "filePath": "/net\\minecraft\\world\\level\\levelgen\\feature\\rootplacers\\RootPlacerType.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.BuiltInRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RootPlacerType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pCodec",
+            "type": "Codec<P>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "codec",
+        "returnType": "Codec<P>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Codec<P>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/world/level/levelgen/feature/rootplacers/RootPlacerType.java"
+  }
+}

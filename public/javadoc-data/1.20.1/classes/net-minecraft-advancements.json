@@ -1,0 +1,4484 @@
+{
+  "net.minecraft.advancements.Advancement": {
+    "className": "Advancement",
+    "fullName": "net.minecraft.advancements.Advancement",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\Advancement.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "java.util.Arrays",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.function.Consumer",
+      "java.util.function.Function",
+      "javax.annotation.Nullable",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.advancements.critereon.DeserializationContext",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.ComponentUtils",
+      "net.minecraft.network.chat.HoverEvent",
+      "net.minecraft.network.chat.Style",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.ItemLike",
+      "org.apache.commons.lang3.ArrayUtils"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Advancement",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParent",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDisplay",
+            "type": "DisplayInfo",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRewards",
+            "type": "AdvancementRewards",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCriteria",
+            "type": "Criterion>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequirements",
+            "type": "String[][]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSendsTelemetryEvent",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 65
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getParent",
+        "returnType": "Advancement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRoot",
+        "returnType": "Advancement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRoot",
+        "returnType": "Advancement",
+        "parameters": [
+          {
+            "name": "pAdvancement",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDisplay",
+        "returnType": "DisplayInfo",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendsTelemetryEvent",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRewards",
+        "returnType": "AdvancementRewards",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 112,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChildren",
+        "returnType": "Iterable<Advancement>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 123,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCriteria",
+        "returnType": "Map<String, Criterion>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 131,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxCriteraRequired",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addChild",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChild",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getId",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 165
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 167,
+          "end": 169
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRequirements",
+        "returnType": "String[][]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChatComponent",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "parent",
+        "type": "Advancement",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "display",
+        "type": "DisplayInfo",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "rewards",
+        "type": "AdvancementRewards",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "id",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "criteria",
+        "type": "Map<String, Criterion>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "requirements",
+        "type": "String[][]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "chatComponent",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "sendsTelemetryEvent",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.advancements.Advancement.Builder",
+        "packageName": "net.minecraft.advancements",
+        "filePath": "/net\\minecraft\\advancements\\Advancement.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "net.minecraftforge.common.extensions.IForgeAdvancementBuilder"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonSyntaxException",
+          "java.util.Arrays",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.function.Consumer",
+          "java.util.function.Function",
+          "javax.annotation.Nullable",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.advancements.critereon.DeserializationContext",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.network.chat.ComponentUtils",
+          "net.minecraft.network.chat.HoverEvent",
+          "net.minecraft.network.chat.Style",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.ItemLike",
+          "org.apache.commons.lang3.ArrayUtils"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pParentId",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pDisplay",
+                "type": "DisplayInfo",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRewards",
+                "type": "AdvancementRewards",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCriteria",
+                "type": "Criterion>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRequirements",
+                "type": "String[][]",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSendsTelemetryEvent",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 197,
+              "end": 204
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pSendsTelemetryEvent",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 208
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "canBuild",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pParentLookup",
+                "type": "Advancement>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 276,
+              "end": 286
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "Advancement",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 288,
+              "end": 300
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "save",
+            "returnType": "Advancement",
+            "parameters": [
+              {
+                "name": "pConsumer",
+                "type": "Consumer<Advancement>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pId",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 302,
+              "end": 306
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "serializeToJson",
+            "returnType": "JsonObject",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 308,
+              "end": 347
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "serializeToNetwork",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBuffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 349,
+              "end": 370
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "toString",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 372,
+              "end": 374
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getCriteria",
+            "returnType": "Map<String, Criterion>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 462,
+              "end": 464
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "parentId",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 185,
+              "end": 185
+            }
+          },
+          {
+            "name": "parent",
+            "type": "Advancement",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 187,
+              "end": 187
+            }
+          },
+          {
+            "name": "display",
+            "type": "DisplayInfo",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 189,
+              "end": 189
+            }
+          },
+          {
+            "name": "rewards",
+            "type": "AdvancementRewards",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "AdvancementRewards.EMPTY",
+            "lineRange": {
+              "start": 190,
+              "end": 190
+            }
+          },
+          {
+            "name": "requirements",
+            "type": "String[][]",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 193,
+              "end": 193
+            }
+          },
+          {
+            "name": "requirementsStrategy",
+            "type": "RequirementsStrategy",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "RequirementsStrategy.AND",
+            "lineRange": {
+              "start": 194,
+              "end": 194
+            }
+          },
+          {
+            "name": "sendsTelemetryEvent",
+            "type": "boolean",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 195,
+              "end": 195
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 183,
+          "end": 465
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/Advancement/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 28,
+      "end": 466
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/Advancement.java"
+  },
+  "net.minecraft.advancements.AdvancementList": {
+    "className": "AdvancementList",
+    "fullName": "net.minecraft.advancements.AdvancementList",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\AdvancementList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.logging.LogUtils",
+      "java.util.Collection",
+      "java.util.Iterator",
+      "java.util.Map",
+      "java.util.Set",
+      "javax.annotation.Nullable",
+      "net.minecraft.resources.ResourceLocation",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAdvancement",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "remove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIds",
+            "type": "Set<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "add",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAdvancements",
+            "type": "Advancement.Builder>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRoots",
+        "returnType": "Iterable<Advancement>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAllAdvancements",
+        "returnType": "Collection<Advancement>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "get",
+        "returnType": "Advancement",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pListener",
+            "type": "AdvancementList.Listener",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 131
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "listener",
+        "type": "AdvancementList.Listener",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Listener",
+        "fullName": "net.minecraft.advancements.AdvancementList.Listener",
+        "packageName": "net.minecraft.advancements",
+        "filePath": "/net\\minecraft\\advancements\\AdvancementList.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.mojang.logging.LogUtils",
+          "java.util.Collection",
+          "java.util.Iterator",
+          "java.util.Map",
+          "java.util.Set",
+          "javax.annotation.Nullable",
+          "net.minecraft.resources.ResourceLocation",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "onAddAdvancementRoot",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAdvancement",
+                "type": "Advancement",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 134,
+              "end": 134
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onRemoveAdvancementRoot",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAdvancement",
+                "type": "Advancement",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 136,
+              "end": 136
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onAddAdvancementTask",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAdvancement",
+                "type": "Advancement",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 138,
+              "end": 138
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onRemoveAdvancementTask",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pAdvancement",
+                "type": "Advancement",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 140,
+              "end": 140
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onAdvancementsCleared",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 142,
+              "end": 142
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 133,
+          "end": 143
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementList/Listener.java"
+      }
+    ],
+    "lineRange": {
+      "start": 14,
+      "end": 144
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementList.java"
+  },
+  "net.minecraft.advancements.AdvancementProgress": {
+    "className": "AdvancementProgress",
+    "fullName": "net.minecraft.advancements.AdvancementProgress",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\AdvancementProgress.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Comparable<AdvancementProgress>"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.google.gson.JsonDeserializationContext",
+      "com.google.gson.JsonDeserializer",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParseException",
+      "com.google.gson.JsonSerializationContext",
+      "com.google.gson.JsonSerializer",
+      "java.lang.reflect.Type",
+      "java.util.Arrays",
+      "java.util.Date",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.util.GsonHelper"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AdvancementProgress",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCriteria",
+            "type": "CriterionProgress>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "AdvancementProgress",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "update",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCriteria",
+            "type": "Criterion>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequirements",
+            "type": "String[][]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDone",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasProgress",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "grantProgress",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCriterionName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "revokeProgress",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCriterionName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 108
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 114
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromNetwork",
+        "returnType": "AdvancementProgress",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCriterion",
+        "returnType": "CriterionProgress",
+        "parameters": [
+          {
+            "name": "pCriterionName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPercent",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProgressText",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "countCompletedRequirements",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 171
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemainingCriteria",
+        "returnType": "Iterable<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCompletedCriteria",
+        "returnType": "Iterable<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 195
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFirstProgressDate",
+        "returnType": "Date",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 198,
+          "end": 208
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "compareTo",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "p_8195_",
+            "type": "AdvancementProgress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 210,
+          "end": 220
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "criteria",
+        "type": "Map<String, CriterionProgress>",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "requirements",
+        "type": "String[][]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "new String[0][]",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Serializer",
+        "fullName": "net.minecraft.advancements.AdvancementProgress.Serializer",
+        "packageName": "net.minecraft.advancements",
+        "filePath": "/net\\minecraft\\advancements\\AdvancementProgress.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "JsonDeserializer<AdvancementProgress>",
+          "JsonSerializer<AdvancementProgress>"
+        ],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.google.gson.JsonDeserializationContext",
+          "com.google.gson.JsonDeserializer",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonParseException",
+          "com.google.gson.JsonSerializationContext",
+          "com.google.gson.JsonSerializer",
+          "java.lang.reflect.Type",
+          "java.util.Arrays",
+          "java.util.Date",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Set",
+          "javax.annotation.Nullable",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.util.GsonHelper"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "serialize",
+            "returnType": "JsonElement",
+            "parameters": [
+              {
+                "name": "pSrc",
+                "type": "AdvancementProgress",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTypeOfSrc",
+                "type": "Type",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "JsonSerializationContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 223,
+              "end": 240
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "deserialize",
+            "returnType": "AdvancementProgress",
+            "parameters": [
+              {
+                "name": "pJson",
+                "type": "JsonElement",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTypeOfT",
+                "type": "Type",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "JsonDeserializationContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "JsonParseException"
+            ],
+            "lineRange": {
+              "start": 242,
+              "end": 253
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 222,
+          "end": 254
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementProgress/Serializer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 22,
+      "end": 255
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementProgress.java"
+  },
+  "net.minecraft.advancements.AdvancementRewards": {
+    "className": "AdvancementRewards",
+    "fullName": "net.minecraft.advancements.AdvancementRewards",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\AdvancementRewards.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.gson.JsonArray",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonNull",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParseException",
+      "java.util.Arrays",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraft.commands.CommandFunction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.MinecraftServer",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.level.storage.loot.LootParams",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParams"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AdvancementRewards",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pExperience",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLoot",
+            "type": "ResourceLocation[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecipes",
+            "type": "ResourceLocation[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFunction",
+            "type": "CommandFunction.CacheableFunction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getRecipes",
+        "returnType": "ResourceLocation[]",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "grant",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "ServerPlayer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 117
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deserialize",
+        "returnType": "AdvancementRewards",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "JsonParseException"
+        ],
+        "lineRange": {
+          "start": 119,
+          "end": 143
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "experience",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "loot",
+        "type": "ResourceLocation[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "recipes",
+        "type": "ResourceLocation[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "function",
+        "type": "CommandFunction.CacheableFunction",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.advancements.AdvancementRewards.Builder",
+        "packageName": "net.minecraft.advancements",
+        "filePath": "/net\\minecraft\\advancements\\AdvancementRewards.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.gson.JsonArray",
+          "com.google.gson.JsonElement",
+          "com.google.gson.JsonNull",
+          "com.google.gson.JsonObject",
+          "com.google.gson.JsonParseException",
+          "java.util.Arrays",
+          "java.util.List",
+          "javax.annotation.Nullable",
+          "net.minecraft.commands.CommandFunction",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.MinecraftServer",
+          "net.minecraft.server.level.ServerPlayer",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.util.GsonHelper",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "build",
+            "returnType": "AdvancementRewards",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 200,
+              "end": 202
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "experience",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 146,
+              "end": 146
+            }
+          },
+          {
+            "name": "function",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 150,
+              "end": 150
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 145,
+          "end": 203
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementRewards/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 204
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/AdvancementRewards.java"
+  },
+  "net.minecraft.advancements.CriteriaTriggers": {
+    "className": "CriteriaTriggers",
+    "fullName": "net.minecraft.advancements.CriteriaTriggers",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\CriteriaTriggers.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.advancements.critereon.BeeNestDestroyedTrigger",
+      "net.minecraft.advancements.critereon.BredAnimalsTrigger",
+      "net.minecraft.advancements.critereon.BrewedPotionTrigger",
+      "net.minecraft.advancements.critereon.ChangeDimensionTrigger",
+      "net.minecraft.advancements.critereon.ChanneledLightningTrigger",
+      "net.minecraft.advancements.critereon.ConstructBeaconTrigger",
+      "net.minecraft.advancements.critereon.ConsumeItemTrigger",
+      "net.minecraft.advancements.critereon.CuredZombieVillagerTrigger",
+      "net.minecraft.advancements.critereon.DistanceTrigger",
+      "net.minecraft.advancements.critereon.EffectsChangedTrigger",
+      "net.minecraft.advancements.critereon.EnchantedItemTrigger",
+      "net.minecraft.advancements.critereon.EnterBlockTrigger",
+      "net.minecraft.advancements.critereon.EntityHurtPlayerTrigger",
+      "net.minecraft.advancements.critereon.FilledBucketTrigger",
+      "net.minecraft.advancements.critereon.FishingRodHookedTrigger",
+      "net.minecraft.advancements.critereon.ImpossibleTrigger",
+      "net.minecraft.advancements.critereon.InventoryChangeTrigger",
+      "net.minecraft.advancements.critereon.ItemDurabilityTrigger",
+      "net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger",
+      "net.minecraft.advancements.critereon.KilledByCrossbowTrigger",
+      "net.minecraft.advancements.critereon.KilledTrigger",
+      "net.minecraft.advancements.critereon.LevitationTrigger",
+      "net.minecraft.advancements.critereon.LightningStrikeTrigger",
+      "net.minecraft.advancements.critereon.LootTableTrigger",
+      "net.minecraft.advancements.critereon.PickedUpItemTrigger",
+      "net.minecraft.advancements.critereon.PlayerHurtEntityTrigger",
+      "net.minecraft.advancements.critereon.PlayerInteractTrigger",
+      "net.minecraft.advancements.critereon.PlayerTrigger",
+      "net.minecraft.advancements.critereon.RecipeCraftedTrigger",
+      "net.minecraft.advancements.critereon.RecipeUnlockedTrigger",
+      "net.minecraft.advancements.critereon.ShotCrossbowTrigger",
+      "net.minecraft.advancements.critereon.SlideDownBlockTrigger",
+      "net.minecraft.advancements.critereon.StartRidingTrigger",
+      "net.minecraft.advancements.critereon.SummonedEntityTrigger",
+      "net.minecraft.advancements.critereon.TameAnimalTrigger",
+      "net.minecraft.advancements.critereon.TargetBlockTrigger",
+      "net.minecraft.advancements.critereon.TradeTrigger",
+      "net.minecraft.advancements.critereon.UsedEnderEyeTrigger",
+      "net.minecraft.advancements.critereon.UsedTotemTrigger",
+      "net.minecraft.advancements.critereon.UsingItemTrigger",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 48,
+      "end": 120
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/CriteriaTriggers.java"
+  },
+  "net.minecraft.advancements.Criterion": {
+    "className": "Criterion",
+    "fullName": "net.minecraft.advancements.Criterion",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\Criterion.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonSyntaxException",
+      "java.util.Map",
+      "javax.annotation.Nullable",
+      "net.minecraft.advancements.critereon.DeserializationContext",
+      "net.minecraft.advancements.critereon.SerializationContext",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Criterion",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTrigger",
+            "type": "CriterionTriggerInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "Criterion",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "criterionFromJson",
+        "returnType": "Criterion",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "DeserializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "criterionFromNetwork",
+        "returnType": "Criterion",
+        "parameters": [
+          {
+            "name": "p_11430_",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "criteriaFromJson",
+        "returnType": "Map<String, Criterion>",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "DeserializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "criteriaFromNetwork",
+        "returnType": "Map<String, Criterion>",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCriteria",
+            "type": "Criterion>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTrigger",
+        "returnType": "CriterionTriggerInstance",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 83
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "trigger",
+        "type": "CriterionTriggerInstance",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 84
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/Criterion.java"
+  },
+  "net.minecraft.advancements.CriterionProgress": {
+    "className": "CriterionProgress",
+    "fullName": "net.minecraft.advancements.CriterionProgress",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\CriterionProgress.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonNull",
+      "com.google.gson.JsonPrimitive",
+      "com.google.gson.JsonSyntaxException",
+      "java.text.ParseException",
+      "java.text.SimpleDateFormat",
+      "java.util.Date",
+      "java.util.Locale",
+      "javax.annotation.Nullable",
+      "net.minecraft.network.FriendlyByteBuf"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "isDone",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "grant",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "revoke",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getObtained",
+        "returnType": "Date",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromNetwork",
+        "returnType": "CriterionProgress",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromJson",
+        "returnType": "CriterionProgress",
+        "parameters": [
+          {
+            "name": "pDateTime",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "obtained",
+        "type": "Date",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 64
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/CriterionProgress.java"
+  },
+  "net.minecraft.advancements.CriterionTrigger": {
+    "className": "CriterionTrigger",
+    "fullName": "net.minecraft.advancements.CriterionTrigger",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\CriterionTrigger.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "net.minecraft.advancements.critereon.DeserializationContext",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.PlayerAdvancements"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getId",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addPlayerListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayerAdvancements",
+            "type": "PlayerAdvancements",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListener",
+            "type": "CriterionTrigger.Listener<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removePlayerListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayerAdvancements",
+            "type": "PlayerAdvancements",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListener",
+            "type": "CriterionTrigger.Listener<T>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removePlayerListeners",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayerAdvancements",
+            "type": "PlayerAdvancements",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createInstance",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "DeserializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Listener",
+        "fullName": "net.minecraft.advancements.CriterionTrigger.Listener",
+        "packageName": "net.minecraft.advancements",
+        "filePath": "/net\\minecraft\\advancements\\CriterionTrigger.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "net.minecraft.advancements.critereon.DeserializationContext",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.PlayerAdvancements"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Listener",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pTrigger",
+                "type": "T",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAdvancement",
+                "type": "Advancement",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCriterion",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 24,
+              "end": 28
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getTriggerInstance",
+            "returnType": "T",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 30,
+              "end": 32
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "run",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pPlayerAdvancements",
+                "type": "PlayerAdvancements",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 34,
+              "end": 36
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "equals",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pOther",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 38,
+              "end": 51
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hashCode",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 53,
+              "end": 57
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "trigger",
+            "type": "T",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 20,
+              "end": 20
+            }
+          },
+          {
+            "name": "advancement",
+            "type": "Advancement",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 21,
+              "end": 21
+            }
+          },
+          {
+            "name": "criterion",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 22,
+              "end": 22
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 19,
+          "end": 58
+        },
+        "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/CriterionTrigger/Listener.java"
+      }
+    ],
+    "lineRange": {
+      "start": 8,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/CriterionTrigger.java"
+  },
+  "net.minecraft.advancements.CriterionTriggerInstance": {
+    "className": "CriterionTriggerInstance",
+    "fullName": "net.minecraft.advancements.CriterionTriggerInstance",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\CriterionTriggerInstance.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "net.minecraft.advancements.critereon.SerializationContext",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getCriterion",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "JsonObject",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "SerializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/CriterionTriggerInstance.java"
+  },
+  "net.minecraft.advancements.DisplayInfo": {
+    "className": "DisplayInfo",
+    "fullName": "net.minecraft.advancements.DisplayInfo",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\DisplayInfo.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonElement",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParseException",
+      "com.google.gson.JsonSyntaxException",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.TagParser",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.GsonHelper",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DisplayInfo",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pIcon",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDescription",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBackground",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFrame",
+            "type": "FrameType",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShowToast",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAnnounceChat",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHidden",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "setLocation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTitle",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDescription",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIcon",
+        "returnType": "ItemStack",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBackground",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFrame",
+        "returnType": "FrameType",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getX",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getY",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldShowToast",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldAnnounceChat",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isHidden",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 87
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromJson",
+        "returnType": "DisplayInfo",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getIcon",
+        "returnType": "ItemStack",
+        "parameters": [
+          {
+            "name": "pJson",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 105,
+          "end": 126
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToNetwork",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 153
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromNetwork",
+        "returnType": "DisplayInfo",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "FriendlyByteBuf",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 155,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeToJson",
+        "returnType": "JsonElement",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serializeIcon",
+        "returnType": "JsonObject",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 185,
+          "end": 193
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "title",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "description",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "icon",
+        "type": "ItemStack",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "background",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "frame",
+        "type": "FrameType",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "showToast",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "announceChat",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "hidden",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "x",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "y",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 194
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/DisplayInfo.java"
+  },
+  "net.minecraft.advancements.FrameType": {
+    "className": "FrameType",
+    "fullName": "net.minecraft.advancements.FrameType",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\FrameType.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.network.chat.Component"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TASK",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "CHALLENGE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 8,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "GOAL",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "FrameType",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChatColor",
+            "type": "ChatFormatting",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTexture",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "byName",
+        "returnType": "FrameType",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getChatColor",
+        "returnType": "ChatFormatting",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDisplayName",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "texture",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "chatColor",
+        "type": "ChatFormatting",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "displayName",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/FrameType.java"
+  },
+  "net.minecraft.advancements.RequirementsStrategy": {
+    "className": "RequirementsStrategy",
+    "fullName": "net.minecraft.advancements.RequirementsStrategy",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\RequirementsStrategy.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Collection"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "createRequirements",
+        "returnType": "String[][]",
+        "parameters": [
+          {
+            "name": "pRequirements",
+            "type": "Collection<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 21
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/RequirementsStrategy.java"
+  },
+  "net.minecraft.advancements.TreeNodePosition": {
+    "className": "TreeNodePosition",
+    "fullName": "net.minecraft.advancements.TreeNodePosition",
+    "packageName": "net.minecraft.advancements",
+    "filePath": "/net\\minecraft\\advancements\\TreeNodePosition.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TreeNodePosition",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pAdvancement",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParent",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPreviousSibling",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChildIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addChild",
+        "returnType": "TreeNodePosition",
+        "parameters": [
+          {
+            "name": "pAdvancement",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPrevious",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "firstWalk",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "secondWalk",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pOffsetY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pColumnX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSubtreeTopY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "thirdWalk",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pY",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "executeShifts",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 121
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "previousOrThread",
+        "returnType": "TreeNodePosition",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "nextOrThread",
+        "returnType": "TreeNodePosition",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "apportion",
+        "returnType": "TreeNodePosition",
+        "parameters": [
+          {
+            "name": "pNode",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "moveSubtree",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNode",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShift",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 198
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAncestor",
+        "returnType": "TreeNodePosition",
+        "parameters": [
+          {
+            "name": "pSelf",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOther",
+            "type": "TreeNodePosition",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 200,
+          "end": 202
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finalizePosition",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 204,
+          "end": 215
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "run",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRoot",
+            "type": "Advancement",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 230
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "advancement",
+        "type": "Advancement",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "parent",
+        "type": "TreeNodePosition",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "previousSibling",
+        "type": "TreeNodePosition",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "childIndex",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "ancestor",
+        "type": "TreeNodePosition",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "thread",
+        "type": "TreeNodePosition",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "x",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "y",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "mod",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "change",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "shift",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 231
+    },
+    "sourceFilePath": "/java-sources/1.20.1/net/minecraft/advancements/TreeNodePosition.java"
+  }
+}
