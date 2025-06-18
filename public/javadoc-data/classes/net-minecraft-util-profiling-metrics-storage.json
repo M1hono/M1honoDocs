@@ -1,0 +1,407 @@
+{
+  "net.minecraft.util.profiling.metrics.storage.MetricsPersister": {
+    "className": "MetricsPersister",
+    "fullName": "net.minecraft.util.profiling.metrics.storage.MetricsPersister",
+    "packageName": "net.minecraft.util.profiling.metrics.storage",
+    "filePath": "/net\\minecraft\\util\\profiling\\metrics\\storage\\MetricsPersister.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.io.IOException",
+      "java.io.UncheckedIOException",
+      "java.io.Writer",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.nio.file.Paths",
+      "java.time.ZoneId",
+      "java.time.format.DateTimeFormatter",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "net.minecraft.Util",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.CsvOutput",
+      "net.minecraft.util.profiling.ProfileResults",
+      "net.minecraft.util.profiling.metrics.MetricCategory",
+      "net.minecraft.util.profiling.metrics.MetricSampler",
+      "org.apache.commons.io.IOUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "MetricsPersister",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRootFolderName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "saveReports",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "pSamplers",
+            "type": "Set<MetricSampler>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeviations",
+            "type": "List<RecordedDeviation>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResults",
+            "type": "ProfileResults",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveMetrics",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSamplers",
+            "type": "Set<MetricSampler>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveCategory",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCategory",
+            "type": "MetricCategory",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSamplers",
+            "type": "List<MetricSampler>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveDeviations",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDeviations",
+            "type": "List<RecordedDeviation>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "saveProfilingTaskExecutionResult",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pResults",
+            "type": "ProfileResults",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOutputPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "METRICS_DIR_NAME",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"metrics\"",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "DEVIATIONS_DIR_NAME",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"deviations\"",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "PROFILING_RESULT_FILENAME",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"profiling.txt\"",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "rootFolderName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 129
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/metrics/storage/MetricsPersister.java"
+  },
+  "net.minecraft.util.profiling.metrics.storage.RecordedDeviation": {
+    "className": "RecordedDeviation",
+    "fullName": "net.minecraft.util.profiling.metrics.storage.RecordedDeviation",
+    "packageName": "net.minecraft.util.profiling.metrics.storage",
+    "filePath": "/net\\minecraft\\util\\profiling\\metrics\\storage\\RecordedDeviation.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.time.Instant",
+      "net.minecraft.util.profiling.ProfileResults"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RecordedDeviation",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTimestamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTick",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProfilerResultAtTick",
+            "type": "ProfileResults",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 15
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "timestamp",
+        "type": "Instant",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      },
+      {
+        "name": "tick",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "profilerResultAtTick",
+        "type": "ProfileResults",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/metrics/storage/RecordedDeviation.java"
+  }
+}

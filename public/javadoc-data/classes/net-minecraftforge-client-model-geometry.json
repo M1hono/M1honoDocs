@@ -1,0 +1,2721 @@
+{
+  "net.minecraftforge.client.model.geometry.BlockGeometryBakingContext": {
+    "className": "BlockGeometryBakingContext",
+    "fullName": "net.minecraftforge.client.model.geometry.BlockGeometryBakingContext",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\BlockGeometryBakingContext.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "IGeometryBakingContext"
+    ],
+    "imports": [
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.math.Transformation",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.HashMap",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.function.Function",
+      "net.minecraft.client.renderer.block.model.BlockModel",
+      "net.minecraft.client.renderer.block.model.ItemOverrides",
+      "net.minecraft.client.renderer.block.model.ItemTransforms",
+      "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+      "net.minecraft.client.resources.model.BakedModel",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.client.resources.model.ModelBaker",
+      "net.minecraft.client.resources.model.ModelState",
+      "net.minecraft.client.resources.model.UnbakedModel",
+      "net.minecraft.resources.ResourceLocation",
+      "org.jetbrains.annotations.ApiStatus",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockGeometryBakingContext",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "BlockModel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 50
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getModelName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 53,
+          "end": 56
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasCustomGeometry",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 58,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCustomGeometry",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "geometry",
+            "type": "IUnbakedGeometry<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isComponentVisible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "part",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fallback",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasMaterial",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 89,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isGui3d",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useBlockLight",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useAmbientOcclusion",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 110
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTransforms",
+        "returnType": "ItemTransforms",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRootTransform",
+        "returnType": "Transformation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 119,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setRootTransform",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "rootTransform",
+            "type": "Transformation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 129
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRenderTypeHint",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 138
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setRenderTypeHint",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "renderTypeHint",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 140,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setGui3d",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "gui3d",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 145,
+          "end": 148
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copyFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "BlockGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bake",
+        "returnType": "BakedModel",
+        "parameters": [
+          {
+            "name": "baker",
+            "type": "ModelBaker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "bakedTextureGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelTransform",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "overrides",
+            "type": "ItemOverrides",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 165
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "owner",
+        "type": "BlockModel",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "rootTransform",
+        "type": "Transformation",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "renderTypeHint",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "gui3d",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "VisibilityData",
+        "fullName": "net.minecraftforge.client.model.geometry.BlockGeometryBakingContext.VisibilityData",
+        "packageName": "net.minecraftforge.client.model.geometry",
+        "filePath": "/net\\minecraftforge\\client\\model\\geometry\\BlockGeometryBakingContext.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.math.Transformation",
+          "java.util.Collection",
+          "java.util.Collections",
+          "java.util.HashMap",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.function.Function",
+          "net.minecraft.client.renderer.block.model.BlockModel",
+          "net.minecraft.client.renderer.block.model.ItemOverrides",
+          "net.minecraft.client.renderer.block.model.ItemTransforms",
+          "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+          "net.minecraft.client.resources.model.BakedModel",
+          "net.minecraft.client.resources.model.Material",
+          "net.minecraft.client.resources.model.ModelBaker",
+          "net.minecraft.client.resources.model.ModelState",
+          "net.minecraft.client.resources.model.UnbakedModel",
+          "net.minecraft.resources.ResourceLocation",
+          "org.jetbrains.annotations.ApiStatus",
+          "org.jetbrains.annotations.Nullable"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "hasCustomVisibility",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "part",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 171,
+              "end": 174
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isVisible",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "part",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "fallback",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 176,
+              "end": 179
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "setVisibilityState",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "partName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "type",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 181,
+              "end": 184
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "copyFrom",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "visibilityData",
+                "type": "VisibilityData",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 186,
+              "end": 190
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 167,
+          "end": 191
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/BlockGeometryBakingContext/VisibilityData.java"
+      }
+    ],
+    "lineRange": {
+      "start": 34,
+      "end": 192
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/BlockGeometryBakingContext.java"
+  },
+  "net.minecraftforge.client.model.geometry.GeometryLoaderManager": {
+    "className": "GeometryLoaderManager",
+    "fullName": "net.minecraftforge.client.model.geometry.GeometryLoaderManager",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\GeometryLoaderManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.client.event.ModelEvent",
+      "net.minecraftforge.client.model.ElementsModel",
+      "net.minecraftforge.fml.ModLoader",
+      "org.jetbrains.annotations.ApiStatus",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.HashMap",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getLoaderList",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "GeometryLoaderManager",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "LOADER_LIST",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 59
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/GeometryLoaderManager.java"
+  },
+  "net.minecraftforge.client.model.geometry.IGeometryBakingContext": {
+    "className": "IGeometryBakingContext",
+    "fullName": "net.minecraftforge.client.model.geometry.IGeometryBakingContext",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\IGeometryBakingContext.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.math.Transformation",
+      "net.minecraft.client.renderer.block.model.ItemTransforms",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.client.NamedRenderTypeManager",
+      "net.minecraftforge.client.RenderTypeGroup",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getModelName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasMaterial",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isGui3d",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useBlockLight",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useAmbientOcclusion",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTransforms",
+        "returnType": "ItemTransforms",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRootTransform",
+        "returnType": "Transformation",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRenderTypeHint",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isComponentVisible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "component",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fallback",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 94
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/IGeometryBakingContext.java"
+  },
+  "net.minecraftforge.client.model.geometry.IGeometryLoader": {
+    "className": "IGeometryLoader",
+    "fullName": "net.minecraftforge.client.model.geometry.IGeometryLoader",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\IGeometryLoader.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonDeserializationContext",
+      "com.google.gson.JsonObject",
+      "com.google.gson.JsonParseException",
+      "net.minecraft.server.packs.resources.ResourceManagerReloadListener",
+      "net.minecraftforge.client.event.ModelEvent.RegisterGeometryLoaders",
+      "net.minecraftforge.client.event.RegisterClientReloadListenersEvent"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "read",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "jsonObject",
+            "type": "JsonObject",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "deserializationContext",
+            "type": "JsonDeserializationContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "JsonParseException"
+        ],
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/IGeometryLoader.java"
+  },
+  "net.minecraftforge.client.model.geometry.IUnbakedGeometry": {
+    "className": "IUnbakedGeometry",
+    "fullName": "net.minecraftforge.client.model.geometry.IUnbakedGeometry",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\IUnbakedGeometry.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Set",
+      "java.util.function.Function",
+      "net.minecraft.client.renderer.block.model.BlockModel",
+      "net.minecraft.client.renderer.block.model.ItemOverrides",
+      "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+      "net.minecraft.client.resources.model.BakedModel",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.client.resources.model.ModelBaker",
+      "net.minecraft.client.resources.model.ModelState",
+      "net.minecraft.client.resources.model.UnbakedModel",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "bake",
+        "returnType": "BakedModel",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "IGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "baker",
+            "type": "ModelBaker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "overrides",
+            "type": "ItemOverrides",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 29,
+      "end": 50
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/IUnbakedGeometry.java"
+  },
+  "net.minecraftforge.client.model.geometry.SimpleUnbakedGeometry": {
+    "className": "SimpleUnbakedGeometry",
+    "fullName": "net.minecraftforge.client.model.geometry.SimpleUnbakedGeometry",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\SimpleUnbakedGeometry.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.function.Function",
+      "net.minecraft.client.renderer.block.model.BakedQuad",
+      "net.minecraft.client.renderer.block.model.ItemOverrides",
+      "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+      "net.minecraft.client.resources.model.BakedModel",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.client.resources.model.ModelBaker",
+      "net.minecraft.client.resources.model.ModelState",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.client.RenderTypeGroup",
+      "net.minecraftforge.client.model.IModelBuilder"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "bake",
+        "returnType": "BakedModel",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "IGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "baker",
+            "type": "ModelBaker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "overrides",
+            "type": "ItemOverrides",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addQuads",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "IGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelBuilder",
+            "type": "IModelBuilder<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "baker",
+            "type": "ModelBaker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelTransform",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 42
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/SimpleUnbakedGeometry.java"
+  },
+  "net.minecraftforge.client.model.geometry.StandaloneGeometryBakingContext": {
+    "className": "StandaloneGeometryBakingContext",
+    "fullName": "net.minecraftforge.client.model.geometry.StandaloneGeometryBakingContext",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\StandaloneGeometryBakingContext.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "IGeometryBakingContext"
+    ],
+    "imports": [
+      "com.google.common.base.Predicates",
+      "com.mojang.math.Transformation",
+      "it.unimi.dsi.fastutil.objects.Object2BooleanMap",
+      "net.minecraft.client.renderer.block.model.ItemTransforms",
+      "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+      "net.minecraft.client.renderer.texture.TextureAtlas",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.resources.ResourceLocation",
+      "org.jetbrains.annotations.Nullable",
+      "java.util.Map",
+      "java.util.function.BiPredicate",
+      "java.util.function.Function",
+      "java.util.function.Predicate"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "create",
+        "returnType": "StandaloneGeometryBakingContext",
+        "parameters": [
+          {
+            "name": "modelName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "StandaloneGeometryBakingContext",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "textures",
+            "type": "ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "create",
+        "returnType": "StandaloneGeometryBakingContext",
+        "parameters": [
+          {
+            "name": "modelName",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "textures",
+            "type": "ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModelName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasMaterial",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isGui3d",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useBlockLight",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useAmbientOcclusion",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTransforms",
+        "returnType": "ItemTransforms",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRootTransform",
+        "returnType": "Transformation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRenderTypeHint",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 128,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isComponentVisible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "component",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "fallback",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 134,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "builder",
+        "returnType": "Builder",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 142
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "builder",
+        "returnType": "Builder",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "IGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 147
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "modelName",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "materialCheck",
+        "type": "Predicate<String>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "materialLookup",
+        "type": "Function<String, Material>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "isGui3d",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "useBlockLight",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "useAmbientOcclusion",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "transforms",
+        "type": "ItemTransforms",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "rootTransform",
+        "type": "Transformation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "renderTypeHint",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "visibilityTest",
+        "type": "BiPredicate<String, Boolean>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraftforge.client.model.geometry.StandaloneGeometryBakingContext.Builder",
+        "packageName": "net.minecraftforge.client.model.geometry",
+        "filePath": "/net\\minecraftforge\\client\\model\\geometry\\StandaloneGeometryBakingContext.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Predicates",
+          "com.mojang.math.Transformation",
+          "it.unimi.dsi.fastutil.objects.Object2BooleanMap",
+          "net.minecraft.client.renderer.block.model.ItemTransforms",
+          "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+          "net.minecraft.client.renderer.texture.TextureAtlas",
+          "net.minecraft.client.resources.model.Material",
+          "net.minecraft.resources.ResourceLocation",
+          "org.jetbrains.annotations.Nullable",
+          "java.util.Map",
+          "java.util.function.BiPredicate",
+          "java.util.function.Function",
+          "java.util.function.Predicate"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 163,
+              "end": 165
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "parent",
+                "type": "IGeometryBakingContext",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 167,
+              "end": 178
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "withTextures",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "textures",
+                "type": "ResourceLocation>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "defaultTexture",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 180,
+              "end": 183
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withTextures",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "atlasLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "textures",
+                "type": "ResourceLocation>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "defaultTexture",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 185,
+              "end": 190
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withMaterials",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "materials",
+                "type": "Material>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "defaultMaterial",
+                "type": "Material",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 192,
+              "end": 197
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withGui3d",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "isGui3d",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 199,
+              "end": 203
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withUseBlockLight",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "useBlockLight",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 205,
+              "end": 209
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withUseAmbientOcclusion",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "useAmbientOcclusion",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 211,
+              "end": 215
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withTransforms",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "transforms",
+                "type": "ItemTransforms",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 217,
+              "end": 221
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withRootTransform",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "rootTransform",
+                "type": "Transformation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 223,
+              "end": 227
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withRenderTypeHint",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "renderTypeHint",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 229,
+              "end": 233
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "withVisibleComponents",
+            "returnType": "Builder",
+            "parameters": [
+              {
+                "name": "parts",
+                "type": "Object2BooleanMap<String>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 235,
+              "end": 239
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "StandaloneGeometryBakingContext",
+            "parameters": [
+              {
+                "name": "modelName",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 241,
+              "end": 244
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "materialLookup",
+            "type": "Function<String, Material>",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "$ -> NO_MATERIAL",
+            "lineRange": {
+              "start": 153,
+              "end": 153
+            }
+          },
+          {
+            "name": "isGui3d",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 154,
+              "end": 154
+            }
+          },
+          {
+            "name": "useBlockLight",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 155,
+              "end": 155
+            }
+          },
+          {
+            "name": "useAmbientOcclusion",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 156,
+              "end": 156
+            }
+          },
+          {
+            "name": "transforms",
+            "type": "ItemTransforms",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "ItemTransforms.NO_TRANSFORMS",
+            "lineRange": {
+              "start": 157,
+              "end": 157
+            }
+          },
+          {
+            "name": "renderTypeHint",
+            "type": "ResourceLocation",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 160,
+              "end": 160
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 149,
+          "end": 245
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/StandaloneGeometryBakingContext/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 246
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/StandaloneGeometryBakingContext.java"
+  },
+  "net.minecraftforge.client.model.geometry.UnbakedGeometryHelper": {
+    "className": "UnbakedGeometryHelper",
+    "fullName": "net.minecraftforge.client.model.geometry.UnbakedGeometryHelper",
+    "packageName": "net.minecraftforge.client.model.geometry",
+    "filePath": "/net\\minecraftforge\\client\\model\\geometry\\UnbakedGeometryHelper.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.math.Transformation",
+      "net.minecraft.Util",
+      "net.minecraft.client.renderer.block.model.BakedQuad",
+      "net.minecraft.client.renderer.block.model.BlockElement",
+      "net.minecraft.client.renderer.block.model.BlockElementFace",
+      "net.minecraft.client.renderer.block.model.BlockFaceUV",
+      "net.minecraft.client.renderer.block.model.BlockModel",
+      "net.minecraft.client.renderer.block.model.FaceBakery",
+      "net.minecraft.client.renderer.block.model.ItemModelGenerator",
+      "net.minecraft.client.renderer.texture.MissingTextureAtlasSprite",
+      "net.minecraft.client.renderer.texture.SpriteContents",
+      "net.minecraft.client.renderer.texture.TextureAtlas",
+      "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+      "net.minecraft.client.resources.model.BakedModel",
+      "net.minecraft.client.resources.model.BuiltInModel",
+      "net.minecraft.client.resources.model.Material",
+      "net.minecraft.client.resources.model.ModelBaker",
+      "net.minecraft.client.resources.model.ModelBakery",
+      "net.minecraft.client.resources.model.ModelState",
+      "net.minecraft.core.Direction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.client.model.ElementsModel",
+      "net.minecraftforge.client.model.ForgeFaceData",
+      "net.minecraftforge.client.model.IModelBuilder",
+      "net.minecraftforge.client.model.IQuadTransformer",
+      "net.minecraftforge.client.model.QuadTransformers",
+      "net.minecraftforge.client.model.SimpleModelState",
+      "org.jetbrains.annotations.ApiStatus",
+      "org.jetbrains.annotations.Nullable",
+      "org.joml.Vector3f",
+      "java.util.ArrayList",
+      "java.util.BitSet",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.function.Function",
+      "java.util.regex.Matcher",
+      "java.util.regex.Pattern"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "resolveDirtyMaterial",
+        "returnType": "Material",
+        "parameters": [
+          {
+            "name": "tex",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "IGeometryBakingContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 95
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bake",
+        "returnType": "BakedModel",
+        "parameters": [
+          {
+            "name": "blockModel",
+            "type": "BlockModel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelBaker",
+            "type": "ModelBaker",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "owner",
+            "type": "BlockModel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "guiLight3d",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createUnbakedItemElements",
+        "returnType": "List<BlockElement>",
+        "parameters": [
+          {
+            "name": "layerIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteContents",
+            "type": "SpriteContents",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 124,
+          "end": 127
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createUnbakedItemElements",
+        "returnType": "List<BlockElement>",
+        "parameters": [
+          {
+            "name": "layerIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteContents",
+            "type": "SpriteContents",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "faceData",
+            "type": "ForgeFaceData",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 135,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createUnbakedItemMaskElements",
+        "returnType": "List<BlockElement>",
+        "parameters": [
+          {
+            "name": "layerIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteContents",
+            "type": "SpriteContents",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 151
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createUnbakedItemMaskElements",
+        "returnType": "List<BlockElement>",
+        "parameters": [
+          {
+            "name": "layerIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteContents",
+            "type": "SpriteContents",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "faceData",
+            "type": "ForgeFaceData",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 222
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bakeElements",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "builder",
+            "type": "IModelBuilder<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "elements",
+            "type": "List<BlockElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 227,
+          "end": 240
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bakeElements",
+        "returnType": "List<BakedQuad>",
+        "parameters": [
+          {
+            "name": "elements",
+            "type": "List<BlockElement>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "spriteGetter",
+            "type": "TextureAtlasSprite>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 245,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bakeElementFace",
+        "returnType": "BakedQuad",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "BlockElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "face",
+            "type": "BlockElementFace",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "sprite",
+            "type": "TextureAtlasSprite",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "state",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "modelLocation",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 260
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyRootTransform",
+        "returnType": "IQuadTransformer",
+        "parameters": [
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "rootTransform",
+            "type": "Transformation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 270,
+          "end": 277
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "composeRootTransformIntoModelState",
+        "returnType": "ModelState",
+        "parameters": [
+          {
+            "name": "modelState",
+            "type": "ModelState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "rootTransform",
+            "type": "Transformation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 282,
+          "end": 288
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "FILESYSTEM_PATH_TO_RESLOC",
+        "type": "Pattern",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "/",
+        "initialValue": "",
+        "lineRange": {
+          "start": 69,
+          "end": 69
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 50,
+      "end": 289
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/geometry/UnbakedGeometryHelper.java"
+  }
+}

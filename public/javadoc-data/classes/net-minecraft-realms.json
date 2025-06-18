@@ -1,0 +1,1527 @@
+{
+  "net.minecraft.realms.DisconnectedRealmsScreen": {
+    "className": "DisconnectedRealmsScreen",
+    "fullName": "net.minecraft.realms.DisconnectedRealmsScreen",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\DisconnectedRealmsScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "RealmsScreen",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.client.gui.components.MultiLineLabel",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DisconnectedRealmsScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pParent",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReason",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "init",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getNarrationMessage",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClose",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 57
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "reason",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "message",
+        "type": "MultiLineLabel",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "MultiLineLabel.EMPTY",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "parent",
+        "type": "Screen",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "textHeight",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/DisconnectedRealmsScreen.java"
+  },
+  "net.minecraft.realms.RealmsConnect": {
+    "className": "RealmsConnect",
+    "fullName": "net.minecraft.realms.RealmsConnect",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\RealmsConnect.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "java.net.InetSocketAddress",
+      "java.time.Duration",
+      "java.util.Optional",
+      "java.util.UUID",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.client.multiplayer.ClientHandshakePacketListenerImpl",
+      "net.minecraft.client.multiplayer.chat.report.ReportEnvironment",
+      "net.minecraft.client.multiplayer.resolver.ServerAddress",
+      "net.minecraft.client.quickplay.QuickPlayLog",
+      "net.minecraft.network.Connection",
+      "net.minecraft.network.ConnectionProtocol",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.protocol.handshake.ClientIntentionPacket",
+      "net.minecraft.network.protocol.login.ServerboundHelloPacket",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsConnect",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOnlineScreen",
+            "type": "Screen",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 34,
+          "end": 36
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "connect",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "pAddress",
+            "type": "ServerAddress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 102
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "abort",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 104,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 122
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "onlineScreen",
+        "type": "Screen",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "aborted",
+        "type": "volatile boolean",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "connection",
+        "type": "Connection",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 27,
+      "end": 123
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/RealmsConnect.java"
+  },
+  "net.minecraft.realms.RealmsLabel": {
+    "className": "RealmsLabel",
+    "fullName": "net.minecraft.realms.RealmsLabel",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\RealmsLabel.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Renderable"
+    ],
+    "imports": [
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Renderable",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsLabel",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pText",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pColor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "render",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getText",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "text",
+        "type": "Component",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "x",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "y",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "color",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 38
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/RealmsLabel.java"
+  },
+  "net.minecraft.realms.RealmsObjectSelectionList": {
+    "className": "RealmsObjectSelectionList",
+    "fullName": "net.minecraft.realms.RealmsObjectSelectionList",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\RealmsObjectSelectionList.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Collection",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsObjectSelectionList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY0",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY1",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pItemHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 13
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "setSelectedItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "selectItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "itemClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRelativeY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButton",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxPosition",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getScrollbarPosition",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRowWidth",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "replaceEntries",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntries",
+            "type": "Collection<E>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItemCount",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRowTop",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRowLeft",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addEntry",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pEntry",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 66
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/RealmsObjectSelectionList.java"
+  },
+  "net.minecraft.realms.RealmsScreen": {
+    "className": "RealmsScreen",
+    "fullName": "net.minecraft.realms.RealmsScreen",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\RealmsScreen.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "Screen",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "java.util.List",
+      "java.util.stream.Collectors",
+      "net.minecraft.client.gui.screens.Screen",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsScreen",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pTitle",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "row",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pPosition",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addLabel",
+        "returnType": "RealmsLabel",
+        "parameters": [
+          {
+            "name": "pLabel",
+            "type": "RealmsLabel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createLabelNarration",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "TITLE_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "17",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "COMPONENT_HEIGHT",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "EXPIRATION_NOTIFICATION_DAYS",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "7",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "SIZE_LIMIT",
+        "type": "long",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5368709120L",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "COLOR_WHITE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16777215",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      },
+      {
+        "name": "COLOR_GRAY",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "10526880",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "COLOR_DARK_GRAY",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5000268",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "COLOR_MEDIUM_GRAY",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "7105644",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "COLOR_GREEN",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8388479",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "COLOR_DARK_GREEN",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6077788",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "COLOR_RED",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16711680",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "COLOR_RED_FADE",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "15553363",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "COLOR_BLACK",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-1073741824",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "COLOR_YELLOW",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "13413468",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "COLOR_BRIGHT_YELLOW",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "-256",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "COLOR_LINK",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3368635",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "COLOR_LINK_HOVER",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "7107012",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "COLOR_INFO",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8226750",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "COLOR_BUTTON_YELLOW",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16777120",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "UPDATE_BREAKS_ADVENTURE_URL",
+        "type": "String",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"https://www.minecraft.net/realms/adventure-maps-in-1-9\"",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "SKIN_FACE_SIZE",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 53
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/RealmsScreen.java"
+  },
+  "net.minecraft.realms.RepeatedNarrator": {
+    "className": "RepeatedNarrator",
+    "fullName": "net.minecraft.realms.RepeatedNarrator",
+    "packageName": "net.minecraft.realms",
+    "filePath": "/net\\minecraft\\realms\\RepeatedNarrator.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.util.concurrent.RateLimiter",
+      "java.time.Duration",
+      "java.util.concurrent.atomic.AtomicReference",
+      "net.minecraft.client.GameNarrator",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RepeatedNarrator",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDuration",
+            "type": "Duration",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "narrate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNarrator",
+            "type": "GameNarrator",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNarration",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 28
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "permitsPerSecond",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Params",
+        "fullName": "net.minecraft.realms.RepeatedNarrator.Params",
+        "packageName": "net.minecraft.realms",
+        "filePath": "/net\\minecraft\\realms\\RepeatedNarrator.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.util.concurrent.RateLimiter",
+          "java.time.Duration",
+          "java.util.concurrent.atomic.AtomicReference",
+          "net.minecraft.client.GameNarrator",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Params",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pNarration",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRateLimiter",
+                "type": "RateLimiter",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 35,
+              "end": 38
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "narration",
+            "type": "Component",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 32,
+              "end": 32
+            }
+          },
+          {
+            "name": "rateLimiter",
+            "type": "RateLimiter",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 33,
+              "end": 33
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 31,
+          "end": 39
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/realms/RepeatedNarrator/Params.java"
+      }
+    ],
+    "lineRange": {
+      "start": 12,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/realms/RepeatedNarrator.java"
+  }
+}

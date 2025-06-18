@@ -1,0 +1,3883 @@
+{
+  "net.minecraft.world.level.block.state.BlockBehaviour": {
+    "className": "BlockBehaviour",
+    "fullName": "net.minecraft.world.level.block.state.BlockBehaviour",
+    "packageName": "net.minecraft.world.level.block.state",
+    "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "FeatureElement"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.serialization.MapCodec",
+      "java.util.Arrays",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Optional",
+      "java.util.function.Function",
+      "java.util.function.Predicate",
+      "java.util.function.ToIntFunction",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.Direction",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.tags.FluidTags",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.MenuProvider",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.entity.projectile.Projectile",
+      "net.minecraft.world.flag.FeatureElement",
+      "net.minecraft.world.flag.FeatureFlag",
+      "net.minecraft.world.flag.FeatureFlagSet",
+      "net.minecraft.world.flag.FeatureFlags",
+      "net.minecraft.world.item.DyeColor",
+      "net.minecraft.world.item.Item",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.context.BlockPlaceContext",
+      "net.minecraft.world.level.BlockGetter",
+      "net.minecraft.world.level.EmptyBlockGetter",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.LevelAccessor",
+      "net.minecraft.world.level.LevelReader",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.EntityBlock",
+      "net.minecraft.world.level.block.Mirror",
+      "net.minecraft.world.level.block.RenderShape",
+      "net.minecraft.world.level.block.Rotation",
+      "net.minecraft.world.level.block.SoundType",
+      "net.minecraft.world.level.block.SupportType",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.entity.BlockEntityTicker",
+      "net.minecraft.world.level.block.entity.BlockEntityType",
+      "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+      "net.minecraft.world.level.block.state.properties.Property",
+      "net.minecraft.world.level.material.Fluid",
+      "net.minecraft.world.level.material.FluidState",
+      "net.minecraft.world.level.material.Fluids",
+      "net.minecraft.world.level.material.MapColor",
+      "net.minecraft.world.level.material.PushReaction",
+      "net.minecraft.world.level.pathfinder.PathComputationType",
+      "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+      "net.minecraft.world.level.storage.loot.LootParams",
+      "net.minecraft.world.level.storage.loot.LootTable",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+      "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+      "net.minecraft.world.phys.AABB",
+      "net.minecraft.world.phys.BlockHitResult",
+      "net.minecraft.world.phys.Vec3",
+      "net.minecraft.world.phys.shapes.CollisionContext",
+      "net.minecraft.world.phys.shapes.Shapes",
+      "net.minecraft.world.phys.shapes.VoxelShape"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockBehaviour",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pProperties",
+            "type": "BlockBehaviour.Properties",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 118
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "updateIndirectNeighbourShapes",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlags",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRecursionLeft",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPathfindable",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "PathComputationType",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateShape",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNeighborState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelAccessor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNeighborPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "skipRendering",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAdjacentState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 165,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "neighborChanged",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNeighborBlock",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNeighborPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovedByPiston",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 171,
+          "end": 173
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onPlace",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOldState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovedByPiston",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onRemove",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMovedByPiston",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 182,
+          "end": 187
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "use",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHit",
+            "type": "BlockHitResult",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "triggerEvent",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParam",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 205,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRenderShape",
+        "returnType": "RenderShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useShapeForLightOcclusion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 225
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSignalSource",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 235,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getFluidState",
+        "returnType": "FluidState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 241,
+          "end": 243
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasAnalogOutputSignal",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 252,
+          "end": 254
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxHorizontalOffset",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 256,
+          "end": 258
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxVerticalOffset",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 260,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "requiredFeatures",
+        "returnType": "FeatureFlagSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 264,
+          "end": 266
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rotate",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRotation",
+            "type": "Rotation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 276,
+          "end": 278
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mirror",
+        "returnType": "BlockState",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMirror",
+            "type": "Mirror",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 288,
+          "end": 290
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeReplaced",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUseContext",
+            "type": "BlockPlaceContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 294,
+          "end": 296
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canBeReplaced",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFluid",
+            "type": "Fluid",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 300,
+          "end": 302
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDrops",
+        "returnType": "List<ItemStack>",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParams",
+            "type": "LootParams.Builder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 306,
+          "end": 316
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSeed",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 324,
+          "end": 326
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOcclusionShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 332
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockSupportShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 336,
+          "end": 338
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInteractionShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 342,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLightBlock",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 348,
+          "end": 354
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMenuProvider",
+        "returnType": "MenuProvider",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 359,
+          "end": 361
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canSurvive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "LevelReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 365,
+          "end": 367
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShadeBrightness",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 371,
+          "end": 373
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAnalogOutputSignal",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 384,
+          "end": 386
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 390,
+          "end": 392
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCollisionShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 396,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isCollisionShapeFullBlock",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 402,
+          "end": 404
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOcclusionShapeFullBlock",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 408,
+          "end": 410
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVisualShape",
+        "returnType": "VoxelShape",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContext",
+            "type": "CollisionContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "randomTick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 425
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRandom",
+            "type": "RandomSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 429,
+          "end": 430
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDestroyProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 440,
+          "end": 448
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnAfterBreak",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDropExperience",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 455,
+          "end": 457
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "attack",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 461,
+          "end": 462
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSignal",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 476,
+          "end": 478
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "entityInside",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "Entity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 482,
+          "end": 483
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDirectSignal",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "BlockGetter",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirection",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 497,
+          "end": 499
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLootTable",
+        "returnType": "ResourceLocation",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 501,
+          "end": 507
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onProjectileHit",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHit",
+            "type": "BlockHitResult",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProjectile",
+            "type": "Projectile",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 511,
+          "end": 512
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "asItem",
+        "returnType": "Item",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 514,
+          "end": 514
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "asBlock",
+        "returnType": "Block",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 516,
+          "end": 516
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultMapColor",
+        "returnType": "MapColor",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 518,
+          "end": 520
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultDestroyTime",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 522,
+          "end": 524
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAir",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 526,
+          "end": 528
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "UPDATE_SHAPE_ORDER",
+        "type": "Direction[]",
+        "modifiers": [
+          "protected",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Direction[]{Direction.WEST, Direction.EAST, Direction.NORTH, Direction.SOUTH, Direction.DOWN, Direction.UP}",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "hasCollision",
+        "type": "boolean",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "explosionResistance",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "isRandomlyTicking",
+        "type": "boolean",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "Whether this blocks receives random ticks ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 83,
+          "end": 83
+        }
+      },
+      {
+        "name": "soundType",
+        "type": "SoundType",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 84,
+          "end": 84
+        }
+      },
+      {
+        "name": "friction",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "Determines how much velocity is maintained while moving on top of this block ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "speedFactor",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 87,
+          "end": 87
+        }
+      },
+      {
+        "name": "jumpFactor",
+        "type": "float",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "dynamicShape",
+        "type": "boolean",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "requiredFeatures",
+        "type": "FeatureFlagSet",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "properties",
+        "type": "BlockBehaviour.Properties",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "drops",
+        "type": "ResourceLocation",
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 93,
+          "end": 93
+        }
+      },
+      {
+        "name": "lootTableSupplier",
+        "type": "java.util.function.Supplier<ResourceLocation>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 531,
+          "end": 531
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Cache",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.Cache",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "class",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Cache",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1022,
+              "end": 1055
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "isFaceSturdy",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pDirection",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSupportType",
+                "type": "SupportType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1057,
+              "end": 1059
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getFaceSupportIndex",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "pDirection",
+                "type": "Direction",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSupportType",
+                "type": "SupportType",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1061,
+              "end": 1063
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "solidRender",
+            "type": "boolean",
+            "modifiers": [
+              "protected",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1012,
+              "end": 1012
+            }
+          },
+          {
+            "name": "propagatesSkylightDown",
+            "type": "boolean",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1013,
+              "end": 1013
+            }
+          },
+          {
+            "name": "lightBlock",
+            "type": "int",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1014,
+              "end": 1014
+            }
+          },
+          {
+            "name": "occlusionShapes",
+            "type": "VoxelShape[]",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1016,
+              "end": 1016
+            }
+          },
+          {
+            "name": "collisionShape",
+            "type": "VoxelShape",
+            "modifiers": [
+              "protected",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1017,
+              "end": 1017
+            }
+          },
+          {
+            "name": "largeCollisionShape",
+            "type": "boolean",
+            "modifiers": [
+              "protected",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1018,
+              "end": 1018
+            }
+          },
+          {
+            "name": "faceSturdy",
+            "type": "boolean[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1019,
+              "end": 1019
+            }
+          },
+          {
+            "name": "isCollisionShapeFullBlock",
+            "type": "boolean",
+            "modifiers": [
+              "protected",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1020,
+              "end": 1020
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1009,
+          "end": 1064
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/Cache.java"
+      },
+      {
+        "className": "OffsetFunction",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.OffsetFunction",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "evaluate",
+            "returnType": "Vec3",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevel",
+                "type": "BlockGetter",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1068,
+              "end": 1068
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1067,
+          "end": 1069
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/OffsetFunction.java"
+      },
+      {
+        "className": "OffsetType",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.OffsetType",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1071,
+          "end": 1075
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/OffsetType.java"
+      },
+      {
+        "className": "Properties",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.Properties",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Properties",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1131,
+              "end": 1132
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "hasCollision",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 1081,
+              "end": 1081
+            }
+          },
+          {
+            "name": "soundType",
+            "type": "SoundType",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "SoundType.STONE",
+            "lineRange": {
+              "start": 1082,
+              "end": 1082
+            }
+          },
+          {
+            "name": "explosionResistance",
+            "type": "float",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1086,
+              "end": 1086
+            }
+          },
+          {
+            "name": "destroyTime",
+            "type": "float",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1087,
+              "end": 1087
+            }
+          },
+          {
+            "name": "requiresCorrectToolForDrops",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1088,
+              "end": 1088
+            }
+          },
+          {
+            "name": "isRandomlyTicking",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1089,
+              "end": 1089
+            }
+          },
+          {
+            "name": "friction",
+            "type": "float",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "0.6F",
+            "lineRange": {
+              "start": 1090,
+              "end": 1090
+            }
+          },
+          {
+            "name": "speedFactor",
+            "type": "float",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "1.0F",
+            "lineRange": {
+              "start": 1091,
+              "end": 1091
+            }
+          },
+          {
+            "name": "jumpFactor",
+            "type": "float",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "1.0F",
+            "lineRange": {
+              "start": 1092,
+              "end": 1092
+            }
+          },
+          {
+            "name": "drops",
+            "type": "ResourceLocation",
+            "modifiers": [],
+            "comment": "Sets loot table information ",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1094,
+              "end": 1094
+            }
+          },
+          {
+            "name": "canOcclude",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 1095,
+              "end": 1095
+            }
+          },
+          {
+            "name": "isAir",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1096,
+              "end": 1096
+            }
+          },
+          {
+            "name": "ignitedByLava",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1097,
+              "end": 1097
+            }
+          },
+          {
+            "name": "liquid",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1100,
+              "end": 1100
+            }
+          },
+          {
+            "name": "forceSolidOff",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1103,
+              "end": 1103
+            }
+          },
+          {
+            "name": "forceSolidOn",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1104,
+              "end": 1104
+            }
+          },
+          {
+            "name": "pushReaction",
+            "type": "PushReaction",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "PushReaction.NORMAL",
+            "lineRange": {
+              "start": 1105,
+              "end": 1105
+            }
+          },
+          {
+            "name": "spawnParticlesOnBreak",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "true",
+            "lineRange": {
+              "start": 1106,
+              "end": 1106
+            }
+          },
+          {
+            "name": "instrument",
+            "type": "NoteBlockInstrument",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "NoteBlockInstrument.HARP",
+            "lineRange": {
+              "start": 1107,
+              "end": 1107
+            }
+          },
+          {
+            "name": "replaceable",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1108,
+              "end": 1108
+            }
+          },
+          {
+            "name": "lootTableSupplier",
+            "type": "java.util.function.Supplier<ResourceLocation>",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1109,
+              "end": 1109
+            }
+          },
+          {
+            "name": "isViewBlocking",
+            "type": "BlockBehaviour.StatePredicate",
+            "modifiers": [],
+            "comment": "If it blocks vision on the client side. ",
+            "initialValue": "this.isSuffocating",
+            "lineRange": {
+              "start": 1120,
+              "end": 1120
+            }
+          },
+          {
+            "name": "dynamicShape",
+            "type": "boolean",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1127,
+              "end": 1127
+            }
+          },
+          {
+            "name": "requiredFeatures",
+            "type": "FeatureFlagSet",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "FeatureFlags.VANILLA_SET",
+            "lineRange": {
+              "start": 1128,
+              "end": 1128
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1077,
+          "end": 1390
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/Properties.java"
+      },
+      {
+        "className": "StateArgumentPredicate",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.StateArgumentPredicate",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "test",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevel",
+                "type": "BlockGetter",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pValue",
+                "type": "A",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1393,
+              "end": 1393
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1392,
+          "end": 1394
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/StateArgumentPredicate.java"
+      },
+      {
+        "className": "StatePredicate",
+        "fullName": "net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockBehaviour.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Arrays",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Locale",
+          "java.util.Optional",
+          "java.util.function.Function",
+          "java.util.function.Predicate",
+          "java.util.function.ToIntFunction",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.Direction",
+          "net.minecraft.core.Holder",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.tags.FluidTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.MenuProvider",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.entity.projectile.Projectile",
+          "net.minecraft.world.flag.FeatureElement",
+          "net.minecraft.world.flag.FeatureFlag",
+          "net.minecraft.world.flag.FeatureFlagSet",
+          "net.minecraft.world.flag.FeatureFlags",
+          "net.minecraft.world.item.DyeColor",
+          "net.minecraft.world.item.Item",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.context.BlockPlaceContext",
+          "net.minecraft.world.level.BlockGetter",
+          "net.minecraft.world.level.EmptyBlockGetter",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.LevelAccessor",
+          "net.minecraft.world.level.LevelReader",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.EntityBlock",
+          "net.minecraft.world.level.block.Mirror",
+          "net.minecraft.world.level.block.RenderShape",
+          "net.minecraft.world.level.block.Rotation",
+          "net.minecraft.world.level.block.SoundType",
+          "net.minecraft.world.level.block.SupportType",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.entity.BlockEntityTicker",
+          "net.minecraft.world.level.block.entity.BlockEntityType",
+          "net.minecraft.world.level.block.state.properties.NoteBlockInstrument",
+          "net.minecraft.world.level.block.state.properties.Property",
+          "net.minecraft.world.level.material.Fluid",
+          "net.minecraft.world.level.material.FluidState",
+          "net.minecraft.world.level.material.Fluids",
+          "net.minecraft.world.level.material.MapColor",
+          "net.minecraft.world.level.material.PushReaction",
+          "net.minecraft.world.level.pathfinder.PathComputationType",
+          "net.minecraft.world.level.storage.loot.BuiltInLootTables",
+          "net.minecraft.world.level.storage.loot.LootParams",
+          "net.minecraft.world.level.storage.loot.LootTable",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParamSets",
+          "net.minecraft.world.level.storage.loot.parameters.LootContextParams",
+          "net.minecraft.world.phys.AABB",
+          "net.minecraft.world.phys.BlockHitResult",
+          "net.minecraft.world.phys.Vec3",
+          "net.minecraft.world.phys.shapes.CollisionContext",
+          "net.minecraft.world.phys.shapes.Shapes",
+          "net.minecraft.world.phys.shapes.VoxelShape"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "test",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pLevel",
+                "type": "BlockGetter",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1397,
+              "end": 1397
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 1396,
+          "end": 1398
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour/StatePredicate.java"
+      }
+    ],
+    "lineRange": {
+      "start": 78,
+      "end": 1399
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockBehaviour.java"
+  },
+  "net.minecraft.world.level.block.state.BlockState": {
+    "className": "BlockState",
+    "fullName": "net.minecraft.world.level.block.state.BlockState",
+    "packageName": "net.minecraft.world.level.block.state",
+    "filePath": "/net\\minecraft\\world\\level\\block\\state\\BlockState.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "BlockBehaviour.BlockStateBase",
+    "interfaces": [
+      "net.minecraftforge.common.extensions.IForgeBlockState"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.MapCodec",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockState",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "p_61042_",
+            "type": "Block",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_61043_",
+            "type": "Comparable<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "p_61044_",
+            "type": "MapCodec<BlockState>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 15
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "asState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 20
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/BlockState.java"
+  },
+  "net.minecraft.world.level.block.state.StateDefinition": {
+    "className": "StateDefinition",
+    "fullName": "net.minecraft.world.level.block.state.StateDefinition",
+    "packageName": "net.minecraft.world.level.block.state",
+    "filePath": "/net\\minecraft\\world\\level\\block\\state\\StateDefinition.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.base.MoreObjects",
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.ImmutableSortedMap",
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Maps",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.Decoder",
+      "com.mojang.serialization.Encoder",
+      "com.mojang.serialization.MapCodec",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.function.Function",
+      "java.util.function.Supplier",
+      "java.util.regex.Pattern",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StateDefinition",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStateValueFunction",
+            "type": "S>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOwner",
+            "type": "O",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValueFunction",
+            "type": "S>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPropertiesByName",
+            "type": "Property<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 71
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getPossibleStates",
+        "returnType": "ImmutableList<S>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "any",
+        "returnType": "S",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getOwner",
+        "returnType": "O",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "owner",
+        "type": "O",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "states",
+        "type": "ImmutableList<S>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.world.level.block.state.StateDefinition.Builder",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\StateDefinition.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.MoreObjects",
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.ImmutableSortedMap",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Decoder",
+          "com.mojang.serialization.Encoder",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Collection",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Function",
+          "java.util.function.Supplier",
+          "java.util.regex.Pattern",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pOwner",
+                "type": "O",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 113,
+              "end": 115
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "create",
+            "returnType": "StateDefinition<O, S>",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateValueFunction",
+                "type": "S>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pStateFunction",
+                "type": "S>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 149,
+              "end": 151
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "owner",
+            "type": "O",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 110,
+              "end": 110
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 109,
+          "end": 152
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/StateDefinition/Builder.java"
+      },
+      {
+        "className": "Factory",
+        "fullName": "net.minecraft.world.level.block.state.StateDefinition.Factory",
+        "packageName": "net.minecraft.world.level.block.state",
+        "filePath": "/net\\minecraft\\world\\level\\block\\state\\StateDefinition.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.MoreObjects",
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.ImmutableSortedMap",
+          "com.google.common.collect.Lists",
+          "com.google.common.collect.Maps",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.Decoder",
+          "com.mojang.serialization.Encoder",
+          "com.mojang.serialization.MapCodec",
+          "java.util.Collection",
+          "java.util.Collections",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.function.Function",
+          "java.util.function.Supplier",
+          "java.util.regex.Pattern",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "create",
+            "returnType": "S",
+            "parameters": [
+              {
+                "name": "pProperty",
+                "type": "O",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropToValueMap",
+                "type": "Comparable<?>>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPropCodec",
+                "type": "MapCodec<S>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 155,
+              "end": 155
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 154,
+          "end": 156
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/StateDefinition/Factory.java"
+      }
+    ],
+    "lineRange": {
+      "start": 26,
+      "end": 157
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/StateDefinition.java"
+  },
+  "net.minecraft.world.level.block.state.StateHolder": {
+    "className": "StateHolder",
+    "fullName": "net.minecraft.world.level.block.state.StateHolder",
+    "packageName": "net.minecraft.world.level.block.state",
+    "filePath": "/net\\minecraft\\world\\level\\block\\state\\StateHolder.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ArrayTable",
+      "com.google.common.collect.HashBasedTable",
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Table",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.MapCodec",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.Iterator",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.function.Function",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StateHolder",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOwner",
+            "type": "O",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValues",
+            "type": "Comparable<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPropertiesCodec",
+            "type": "MapCodec<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 46
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "populateNeighbours",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPossibleStateMap",
+            "type": "S>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 138,
+          "end": 156
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "NAME_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Name\"",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "PROPERTIES_TAG",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"Properties\"",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "owner",
+        "type": "O",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "propertiesCodec",
+        "type": "MapCodec<S>",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 178
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/level/block/state/StateHolder.java"
+  }
+}

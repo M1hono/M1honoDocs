@@ -1,0 +1,1177 @@
+{
+  "net.minecraft.world.flag.FeatureElement": {
+    "className": "FeatureElement",
+    "fullName": "net.minecraft.world.flag.FeatureElement",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureElement.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Set",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.resources.ResourceKey"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "requiredFeatures",
+        "returnType": "FeatureFlagSet",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 16
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureElement.java"
+  },
+  "net.minecraft.world.flag.FeatureFlag": {
+    "className": "FeatureFlag",
+    "fullName": "net.minecraft.world.flag.FeatureFlag",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureFlag.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FeatureFlag",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUniverse",
+            "type": "FeatureFlagUniverse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMaskBit",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 10
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "universe",
+        "type": "FeatureFlagUniverse",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        }
+      },
+      {
+        "name": "mask",
+        "type": "long",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 5,
+          "end": 5
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlag.java"
+  },
+  "net.minecraft.world.flag.FeatureFlagRegistry": {
+    "className": "FeatureFlagRegistry",
+    "fullName": "net.minecraft.world.flag.FeatureFlagRegistry",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureFlagRegistry.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Sets",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "java.util.Arrays",
+      "java.util.HashSet",
+      "java.util.LinkedHashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.function.Consumer",
+      "net.minecraft.resources.ResourceLocation",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FeatureFlagRegistry",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUniverse",
+            "type": "FeatureFlagUniverse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllFlags",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNames",
+            "type": "FeatureFlag>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "isSubset",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSet",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "allFlags",
+        "returnType": "FeatureFlagSet",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromNames",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pNames",
+            "type": "Iterable<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "subset",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pFlags",
+            "type": "FeatureFlag[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fromNames",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pNames",
+            "type": "Iterable<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnError",
+            "type": "Consumer<ResourceLocation>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toNames",
+        "returnType": "Set<ResourceLocation>",
+        "parameters": [
+          {
+            "name": "pSet",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "codec",
+        "returnType": "Codec<FeatureFlagSet>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 83
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "universe",
+        "type": "FeatureFlagUniverse",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        }
+      },
+      {
+        "name": "names",
+        "type": "Map<ResourceLocation, FeatureFlag>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      },
+      {
+        "name": "allFlags",
+        "type": "FeatureFlagSet",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.world.flag.FeatureFlagRegistry.Builder",
+        "packageName": "net.minecraft.world.flag",
+        "filePath": "/net\\minecraft\\world\\flag\\FeatureFlagRegistry.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Sets",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "java.util.Arrays",
+          "java.util.HashSet",
+          "java.util.LinkedHashMap",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.function.Consumer",
+          "net.minecraft.resources.ResourceLocation",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 92
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "createVanilla",
+            "returnType": "FeatureFlag",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 94,
+              "end": 96
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "create",
+            "returnType": "FeatureFlag",
+            "parameters": [
+              {
+                "name": "pLocation",
+                "type": "ResourceLocation",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 110
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "FeatureFlagRegistry",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 115
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "universe",
+            "type": "FeatureFlagUniverse",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 86,
+              "end": 86
+            }
+          },
+          {
+            "name": "id",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 87,
+              "end": 87
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 85,
+          "end": 116
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlagRegistry/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 17,
+      "end": 117
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlagRegistry.java"
+  },
+  "net.minecraft.world.flag.FeatureFlagSet": {
+    "className": "FeatureFlagSet",
+    "fullName": "net.minecraft.world.flag.FeatureFlagSet",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureFlagSet.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "it.unimi.dsi.fastutil.HashCommon",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "javax.annotation.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FeatureFlagSet",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pUniverse",
+            "type": "FeatureFlagUniverse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMask",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 18
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "create",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pUniverse",
+            "type": "FeatureFlagUniverse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlags",
+            "type": "Collection<FeatureFlag>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "FeatureFlagSet",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pFlag",
+            "type": "FeatureFlag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "of",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pFlag",
+            "type": "FeatureFlag",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOthers",
+            "type": "FeatureFlag[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "computeMask",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "pUniverse",
+            "type": "FeatureFlagUniverse",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMask",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlags",
+            "type": "Iterable<FeatureFlag>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "contains",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFlag",
+            "type": "FeatureFlag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 60
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSubsetOf",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSet",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "join",
+        "returnType": "FeatureFlagSet",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 82
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 97
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 101
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_CONTAINER_SIZE",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "universe",
+        "type": "FeatureFlagUniverse",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "mask",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 102
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlagSet.java"
+  },
+  "net.minecraft.world.flag.FeatureFlagUniverse": {
+    "className": "FeatureFlagUniverse",
+    "fullName": "net.minecraft.world.flag.FeatureFlagUniverse",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureFlagUniverse.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "FeatureFlagUniverse",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 8
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 4,
+          "end": 4
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 3,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlagUniverse.java"
+  },
+  "net.minecraft.world.flag.FeatureFlags": {
+    "className": "FeatureFlags",
+    "fullName": "net.minecraft.world.flag.FeatureFlags",
+    "packageName": "net.minecraft.world.flag",
+    "filePath": "/net\\minecraft\\world\\flag\\FeatureFlags.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "net.minecraft.resources.ResourceLocation"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "printMissingFlags",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pEnabledFeatures",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequestedFeatures",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 18
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "printMissingFlags",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pRegistry",
+            "type": "FeatureFlagRegistry",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEnabledFeatures",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRequestedFeatures",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 26
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isExperimental",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSet",
+            "type": "FeatureFlagSet",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "VANILLA",
+        "type": "FeatureFlag",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "BUNDLE",
+        "type": "FeatureFlag",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "REGISTRY",
+        "type": "FeatureFlagRegistry",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "CODEC",
+        "type": "Codec<FeatureFlagSet>",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "VANILLA_SET",
+        "type": "FeatureFlagSet",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "DEFAULT_FLAGS",
+        "type": "FeatureFlagSet",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 41
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/flag/FeatureFlags.java"
+  }
+}

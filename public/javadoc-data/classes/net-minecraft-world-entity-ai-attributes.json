@@ -1,0 +1,2590 @@
+{
+  "net.minecraft.world.entity.ai.attributes.Attribute": {
+    "className": "Attribute",
+    "fullName": "net.minecraft.world.entity.ai.attributes.Attribute",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\Attribute.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Attribute",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDescriptionId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getDefaultValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isClientSyncable",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSyncable",
+        "returnType": "Attribute",
+        "parameters": [
+          {
+            "name": "pWatch",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sanitizeValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDescriptionId",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MAX_NAME_LENGTH",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "64",
+        "lineRange": {
+          "start": 8,
+          "end": 8
+        }
+      },
+      {
+        "name": "defaultValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "The default value of the attribute. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "syncable",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "Whether the value of this attribute should be kept in sync on the client. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "descriptionId",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "A description Id for the attribute. This is most commonly used as the localization key. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 7,
+      "end": 63
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/Attribute.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.AttributeInstance": {
+    "className": "AttributeInstance",
+    "fullName": "net.minecraft.world.entity.ai.attributes.AttributeInstance",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeInstance.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableSet",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap",
+      "it.unimi.dsi.fastutil.objects.ObjectArraySet",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AttributeInstance",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnDirty",
+            "type": "Consumer<AttributeInstance>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getAttribute",
+        "returnType": "Attribute",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBaseValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setBaseValue",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBaseValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifiers",
+        "returnType": "Set<AttributeModifier>",
+        "parameters": [
+          {
+            "name": "pOperation",
+            "type": "AttributeModifier.Operation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifiers",
+        "returnType": "Set<AttributeModifier>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifier",
+        "returnType": "AttributeModifier",
+        "parameters": [
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasModifier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pModifier",
+            "type": "AttributeModifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 72,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addModifier",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModifier",
+            "type": "AttributeModifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addTransientModifier",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModifier",
+            "type": "AttributeModifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addPermanentModifier",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModifier",
+            "type": "AttributeModifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDirty",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeModifier",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pModifier",
+            "type": "AttributeModifier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 100,
+          "end": 105
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeModifier",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removePermanentModifier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pIdentifier",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 115,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeModifiers",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "calculateValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 141,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifiersOrEmpty",
+        "returnType": "Collection<AttributeModifier>",
+        "parameters": [
+          {
+            "name": "pOperation",
+            "type": "AttributeModifier.Operation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 163
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "replaceFrom",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pInstance",
+            "type": "AttributeInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 165,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 193
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 195,
+          "end": 211
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "attribute",
+        "type": "Attribute",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "The Attribute this is an instance of ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "baseValue",
+        "type": "double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "dirty",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "cachedValue",
+        "type": "double",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "onDirty",
+        "type": "Consumer<AttributeInstance>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 212
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeInstance.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.AttributeMap": {
+    "className": "AttributeMap",
+    "fullName": "net.minecraft.world.entity.ai.attributes.AttributeMap",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeMap.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Multimap",
+      "com.google.common.collect.Sets",
+      "com.mojang.logging.LogUtils",
+      "java.util.Collection",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.UUID",
+      "java.util.stream.Collectors",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.resources.ResourceLocation",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AttributeMap",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSupplier",
+            "type": "AttributeSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "onAttributeModified",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "p_22158_",
+            "type": "AttributeInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 36
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDirtyAttributes",
+        "returnType": "Set<AttributeInstance>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 40
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSyncableAttributes",
+        "returnType": "Collection<AttributeInstance>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInstance",
+        "returnType": "AttributeInstance",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInstance",
+        "returnType": "AttributeInstance",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Holder<Attribute>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasAttribute",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasAttribute",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Holder<Attribute>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasModifier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasModifier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Holder<Attribute>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 75
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBaseValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifierValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 90
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifierValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Holder<Attribute>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 92,
+          "end": 94
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAttributeModifiers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMap",
+            "type": "AttributeModifier>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addTransientAttributeModifiers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMap",
+            "type": "AttributeModifier>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assignValues",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pManager",
+            "type": "AttributeMap",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 125
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "ListTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 127,
+          "end": 135
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNbt",
+            "type": "ListTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 152
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "supplier",
+        "type": "AttributeSupplier",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 153
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeMap.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.AttributeModifier": {
+    "className": "AttributeModifier",
+    "fullName": "net.minecraft.world.entity.ai.attributes.AttributeModifier",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "java.util.Objects",
+      "java.util.UUID",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.RandomSource",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AttributeModifier",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOperation",
+            "type": "AttributeModifier.Operation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "AttributeModifier",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOperation",
+            "type": "AttributeModifier.Operation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 30
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "AttributeModifier",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNameGetter",
+            "type": "Supplier<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOperation",
+            "type": "AttributeModifier.Operation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 37
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getId",
+        "returnType": "UUID",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmount",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equals",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOther",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 64
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hashCode",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "save",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "load",
+        "returnType": "AttributeModifier",
+        "parameters": [
+          {
+            "name": "pNbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 84,
+          "end": 93
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "amount",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "operation",
+        "type": "AttributeModifier.Operation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "nameGetter",
+        "type": "Supplier<String>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "id",
+        "type": "UUID",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Operation",
+        "fullName": "net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation",
+        "packageName": "net.minecraft.world.entity.ai.attributes",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeModifier.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.logging.LogUtils",
+          "java.util.Objects",
+          "java.util.UUID",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.RandomSource",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "ADDITION",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 96,
+              "end": 98
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "MULTIPLY_BASE",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 97,
+              "end": 98
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "MULTIPLY_TOTAL",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 98,
+              "end": 98
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Operation",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pValue",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 105
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "toValue",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 107,
+              "end": 109
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "OPERATIONS",
+            "type": "AttributeModifier.Operation[]",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "new AttributeModifier.Operation[]{ADDITION, MULTIPLY_BASE, MULTIPLY_TOTAL}",
+            "lineRange": {
+              "start": 100,
+              "end": 100
+            }
+          },
+          {
+            "name": "value",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 101,
+              "end": 101
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 95,
+          "end": 118
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeModifier/Operation.java"
+      }
+    ],
+    "lineRange": {
+      "start": 13,
+      "end": 119
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeModifier.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.AttributeSupplier": {
+    "className": "AttributeSupplier",
+    "fullName": "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeSupplier.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Maps",
+      "java.util.Map",
+      "java.util.UUID",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.registries.BuiltInRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "AttributeSupplier",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInstances",
+            "type": "AttributeInstance>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getAttributeInstance",
+        "returnType": "AttributeInstance",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 25
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBaseValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModifierValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pId",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createInstance",
+        "returnType": "AttributeInstance",
+        "parameters": [
+          {
+            "name": "pOnChangedCallback",
+            "type": "Consumer<AttributeInstance>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasAttribute",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasModifier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pId",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 67
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "instances",
+        "type": "Map<Attribute, AttributeInstance>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Builder",
+        "fullName": "net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder",
+        "packageName": "net.minecraft.world.entity.ai.attributes",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\AttributeSupplier.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.ImmutableMap",
+          "com.google.common.collect.Maps",
+          "java.util.Map",
+          "java.util.UUID",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.registries.BuiltInRegistries"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 74,
+              "end": 74
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Builder",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "attributeMap",
+                "type": "AttributeSupplier",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 76,
+              "end": 78
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "combine",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "other",
+                "type": "Builder",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 80,
+              "end": 83
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "hasAttribute",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "attribute",
+                "type": "Attribute",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 85,
+              "end": 87
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "create",
+            "returnType": "AttributeInstance",
+            "parameters": [
+              {
+                "name": "pAttribute",
+                "type": "Attribute",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 89,
+              "end": 97
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "build",
+            "returnType": "AttributeSupplier",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 110,
+              "end": 114
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "instanceFrozen",
+            "type": "boolean",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 71,
+              "end": 71
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 69,
+          "end": 115
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeSupplier/Builder.java"
+      }
+    ],
+    "lineRange": {
+      "start": 11,
+      "end": 116
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/AttributeSupplier.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.Attributes": {
+    "className": "Attributes",
+    "fullName": "net.minecraft.world.entity.ai.attributes.Attributes",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\Attributes.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.BuiltInRegistries"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "register",
+        "returnType": "Attribute",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAttribute",
+            "type": "Attribute",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/Attributes.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.DefaultAttributes": {
+    "className": "DefaultAttributes",
+    "fullName": "net.minecraft.world.entity.ai.attributes.DefaultAttributes",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\DefaultAttributes.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.logging.LogUtils",
+      "java.util.Map",
+      "net.minecraft.Util",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.GlowSquid",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MobCategory",
+      "net.minecraft.world.entity.ambient.Bat",
+      "net.minecraft.world.entity.animal.AbstractFish",
+      "net.minecraft.world.entity.animal.Bee",
+      "net.minecraft.world.entity.animal.Cat",
+      "net.minecraft.world.entity.animal.Chicken",
+      "net.minecraft.world.entity.animal.Cow",
+      "net.minecraft.world.entity.animal.Dolphin",
+      "net.minecraft.world.entity.animal.Fox",
+      "net.minecraft.world.entity.animal.IronGolem",
+      "net.minecraft.world.entity.animal.Ocelot",
+      "net.minecraft.world.entity.animal.Panda",
+      "net.minecraft.world.entity.animal.Parrot",
+      "net.minecraft.world.entity.animal.Pig",
+      "net.minecraft.world.entity.animal.PolarBear",
+      "net.minecraft.world.entity.animal.Rabbit",
+      "net.minecraft.world.entity.animal.Sheep",
+      "net.minecraft.world.entity.animal.SnowGolem",
+      "net.minecraft.world.entity.animal.Squid",
+      "net.minecraft.world.entity.animal.Turtle",
+      "net.minecraft.world.entity.animal.Wolf",
+      "net.minecraft.world.entity.animal.allay.Allay",
+      "net.minecraft.world.entity.animal.axolotl.Axolotl",
+      "net.minecraft.world.entity.animal.camel.Camel",
+      "net.minecraft.world.entity.animal.frog.Frog",
+      "net.minecraft.world.entity.animal.frog.Tadpole",
+      "net.minecraft.world.entity.animal.goat.Goat",
+      "net.minecraft.world.entity.animal.horse.AbstractChestedHorse",
+      "net.minecraft.world.entity.animal.horse.AbstractHorse",
+      "net.minecraft.world.entity.animal.horse.Llama",
+      "net.minecraft.world.entity.animal.horse.SkeletonHorse",
+      "net.minecraft.world.entity.animal.horse.ZombieHorse",
+      "net.minecraft.world.entity.animal.sniffer.Sniffer",
+      "net.minecraft.world.entity.boss.enderdragon.EnderDragon",
+      "net.minecraft.world.entity.boss.wither.WitherBoss",
+      "net.minecraft.world.entity.monster.AbstractSkeleton",
+      "net.minecraft.world.entity.monster.Blaze",
+      "net.minecraft.world.entity.monster.CaveSpider",
+      "net.minecraft.world.entity.monster.Creeper",
+      "net.minecraft.world.entity.monster.ElderGuardian",
+      "net.minecraft.world.entity.monster.EnderMan",
+      "net.minecraft.world.entity.monster.Endermite",
+      "net.minecraft.world.entity.monster.Evoker",
+      "net.minecraft.world.entity.monster.Ghast",
+      "net.minecraft.world.entity.monster.Giant",
+      "net.minecraft.world.entity.monster.Guardian",
+      "net.minecraft.world.entity.monster.Illusioner",
+      "net.minecraft.world.entity.monster.MagmaCube",
+      "net.minecraft.world.entity.monster.Monster",
+      "net.minecraft.world.entity.monster.Pillager",
+      "net.minecraft.world.entity.monster.Ravager",
+      "net.minecraft.world.entity.monster.Shulker",
+      "net.minecraft.world.entity.monster.Silverfish",
+      "net.minecraft.world.entity.monster.Spider",
+      "net.minecraft.world.entity.monster.Strider",
+      "net.minecraft.world.entity.monster.Vex",
+      "net.minecraft.world.entity.monster.Vindicator",
+      "net.minecraft.world.entity.monster.Witch",
+      "net.minecraft.world.entity.monster.Zoglin",
+      "net.minecraft.world.entity.monster.Zombie",
+      "net.minecraft.world.entity.monster.ZombifiedPiglin",
+      "net.minecraft.world.entity.monster.hoglin.Hoglin",
+      "net.minecraft.world.entity.monster.piglin.Piglin",
+      "net.minecraft.world.entity.monster.piglin.PiglinBrute",
+      "net.minecraft.world.entity.monster.warden.Warden",
+      "net.minecraft.world.entity.npc.Villager",
+      "net.minecraft.world.entity.player.Player",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getSupplier",
+        "returnType": "AttributeSupplier",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 85,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasSupplier",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntityType",
+            "type": "EntityType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 90,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "validate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 94,
+          "end": 102
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 81,
+      "end": 103
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/DefaultAttributes.java"
+  },
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute": {
+    "className": "RangedAttribute",
+    "fullName": "net.minecraft.world.entity.ai.attributes.RangedAttribute",
+    "packageName": "net.minecraft.world.entity.ai.attributes",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\attributes\\RangedAttribute.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Attribute",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.util.Mth"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RangedAttribute",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pDescriptionId",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDefaultValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMin",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMax",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getMinValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMaxValue",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sanitizeValue",
+        "returnType": "double",
+        "parameters": [
+          {
+            "name": "pValue",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 51
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "The lowest possible value for the attribute. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "maxValue",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "The highest possible value for the attribute. ",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 52
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/attributes/RangedAttribute.java"
+  }
+}

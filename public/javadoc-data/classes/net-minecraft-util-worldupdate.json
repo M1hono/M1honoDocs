@@ -1,0 +1,472 @@
+{
+  "net.minecraft.util.worldupdate.WorldUpgrader": {
+    "className": "WorldUpgrader",
+    "fullName": "net.minecraft.util.worldupdate.WorldUpgrader",
+    "packageName": "net.minecraft.util.worldupdate",
+    "filePath": "/net\\minecraft\\util\\worldupdate\\WorldUpgrader.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableMap",
+      "com.google.common.collect.Lists",
+      "com.google.common.util.concurrent.ThreadFactoryBuilder",
+      "com.mojang.datafixers.DataFixer",
+      "com.mojang.logging.LogUtils",
+      "it.unimi.dsi.fastutil.objects.Object2FloatMap",
+      "it.unimi.dsi.fastutil.objects.Object2FloatMaps",
+      "it.unimi.dsi.fastutil.objects.Object2FloatOpenCustomHashMap",
+      "java.io.File",
+      "java.io.IOException",
+      "java.nio.file.Path",
+      "java.util.List",
+      "java.util.ListIterator",
+      "java.util.Set",
+      "java.util.concurrent.CompletionException",
+      "java.util.concurrent.ThreadFactory",
+      "java.util.regex.Matcher",
+      "java.util.regex.Pattern",
+      "java.util.stream.Collectors",
+      "net.minecraft.ReportedException",
+      "net.minecraft.SharedConstants",
+      "net.minecraft.Util",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.ListTag",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.chunk.ChunkGenerator",
+      "net.minecraft.world.level.chunk.storage.ChunkStorage",
+      "net.minecraft.world.level.chunk.storage.RegionFile",
+      "net.minecraft.world.level.dimension.LevelStem",
+      "net.minecraft.world.level.storage.DimensionDataStorage",
+      "net.minecraft.world.level.storage.LevelStorageSource",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "WorldUpgrader",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pLevelStoarge",
+            "type": "LevelStorageSource.LevelStorageAccess",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDataFixer",
+            "type": "DataFixer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "Registry<LevelStem>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEraseCache",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 62,
+          "end": 76
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "cancel",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "work",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 204
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAllChunkPos",
+        "returnType": "List<ChunkPos>",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 206,
+          "end": 239
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFinished",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 241,
+          "end": 243
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "levels",
+        "returnType": "Set<ResourceKey<Level>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 245,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dimensionProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ResourceKey<Level>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 251
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProgress",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 253,
+          "end": 255
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalChunks",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 257,
+          "end": 259
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getConverted",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 261,
+          "end": 263
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSkipped",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 265,
+          "end": 267
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStatus",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 269,
+          "end": 271
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "dimensions",
+        "type": "Registry<LevelStem>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "levels",
+        "type": "Set<ResourceKey<Level>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "eraseCache",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "levelStorage",
+        "type": "LevelStorageSource.LevelStorageAccess",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "thread",
+        "type": "Thread",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "dataFixer",
+        "type": "DataFixer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      },
+      {
+        "name": "running",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "finished",
+        "type": "volatile boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "progress",
+        "type": "volatile float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 53,
+          "end": 53
+        }
+      },
+      {
+        "name": "totalChunks",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "converted",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "skipped",
+        "type": "volatile int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "overworldDataStorage",
+        "type": "DimensionDataStorage",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 42,
+      "end": 272
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/worldupdate/WorldUpgrader.java"
+  }
+}

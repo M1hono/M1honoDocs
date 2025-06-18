@@ -1,0 +1,369 @@
+{
+  "net.minecraft.util.profiling.jfr.stats.NetworkPacketSummary": {
+    "className": "NetworkPacketSummary",
+    "fullName": "net.minecraft.util.profiling.jfr.stats.NetworkPacketSummary",
+    "packageName": "net.minecraft.util.profiling.jfr.stats",
+    "filePath": "/net\\minecraft\\util\\profiling\\jfr\\stats\\NetworkPacketSummary.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableMap",
+      "com.mojang.datafixers.util.Pair",
+      "it.unimi.dsi.fastutil.ints.Int2ObjectMap",
+      "java.time.Duration",
+      "java.util.Comparator",
+      "java.util.List",
+      "java.util.Map",
+      "jdk.jfr.consumer.RecordedEvent",
+      "net.minecraft.network.ConnectionProtocol",
+      "net.minecraft.network.protocol.Packet",
+      "net.minecraft.network.protocol.PacketFlow"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NetworkPacketSummary",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRecordingDuration",
+            "type": "Duration",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPacketInfos",
+            "type": "NetworkPacketSummary.PacketCountAndSize>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getCountsPerSecond",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSizePerSecond",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalCount",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalSize",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "largestSizeContributors",
+        "returnType": "List<Pair<NetworkPacketSummary.PacketIdentification, NetworkPacketSummary.PacketCountAndSize>>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 46
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PacketCountAndSize",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "totalCount",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "totalSize",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 48,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "PacketIdentification",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "direction",
+            "type": "PacketFlow",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "protocolId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "packetId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 81
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "totalPacketCountAndSize",
+        "type": "NetworkPacketSummary.PacketCountAndSize",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      },
+      {
+        "name": "largestSizeContributors",
+        "type": "List<Pair<NetworkPacketSummary.PacketIdentification, NetworkPacketSummary.PacketCountAndSize>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "recordingDuration",
+        "type": "Duration",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 15,
+      "end": 82
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/jfr/stats/NetworkPacketSummary.java"
+  },
+  "net.minecraft.util.profiling.jfr.stats.TimeStamped": {
+    "className": "TimeStamped",
+    "fullName": "net.minecraft.util.profiling.jfr.stats.TimeStamped",
+    "packageName": "net.minecraft.util.profiling.jfr.stats",
+    "filePath": "/net\\minecraft\\util\\profiling\\jfr\\stats\\TimeStamped.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.time.Instant"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getTimestamp",
+        "returnType": "Instant",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 7
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/jfr/stats/TimeStamped.java"
+  },
+  "net.minecraft.util.profiling.jfr.stats.TimedStat": {
+    "className": "TimedStat",
+    "fullName": "net.minecraft.util.profiling.jfr.stats.TimedStat",
+    "packageName": "net.minecraft.util.profiling.jfr.stats",
+    "filePath": "/net\\minecraft\\util\\profiling\\jfr\\stats\\TimedStat.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.time.Duration"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "duration",
+        "returnType": "Duration",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 6,
+          "end": 6
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 5,
+      "end": 7
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/jfr/stats/TimedStat.java"
+  },
+  "net.minecraft.util.profiling.jfr.stats.Timing": {
+    "className": "Timing",
+    "fullName": "net.minecraft.util.profiling.jfr.stats.Timing",
+    "packageName": "net.minecraft.util.profiling.jfr.stats",
+    "filePath": "/net\\minecraft\\util\\profiling\\jfr\\stats\\GcHeapStat.java",
+    "classType": "enum",
+    "modifiers": [
+      "static"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.time.Duration",
+      "java.time.Instant",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.stream.Collectors",
+      "jdk.jfr.consumer.RecordedEvent"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 43,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/util/profiling/jfr/stats/Timing.java"
+  }
+}

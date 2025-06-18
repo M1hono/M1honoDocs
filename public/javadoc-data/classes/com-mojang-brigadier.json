@@ -1,0 +1,2173 @@
+{
+  "com.mojang.brigadier.AmbiguityConsumer": {
+    "className": "AmbiguityConsumer",
+    "fullName": "com.mojang.brigadier.AmbiguityConsumer",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\AmbiguityConsumer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.tree.CommandNode",
+      "java.util.Collection"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ambiguous",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "child",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "sibling",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "inputs",
+            "type": "Collection<String>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 13
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/AmbiguityConsumer.java"
+  },
+  "com.mojang.brigadier.Command": {
+    "className": "Command",
+    "fullName": "com.mojang.brigadier.Command",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\Command.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "run",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContext<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SINGLE_SUCCESS",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "1",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 14
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/Command.java"
+  },
+  "com.mojang.brigadier.CommandDispatcher": {
+    "className": "CommandDispatcher",
+    "fullName": "com.mojang.brigadier.CommandDispatcher",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\CommandDispatcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.builder.LiteralArgumentBuilder",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.context.CommandContextBuilder",
+      "com.mojang.brigadier.context.SuggestionContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "com.mojang.brigadier.tree.CommandNode",
+      "com.mojang.brigadier.tree.LiteralCommandNode",
+      "com.mojang.brigadier.tree.RootCommandNode",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.Collections",
+      "java.util.LinkedHashMap",
+      "java.util.LinkedHashSet",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Predicate",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CommandDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "root",
+            "type": "RootCommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "CommandDispatcher",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 84
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "register",
+        "returnType": "LiteralCommandNode<S>",
+        "parameters": [
+          {
+            "name": "command",
+            "type": "LiteralArgumentBuilder<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 96,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setConsumer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "consumer",
+            "type": "ResultConsumer<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 109
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 141,
+          "end": 143
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 175,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "parse",
+            "type": "ParseResults<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 206,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "ParseResults<S>",
+        "parameters": [
+          {
+            "name": "command",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 316,
+          "end": 318
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "ParseResults<S>",
+        "parameters": [
+          {
+            "name": "command",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 350
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseNodes",
+        "returnType": "ParseResults<S>",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "originalReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "contextSoFar",
+            "type": "CommandContextBuilder<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 352,
+          "end": 429
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAllUsage",
+        "returnType": "String[]",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "restricted",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 452,
+          "end": 456
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAllUsage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "result",
+            "type": "ArrayList<String>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "prefix",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "restricted",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 458,
+          "end": 475
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSmartUsage",
+        "returnType": "Map<CommandNode<S>, String>",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 498,
+          "end": 509
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSmartUsage",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "source",
+            "type": "S",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "optional",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "deep",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 511,
+          "end": 563
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCompletionSuggestions",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "parse",
+            "type": "ParseResults<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 580,
+          "end": 582
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCompletionSuggestions",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "parse",
+            "type": "ParseResults<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "cursor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 584,
+          "end": 615
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRoot",
+        "returnType": "RootCommandNode<S>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 626,
+          "end": 628
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPath",
+        "returnType": "Collection<String>",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 644,
+          "end": 661
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findNode",
+        "returnType": "CommandNode<S>",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "Collection<String>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 674,
+          "end": 683
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "findAmbiguities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "consumer",
+            "type": "AmbiguityConsumer<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 695,
+          "end": 697
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addPaths",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "CommandNode<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "result",
+            "type": "List<List<CommandNode<S>>>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "parents",
+            "type": "List<CommandNode<S>>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 699,
+          "end": 707
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "ARGUMENT_SEPARATOR",
+        "type": "String",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "/",
+        "initialValue": "\" \"",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "ARGUMENT_SEPARATOR_CHAR",
+        "type": "char",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "comment": "/",
+        "initialValue": "' '",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "USAGE_OPTIONAL_OPEN",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"[\"",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "USAGE_OPTIONAL_CLOSE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"]\"",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "USAGE_REQUIRED_CLOSE",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\")\"",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "USAGE_OR",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "\"|\"",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      },
+      {
+        "name": "root",
+        "type": "RootCommandNode<S>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 36,
+      "end": 708
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/CommandDispatcher.java"
+  },
+  "com.mojang.brigadier.ImmutableStringReader": {
+    "className": "ImmutableStringReader",
+    "fullName": "com.mojang.brigadier.ImmutableStringReader",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\ImmutableStringReader.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemainingLength",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalLength",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCursor",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRead",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemaining",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canRead",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "length",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canRead",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "peek",
+        "returnType": "char",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "peek",
+        "returnType": "char",
+        "parameters": [
+          {
+            "name": "offset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 26
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/ImmutableStringReader.java"
+  },
+  "com.mojang.brigadier.LiteralMessage": {
+    "className": "LiteralMessage",
+    "fullName": "com.mojang.brigadier.LiteralMessage",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\LiteralMessage.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Message"
+    ],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "LiteralMessage",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "string",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 11
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "string",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 22
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/LiteralMessage.java"
+  },
+  "com.mojang.brigadier.Message": {
+    "className": "Message",
+    "fullName": "com.mojang.brigadier.Message",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\Message.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 7,
+          "end": 7
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 6,
+      "end": 8
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/Message.java"
+  },
+  "com.mojang.brigadier.ParseResults": {
+    "className": "ParseResults",
+    "fullName": "com.mojang.brigadier.ParseResults",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\ParseResults.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.context.CommandContextBuilder",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.tree.CommandNode",
+      "java.util.Collections",
+      "java.util.Map"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ParseResults",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContextBuilder<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "reader",
+            "type": "ImmutableStringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "exceptions",
+            "type": "CommandSyntaxException>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ParseResults",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContextBuilder<S>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getContext",
+        "returnType": "CommandContextBuilder<S>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getReader",
+        "returnType": "ImmutableStringReader",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExceptions",
+        "returnType": "Map<CommandNode<S>, CommandSyntaxException>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "context",
+        "type": "CommandContextBuilder<S>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "exceptions",
+        "type": "Map<CommandNode<S>, CommandSyntaxException>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      },
+      {
+        "name": "reader",
+        "type": "ImmutableStringReader",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/ParseResults.java"
+  },
+  "com.mojang.brigadier.RedirectModifier": {
+    "className": "RedirectModifier",
+    "fullName": "com.mojang.brigadier.RedirectModifier",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\RedirectModifier.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "java.util.Collection"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "apply",
+        "returnType": "Collection<S>",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContext<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 14
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/RedirectModifier.java"
+  },
+  "com.mojang.brigadier.ResultConsumer": {
+    "className": "ResultConsumer",
+    "fullName": "com.mojang.brigadier.ResultConsumer",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\ResultConsumer.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.context.CommandContext"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "onCommandComplete",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContext<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "success",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "result",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 11
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/ResultConsumer.java"
+  },
+  "com.mojang.brigadier.SingleRedirectModifier": {
+    "className": "SingleRedirectModifier",
+    "fullName": "com.mojang.brigadier.SingleRedirectModifier",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\SingleRedirectModifier.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "apply",
+        "returnType": "S",
+        "parameters": [
+          {
+            "name": "context",
+            "type": "CommandContext<S>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 10,
+      "end": 12
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/SingleRedirectModifier.java"
+  },
+  "com.mojang.brigadier.StringReader": {
+    "className": "StringReader",
+    "fullName": "com.mojang.brigadier.StringReader",
+    "packageName": "com.mojang.brigadier",
+    "filePath": "/com\\mojang\\brigadier\\StringReader.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ImmutableStringReader"
+    ],
+    "imports": [
+      "com.mojang.brigadier.exceptions.CommandSyntaxException"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "StringReader",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "StringReader",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "string",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCursor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "cursor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemainingLength",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTotalLength",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCursor",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 47
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRead",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRemaining",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canRead",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "length",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canRead",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 67
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "peek",
+        "returnType": "char",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "peek",
+        "returnType": "char",
+        "parameters": [
+          {
+            "name": "offset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 77
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "read",
+        "returnType": "char",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 79,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "skip",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAllowedNumber",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "c",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isQuotedStringStart",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "c",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "skipWhitespace",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 99
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readInt",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 101,
+          "end": 116
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readLong",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 118,
+          "end": 133
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readDouble",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 135,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readFloat",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 152,
+          "end": 167
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isAllowedInUnquotedString",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "c",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 169,
+          "end": 175
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readUnquotedString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 177,
+          "end": 183
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readQuotedString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 185,
+          "end": 195
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readStringUntil",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "terminator",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 197,
+          "end": 220
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 222,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readBoolean",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 234,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "expect",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "c",
+            "type": "char",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 251,
+          "end": 256
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SYNTAX_ESCAPE",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'\\\\'",
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        }
+      },
+      {
+        "name": "SYNTAX_DOUBLE_QUOTE",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'\"'",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "SYNTAX_SINGLE_QUOTE",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'\\''",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "string",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "cursor",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 257
+    },
+    "sourceFilePath": "/java-sources/com/mojang/brigadier/StringReader.java"
+  }
+}

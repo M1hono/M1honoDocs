@@ -1,0 +1,2395 @@
+{
+  "net.minecraft.world.entity.animal.allay.Allay": {
+    "className": "Allay",
+    "fullName": "net.minecraft.world.entity.animal.allay.Allay",
+    "packageName": "net.minecraft.world.entity.animal.allay",
+    "filePath": "/net\\minecraft\\world\\entity\\animal\\allay\\Allay.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "PathfinderMob",
+    "interfaces": [
+      "InventoryCarrier",
+      "VibrationSystem"
+    ],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Dynamic",
+      "java.util.Optional",
+      "java.util.UUID",
+      "java.util.function.BiConsumer",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.GlobalPos",
+      "net.minecraft.core.Vec3i",
+      "net.minecraft.core.particles.ParticleTypes",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtOps",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.network.protocol.game.DebugPackets",
+      "net.minecraft.network.syncher.EntityDataAccessor",
+      "net.minecraft.network.syncher.EntityDataSerializers",
+      "net.minecraft.network.syncher.SynchedEntityData",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.sounds.SoundEvent",
+      "net.minecraft.sounds.SoundEvents",
+      "net.minecraft.sounds.SoundSource",
+      "net.minecraft.tags.GameEventTags",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.util.Mth",
+      "net.minecraft.world.InteractionHand",
+      "net.minecraft.world.InteractionResult",
+      "net.minecraft.world.SimpleContainer",
+      "net.minecraft.world.damagesource.DamageSource",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.EntityDimensions",
+      "net.minecraft.world.entity.EntityType",
+      "net.minecraft.world.entity.EquipmentSlot",
+      "net.minecraft.world.entity.Mob",
+      "net.minecraft.world.entity.MoverType",
+      "net.minecraft.world.entity.PathfinderMob",
+      "net.minecraft.world.entity.Pose",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+      "net.minecraft.world.entity.ai.attributes.Attributes",
+      "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+      "net.minecraft.world.entity.ai.control.FlyingMoveControl",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus",
+      "net.minecraft.world.entity.ai.navigation.FlyingPathNavigation",
+      "net.minecraft.world.entity.ai.navigation.PathNavigation",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.item.ItemEntity",
+      "net.minecraft.world.entity.npc.InventoryCarrier",
+      "net.minecraft.world.entity.player.Player",
+      "net.minecraft.world.item.ItemStack",
+      "net.minecraft.world.item.Items",
+      "net.minecraft.world.item.crafting.Ingredient",
+      "net.minecraft.world.item.enchantment.EnchantmentHelper",
+      "net.minecraft.world.level.GameRules",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.gameevent.DynamicGameEventListener",
+      "net.minecraft.world.level.gameevent.EntityPositionSource",
+      "net.minecraft.world.level.gameevent.GameEvent",
+      "net.minecraft.world.level.gameevent.GameEventListener",
+      "net.minecraft.world.level.gameevent.PositionSource",
+      "net.minecraft.world.level.gameevent.vibrations.VibrationSystem",
+      "net.minecraft.world.phys.Vec3",
+      "org.jetbrains.annotations.Nullable",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Allay",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "EntityType<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 107
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getBrain",
+        "returnType": "Brain<Allay>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createNavigation",
+        "returnType": "PathNavigation",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "Level",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 125,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defineSynchedData",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 133,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "travel",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTravelVector",
+            "type": "Vec3",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 157
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStandingEyeHeight",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPose",
+            "type": "Pose",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDimensions",
+            "type": "EntityDimensions",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 159,
+          "end": 161
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hurt",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAmount",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 176
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "playStepSound",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 178,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkFallDamage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnGround",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 182
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getAmbientSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 184,
+          "end": 186
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHurtSound",
+        "returnType": "SoundEvent",
+        "parameters": [
+          {
+            "name": "pDamageSource",
+            "type": "DamageSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 188,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getDeathSound",
+        "returnType": "SoundEvent",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSoundVolume",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 199,
+          "end": 201
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "customServerAiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 203,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "aiStep",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 217,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 266
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canPickUpLoot",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 268,
+          "end": 270
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasItemInHand",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 272,
+          "end": 274
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canTakeItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pItemstack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 276,
+          "end": 278
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOnPickupCooldown",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 280,
+          "end": 282
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mobInteract",
+        "returnType": "InteractionResult",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHand",
+            "type": "InteractionHand",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 284,
+          "end": 315
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setJukeboxPlaying",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pJukeboxPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pJukeboxPlaying",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 317,
+          "end": 328
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInventory",
+        "returnType": "SimpleContainer",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 332
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getPickupReach",
+        "returnType": "Vec3i",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 334,
+          "end": 336
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "wantsToPickUp",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 338,
+          "end": 341
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "allayConsidersItemEqual",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSecond",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 343,
+          "end": 345
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasNonMatchingPotion",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pFirst",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSecond",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 347,
+          "end": 363
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pickUpItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pItemEntity",
+            "type": "ItemEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 369,
+          "end": 371
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "sendDebugPackets",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 373,
+          "end": 376
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFlapping",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 378,
+          "end": 380
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateDynamicGameEventListener",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pListenerConsumer",
+            "type": "ServerLevel>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 382,
+          "end": 389
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDancing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 391,
+          "end": 393
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isPanicking",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 395,
+          "end": 397
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDancing",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDancing",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 399,
+          "end": 403
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldStopDancing",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 405,
+          "end": 407
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getHoldingItemAnimationProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 409,
+          "end": 411
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSpinning",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 413,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSpinningProgress",
+        "returnType": "float",
+        "parameters": [
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 418,
+          "end": 420
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "equipmentHasChanged",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pOldItem",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNewItem",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 422,
+          "end": 424
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "dropEquipment",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 426,
+          "end": 435
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeWhenFarAway",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pDistanceToClosestPlayer",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 437,
+          "end": 439
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 441,
+          "end": 449
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readAdditionalSaveData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCompound",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 454,
+          "end": 465
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldStayCloseToLeashHolder",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 467,
+          "end": 469
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateDuplicationCooldown",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 471,
+          "end": 480
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isDuplicationItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 482,
+          "end": 484
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "duplicateAllay",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 486,
+          "end": 496
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetDuplicationCooldown",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 498,
+          "end": 501
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canDuplicate",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 503,
+          "end": 505
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeInteractionItem",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pPlayer",
+            "type": "Player",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pStack",
+            "type": "ItemStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 507,
+          "end": 512
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLeashOffset",
+        "returnType": "Vec3",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 514,
+          "end": 516
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getMyRidingOffset",
+        "returnType": "double",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 521,
+          "end": 523
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleEntityEvent",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "byte",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 528,
+          "end": 537
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "spawnHeartParticle",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 539,
+          "end": 544
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "LIFTING_ITEM_ANIMATION_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "5",
+        "lineRange": {
+          "start": 74,
+          "end": 74
+        }
+      },
+      {
+        "name": "DANCING_LOOP_DURATION",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "55.0F",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "SPINNING_ANIMATION_DURATION",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "15.0F",
+        "lineRange": {
+          "start": 76,
+          "end": 76
+        }
+      },
+      {
+        "name": "DUPLICATION_COOLDOWN_TICKS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6000",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      },
+      {
+        "name": "NUM_OF_DUPLICATION_HEARTS",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "3",
+        "lineRange": {
+          "start": 79,
+          "end": 79
+        }
+      },
+      {
+        "name": "RIDING_OFFSET",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "0.4D",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "dynamicVibrationListener",
+        "type": "DynamicGameEventListener<VibrationSystem.Listener>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "vibrationData",
+        "type": "VibrationSystem.Data",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 87,
+          "end": 87
+        }
+      },
+      {
+        "name": "vibrationUser",
+        "type": "VibrationSystem.User",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "dynamicJukeboxListener",
+        "type": "DynamicGameEventListener<Allay.JukeboxListener>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "duplicationCooldown",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        }
+      },
+      {
+        "name": "holdingItemAnimationTicks",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 93,
+          "end": 93
+        }
+      },
+      {
+        "name": "holdingItemAnimationTicks0",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        }
+      },
+      {
+        "name": "dancingAnimationTicks",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      {
+        "name": "spinningAnimationTicks",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 96,
+          "end": 96
+        }
+      },
+      {
+        "name": "spinningAnimationTicks0",
+        "type": "float",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "JukeboxListener",
+        "fullName": "net.minecraft.world.entity.animal.allay.Allay.JukeboxListener",
+        "packageName": "net.minecraft.world.entity.animal.allay",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\allay\\Allay.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "GameEventListener"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Optional",
+          "java.util.UUID",
+          "java.util.function.BiConsumer",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.GlobalPos",
+          "net.minecraft.core.Vec3i",
+          "net.minecraft.core.particles.ParticleTypes",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtOps",
+          "net.minecraft.nbt.Tag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.SimpleContainer",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+          "net.minecraft.world.entity.ai.control.FlyingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.navigation.FlyingPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.npc.InventoryCarrier",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.world.item.enchantment.EnchantmentHelper",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.gameevent.DynamicGameEventListener",
+          "net.minecraft.world.level.gameevent.EntityPositionSource",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.level.gameevent.vibrations.VibrationSystem",
+          "net.minecraft.world.phys.Vec3",
+          "org.jetbrains.annotations.Nullable",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "JukeboxListener",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pListenerSource",
+                "type": "PositionSource",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pListenerRadius",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 558,
+              "end": 561
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getListenerSource",
+            "returnType": "PositionSource",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 566,
+              "end": 568
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getListenerRadius",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 573,
+              "end": 575
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "handleGameEvent",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pLevel",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGameEvent",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pContext",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPos",
+                "type": "Vec3",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 577,
+              "end": 587
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "listenerSource",
+            "type": "PositionSource",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 555,
+              "end": 555
+            }
+          },
+          {
+            "name": "listenerRadius",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 556,
+              "end": 556
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 554,
+          "end": 588
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/animal/allay/Allay/JukeboxListener.java"
+      },
+      {
+        "className": "VibrationUser",
+        "fullName": "net.minecraft.world.entity.animal.allay.Allay.VibrationUser",
+        "packageName": "net.minecraft.world.entity.animal.allay",
+        "filePath": "/net\\minecraft\\world\\entity\\animal\\allay\\Allay.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [
+          "VibrationSystem.User"
+        ],
+        "imports": [
+          "com.google.common.collect.ImmutableList",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Dynamic",
+          "java.util.Optional",
+          "java.util.UUID",
+          "java.util.function.BiConsumer",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.core.GlobalPos",
+          "net.minecraft.core.Vec3i",
+          "net.minecraft.core.particles.ParticleTypes",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtOps",
+          "net.minecraft.nbt.Tag",
+          "net.minecraft.network.protocol.game.DebugPackets",
+          "net.minecraft.network.syncher.EntityDataAccessor",
+          "net.minecraft.network.syncher.EntityDataSerializers",
+          "net.minecraft.network.syncher.SynchedEntityData",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.sounds.SoundEvent",
+          "net.minecraft.sounds.SoundEvents",
+          "net.minecraft.sounds.SoundSource",
+          "net.minecraft.tags.GameEventTags",
+          "net.minecraft.tags.TagKey",
+          "net.minecraft.util.Mth",
+          "net.minecraft.world.InteractionHand",
+          "net.minecraft.world.InteractionResult",
+          "net.minecraft.world.SimpleContainer",
+          "net.minecraft.world.damagesource.DamageSource",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.entity.EntityDimensions",
+          "net.minecraft.world.entity.EntityType",
+          "net.minecraft.world.entity.EquipmentSlot",
+          "net.minecraft.world.entity.Mob",
+          "net.minecraft.world.entity.MoverType",
+          "net.minecraft.world.entity.PathfinderMob",
+          "net.minecraft.world.entity.Pose",
+          "net.minecraft.world.entity.ai.Brain",
+          "net.minecraft.world.entity.ai.attributes.AttributeSupplier",
+          "net.minecraft.world.entity.ai.attributes.Attributes",
+          "net.minecraft.world.entity.ai.behavior.BehaviorUtils",
+          "net.minecraft.world.entity.ai.control.FlyingMoveControl",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.navigation.FlyingPathNavigation",
+          "net.minecraft.world.entity.ai.navigation.PathNavigation",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.item.ItemEntity",
+          "net.minecraft.world.entity.npc.InventoryCarrier",
+          "net.minecraft.world.entity.player.Player",
+          "net.minecraft.world.item.ItemStack",
+          "net.minecraft.world.item.Items",
+          "net.minecraft.world.item.crafting.Ingredient",
+          "net.minecraft.world.item.enchantment.EnchantmentHelper",
+          "net.minecraft.world.level.GameRules",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.world.level.block.Blocks",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.gameevent.DynamicGameEventListener",
+          "net.minecraft.world.level.gameevent.EntityPositionSource",
+          "net.minecraft.world.level.gameevent.GameEvent",
+          "net.minecraft.world.level.gameevent.GameEventListener",
+          "net.minecraft.world.level.gameevent.PositionSource",
+          "net.minecraft.world.level.gameevent.vibrations.VibrationSystem",
+          "net.minecraft.world.phys.Vec3",
+          "org.jetbrains.annotations.Nullable",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "getListenerRadius",
+            "returnType": "int",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 594,
+              "end": 596
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getPositionSource",
+            "returnType": "PositionSource",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 598,
+              "end": 600
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "canReceiveVibration",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "p_282038_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_283385_",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_283669_",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_282208_",
+                "type": "GameEvent.Context",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 602,
+              "end": 614
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "onReceiveVibration",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "p_281422_",
+                "type": "ServerLevel",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_281449_",
+                "type": "BlockPos",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_281488_",
+                "type": "GameEvent",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_281794_",
+                "type": "Entity",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_281864_",
+                "type": "Entity",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "p_281642_",
+                "type": "float",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 616,
+              "end": 621
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getListenableEvents",
+            "returnType": "TagKey<GameEvent>",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 623,
+              "end": 625
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "VIBRATION_EVENT_LISTENER_RANGE",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "16",
+            "lineRange": {
+              "start": 591,
+              "end": 591
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 590,
+          "end": 626
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/animal/allay/Allay/VibrationUser.java"
+      }
+    ],
+    "lineRange": {
+      "start": 71,
+      "end": 627
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/animal/allay/Allay.java"
+  },
+  "net.minecraft.world.entity.animal.allay.AllayAi": {
+    "className": "AllayAi",
+    "fullName": "net.minecraft.world.entity.animal.allay.AllayAi",
+    "packageName": "net.minecraft.world.entity.animal.allay",
+    "filePath": "/net\\minecraft\\world\\entity\\animal\\allay\\AllayAi.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.mojang.datafixers.util.Pair",
+      "java.util.Optional",
+      "java.util.UUID",
+      "java.util.function.Predicate",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.core.GlobalPos",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.util.valueproviders.UniformInt",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.Brain",
+      "net.minecraft.world.entity.ai.behavior.AnimalPanic",
+      "net.minecraft.world.entity.ai.behavior.BlockPosTracker",
+      "net.minecraft.world.entity.ai.behavior.CountDownCooldownTicks",
+      "net.minecraft.world.entity.ai.behavior.DoNothing",
+      "net.minecraft.world.entity.ai.behavior.EntityTracker",
+      "net.minecraft.world.entity.ai.behavior.GoAndGiveItemsToTarget",
+      "net.minecraft.world.entity.ai.behavior.GoToWantedItem",
+      "net.minecraft.world.entity.ai.behavior.LookAtTargetSink",
+      "net.minecraft.world.entity.ai.behavior.MoveToTargetSink",
+      "net.minecraft.world.entity.ai.behavior.PositionTracker",
+      "net.minecraft.world.entity.ai.behavior.RandomStroll",
+      "net.minecraft.world.entity.ai.behavior.RunOne",
+      "net.minecraft.world.entity.ai.behavior.SetEntityLookTargetSometimes",
+      "net.minecraft.world.entity.ai.behavior.SetWalkTargetFromLookTarget",
+      "net.minecraft.world.entity.ai.behavior.StayCloseToTarget",
+      "net.minecraft.world.entity.ai.behavior.Swim",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.world.level.block.Blocks"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initCoreActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Allay>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initIdleActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBrain",
+            "type": "Brain<Allay>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 69
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pAllay",
+            "type": "Allay",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 71,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hearNoteblock",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 86
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getItemDepositPosition",
+        "returnType": "Optional<PositionTracker>",
+        "parameters": [
+          {
+            "name": "p_218424_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 88,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasWantedItem",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "p_273346_",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "shouldDepositItemsAtLikedNoteblock",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrain",
+            "type": "Brain<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "GlobalPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 108,
+          "end": 112
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLikedPlayerPositionTracker",
+        "returnType": "Optional<PositionTracker>",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getLikedPlayer",
+        "returnType": "Optional<ServerPlayer>",
+        "parameters": [
+          {
+            "name": "pEntity",
+            "type": "LivingEntity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 120,
+          "end": 138
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_IDLING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_FOLLOWING_DEPOSIT_TARGET",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.25F",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_RETRIEVING_ITEM",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1.75F",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "SPEED_MULTIPLIER_WHEN_PANICKING",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "2.5F",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      },
+      {
+        "name": "CLOSE_ENOUGH_TO_TARGET",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "4",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "TOO_FAR_FROM_TARGET",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "16",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "MAX_LOOK_DISTANCE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "6",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "MIN_WAIT_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "30",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "MAX_WAIT_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "60",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      },
+      {
+        "name": "TIME_TO_FORGET_NOTEBLOCK",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "600",
+        "lineRange": {
+          "start": 48,
+          "end": 48
+        }
+      },
+      {
+        "name": "DISTANCE_TO_WANTED_ITEM",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "32",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "GIVE_ITEM_TIMEOUT_DURATION",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 50,
+          "end": 50
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 38,
+      "end": 139
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/animal/allay/AllayAi.java"
+  }
+}

@@ -1,0 +1,1510 @@
+{
+  "net.minecraft.client.multiplayer.chat.ChatListener": {
+    "className": "ChatListener",
+    "fullName": "net.minecraft.client.multiplayer.chat.ChatListener",
+    "packageName": "net.minecraft.client.multiplayer.chat",
+    "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\ChatListener.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Queues",
+      "com.mojang.authlib.GameProfile",
+      "java.time.Instant",
+      "java.util.Deque",
+      "java.util.UUID",
+      "java.util.function.BooleanSupplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.client.GuiMessageTag",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.multiplayer.ClientPacketListener",
+      "net.minecraft.network.chat.ChatType",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.FilterMask",
+      "net.minecraft.network.chat.MessageSignature",
+      "net.minecraft.network.chat.PlayerChatMessage",
+      "net.minecraft.util.StringDecomposer",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.apache.commons.lang3.StringUtils"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChatListener",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 33
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setMessageDelay",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDelaySeconds",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "acceptNextDelayedMessage",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "queueSize",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearQueue",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 66
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeFromDelayedMessageQueue",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSignature",
+            "type": "MessageSignature",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "willDelayMessages",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 74,
+          "end": 76
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSignature",
+            "type": "MessageSignature",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHandler",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 85
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handlePlayerChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 101
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleDisguisedChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 103,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "showMessageToPlayer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecoratedServerContent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnlyShowSecureChat",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimestamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "narrateChatMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "evaluateTrustLevel",
+        "returnType": "ChatTrustLevel",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecoratedServerContent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimestamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 152,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "logPlayerMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBoundChatType",
+            "type": "ChatType.Bound",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameProfile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTrustLevel",
+            "type": "ChatTrustLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "logSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimestamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "handleSystemMessage",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsOverlay",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 179
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "guessChatUUID",
+        "returnType": "UUID",
+        "parameters": [
+          {
+            "name": "pMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 181,
+          "end": 185
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isSenderLocalPlayer",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pSender",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 187,
+          "end": 194
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Message",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "signature",
+            "type": "MessageSignature",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "handler",
+            "type": "BooleanSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 197,
+          "end": 201
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "messageDelay",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "previousMessageTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 202
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/ChatListener.java"
+  },
+  "net.minecraft.client.multiplayer.chat.ChatLog": {
+    "className": "ChatLog",
+    "fullName": "net.minecraft.client.multiplayer.chat.ChatLog",
+    "packageName": "net.minecraft.client.multiplayer.chat",
+    "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\ChatLog.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "java.util.ArrayList",
+      "java.util.List",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "codec",
+        "returnType": "Codec<ChatLog>",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "ChatLog",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ChatLog",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSize",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEvents",
+            "type": "List<LoggedChatEvent>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "loggedChatEvents",
+        "returnType": "List<LoggedChatEvent>",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "push",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pEvent",
+            "type": "LoggedChatEvent",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lookup",
+        "returnType": "LoggedChatEvent",
+        "parameters": [
+          {
+            "name": "pId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "index",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "start",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 61
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "end",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 63,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "size",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 67,
+          "end": 69
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "buffer",
+        "type": "LoggedChatEvent[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "nextId",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 70
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/ChatLog.java"
+  },
+  "net.minecraft.client.multiplayer.chat.ChatTrustLevel": {
+    "className": "ChatTrustLevel",
+    "fullName": "net.minecraft.client.multiplayer.chat.ChatTrustLevel",
+    "packageName": "net.minecraft.client.multiplayer.chat",
+    "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\ChatTrustLevel.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "StringRepresentable"
+    ],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "java.time.Instant",
+      "java.util.Optional",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.GuiMessageTag",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.PlayerChatMessage",
+      "net.minecraft.network.chat.Style",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SECURE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "MODIFIED",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 18,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "NOT_SECURE",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "ChatTrustLevel",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pSerializedName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "evaluate",
+        "returnType": "ChatTrustLevel",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecoratedServerContent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimestamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isModified",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDecoratedServerContent",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "containsModifiedStyle",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 45,
+          "end": 49
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isModifiedStyle",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pStyle",
+            "type": "Style",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 53
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isNotSecure",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "createTag",
+        "returnType": "GuiMessageTag",
+        "parameters": [
+          {
+            "name": "pChatMessage",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSerializedName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 78
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serializedName",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 79
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/ChatTrustLevel.java"
+  },
+  "net.minecraft.client.multiplayer.chat.LoggedChatEvent": {
+    "className": "LoggedChatEvent",
+    "fullName": "net.minecraft.client.multiplayer.chat.LoggedChatEvent",
+    "packageName": "net.minecraft.client.multiplayer.chat",
+    "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\LoggedChatEvent.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.serialization.Codec",
+      "java.util.function.Supplier",
+      "net.minecraft.util.StringRepresentable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "Type",
+        "fullName": "net.minecraft.client.multiplayer.chat.LoggedChatEvent.Type",
+        "packageName": "net.minecraft.client.multiplayer.chat",
+        "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\LoggedChatEvent.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "StringRepresentable"
+        ],
+        "imports": [
+          "com.mojang.serialization.Codec",
+          "java.util.function.Supplier",
+          "net.minecraft.util.StringRepresentable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "PLAYER",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 17,
+              "end": 19
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "SYSTEM",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 20,
+              "end": 22
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Type",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pSerializedName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "extends",
+                "type": "Supplier<Codec<?",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 27,
+              "end": 30
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getSerializedName",
+            "returnType": "String",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 36,
+              "end": 38
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "serializedName",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 24,
+              "end": 24
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 16,
+          "end": 39
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/LoggedChatEvent/Type.java"
+      }
+    ],
+    "lineRange": {
+      "start": 10,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/LoggedChatEvent.java"
+  },
+  "net.minecraft.client.multiplayer.chat.LoggedChatMessage": {
+    "className": "LoggedChatMessage",
+    "fullName": "net.minecraft.client.multiplayer.chat.LoggedChatMessage",
+    "packageName": "net.minecraft.client.multiplayer.chat",
+    "filePath": "/net\\minecraft\\client\\multiplayer\\chat\\LoggedChatMessage.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "LoggedChatEvent",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.authlib.GameProfile",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.codecs.RecordCodecBuilder",
+      "java.time.Instant",
+      "java.time.LocalDateTime",
+      "java.time.ZoneOffset",
+      "java.time.format.DateTimeFormatter",
+      "java.time.format.FormatStyle",
+      "java.util.UUID",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.PlayerChatMessage",
+      "net.minecraft.util.ExtraCodecs",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "toContentComponent",
+        "returnType": "Component",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "canReport",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pUuid",
+            "type": "UUID",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Player",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "profile",
+            "type": "GameProfile",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "message",
+            "type": "PlayerChatMessage",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "trustLevel",
+            "type": "ChatTrustLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "System",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "message",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "timeStamp",
+            "type": "Instant",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 99
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 100
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/client/multiplayer/chat/LoggedChatMessage.java"
+  }
+}

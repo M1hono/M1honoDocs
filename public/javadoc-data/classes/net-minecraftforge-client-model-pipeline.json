@@ -1,0 +1,1710 @@
+{
+  "net.minecraftforge.client.model.pipeline.QuadBakingVertexConsumer": {
+    "className": "QuadBakingVertexConsumer",
+    "fullName": "net.minecraftforge.client.model.pipeline.QuadBakingVertexConsumer",
+    "packageName": "net.minecraftforge.client.model.pipeline",
+    "filePath": "/net\\minecraftforge\\client\\model\\pipeline\\QuadBakingVertexConsumer.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "VertexConsumer"
+    ],
+    "imports": [
+      "com.google.common.base.Preconditions",
+      "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.blaze3d.vertex.VertexFormatElement",
+      "net.minecraft.Util",
+      "net.minecraft.client.renderer.block.model.BakedQuad",
+      "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.client.model.IQuadTransformer",
+      "net.minecraftforge.client.textures.UnitTextureAtlasSprite",
+      "java.util.IdentityHashMap",
+      "java.util.Map",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "QuadBakingVertexConsumer",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "quadConsumer",
+            "type": "Consumer<BakedQuad>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 52
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 55,
+          "end": 62
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 65,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 83
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 86,
+          "end": 92
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overlayCoords",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 103
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv2",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 106,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "misc",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "VertexFormatElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "rawData",
+            "type": "int[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 114,
+          "end": 123
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 139
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unsetDefaultColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTintIndex",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tintIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 149
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDirection",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "direction",
+            "type": "Direction",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 151,
+          "end": 154
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSprite",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "sprite",
+            "type": "TextureAtlasSprite",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 156,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShade",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "shade",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 161,
+          "end": 164
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setHasAmbientOcclusion",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "hasAmbientOcclusion",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 166,
+          "end": 169
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "QUAD_DATA_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "IQuadTransformer.STRIDE * 4",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "quadConsumer",
+        "type": "Consumer<BakedQuad>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "vertexIndex",
+        "type": "int",
+        "modifiers": [],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "quadData",
+        "type": "int[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "new int[QUAD_DATA_SIZE]",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "tintIndex",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 43,
+          "end": 43
+        }
+      },
+      {
+        "name": "direction",
+        "type": "Direction",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Direction.DOWN",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "sprite",
+        "type": "TextureAtlasSprite",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "UnitTextureAtlasSprite.INSTANCE",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "shade",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 46,
+          "end": 46
+        }
+      },
+      {
+        "name": "hasAmbientOcclusion",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 47,
+          "end": 47
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Buffered",
+        "fullName": "net.minecraftforge.client.model.pipeline.QuadBakingVertexConsumer.Buffered",
+        "packageName": "net.minecraftforge.client.model.pipeline",
+        "filePath": "/net\\minecraftforge\\client\\model\\pipeline\\QuadBakingVertexConsumer.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "QuadBakingVertexConsumer",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.base.Preconditions",
+          "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+          "com.mojang.blaze3d.vertex.VertexConsumer",
+          "com.mojang.blaze3d.vertex.VertexFormatElement",
+          "net.minecraft.Util",
+          "net.minecraft.client.renderer.block.model.BakedQuad",
+          "net.minecraft.client.renderer.texture.TextureAtlasSprite",
+          "net.minecraft.core.Direction",
+          "net.minecraftforge.client.model.IQuadTransformer",
+          "net.minecraftforge.client.textures.UnitTextureAtlasSprite",
+          "java.util.IdentityHashMap",
+          "java.util.Map",
+          "java.util.function.Consumer"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Buffered",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 175,
+              "end": 178
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "Buffered",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "output",
+                "type": "BakedQuad[]",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 180,
+              "end": 184
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "getQuad",
+            "returnType": "BakedQuad",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 186,
+              "end": 191
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "output",
+            "type": "BakedQuad[]",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 173,
+              "end": 173
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 171,
+          "end": 192
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/client/model/pipeline/QuadBakingVertexConsumer/Buffered.java"
+      }
+    ],
+    "lineRange": {
+      "start": 29,
+      "end": 193
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/pipeline/QuadBakingVertexConsumer.java"
+  },
+  "net.minecraftforge.client.model.pipeline.RemappingVertexPipeline": {
+    "className": "RemappingVertexPipeline",
+    "fullName": "net.minecraftforge.client.model.pipeline.RemappingVertexPipeline",
+    "packageName": "net.minecraftforge.client.model.pipeline",
+    "filePath": "/net\\minecraftforge\\client\\model\\pipeline\\RemappingVertexPipeline.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "VertexConsumer"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.DefaultVertexFormat",
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.blaze3d.vertex.VertexFormat",
+      "com.mojang.blaze3d.vertex.VertexFormatElement",
+      "net.minecraft.client.renderer.texture.OverlayTexture",
+      "org.joml.Vector3d",
+      "org.joml.Vector3f",
+      "java.util.Arrays",
+      "java.util.IdentityHashMap",
+      "java.util.Map",
+      "java.util.Set"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RemappingVertexPipeline",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "targetFormat",
+            "type": "VertexFormat",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 56
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 63
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 66,
+          "end": 70
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 73,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 88
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overlayCoords",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 91,
+          "end": 96
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv2",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 104
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "misc",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "VertexFormatElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "values",
+            "type": "int[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 107,
+          "end": 113
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 116,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 144,
+          "end": 147
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unsetDefaultColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 150,
+          "end": 153
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "EMPTY_INT_ARRAY",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[0]",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "parent",
+        "type": "VertexConsumer",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "targetFormat",
+        "type": "VertexFormat",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "color",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[] { 255, 255, 255, 255 }",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      },
+      {
+        "name": "uv0",
+        "type": "float[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new float[] { 0, 0 }",
+        "lineRange": {
+          "start": 37,
+          "end": 37
+        }
+      },
+      {
+        "name": "uv1",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[] { OverlayTexture.NO_WHITE_U, OverlayTexture.WHITE_OVERLAY_V }",
+        "lineRange": {
+          "start": 38,
+          "end": 38
+        }
+      },
+      {
+        "name": "uv2",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[] { 0, 0 }",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "miscElementIds",
+        "type": "Map<VertexFormatElement, Integer>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "misc",
+        "type": "int[][]",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 154
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/pipeline/RemappingVertexPipeline.java"
+  },
+  "net.minecraftforge.client.model.pipeline.TransformingVertexPipeline": {
+    "className": "TransformingVertexPipeline",
+    "fullName": "net.minecraftforge.client.model.pipeline.TransformingVertexPipeline",
+    "packageName": "net.minecraftforge.client.model.pipeline",
+    "filePath": "/net\\minecraftforge\\client\\model\\pipeline\\TransformingVertexPipeline.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "VertexConsumerWrapper",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.math.Transformation",
+      "org.joml.Vector3f",
+      "org.joml.Vector4f"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TransformingVertexPipeline",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "transformation",
+            "type": "Transformation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 42
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "transformation",
+        "type": "Transformation",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 44
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/pipeline/TransformingVertexPipeline.java"
+  },
+  "net.minecraftforge.client.model.pipeline.VertexConsumerWrapper": {
+    "className": "VertexConsumerWrapper",
+    "fullName": "net.minecraftforge.client.model.pipeline.VertexConsumerWrapper",
+    "packageName": "net.minecraftforge.client.model.pipeline",
+    "filePath": "/net\\minecraftforge\\client\\model\\pipeline\\VertexConsumerWrapper.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "VertexConsumer"
+    ],
+    "imports": [
+      "com.mojang.blaze3d.vertex.VertexConsumer",
+      "com.mojang.blaze3d.vertex.VertexFormatElement"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "VertexConsumerWrapper",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "VertexConsumer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 23
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "vertex",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "color",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "overlayCoords",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 47,
+          "end": 51
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "uv2",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "u",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "v",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "normal",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "y",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "z",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 65
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "misc",
+        "returnType": "VertexConsumer",
+        "parameters": [
+          {
+            "name": "element",
+            "type": "VertexFormatElement",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "values",
+            "type": "int[]",
+            "isVarArgs": true,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 68,
+          "end": 72
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "endVertex",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 75,
+          "end": 78
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "r",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "g",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "b",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "a",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 81,
+          "end": 84
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "unsetDefaultColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 90
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "parent",
+        "type": "VertexConsumer",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 18,
+          "end": 18
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 91
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/client/model/pipeline/VertexConsumerWrapper.java"
+  }
+}

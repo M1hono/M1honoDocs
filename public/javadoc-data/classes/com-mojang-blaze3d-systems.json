@@ -1,0 +1,4611 @@
+{
+  "com.mojang.blaze3d.systems.RenderSystem": {
+    "className": "RenderSystem",
+    "fullName": "com.mojang.blaze3d.systems.RenderSystem",
+    "packageName": "com.mojang.blaze3d.systems",
+    "filePath": "/com\\mojang\\blaze3d\\systems\\RenderSystem.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Queues",
+      "com.mojang.blaze3d.DontObfuscate",
+      "com.mojang.blaze3d.pipeline.RenderCall",
+      "com.mojang.blaze3d.platform.GLX",
+      "com.mojang.blaze3d.platform.GlStateManager",
+      "com.mojang.blaze3d.shaders.FogShape",
+      "com.mojang.blaze3d.vertex.PoseStack",
+      "com.mojang.blaze3d.vertex.Tesselator",
+      "com.mojang.blaze3d.vertex.VertexFormat",
+      "com.mojang.blaze3d.vertex.VertexSorting",
+      "com.mojang.logging.LogUtils",
+      "java.nio.ByteBuffer",
+      "java.nio.FloatBuffer",
+      "java.nio.IntBuffer",
+      "java.util.Locale",
+      "java.util.concurrent.ConcurrentLinkedQueue",
+      "java.util.concurrent.atomic.AtomicBoolean",
+      "java.util.concurrent.atomic.AtomicLong",
+      "java.util.function.Consumer",
+      "java.util.function.IntConsumer",
+      "java.util.function.IntSupplier",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.client.GraphicsStatus",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.OptionInstance",
+      "net.minecraft.client.renderer.ShaderInstance",
+      "net.minecraft.client.renderer.texture.AbstractTexture",
+      "net.minecraft.client.renderer.texture.TextureManager",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.util.Mth",
+      "net.minecraft.util.TimeSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.joml.Matrix3f",
+      "org.joml.Matrix4f",
+      "org.joml.Vector3f",
+      "org.lwjgl.glfw.GLFW",
+      "org.lwjgl.glfw.GLFWErrorCallbackI",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "initRenderThread",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 101,
+          "end": 107
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOnRenderThread",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 111
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOnRenderThreadOrInit",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 113,
+          "end": 115
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initGameThread",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRenderOffThread",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 117,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isOnGameThread",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 128
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assertInInitPhase",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 130,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assertOnGameThreadOrInit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 136,
+          "end": 140
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assertOnRenderThreadOrInit",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 146
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assertOnRenderThread",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 148,
+          "end": 152
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "assertOnGameThread",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 154,
+          "end": 158
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "constructThreadException",
+        "returnType": "IllegalStateException",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 162
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isInInitPhase",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "recordRenderCall",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRenderCall",
+            "type": "RenderCall",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 168,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pollEvents",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isFrozenAtPollEvents",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 181
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "flipFrame",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pWindowId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 183,
+          "end": 189
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "replayQueue",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 191,
+          "end": 200
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "limitDisplayFPS",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFrameRateLimit",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 202,
+          "end": 211
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableDepthTest",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 213,
+          "end": 216
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableDepthTest",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 218,
+          "end": 221
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableScissor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 223,
+          "end": 227
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableScissor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 229,
+          "end": 232
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "depthFunc",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDepthFunc",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 234,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "depthMask",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFlag",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 242
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableBlend",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 244,
+          "end": 247
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableBlend",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 249,
+          "end": 252
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blendFunc",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSourceFactor",
+            "type": "GlStateManager.SourceFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactor",
+            "type": "GlStateManager.DestFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 254,
+          "end": 257
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blendFunc",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSourceFactor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 259,
+          "end": 262
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blendFuncSeparate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSourceFactor",
+            "type": "GlStateManager.SourceFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactor",
+            "type": "GlStateManager.DestFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSourceFactorAlpha",
+            "type": "GlStateManager.SourceFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactorAlpha",
+            "type": "GlStateManager.DestFactor",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 264,
+          "end": 267
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blendFuncSeparate",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSourceFactor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactor",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSourceFactorAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDestFactorAlpha",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 269,
+          "end": 272
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "blendEquation",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 274,
+          "end": 277
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableCull",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 279,
+          "end": 282
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableCull",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 284,
+          "end": 287
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "polygonMode",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFace",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 289,
+          "end": 292
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enablePolygonOffset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 294,
+          "end": 297
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disablePolygonOffset",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 299,
+          "end": 302
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "polygonOffset",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFactor",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUnits",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 304,
+          "end": 307
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "enableColorLogicOp",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 309,
+          "end": 312
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "disableColorLogicOp",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 314,
+          "end": 317
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "logicOp",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOp",
+            "type": "GlStateManager.LogicOp",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 319,
+          "end": 322
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "activeTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 324,
+          "end": 327
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "texParameter",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameterName",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameter",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 329,
+          "end": 331
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deleteTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 333,
+          "end": 336
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindTextureForSetup",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 338,
+          "end": 340
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "bindTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 342,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "viewport",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 346,
+          "end": 349
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "colorMask",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 351,
+          "end": 354
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stencilFunc",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFunc",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pRef",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMask",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 356,
+          "end": 359
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stencilMask",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMask",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 361,
+          "end": 364
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stencilOp",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pSFail",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDpFail",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDpPass",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 366,
+          "end": 369
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearDepth",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDepth",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 371,
+          "end": 374
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 376,
+          "end": 379
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearStencil",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 381,
+          "end": 384
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clear",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMask",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCheckError",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 386,
+          "end": 389
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderFogStart",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogStart",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 391,
+          "end": 394
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderFogStart",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogStart",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 396,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderFogStart",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 403
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderGlintAlpha",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderGlintAlpha",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 405,
+          "end": 407
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderGlintAlpha",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderGlintAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 409,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderGlintAlpha",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderGlintAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 416
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderGlintAlpha",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 418,
+          "end": 421
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderFogEnd",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogEnd",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 426
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderFogEnd",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogEnd",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 428,
+          "end": 430
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderFogEnd",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 432,
+          "end": 435
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderFogColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 437,
+          "end": 440
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderFogColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 442,
+          "end": 444
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderFogColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 446,
+          "end": 451
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderFogColor",
+        "returnType": "float[]",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 453,
+          "end": 456
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderFogShape",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogShape",
+            "type": "FogShape",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 458,
+          "end": 461
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderFogShape",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderFogShape",
+            "type": "FogShape",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 463,
+          "end": 465
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderFogShape",
+        "returnType": "FogShape",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 467,
+          "end": 470
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderLights",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLightingVector0",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightingVector1",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 472,
+          "end": 475
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderLights",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLightingVector0",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightingVector1",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 477,
+          "end": 480
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupShaderLights",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pInstance",
+            "type": "ShaderInstance",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 482,
+          "end": 492
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 494,
+          "end": 503
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRed",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGreen",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBlue",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAlpha",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 505,
+          "end": 510
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderColor",
+        "returnType": "float[]",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 512,
+          "end": 515
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawElements",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pMode",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCount",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 517,
+          "end": 520
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "lineWidth",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderLineWidth",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 522,
+          "end": 531
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderLineWidth",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 533,
+          "end": 536
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "pixelStore",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pParameterName",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pParameter",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 538,
+          "end": 541
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readPixels",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFormat",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pType",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPixels",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 543,
+          "end": 546
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getString",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pName",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pConsumer",
+            "type": "Consumer<String>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 548,
+          "end": 551
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBackendDescription",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 553,
+          "end": 556
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getApiDescription",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 558,
+          "end": 560
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "initRenderer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDebugVerbosity",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSynchronous",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 567,
+          "end": 571
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setErrorCallback",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pCallback",
+            "type": "GLFWErrorCallbackI",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 573,
+          "end": 576
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderCrosshair",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLineLength",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 578,
+          "end": 581
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getCapsString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 583,
+          "end": 586
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupDefaultState",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 588,
+          "end": 598
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "maxSupportedTextureSize",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 600,
+          "end": 619
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glBindBuffer",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuffer",
+            "type": "IntSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 621,
+          "end": 623
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glBindVertexArray",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pArray",
+            "type": "Supplier<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 625,
+          "end": 627
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glBufferData",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTarget",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pData",
+            "type": "ByteBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pUsage",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 629,
+          "end": 632
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glDeleteBuffers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBuffer",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 634,
+          "end": 637
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glDeleteVertexArrays",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pArray",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 639,
+          "end": 642
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform1i",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 644,
+          "end": 647
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform1",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 649,
+          "end": 652
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform2",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 654,
+          "end": 657
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform3",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 659,
+          "end": 662
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform4",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "IntBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 664,
+          "end": 667
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform1",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 669,
+          "end": 672
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform2",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 674,
+          "end": 677
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform3",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 679,
+          "end": 682
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniform4",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 684,
+          "end": 687
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniformMatrix2",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTranspose",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 689,
+          "end": 692
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniformMatrix3",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTranspose",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 694,
+          "end": 697
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glUniformMatrix4",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLocation",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTranspose",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pValue",
+            "type": "FloatBuffer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 699,
+          "end": 702
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupOverlayColor",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTextureId",
+            "type": "IntSupplier",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 704,
+          "end": 708
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "teardownOverlayColor",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 710,
+          "end": 713
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupLevelDiffuseLighting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLightingVector1",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightingVector2",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 715,
+          "end": 718
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupGuiFlatDiffuseLighting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLightingVector1",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightingVector2",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 720,
+          "end": 723
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setupGui3DDiffuseLighting",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLightingVector1",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pLightingVector2",
+            "type": "Vector3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 725,
+          "end": 728
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginInitialization",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 730,
+          "end": 732
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "finishInitialization",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 734,
+          "end": 743
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glGenBuffers",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pBufferIdConsumer",
+            "type": "Consumer<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 745,
+          "end": 754
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "glGenVertexArrays",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pArrayObjectIdConsumer",
+            "type": "Consumer<Integer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 756,
+          "end": 765
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderThreadTesselator",
+        "returnType": "Tesselator",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 767,
+          "end": 770
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "defaultBlendFunc",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 772,
+          "end": 774
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "runAsFancy",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pFancyRunnable",
+            "type": "Runnable",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 778,
+          "end": 789
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShader",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderSupplier",
+            "type": "Supplier<ShaderInstance>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 791,
+          "end": 800
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShader",
+        "returnType": "ShaderInstance",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 803,
+          "end": 806
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 808,
+          "end": 817
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureId",
+            "type": "ResourceLocation",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 819,
+          "end": 826
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 828,
+          "end": 837
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_setShaderTexture",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTextureId",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 839,
+          "end": 844
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderTexture",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "pShaderTexture",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 846,
+          "end": 849
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setProjectionMatrix",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pProjectionMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pVertexSorting",
+            "type": "VertexSorting",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 851,
+          "end": 863
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setInverseViewRotationMatrix",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRotationMatrix",
+            "type": "Matrix3f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 865,
+          "end": 875
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setTextureMatrix",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTextureMatrix",
+            "type": "Matrix4f",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 877,
+          "end": 887
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "resetTextureMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 889,
+          "end": 898
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyModelViewMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 900,
+          "end": 910
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "backupProjectionMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 912,
+          "end": 921
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_backupProjectionMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 923,
+          "end": 926
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "restoreProjectionMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 928,
+          "end": 937
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "_restoreProjectionMatrix",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 939,
+          "end": 942
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProjectionMatrix",
+        "returnType": "Matrix4f",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 944,
+          "end": 947
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getInverseViewRotationMatrix",
+        "returnType": "Matrix3f",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 949,
+          "end": 952
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModelViewMatrix",
+        "returnType": "Matrix4f",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 954,
+          "end": 957
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getModelViewStack",
+        "returnType": "PoseStack",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 959,
+          "end": 961
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTextureMatrix",
+        "returnType": "Matrix4f",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 963,
+          "end": 966
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setShaderGameTime",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pTickTime",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTicks",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 985,
+          "end": 995
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getShaderGameTime",
+        "returnType": "float",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 997,
+          "end": 1000
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getVertexSorting",
+        "returnType": "VertexSorting",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 1002,
+          "end": 1005
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "MINIMUM_ATLAS_TEXTURE_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "1024",
+        "lineRange": {
+          "start": 51,
+          "end": 51
+        }
+      },
+      {
+        "name": "isReplayingQueue",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 52,
+          "end": 52
+        }
+      },
+      {
+        "name": "gameThread",
+        "type": "Thread",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "renderThread",
+        "type": "Thread",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "MAX_SUPPORTED_TEXTURE_SIZE",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "-1",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "isInInit",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "lastDrawTime",
+        "type": "double",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "Double.MIN_VALUE",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "vertexSorting",
+        "type": "VertexSorting",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "VertexSorting.DISTANCE_TO_ORIGIN",
+        "lineRange": {
+          "start": 80,
+          "end": 80
+        }
+      },
+      {
+        "name": "savedVertexSorting",
+        "type": "VertexSorting",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "VertexSorting.DISTANCE_TO_ORIGIN",
+        "lineRange": {
+          "start": 81,
+          "end": 81
+        }
+      },
+      {
+        "name": "shaderTextures",
+        "type": "int[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new int[12]",
+        "lineRange": {
+          "start": 85,
+          "end": 85
+        }
+      },
+      {
+        "name": "shaderColor",
+        "type": "float[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new float[]{1.0F, 1.0F, 1.0F, 1.0F}",
+        "lineRange": {
+          "start": 86,
+          "end": 86
+        }
+      },
+      {
+        "name": "shaderGlintAlpha",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 87,
+          "end": 87
+        }
+      },
+      {
+        "name": "shaderFogStart",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 88,
+          "end": 88
+        }
+      },
+      {
+        "name": "shaderFogEnd",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 89,
+          "end": 89
+        }
+      },
+      {
+        "name": "shaderFogColor",
+        "type": "float[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new float[]{0.0F, 0.0F, 0.0F, 0.0F}",
+        "lineRange": {
+          "start": 90,
+          "end": 90
+        }
+      },
+      {
+        "name": "shaderFogShape",
+        "type": "FogShape",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "FogShape.SPHERE",
+        "lineRange": {
+          "start": 91,
+          "end": 91
+        }
+      },
+      {
+        "name": "shaderLightDirections",
+        "type": "Vector3f[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new Vector3f[2]",
+        "lineRange": {
+          "start": 92,
+          "end": 92
+        }
+      },
+      {
+        "name": "shaderGameTime",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 93,
+          "end": 93
+        }
+      },
+      {
+        "name": "shaderLineWidth",
+        "type": "float",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "1.0F",
+        "lineRange": {
+          "start": 94,
+          "end": 94
+        }
+      },
+      {
+        "name": "apiDescription",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "\"Unknown\"",
+        "lineRange": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      {
+        "name": "shader",
+        "type": "ShaderInstance",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 97,
+          "end": 97
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AutoStorageIndexBuffer",
+        "fullName": "com.mojang.blaze3d.systems.RenderSystem.AutoStorageIndexBuffer",
+        "packageName": "com.mojang.blaze3d.systems",
+        "filePath": "/com\\mojang\\blaze3d\\systems\\RenderSystem.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Queues",
+          "com.mojang.blaze3d.DontObfuscate",
+          "com.mojang.blaze3d.pipeline.RenderCall",
+          "com.mojang.blaze3d.platform.GLX",
+          "com.mojang.blaze3d.platform.GlStateManager",
+          "com.mojang.blaze3d.shaders.FogShape",
+          "com.mojang.blaze3d.vertex.PoseStack",
+          "com.mojang.blaze3d.vertex.Tesselator",
+          "com.mojang.blaze3d.vertex.VertexFormat",
+          "com.mojang.blaze3d.vertex.VertexSorting",
+          "com.mojang.logging.LogUtils",
+          "java.nio.ByteBuffer",
+          "java.nio.FloatBuffer",
+          "java.nio.IntBuffer",
+          "java.util.Locale",
+          "java.util.concurrent.ConcurrentLinkedQueue",
+          "java.util.concurrent.atomic.AtomicBoolean",
+          "java.util.concurrent.atomic.AtomicLong",
+          "java.util.function.Consumer",
+          "java.util.function.IntConsumer",
+          "java.util.function.IntSupplier",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.client.GraphicsStatus",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.OptionInstance",
+          "net.minecraft.client.renderer.ShaderInstance",
+          "net.minecraft.client.renderer.texture.AbstractTexture",
+          "net.minecraft.client.renderer.texture.TextureManager",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.util.Mth",
+          "net.minecraft.util.TimeSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.joml.Matrix3f",
+          "org.joml.Matrix4f",
+          "org.joml.Vector3f",
+          "org.lwjgl.glfw.GLFW",
+          "org.lwjgl.glfw.GLFWErrorCallbackI",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AutoStorageIndexBuffer",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pVertexStride",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pIndexStride",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pGenerator",
+                "type": "RenderSystem.AutoStorageIndexBuffer.IndexGenerator",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1016,
+              "end": 1020
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "hasStorage",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1022,
+              "end": 1024
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "bind",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pIndex",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1026,
+              "end": 1033
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "ensureStorage",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pNeededIndexCount",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 1035,
+              "end": 1057
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "vertexStride",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1009,
+              "end": 1009
+            }
+          },
+          {
+            "name": "indexStride",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1010,
+              "end": 1010
+            }
+          },
+          {
+            "name": "generator",
+            "type": "RenderSystem.AutoStorageIndexBuffer.IndexGenerator",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1011,
+              "end": 1011
+            }
+          },
+          {
+            "name": "name",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1012,
+              "end": 1012
+            }
+          },
+          {
+            "name": "type",
+            "type": "VertexFormat.IndexType",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "VertexFormat.IndexType.SHORT",
+            "lineRange": {
+              "start": 1013,
+              "end": 1013
+            }
+          },
+          {
+            "name": "indexCount",
+            "type": "int",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 1014,
+              "end": 1014
+            }
+          }
+        ],
+        "innerClasses": [
+          {
+            "className": "IndexGenerator",
+            "fullName": "com.mojang.blaze3d.systems.RenderSystem.AutoStorageIndexBuffer.IndexGenerator",
+            "packageName": "com.mojang.blaze3d.systems",
+            "filePath": "/com\\mojang\\blaze3d\\systems\\RenderSystem.java",
+            "classType": "interface",
+            "modifiers": [],
+            "superClass": "",
+            "interfaces": [],
+            "imports": [
+              "com.google.common.collect.Queues",
+              "com.mojang.blaze3d.DontObfuscate",
+              "com.mojang.blaze3d.pipeline.RenderCall",
+              "com.mojang.blaze3d.platform.GLX",
+              "com.mojang.blaze3d.platform.GlStateManager",
+              "com.mojang.blaze3d.shaders.FogShape",
+              "com.mojang.blaze3d.vertex.PoseStack",
+              "com.mojang.blaze3d.vertex.Tesselator",
+              "com.mojang.blaze3d.vertex.VertexFormat",
+              "com.mojang.blaze3d.vertex.VertexSorting",
+              "com.mojang.logging.LogUtils",
+              "java.nio.ByteBuffer",
+              "java.nio.FloatBuffer",
+              "java.nio.IntBuffer",
+              "java.util.Locale",
+              "java.util.concurrent.ConcurrentLinkedQueue",
+              "java.util.concurrent.atomic.AtomicBoolean",
+              "java.util.concurrent.atomic.AtomicLong",
+              "java.util.function.Consumer",
+              "java.util.function.IntConsumer",
+              "java.util.function.IntSupplier",
+              "java.util.function.Supplier",
+              "javax.annotation.Nullable",
+              "net.minecraft.Util",
+              "net.minecraft.client.GraphicsStatus",
+              "net.minecraft.client.Minecraft",
+              "net.minecraft.client.OptionInstance",
+              "net.minecraft.client.renderer.ShaderInstance",
+              "net.minecraft.client.renderer.texture.AbstractTexture",
+              "net.minecraft.client.renderer.texture.TextureManager",
+              "net.minecraft.resources.ResourceLocation",
+              "net.minecraft.util.Mth",
+              "net.minecraft.util.TimeSource",
+              "net.minecraftforge.api.distmarker.Dist",
+              "net.minecraftforge.api.distmarker.OnlyIn",
+              "org.joml.Matrix3f",
+              "org.joml.Matrix4f",
+              "org.joml.Vector3f",
+              "org.lwjgl.glfw.GLFW",
+              "org.lwjgl.glfw.GLFWErrorCallbackI",
+              "org.slf4j.Logger"
+            ],
+            "classComment": "",
+            "methods": [
+              {
+                "name": "accept",
+                "returnType": "void",
+                "parameters": [
+                  {
+                    "name": "pConsumer",
+                    "type": "it.unimi.dsi.fastutil.ints.IntConsumer",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  },
+                  {
+                    "name": "pIndex",
+                    "type": "int",
+                    "isVarArgs": false,
+                    "isFinal": false
+                  }
+                ],
+                "modifiers": [],
+                "comment": "",
+                "javadocTags": [],
+                "exceptions": [],
+                "lineRange": {
+                  "start": 1077,
+                  "end": 1077
+                },
+                "isConstructor": false
+              }
+            ],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 1076,
+              "end": 1078
+            },
+            "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/RenderSystem/AutoStorageIndexBuffer/IndexGenerator.java"
+          }
+        ],
+        "lineRange": {
+          "start": 1008,
+          "end": 1079
+        },
+        "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/RenderSystem/AutoStorageIndexBuffer.java"
+      }
+    ],
+    "lineRange": {
+      "start": 47,
+      "end": 1080
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/RenderSystem.java"
+  },
+  "com.mojang.blaze3d.systems.TimerQuery": {
+    "className": "TimerQuery",
+    "fullName": "com.mojang.blaze3d.systems.TimerQuery",
+    "packageName": "com.mojang.blaze3d.systems",
+    "filePath": "/com\\mojang\\blaze3d\\systems\\TimerQuery.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.Optional",
+      "javax.annotation.Nullable",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.lwjgl.opengl.ARBTimerQuery",
+      "org.lwjgl.opengl.GL",
+      "org.lwjgl.opengl.GL32C"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getInstance",
+        "returnType": "Optional<TimerQuery>",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "beginProfile",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "nextQueryName",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "FrameProfile",
+        "fullName": "com.mojang.blaze3d.systems.TimerQuery.FrameProfile",
+        "packageName": "com.mojang.blaze3d.systems",
+        "filePath": "/com\\mojang\\blaze3d\\systems\\TimerQuery.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.Optional",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.lwjgl.opengl.ARBTimerQuery",
+          "org.lwjgl.opengl.GL",
+          "org.lwjgl.opengl.GL32C"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "FrameProfile",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pQueryName",
+                "type": "int",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 48,
+              "end": 50
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "cancel",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 52,
+              "end": 58
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "isDone",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 60,
+              "end": 71
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "get",
+            "returnType": "long",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 73,
+              "end": 81
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "NO_RESULT",
+            "type": "long",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "0L",
+            "lineRange": {
+              "start": 43,
+              "end": 43
+            }
+          },
+          {
+            "name": "CANCELLED_RESULT",
+            "type": "long",
+            "modifiers": [
+              "private",
+              "static",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "-1L",
+            "lineRange": {
+              "start": 44,
+              "end": 44
+            }
+          },
+          {
+            "name": "queryName",
+            "type": "int",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 45,
+              "end": 45
+            }
+          },
+          {
+            "name": "result",
+            "type": "long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 46,
+              "end": 46
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 42,
+          "end": 82
+        },
+        "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/TimerQuery/FrameProfile.java"
+      },
+      {
+        "className": "TimerQueryLazyLoader",
+        "fullName": "com.mojang.blaze3d.systems.TimerQuery.TimerQueryLazyLoader",
+        "packageName": "com.mojang.blaze3d.systems",
+        "filePath": "/com\\mojang\\blaze3d\\systems\\TimerQuery.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.Optional",
+          "javax.annotation.Nullable",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.lwjgl.opengl.ARBTimerQuery",
+          "org.lwjgl.opengl.GL",
+          "org.lwjgl.opengl.GL32C"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "TimerQueryLazyLoader",
+            "returnType": "",
+            "parameters": [],
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 88,
+              "end": 89
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "instantiate",
+            "returnType": "TimerQuery",
+            "parameters": [],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 92,
+              "end": 94
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 85,
+          "end": 95
+        },
+        "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/TimerQuery/TimerQueryLazyLoader.java"
+      }
+    ],
+    "lineRange": {
+      "start": 12,
+      "end": 96
+    },
+    "sourceFilePath": "/java-sources/com/mojang/blaze3d/systems/TimerQuery.java"
+  }
+}

@@ -1,0 +1,1909 @@
+{
+  "net.minecraft.commands.arguments.blocks.BlockInput": {
+    "className": "BlockInput",
+    "fullName": "net.minecraft.commands.arguments.blocks.BlockInput",
+    "packageName": "net.minecraft.commands.arguments.blocks",
+    "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockInput.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "Predicate<BlockInWorld>"
+    ],
+    "imports": [
+      "java.util.Set",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.pattern.BlockInWorld",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockInput",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pProperties",
+            "type": "Set<Property<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 26
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getState",
+        "returnType": "BlockState",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 30
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pBlock",
+            "type": "BlockInWorld",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "test",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "place",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFlags",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 60,
+          "end": 78
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "state",
+        "type": "BlockState",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        }
+      },
+      {
+        "name": "tag",
+        "type": "CompoundTag",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 16,
+      "end": 79
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockInput.java"
+  },
+  "net.minecraft.commands.arguments.blocks.BlockPredicateArgument": {
+    "className": "BlockPredicateArgument",
+    "fullName": "net.minecraft.commands.arguments.blocks.BlockPredicateArgument",
+    "packageName": "net.minecraft.commands.arguments.blocks",
+    "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockPredicateArgument.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ArgumentType<BlockPredicateArgument.Result>"
+    ],
+    "imports": [
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.Map",
+      "java.util.Set",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Predicate",
+      "javax.annotation.Nullable",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.pattern.BlockInWorld",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockPredicateArgument",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "CommandBuildContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "blockPredicate",
+        "returnType": "BlockPredicateArgument",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "CommandBuildContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlockPredicate",
+        "returnType": "Predicate<BlockInWorld>",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 53,
+          "end": 55
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExamples",
+        "returnType": "Collection<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 63
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blocks",
+        "type": "HolderLookup<Block>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "BlockPredicate",
+        "fullName": "net.minecraft.commands.arguments.blocks.BlockPredicateArgument.BlockPredicate",
+        "packageName": "net.minecraft.commands.arguments.blocks",
+        "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockPredicateArgument.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "BlockPredicateArgument.Result"
+        ],
+        "imports": [
+          "com.mojang.brigadier.StringReader",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "com.mojang.brigadier.context.CommandContext",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.suggestion.Suggestions",
+          "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.core.HolderLookup",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtUtils",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.pattern.BlockInWorld",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "BlockPredicate",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pState",
+                "type": "BlockState",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pProperties",
+                "type": "Set<Property<?>>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNbt",
+                "type": "CompoundTag",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 71,
+              "end": 75
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "test",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pBlock",
+                "type": "BlockInWorld",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 77,
+              "end": 95
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "requiresNbt",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 97,
+              "end": 99
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "state",
+            "type": "BlockState",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 66,
+              "end": 66
+            }
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 69,
+              "end": 69
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 65,
+          "end": 100
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockPredicateArgument/BlockPredicate.java"
+      },
+      {
+        "className": "Result",
+        "fullName": "net.minecraft.commands.arguments.blocks.BlockPredicateArgument.Result",
+        "packageName": "net.minecraft.commands.arguments.blocks",
+        "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockPredicateArgument.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "Predicate<BlockInWorld>",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.StringReader",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "com.mojang.brigadier.context.CommandContext",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.suggestion.Suggestions",
+          "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.core.HolderLookup",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtUtils",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.pattern.BlockInWorld",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "requiresNbt",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 103,
+              "end": 103
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 102,
+          "end": 104
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockPredicateArgument/Result.java"
+      },
+      {
+        "className": "TagPredicate",
+        "fullName": "net.minecraft.commands.arguments.blocks.BlockPredicateArgument.TagPredicate",
+        "packageName": "net.minecraft.commands.arguments.blocks",
+        "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockPredicateArgument.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [
+          "BlockPredicateArgument.Result"
+        ],
+        "imports": [
+          "com.mojang.brigadier.StringReader",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "com.mojang.brigadier.context.CommandContext",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.suggestion.Suggestions",
+          "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.Map",
+          "java.util.Set",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.function.Predicate",
+          "javax.annotation.Nullable",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.core.HolderLookup",
+          "net.minecraft.core.HolderSet",
+          "net.minecraft.core.registries.Registries",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtUtils",
+          "net.minecraft.world.level.block.Block",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.world.level.block.state.BlockState",
+          "net.minecraft.world.level.block.state.pattern.BlockInWorld",
+          "net.minecraft.world.level.block.state.properties.Property"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "TagPredicate",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pTag",
+                "type": "HolderSet<Block>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "param",
+                "type": "Object",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pVagueProperties",
+                "type": "String>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pNbt",
+                "type": "CompoundTag",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 112,
+              "end": 116
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "test",
+            "returnType": "boolean",
+            "parameters": [
+              {
+                "name": "pBlock",
+                "type": "BlockInWorld",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 118,
+              "end": 146
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "requiresNbt",
+            "returnType": "boolean",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 148,
+              "end": 150
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "tag",
+            "type": "HolderSet<Block>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 107,
+              "end": 107
+            }
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 109,
+              "end": 109
+            }
+          },
+          {
+            "name": "vagueProperties",
+            "type": "Map<String, String>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 110,
+              "end": 110
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 106,
+          "end": 151
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockPredicateArgument/TagPredicate.java"
+      }
+    ],
+    "lineRange": {
+      "start": 29,
+      "end": 152
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockPredicateArgument.java"
+  },
+  "net.minecraft.commands.arguments.blocks.BlockStateArgument": {
+    "className": "BlockStateArgument",
+    "fullName": "net.minecraft.commands.arguments.blocks.BlockStateArgument",
+    "packageName": "net.minecraft.commands.arguments.blocks",
+    "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockStateArgument.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ArgumentType<BlockInput>"
+    ],
+    "imports": [
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.concurrent.CompletableFuture",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.world.level.block.Block"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockStateArgument",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBuildContext",
+            "type": "CommandBuildContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 24
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "block",
+        "returnType": "BlockStateArgument",
+        "parameters": [
+          {
+            "name": "pBuildContext",
+            "type": "CommandBuildContext",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "BlockInput",
+        "parameters": [
+          {
+            "name": "pReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 30,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBlock",
+        "returnType": "BlockInput",
+        "parameters": [
+          {
+            "name": "pContext",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 37
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExamples",
+        "returnType": "Collection<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 45
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "blocks",
+        "type": "HolderLookup<Block>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockStateArgument.java"
+  },
+  "net.minecraft.commands.arguments.blocks.BlockStateParser": {
+    "className": "BlockStateParser",
+    "fullName": "net.minecraft.commands.arguments.blocks.BlockStateParser",
+    "packageName": "net.minecraft.commands.arguments.blocks",
+    "filePath": "/net\\minecraft\\commands\\arguments\\blocks\\BlockStateParser.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Maps",
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType",
+      "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType",
+      "com.mojang.brigadier.exceptions.DynamicCommandExceptionType",
+      "com.mojang.brigadier.exceptions.SimpleCommandExceptionType",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "com.mojang.datafixers.util.Either",
+      "java.util.Locale",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Function",
+      "javax.annotation.Nullable",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderLookup",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.TagParser",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.world.level.block.Block",
+      "net.minecraft.world.level.block.state.BlockState",
+      "net.minecraft.world.level.block.state.StateDefinition",
+      "net.minecraft.world.level.block.state.properties.Property"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "BlockStateParser",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pBlocks",
+            "type": "HolderLookup<Block>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pForTesting",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowNbt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 80,
+          "end": 85
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "parseForTesting",
+        "returnType": "Either<BlockStateParser.BlockResult, BlockStateParser.TagResult>",
+        "parameters": [
+          {
+            "name": "pLookup",
+            "type": "HolderLookup<Block>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInput",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowNbt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 104,
+          "end": 106
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parseForTesting",
+        "returnType": "Either<BlockStateParser.BlockResult, BlockStateParser.TagResult>",
+        "parameters": [
+          {
+            "name": "pLookup",
+            "type": "HolderLookup<Block>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pReader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowNbt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 108,
+          "end": 119
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "fillSuggestions",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "pLookup",
+            "type": "HolderLookup<Block>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBuilder",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pForTesting",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAllowNbt",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 132
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 134,
+          "end": 134
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestPropertyNameOrEnd",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234684_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 164,
+          "end": 170
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestVaguePropertyNameOrEnd",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234715_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 172,
+          "end": 178
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestPropertyName",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234729_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 180,
+          "end": 190
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestVaguePropertyName",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234731_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 192,
+          "end": 205
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOpenNbt",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234733_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 207,
+          "end": 207
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasBlockEntity",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 215,
+          "end": 229
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestEquals",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234735_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 231,
+          "end": 237
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestNextPropertyOrEnd",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234737_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 239,
+          "end": 249
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestVaguePropertyValue",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "pBuilder",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPropertyName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 290
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOpenVaguePropertiesOrNbt",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234739_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 292,
+          "end": 292
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestOpenPropertiesOrNbt",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234741_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 318,
+          "end": 541
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestTag",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234743_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 332,
+          "end": 334
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestItem",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234745_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 336,
+          "end": 338
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "suggestBlockIdOrTag",
+        "returnType": "CompletableFuture<Suggestions>",
+        "parameters": [
+          {
+            "name": "p_234747_",
+            "type": "SuggestionsBuilder",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 340,
+          "end": 344
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readBlock",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 346,
+          "end": 355
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readTag",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 357,
+          "end": 370
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readProperties",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 372,
+          "end": 430
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readVagueProperties",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 432,
+          "end": 490
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "readNbt",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 492,
+          "end": 494
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "serialize",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 507,
+          "end": 528
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "BlockResult",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "blockState",
+            "type": "BlockState",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "properties",
+            "type": "Comparable<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 536,
+          "end": 537
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "TagResult",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "HolderSet<Block>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "vagueProperties",
+            "type": "String>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 539,
+          "end": 540
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SYNTAX_START_PROPERTIES",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'['",
+        "lineRange": {
+          "start": 56,
+          "end": 56
+        }
+      },
+      {
+        "name": "SYNTAX_START_NBT",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'{'",
+        "lineRange": {
+          "start": 57,
+          "end": 57
+        }
+      },
+      {
+        "name": "SYNTAX_END_PROPERTIES",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "']'",
+        "lineRange": {
+          "start": 58,
+          "end": 58
+        }
+      },
+      {
+        "name": "SYNTAX_EQUALS",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'='",
+        "lineRange": {
+          "start": 59,
+          "end": 59
+        }
+      },
+      {
+        "name": "SYNTAX_PROPERTY_SEPARATOR",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "','",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      },
+      {
+        "name": "SYNTAX_TAG",
+        "type": "char",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "'#'",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      },
+      {
+        "name": "SUGGEST_NOTHING",
+        "type": "Function<SuggestionsBuilder, CompletableFuture<Suggestions>>",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "SuggestionsBuilder::buildFuture",
+        "lineRange": {
+          "start": 62,
+          "end": 62
+        }
+      },
+      {
+        "name": "blocks",
+        "type": "HolderLookup<Block>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 63,
+          "end": 63
+        }
+      },
+      {
+        "name": "reader",
+        "type": "StringReader",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 64,
+          "end": 64
+        }
+      },
+      {
+        "name": "forTesting",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 65,
+          "end": 65
+        }
+      },
+      {
+        "name": "allowNbt",
+        "type": "boolean",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 66,
+          "end": 66
+        }
+      },
+      {
+        "name": "definition",
+        "type": "StateDefinition<Block, BlockState>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 71,
+          "end": 71
+        }
+      },
+      {
+        "name": "state",
+        "type": "BlockState",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 73,
+          "end": 73
+        }
+      },
+      {
+        "name": "nbt",
+        "type": "CompoundTag",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 75,
+          "end": 75
+        }
+      },
+      {
+        "name": "tag",
+        "type": "HolderSet<Block>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 77,
+          "end": 77
+        }
+      },
+      {
+        "name": "suggestions",
+        "type": "Function<SuggestionsBuilder, CompletableFuture<Suggestions>>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "SUGGEST_NOTHING",
+        "lineRange": {
+          "start": 78,
+          "end": 78
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 35,
+      "end": 541
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/commands/arguments/blocks/BlockStateParser.java"
+  }
+}

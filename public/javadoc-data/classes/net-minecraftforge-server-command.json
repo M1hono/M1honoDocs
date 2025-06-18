@@ -1,0 +1,1865 @@
+{
+  "net.minecraftforge.server.command.ChunkGenWorker": {
+    "className": "ChunkGenWorker",
+    "fullName": "net.minecraftforge.server.command.ChunkGenWorker",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\ChunkGenWorker.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "IWorker"
+    ],
+    "imports": [
+      "java.util.ArrayDeque",
+      "java.util.Queue",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.world.level.chunk.ChunkStatus",
+      "net.minecraft.world.level.chunk.ChunkAccess",
+      "net.minecraftforge.common.WorldWorkerManager.IWorker"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ChunkGenWorker",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "listener",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "start",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "total",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dim",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "interval",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 42
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "buildQueue",
+        "returnType": "Queue<BlockPos>",
+        "parameters": [],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getStartMessage",
+        "returnType": "MutableComponent",
+        "parameters": [
+          {
+            "name": "sender",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 73
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "hasWork",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 76,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doWork",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 82,
+          "end": 137
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "listener",
+        "type": "CommandSourceStack",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "start",
+        "type": "BlockPos",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "total",
+        "type": "int",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "dim",
+        "type": "ServerLevel",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "queue",
+        "type": "Queue<BlockPos>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      },
+      {
+        "name": "notificationFrequency",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "lastNotification",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "lastNotifcationTime",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      },
+      {
+        "name": "genned",
+        "type": "int",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "0",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "keepingLoaded",
+        "type": "Boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 138
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ChunkGenWorker.java"
+  },
+  "net.minecraftforge.server.command.CommandHelper": {
+    "className": "CommandHelper",
+    "fullName": "net.minecraftforge.server.command.CommandHelper",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\CommandHelper.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.Command",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.builder.LiteralArgumentBuilder",
+      "com.mojang.brigadier.builder.RequiredArgumentBuilder",
+      "com.mojang.brigadier.suggestion.SuggestionProvider",
+      "com.mojang.brigadier.tree.ArgumentCommandNode",
+      "com.mojang.brigadier.tree.CommandNode",
+      "com.mojang.brigadier.tree.LiteralCommandNode",
+      "com.mojang.brigadier.tree.RootCommandNode",
+      "java.util.Map",
+      "java.util.function.Function"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CommandHelper",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 30,
+          "end": 32
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 28,
+      "end": 111
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/CommandHelper.java"
+  },
+  "net.minecraftforge.server.command.ConfigCommand": {
+    "className": "ConfigCommand",
+    "fullName": "net.minecraftforge.server.command.ConfigCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\ConfigCommand.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.CommandDispatcher",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.context.CommandContext",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.network.chat.ClickEvent",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.fml.config.ConfigTracker",
+      "net.minecraftforge.fml.config.ModConfig",
+      "java.io.File"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "register",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "dispatcher",
+            "type": "CommandDispatcher<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 27
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "ShowFile",
+        "fullName": "net.minecraftforge.server.command.ConfigCommand.ShowFile",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\ConfigCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.CommandDispatcher",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "com.mojang.brigadier.context.CommandContext",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.ChatFormatting",
+          "net.minecraft.network.chat.ClickEvent",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.fml.config.ConfigTracker",
+          "net.minecraftforge.fml.config.ModConfig",
+          "java.io.File"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "showFile",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "context",
+                "type": "CommandContext<CommandSourceStack>",
+                "isVarArgs": false,
+                "isFinal": true
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 40,
+              "end": 56
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 29,
+          "end": 57
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ConfigCommand/ShowFile.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 58
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ConfigCommand.java"
+  },
+  "net.minecraftforge.server.command.DimensionsCommand": {
+    "className": "DimensionsCommand",
+    "fullName": "net.minecraftforge.server.command.DimensionsCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\DimensionsCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.core.Registry",
+      "net.minecraft.world.level.dimension.DimensionType",
+      "net.minecraft.server.level.ServerLevel",
+      "java.util.ArrayList",
+      "java.util.HashMap",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.stream.Collectors",
+      "com.mojang.brigadier.builder.ArgumentBuilder"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 25,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/DimensionsCommand.java"
+  },
+  "net.minecraftforge.server.command.EntityCommand": {
+    "className": "EntityCommand",
+    "fullName": "net.minecraftforge.server.command.EntityCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\EntityCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Objects",
+      "java.util.Set",
+      "java.util.stream.Collectors",
+      "com.google.common.collect.Maps",
+      "com.mojang.brigadier.arguments.StringArgumentType",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.exceptions.DynamicCommandExceptionType",
+      "com.mojang.brigadier.exceptions.SimpleCommandExceptionType",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.commands.arguments.DimensionArgument",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.world.level.ChunkPos",
+      "net.minecraft.world.level.Level",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "org.apache.commons.lang3.tuple.MutablePair",
+      "org.apache.commons.lang3.tuple.Pair"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "EntityListCommand",
+        "fullName": "net.minecraftforge.server.command.EntityCommand.EntityListCommand",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\EntityCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Objects",
+          "java.util.Set",
+          "java.util.stream.Collectors",
+          "com.google.common.collect.Maps",
+          "com.mojang.brigadier.arguments.StringArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.exceptions.DynamicCommandExceptionType",
+          "com.mojang.brigadier.exceptions.SimpleCommandExceptionType",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.commands.SharedSuggestionProvider",
+          "net.minecraft.commands.arguments.DimensionArgument",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceKey",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraft.world.level.ChunkPos",
+          "net.minecraft.world.level.Level",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "org.apache.commons.lang3.tuple.MutablePair",
+          "org.apache.commons.lang3.tuple.Pair"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "execute",
+            "returnType": "int",
+            "parameters": [
+              {
+                "name": "sender",
+                "type": "CommandSourceStack",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "filter",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "dim",
+                "type": "ResourceKey<Level>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "private",
+              "static"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [
+              "CommandSyntaxException"
+            ],
+            "lineRange": {
+              "start": 64,
+              "end": 136
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 45,
+          "end": 137
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/EntityCommand/EntityListCommand.java"
+      }
+    ],
+    "lineRange": {
+      "start": 37,
+      "end": 139
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/EntityCommand.java"
+  },
+  "net.minecraftforge.server.command.EnumArgument": {
+    "className": "EnumArgument",
+    "fullName": "net.minecraftforge.server.command.EnumArgument",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\EnumArgument.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.gson.JsonObject",
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "net.minecraft.commands.CommandBuildContext",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.commands.synchronization.ArgumentTypeInfo",
+      "net.minecraft.network.FriendlyByteBuf",
+      "net.minecraft.network.chat.Component",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "EnumArgument",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "enumClass",
+            "type": "Class<T>",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 38
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "parse",
+        "returnType": "T",
+        "parameters": [
+          {
+            "name": "reader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 41,
+          "end": 48
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExamples",
+        "returnType": "Collection<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 56,
+          "end": 58
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "enumClass",
+        "type": "Class<T>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Info",
+        "fullName": "net.minecraftforge.server.command.EnumArgument.Info",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\EnumArgument.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.gson.JsonObject",
+          "com.mojang.brigadier.StringReader",
+          "com.mojang.brigadier.arguments.ArgumentType",
+          "com.mojang.brigadier.context.CommandContext",
+          "com.mojang.brigadier.exceptions.CommandSyntaxException",
+          "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType",
+          "com.mojang.brigadier.suggestion.Suggestions",
+          "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+          "net.minecraft.commands.CommandBuildContext",
+          "net.minecraft.commands.SharedSuggestionProvider",
+          "net.minecraft.commands.synchronization.ArgumentTypeInfo",
+          "net.minecraft.network.FriendlyByteBuf",
+          "net.minecraft.network.chat.Component",
+          "java.util.Arrays",
+          "java.util.Collection",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.stream.Collectors",
+          "java.util.stream.Stream"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "serializeToNetwork",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "template",
+                "type": "Template",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 63,
+              "end": 66
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "deserializeFromNetwork",
+            "returnType": "Template",
+            "parameters": [
+              {
+                "name": "buffer",
+                "type": "FriendlyByteBuf",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 70,
+              "end": 81
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "serializeToJson",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "template",
+                "type": "Template",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "json",
+                "type": "JsonObject",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 84,
+              "end": 87
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "unpack",
+            "returnType": "Template",
+            "parameters": [
+              {
+                "name": "argument",
+                "type": "EnumArgument<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 90,
+              "end": 93
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [
+          {
+            "className": "Template",
+            "fullName": "net.minecraftforge.server.command.EnumArgument.Info.Template",
+            "packageName": "net.minecraftforge.server.command",
+            "filePath": "/net\\minecraftforge\\server\\command\\EnumArgument.java",
+            "classType": "class",
+            "modifiers": [
+              "public"
+            ],
+            "superClass": "",
+            "interfaces": [
+              "ArgumentTypeInfo.Template<EnumArgument<T>>"
+            ],
+            "imports": [
+              "com.google.gson.JsonObject",
+              "com.mojang.brigadier.StringReader",
+              "com.mojang.brigadier.arguments.ArgumentType",
+              "com.mojang.brigadier.context.CommandContext",
+              "com.mojang.brigadier.exceptions.CommandSyntaxException",
+              "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType",
+              "com.mojang.brigadier.suggestion.Suggestions",
+              "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+              "net.minecraft.commands.CommandBuildContext",
+              "net.minecraft.commands.SharedSuggestionProvider",
+              "net.minecraft.commands.synchronization.ArgumentTypeInfo",
+              "net.minecraft.network.FriendlyByteBuf",
+              "net.minecraft.network.chat.Component",
+              "java.util.Arrays",
+              "java.util.Collection",
+              "java.util.concurrent.CompletableFuture",
+              "java.util.stream.Collectors",
+              "java.util.stream.Stream"
+            ],
+            "classComment": "",
+            "methods": [],
+            "fields": [],
+            "innerClasses": [],
+            "lineRange": {
+              "start": 95,
+              "end": 115
+            },
+            "sourceFilePath": "/java-sources/net/minecraftforge/server/command/EnumArgument/Info/Template.java"
+          }
+        ],
+        "lineRange": {
+          "start": 60,
+          "end": 116
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/EnumArgument/Info.java"
+      }
+    ],
+    "lineRange": {
+      "start": 28,
+      "end": 117
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/EnumArgument.java"
+  },
+  "net.minecraftforge.server.command.ForgeCommand": {
+    "className": "ForgeCommand",
+    "fullName": "net.minecraftforge.server.command.ForgeCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\ForgeCommand.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.CommandDispatcher",
+      "com.mojang.brigadier.builder.LiteralArgumentBuilder",
+      "net.minecraft.commands.CommandSourceStack"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "ForgeCommand",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "dispatcher",
+            "type": "CommandDispatcher<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 26
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 27
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ForgeCommand.java"
+  },
+  "net.minecraftforge.server.command.GenerateCommand": {
+    "className": "GenerateCommand",
+    "fullName": "net.minecraftforge.server.command.GenerateCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\GenerateCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.arguments.IntegerArgumentType",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.context.CommandContext",
+      "net.minecraft.commands.CommandRuntimeException",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.commands.arguments.coordinates.BlockPosArgument",
+      "net.minecraft.commands.arguments.DimensionArgument",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraftforge.common.WorldWorkerManager"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getInt",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 40,
+          "end": 43
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "execute",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "source",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pos",
+            "type": "BlockPos",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "count",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dim",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "interval",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandRuntimeException"
+        ],
+        "lineRange": {
+          "start": 45,
+          "end": 54
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 21,
+      "end": 55
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/GenerateCommand.java"
+  },
+  "net.minecraftforge.server.command.ModIdArgument": {
+    "className": "ModIdArgument",
+    "fullName": "net.minecraftforge.server.command.ModIdArgument",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\ModIdArgument.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "ArgumentType<String>"
+    ],
+    "imports": [
+      "com.mojang.brigadier.StringReader",
+      "com.mojang.brigadier.arguments.ArgumentType",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraftforge.fml.ModContainer",
+      "net.minecraftforge.fml.ModList",
+      "java.util.Arrays",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "modIdArgument",
+        "returnType": "ModIdArgument",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "parse",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "reader",
+            "type": "StringReader",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 32,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getExamples",
+        "returnType": "Collection<String>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 42,
+          "end": 44
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 45
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ModIdArgument.java"
+  },
+  "net.minecraftforge.server.command.ModListCommand": {
+    "className": "ModListCommand",
+    "fullName": "net.minecraftforge.server.command.ModListCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\ModListCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.fml.ModList",
+      "java.util.Locale",
+      "java.util.stream.Collectors"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 17,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/ModListCommand.java"
+  },
+  "net.minecraftforge.server.command.TPSCommand": {
+    "className": "TPSCommand",
+    "fullName": "net.minecraftforge.server.command.TPSCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\TPSCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.text.DecimalFormat",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.commands.arguments.DimensionArgument",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.registries.Registries",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.world.level.dimension.DimensionType",
+      "net.minecraft.server.level.ServerLevel"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "sendTime",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "cs",
+            "type": "CommandSourceStack",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "dim",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 46,
+          "end": 59
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "mean",
+        "returnType": "long",
+        "parameters": [
+          {
+            "name": "values",
+            "type": "long[]",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 61,
+          "end": 67
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "UNLOADED",
+        "type": "long[]",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "new long[] {0}",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 20,
+      "end": 68
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TPSCommand.java"
+  },
+  "net.minecraftforge.server.command.TagsCommand": {
+    "className": "TagsCommand",
+    "fullName": "net.minecraftforge.server.command.TagsCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\TagsCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.arguments.IntegerArgumentType",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "com.mojang.brigadier.context.CommandContext",
+      "com.mojang.brigadier.exceptions.CommandSyntaxException",
+      "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType",
+      "com.mojang.brigadier.exceptions.DynamicCommandExceptionType",
+      "com.mojang.brigadier.suggestion.SuggestionProvider",
+      "com.mojang.brigadier.suggestion.Suggestions",
+      "com.mojang.brigadier.suggestion.SuggestionsBuilder",
+      "com.mojang.datafixers.util.Pair",
+      "net.minecraft.ChatFormatting",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.commands.SharedSuggestionProvider",
+      "net.minecraft.commands.arguments.ResourceKeyArgument",
+      "net.minecraft.commands.arguments.ResourceLocationArgument",
+      "net.minecraft.core.Holder",
+      "net.minecraft.core.HolderSet",
+      "net.minecraft.core.Registry",
+      "net.minecraft.core.RegistryAccess",
+      "net.minecraft.network.chat.*",
+      "net.minecraft.resources.ResourceKey",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraft.tags.TagKey",
+      "net.minecraft.util.Mth",
+      "java.util.Optional",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.function.Function",
+      "java.util.function.Supplier",
+      "java.util.stream.Collectors",
+      "java.util.stream.Stream"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "listTags",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "page",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 109,
+          "end": 131
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "listTagElements",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "page",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 133,
+          "end": 159
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "queryElementTags",
+        "returnType": "int",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "CommandContext<CommandSourceStack>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "page",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "CommandSyntaxException"
+        ],
+        "lineRange": {
+          "start": 161,
+          "end": 189
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "PAGE_SIZE",
+        "type": "long",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "8",
+        "lineRange": {
+          "start": 60,
+          "end": 60
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 58,
+      "end": 265
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TagsCommand.java"
+  },
+  "net.minecraftforge.server.command.TextComponentHelper": {
+    "className": "TextComponentHelper",
+    "fullName": "net.minecraftforge.server.command.TextComponentHelper",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\TextComponentHelper.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.commands.CommandSource",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.network.chat.MutableComponent",
+      "net.minecraft.server.level.ServerPlayer",
+      "net.minecraft.server.network.ServerGamePacketListenerImpl",
+      "net.minecraft.locale.Language",
+      "net.minecraftforge.network.ConnectionType",
+      "net.minecraftforge.network.NetworkHooks",
+      "java.util.Locale"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "TextComponentHelper",
+        "returnType": "",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "createComponentTranslation",
+        "returnType": "MutableComponent",
+        "parameters": [
+          {
+            "name": "source",
+            "type": "CommandSource",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "translation",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "args",
+            "type": "Object[]",
+            "isVarArgs": true,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 27,
+          "end": 34
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isVanillaClient",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "sender",
+            "type": "CommandSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 45
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 46
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TextComponentHelper.java"
+  },
+  "net.minecraftforge.server.command.TrackCommand": {
+    "className": "TrackCommand",
+    "fullName": "net.minecraftforge.server.command.TrackCommand",
+    "packageName": "net.minecraftforge.server.command",
+    "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+    "classType": "class",
+    "modifiers": [],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.brigadier.arguments.IntegerArgumentType",
+      "com.mojang.brigadier.builder.ArgumentBuilder",
+      "java.text.DecimalFormat",
+      "java.util.ArrayList",
+      "java.util.Collections",
+      "java.util.Comparator",
+      "java.util.List",
+      "java.util.function.Function",
+      "net.minecraft.commands.CommandRuntimeException",
+      "net.minecraft.commands.CommandSourceStack",
+      "net.minecraft.commands.Commands",
+      "net.minecraft.world.entity.Entity",
+      "net.minecraft.world.level.block.entity.BlockEntity",
+      "net.minecraft.core.BlockPos",
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.registries.ForgeRegistries",
+      "net.minecraftforge.server.timings.ForgeTimings",
+      "net.minecraftforge.server.timings.TimeTracker"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [
+      {
+        "className": "StartTrackingCommand",
+        "fullName": "net.minecraftforge.server.command.TrackCommand.StartTrackingCommand",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.arguments.IntegerArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "java.text.DecimalFormat",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.function.Function",
+          "net.minecraft.commands.CommandRuntimeException",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "net.minecraftforge.server.timings.ForgeTimings",
+          "net.minecraftforge.server.timings.TimeTracker"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 42,
+          "end": 71
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand/StartTrackingCommand.java"
+      },
+      {
+        "className": "ResetTrackingCommand",
+        "fullName": "net.minecraftforge.server.command.TrackCommand.ResetTrackingCommand",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.arguments.IntegerArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "java.text.DecimalFormat",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.function.Function",
+          "net.minecraft.commands.CommandRuntimeException",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "net.minecraftforge.server.timings.ForgeTimings",
+          "net.minecraftforge.server.timings.TimeTracker"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 73,
+          "end": 94
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand/ResetTrackingCommand.java"
+      },
+      {
+        "className": "TrackResults",
+        "fullName": "net.minecraftforge.server.command.TrackCommand.TrackResults",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.arguments.IntegerArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "java.text.DecimalFormat",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.function.Function",
+          "net.minecraft.commands.CommandRuntimeException",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "net.minecraftforge.server.timings.ForgeTimings",
+          "net.minecraftforge.server.timings.TimeTracker"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 96,
+          "end": 130
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand/TrackResults.java"
+      },
+      {
+        "className": "TrackResultsEntity",
+        "fullName": "net.minecraftforge.server.command.TrackCommand.TrackResultsEntity",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.arguments.IntegerArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "java.text.DecimalFormat",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.function.Function",
+          "net.minecraft.commands.CommandRuntimeException",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "net.minecraftforge.server.timings.ForgeTimings",
+          "net.minecraftforge.server.timings.TimeTracker"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 132,
+          "end": 150
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand/TrackResultsEntity.java"
+      },
+      {
+        "className": "TrackResultsBlockEntity",
+        "fullName": "net.minecraftforge.server.command.TrackCommand.TrackResultsBlockEntity",
+        "packageName": "net.minecraftforge.server.command",
+        "filePath": "/net\\minecraftforge\\server\\command\\TrackCommand.java",
+        "classType": "class",
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.brigadier.arguments.IntegerArgumentType",
+          "com.mojang.brigadier.builder.ArgumentBuilder",
+          "java.text.DecimalFormat",
+          "java.util.ArrayList",
+          "java.util.Collections",
+          "java.util.Comparator",
+          "java.util.List",
+          "java.util.function.Function",
+          "net.minecraft.commands.CommandRuntimeException",
+          "net.minecraft.commands.CommandSourceStack",
+          "net.minecraft.commands.Commands",
+          "net.minecraft.world.entity.Entity",
+          "net.minecraft.world.level.block.entity.BlockEntity",
+          "net.minecraft.core.BlockPos",
+          "net.minecraft.network.chat.Component",
+          "net.minecraftforge.registries.ForgeRegistries",
+          "net.minecraftforge.server.timings.ForgeTimings",
+          "net.minecraftforge.server.timings.TimeTracker"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 152,
+          "end": 170
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand/TrackResultsBlockEntity.java"
+      }
+    ],
+    "lineRange": {
+      "start": 28,
+      "end": 171
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/server/command/TrackCommand.java"
+  }
+}

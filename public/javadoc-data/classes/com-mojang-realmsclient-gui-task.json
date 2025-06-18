@@ -1,0 +1,661 @@
+{
+  "com.mojang.realmsclient.gui.task.DataFetcher": {
+    "className": "DataFetcher",
+    "fullName": "com.mojang.realmsclient.gui.task.DataFetcher",
+    "packageName": "com.mojang.realmsclient.gui.task",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\task\\DataFetcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.datafixers.util.Either",
+      "com.mojang.logging.LogUtils",
+      "java.time.Duration",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.concurrent.Callable",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.concurrent.Executor",
+      "java.util.concurrent.TimeUnit",
+      "java.util.function.Consumer",
+      "javax.annotation.Nullable",
+      "net.minecraft.util.TimeSource",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "DataFetcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pExecutor",
+            "type": "Executor",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pResolution",
+            "type": "TimeUnit",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTimeSource",
+            "type": "TimeSource",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 30
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "executor",
+        "type": "Executor",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "resolution",
+        "type": "TimeUnit",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "timeSource",
+        "type": "TimeSource",
+        "modifiers": [
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "SubscribedTask",
+        "fullName": "com.mojang.realmsclient.gui.task.DataFetcher.SubscribedTask",
+        "packageName": "com.mojang.realmsclient.gui.task",
+        "filePath": "/com\\mojang\\realmsclient\\gui\\task\\DataFetcher.java",
+        "classType": "class",
+        "modifiers": [],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "java.time.Duration",
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.concurrent.Callable",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.TimeUnit",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.TimeSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "SubscribedTask",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pTask",
+                "type": "DataFetcher.Task<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pOutput",
+                "type": "Consumer<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 55,
+              "end": 58
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "update",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 60,
+              "end": 63
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "runCallbackIfNeeded",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 65,
+              "end": 72
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "runCallback",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 74,
+              "end": 81
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "reset",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 83,
+              "end": 86
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "task",
+            "type": "DataFetcher.Task<T>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 51,
+              "end": 51
+            }
+          },
+          {
+            "name": "output",
+            "type": "Consumer<T>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 52,
+              "end": 52
+            }
+          },
+          {
+            "name": "lastCheckTime",
+            "type": "long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "-1L",
+            "lineRange": {
+              "start": 53,
+              "end": 53
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 50,
+          "end": 87
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/task/DataFetcher/SubscribedTask.java"
+      },
+      {
+        "className": "Subscription",
+        "fullName": "com.mojang.realmsclient.gui.task.DataFetcher.Subscription",
+        "packageName": "com.mojang.realmsclient.gui.task",
+        "filePath": "/com\\mojang\\realmsclient\\gui\\task\\DataFetcher.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "java.time.Duration",
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.concurrent.Callable",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.TimeUnit",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.TimeSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "forceUpdate",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 99,
+              "end": 104
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "tick",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 106,
+              "end": 111
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "reset",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 113,
+              "end": 118
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 90,
+          "end": 119
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/task/DataFetcher/Subscription.java"
+      },
+      {
+        "className": "Task",
+        "fullName": "com.mojang.realmsclient.gui.task.DataFetcher.Task",
+        "packageName": "com.mojang.realmsclient.gui.task",
+        "filePath": "/com\\mojang\\realmsclient\\gui\\task\\DataFetcher.java",
+        "classType": "class",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.datafixers.util.Either",
+          "com.mojang.logging.LogUtils",
+          "java.time.Duration",
+          "java.util.ArrayList",
+          "java.util.List",
+          "java.util.concurrent.Callable",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.concurrent.Executor",
+          "java.util.concurrent.TimeUnit",
+          "java.util.function.Consumer",
+          "javax.annotation.Nullable",
+          "net.minecraft.util.TimeSource",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Task",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pId",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pUpdater",
+                "type": "Callable<T>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pPeriod",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pRepeatStrategy",
+                "type": "RepeatedDelayStrategy",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 137,
+              "end": 142
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "updateIfNeeded",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pTime",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 144,
+              "end": 176
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "reset",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 178,
+              "end": 182
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "type": "String",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 127,
+              "end": 127
+            }
+          },
+          {
+            "name": "updater",
+            "type": "Callable<T>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 128,
+              "end": 128
+            }
+          },
+          {
+            "name": "period",
+            "type": "long",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 129,
+              "end": 129
+            }
+          },
+          {
+            "name": "repeatStrategy",
+            "type": "RepeatedDelayStrategy",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 130,
+              "end": 130
+            }
+          },
+          {
+            "name": "pendingTask",
+            "type": "CompletableFuture<DataFetcher.ComputationResult<T>>",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 132,
+              "end": 132
+            }
+          },
+          {
+            "name": "lastResult",
+            "type": "DataFetcher.SuccessfulComputationResult<T>",
+            "modifiers": [],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 134,
+              "end": 134
+            }
+          },
+          {
+            "name": "nextUpdate",
+            "type": "long",
+            "modifiers": [
+              "private"
+            ],
+            "comment": "",
+            "initialValue": "-1L",
+            "lineRange": {
+              "start": 135,
+              "end": 135
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 126,
+          "end": 183
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/task/DataFetcher/Task.java"
+      }
+    ],
+    "lineRange": {
+      "start": 20,
+      "end": 184
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/task/DataFetcher.java"
+  },
+  "com.mojang.realmsclient.gui.task.RepeatedDelayStrategy": {
+    "className": "RepeatedDelayStrategy",
+    "fullName": "com.mojang.realmsclient.gui.task.RepeatedDelayStrategy",
+    "packageName": "com.mojang.realmsclient.gui.task",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\task\\RepeatedDelayStrategy.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "delayCyclesAfterSuccess",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 20,
+          "end": 20
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "delayCyclesAfterFailure",
+        "returnType": "long",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "exponentialBackoff",
+        "returnType": "RepeatedDelayStrategy",
+        "parameters": [
+          {
+            "name": "pMaxFailureDelay",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 41
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 42
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/task/RepeatedDelayStrategy.java"
+  }
+}

@@ -1,0 +1,1503 @@
+{
+  "com.mojang.realmsclient.gui.ErrorCallback": {
+    "className": "ErrorCallback",
+    "fullName": "com.mojang.realmsclient.gui.ErrorCallback",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\ErrorCallback.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.network.chat.Component",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "error",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pError",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 9,
+          "end": 9
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 8,
+      "end": 14
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/ErrorCallback.java"
+  },
+  "com.mojang.realmsclient.gui.RealmsDataFetcher": {
+    "className": "RealmsDataFetcher",
+    "fullName": "com.mojang.realmsclient.gui.RealmsDataFetcher",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsDataFetcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.client.RealmsClient",
+      "com.mojang.realmsclient.dto.RealmsNews",
+      "com.mojang.realmsclient.dto.RealmsNotification",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsServerPlayerLists",
+      "com.mojang.realmsclient.gui.task.DataFetcher",
+      "com.mojang.realmsclient.gui.task.RepeatedDelayStrategy",
+      "com.mojang.realmsclient.util.RealmsPersistence",
+      "java.time.Duration",
+      "java.util.List",
+      "java.util.concurrent.TimeUnit",
+      "net.minecraft.Util",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsDataFetcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pRealmsClient",
+            "type": "RealmsClient",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 38
+        },
+        "isConstructor": true
+      }
+    ],
+    "fields": [
+      {
+        "name": "notificationsTask",
+        "type": "DataFetcher.Task<List<RealmsNotification>>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 21,
+          "end": 21
+        }
+      },
+      {
+        "name": "serverListUpdateTask",
+        "type": "DataFetcher.Task<List<RealmsServer>>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 22,
+          "end": 22
+        }
+      },
+      {
+        "name": "liveStatsTask",
+        "type": "DataFetcher.Task<RealmsServerPlayerLists>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 23,
+          "end": 23
+        }
+      },
+      {
+        "name": "pendingInvitesTask",
+        "type": "DataFetcher.Task<Integer>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 24,
+          "end": 24
+        }
+      },
+      {
+        "name": "trialAvailabilityTask",
+        "type": "DataFetcher.Task<Boolean>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 25,
+          "end": 25
+        }
+      },
+      {
+        "name": "newsTask",
+        "type": "DataFetcher.Task<RealmsNews>",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 26,
+          "end": 26
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 39
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsDataFetcher.java"
+  },
+  "com.mojang.realmsclient.gui.RealmsNewsManager": {
+    "className": "RealmsNewsManager",
+    "fullName": "com.mojang.realmsclient.gui.RealmsNewsManager",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsNewsManager.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.realmsclient.dto.RealmsNews",
+      "com.mojang.realmsclient.util.RealmsPersistence",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsNewsManager",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pNewsLocalStorage",
+            "type": "RealmsPersistence",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 19
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "hasUnreadNews",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 21,
+          "end": 23
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "newsLink",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 25,
+          "end": 27
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateUnreadNews",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pRealmsNews",
+            "type": "RealmsNews",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 29,
+          "end": 33
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "newsLocalStorage",
+        "type": "RealmsPersistence",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 10,
+          "end": 10
+        }
+      },
+      {
+        "name": "hasUnreadNews",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 11,
+          "end": 11
+        }
+      },
+      {
+        "name": "newsLink",
+        "type": "String",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 9,
+      "end": 48
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsNewsManager.java"
+  },
+  "com.mojang.realmsclient.gui.RealmsServerList": {
+    "className": "RealmsServerList",
+    "fullName": "com.mojang.realmsclient.gui.RealmsServerList",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsServerList.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.collect.Sets",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.Set",
+      "net.minecraft.client.Minecraft",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsServerList",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pMinecraft",
+            "type": "Minecraft",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 21
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "updateServersList",
+        "returnType": "List<RealmsServer>",
+        "parameters": [
+          {
+            "name": "pServers",
+            "type": "List<RealmsServer>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 23,
+          "end": 33
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeItem",
+        "returnType": "List<RealmsServer>",
+        "parameters": [
+          {
+            "name": "pServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 35,
+          "end": 39
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "minecraft",
+        "type": "Minecraft",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 14,
+      "end": 40
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsServerList.java"
+  },
+  "com.mojang.realmsclient.gui.RealmsWorldSlotButton": {
+    "className": "RealmsWorldSlotButton",
+    "fullName": "com.mojang.realmsclient.gui.RealmsWorldSlotButton",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsWorldSlotButton.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "Button",
+    "interfaces": [],
+    "imports": [
+      "com.mojang.blaze3d.systems.RenderSystem",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.realmsclient.dto.RealmsServer",
+      "com.mojang.realmsclient.dto.RealmsWorldOptions",
+      "com.mojang.realmsclient.util.RealmsTextureManager",
+      "java.util.function.Consumer",
+      "java.util.function.Supplier",
+      "javax.annotation.Nullable",
+      "net.minecraft.client.Minecraft",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.Button",
+      "net.minecraft.network.chat.CommonComponents",
+      "net.minecraft.network.chat.Component",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RealmsWorldSlotButton",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pServerDataProvider",
+            "type": "Supplier<RealmsServer>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pToolTipSetter",
+            "type": "Consumer<Component>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOnPress",
+            "type": "Button.OnPress",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 43
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 79
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getTooltipAndNarration",
+        "returnType": "Pair<Component, Component>",
+        "parameters": [
+          {
+            "name": "pRealmsServer",
+            "type": "RealmsServer",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEmpty",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinigame",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAction",
+            "type": "RealmsWorldSlotButton.Action",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 99,
+          "end": 124
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderWidget",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPartialTick",
+            "type": "float",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 126,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawSlotFrame",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pIsSelected",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pText",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pSlotIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pImageId",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pImage",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEmpty",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMinigame",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pAction",
+            "type": "RealmsWorldSlotButton.Action",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTooltip",
+            "type": "Component",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 177
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "renderCheckMark",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 179,
+          "end": 183
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "serverDataProvider",
+        "type": "Supplier<RealmsServer>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "toolTipSetter",
+        "type": "Consumer<Component>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "slotIndex",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "state",
+        "type": "RealmsWorldSlotButton.State",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Action",
+        "fullName": "com.mojang.realmsclient.gui.RealmsWorldSlotButton.Action",
+        "packageName": "com.mojang.realmsclient.gui",
+        "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsWorldSlotButton.java",
+        "classType": "enum",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsWorldOptions",
+          "com.mojang.realmsclient.util.RealmsTextureManager",
+          "java.util.function.Consumer",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 186,
+          "end": 190
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsWorldSlotButton/Action.java"
+      },
+      {
+        "className": "State",
+        "fullName": "com.mojang.realmsclient.gui.RealmsWorldSlotButton.State",
+        "packageName": "com.mojang.realmsclient.gui",
+        "filePath": "/com\\mojang\\realmsclient\\gui\\RealmsWorldSlotButton.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.mojang.blaze3d.systems.RenderSystem",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.realmsclient.dto.RealmsServer",
+          "com.mojang.realmsclient.dto.RealmsWorldOptions",
+          "com.mojang.realmsclient.util.RealmsTextureManager",
+          "java.util.function.Consumer",
+          "java.util.function.Supplier",
+          "javax.annotation.Nullable",
+          "net.minecraft.client.Minecraft",
+          "net.minecraft.client.gui.GuiGraphics",
+          "net.minecraft.client.gui.components.Button",
+          "net.minecraft.network.chat.CommonComponents",
+          "net.minecraft.network.chat.Component",
+          "net.minecraft.resources.ResourceLocation",
+          "net.minecraftforge.api.distmarker.Dist",
+          "net.minecraftforge.api.distmarker.OnlyIn"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "State",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pIsCurrentlyActiveSlot",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pSlotName",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pImageId",
+                "type": "long",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pImage",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pEmpty",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pMinigame",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pAction",
+                "type": "RealmsWorldSlotButton.Action",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pActionPrompt",
+                "type": "Component",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 205,
+              "end": 214
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [
+          {
+            "name": "isCurrentlyActiveSlot",
+            "type": "boolean",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 194,
+              "end": 194
+            }
+          },
+          {
+            "name": "slotName",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 195,
+              "end": 195
+            }
+          },
+          {
+            "name": "imageId",
+            "type": "long",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 196,
+              "end": 196
+            }
+          },
+          {
+            "name": "image",
+            "type": "String",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 198,
+              "end": 198
+            }
+          },
+          {
+            "name": "empty",
+            "type": "boolean",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 199,
+              "end": 199
+            }
+          },
+          {
+            "name": "minigame",
+            "type": "boolean",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 200,
+              "end": 200
+            }
+          },
+          {
+            "name": "action",
+            "type": "RealmsWorldSlotButton.Action",
+            "modifiers": [
+              "public",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 201,
+              "end": 201
+            }
+          },
+          {
+            "name": "actionPrompt",
+            "type": "Component",
+            "modifiers": [
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 203,
+              "end": 203
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 193,
+          "end": 215
+        },
+        "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsWorldSlotButton/State.java"
+      }
+    ],
+    "lineRange": {
+      "start": 21,
+      "end": 216
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RealmsWorldSlotButton.java"
+  },
+  "com.mojang.realmsclient.gui.RowButton": {
+    "className": "RowButton",
+    "fullName": "com.mojang.realmsclient.gui.RowButton",
+    "packageName": "com.mojang.realmsclient.gui",
+    "filePath": "/com\\mojang\\realmsclient\\gui\\RowButton.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "java.util.List",
+      "net.minecraft.client.gui.GuiGraphics",
+      "net.minecraft.client.gui.components.ObjectSelectionList",
+      "net.minecraft.realms.RealmsObjectSelectionList",
+      "net.minecraftforge.api.distmarker.Dist",
+      "net.minecraftforge.api.distmarker.OnlyIn"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "RowButton",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pWidth",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pHeight",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pXOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pYOffset",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 22
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "drawForRowAt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 24,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "draw",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pShowTooltip",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getRight",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 33,
+          "end": 35
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getBottom",
+        "returnType": "int",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 37,
+          "end": 39
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "onClick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pIndex",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "abstract"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "drawButtonsInRow",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pGuiGraphics",
+            "type": "GuiGraphics",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButtons",
+            "type": "List<RowButton>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPendingInvitations",
+            "type": "RealmsObjectSelectionList<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 50
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "rowButtonMouseClicked",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pList",
+            "type": "RealmsObjectSelectionList<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntry",
+            "type": "ObjectSelectionList.Entry<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButtons",
+            "type": "List<RowButton>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pButton",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseX",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMouseY",
+            "type": "double",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 52,
+          "end": 70
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "width",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 12,
+          "end": 12
+        }
+      },
+      {
+        "name": "height",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 13,
+          "end": 13
+        }
+      },
+      {
+        "name": "xOffset",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        }
+      },
+      {
+        "name": "yOffset",
+        "type": "int",
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 11,
+      "end": 71
+    },
+    "sourceFilePath": "/java-sources/com/mojang/realmsclient/gui/RowButton.java"
+  }
+}

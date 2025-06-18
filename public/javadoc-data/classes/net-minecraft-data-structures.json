@@ -1,0 +1,778 @@
+{
+  "net.minecraft.data.structures.NbtToSnbt": {
+    "className": "NbtToSnbt",
+    "fullName": "net.minecraft.data.structures.NbtToSnbt",
+    "packageName": "net.minecraft.data.structures",
+    "filePath": "/net\\minecraft\\data\\structures\\NbtToSnbt.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "DataProvider"
+    ],
+    "imports": [
+      "com.google.common.hash.Hashing",
+      "com.google.common.hash.HashingOutputStream",
+      "com.mojang.logging.LogUtils",
+      "java.io.ByteArrayOutputStream",
+      "java.io.IOException",
+      "java.io.InputStream",
+      "java.nio.charset.StandardCharsets",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.ArrayList",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.data.CachedOutput",
+      "net.minecraft.data.DataProvider",
+      "net.minecraft.data.PackOutput",
+      "net.minecraft.nbt.NbtIo",
+      "net.minecraft.nbt.NbtUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "NbtToSnbt",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputFolders",
+            "type": "Collection<Path>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 31,
+          "end": 34
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 71
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pInputFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNbtPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 77,
+          "end": 80
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "convertStructure",
+        "returnType": "Path",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "CachedOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pNbtPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectoryPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 83,
+          "end": 93
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "writeSnbt",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "CachedOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pContents",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [
+          "IOException"
+        ],
+        "lineRange": {
+          "start": 95,
+          "end": 101
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "inputFolders",
+        "type": "Iterable<Path>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        }
+      },
+      {
+        "name": "output",
+        "type": "PackOutput",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 29,
+          "end": 29
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 26,
+      "end": 102
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/structures/NbtToSnbt.java"
+  },
+  "net.minecraft.data.structures.SnbtToNbt": {
+    "className": "SnbtToNbt",
+    "fullName": "net.minecraft.data.structures.SnbtToNbt",
+    "packageName": "net.minecraft.data.structures",
+    "filePath": "/net\\minecraft\\data\\structures\\SnbtToNbt.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "DataProvider"
+    ],
+    "imports": [
+      "com.google.common.collect.Lists",
+      "com.google.common.hash.HashCode",
+      "com.google.common.hash.Hashing",
+      "com.google.common.hash.HashingOutputStream",
+      "com.mojang.logging.LogUtils",
+      "java.io.BufferedReader",
+      "java.io.ByteArrayOutputStream",
+      "java.io.IOException",
+      "java.io.Reader",
+      "java.nio.file.Files",
+      "java.nio.file.Path",
+      "java.util.List",
+      "java.util.concurrent.CompletableFuture",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.Util",
+      "net.minecraft.data.CachedOutput",
+      "net.minecraft.data.DataProvider",
+      "net.minecraft.data.PackOutput",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtIo",
+      "net.minecraft.nbt.NbtUtils",
+      "org.apache.commons.io.IOUtils",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "SnbtToNbt",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "PackOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pInputFolders",
+            "type": "Iterable<Path>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 36,
+          "end": 39
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "addFilter",
+        "returnType": "SnbtToNbt",
+        "parameters": [
+          {
+            "name": "pFilter",
+            "type": "SnbtToNbt.Filter",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 41,
+          "end": 44
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "applyFilters",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pFileName",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 46,
+          "end": 54
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 87,
+          "end": 89
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [
+          {
+            "name": "pInputFolder",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pFile",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 95,
+          "end": 98
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "storeStructureIfChanged",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pOutput",
+            "type": "CachedOutput",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTaskResult",
+            "type": "SnbtToNbt.TaskResult",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pDirectoryPath",
+            "type": "Path",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 122,
+          "end": 141
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "TaskResult",
+        "returnType": "record",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "payload",
+            "type": "byte[]",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "snbtPayload",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "hash",
+            "type": "HashCode",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 157,
+          "end": 158
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "DUMP_SNBT_TO",
+        "type": "Path",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 30,
+          "end": 30
+        }
+      },
+      {
+        "name": "output",
+        "type": "PackOutput",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 32,
+          "end": 32
+        }
+      },
+      {
+        "name": "inputFolders",
+        "type": "Iterable<Path>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "Filter",
+        "fullName": "net.minecraft.data.structures.SnbtToNbt.Filter",
+        "packageName": "net.minecraft.data.structures",
+        "filePath": "/net\\minecraft\\data\\structures\\SnbtToNbt.java",
+        "classType": "interface",
+        "modifiers": [
+          "public"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.hash.HashCode",
+          "com.google.common.hash.Hashing",
+          "com.google.common.hash.HashingOutputStream",
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.ByteArrayOutputStream",
+          "java.io.IOException",
+          "java.io.Reader",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.util.List",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.data.CachedOutput",
+          "net.minecraft.data.DataProvider",
+          "net.minecraft.data.PackOutput",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtIo",
+          "net.minecraft.nbt.NbtUtils",
+          "org.apache.commons.io.IOUtils",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "apply",
+            "returnType": "CompoundTag",
+            "parameters": [
+              {
+                "name": "pStructureLocationPath",
+                "type": "String",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pTag",
+                "type": "CompoundTag",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 145,
+              "end": 145
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 144,
+          "end": 146
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/structures/SnbtToNbt/Filter.java"
+      },
+      {
+        "className": "StructureConversionException",
+        "fullName": "net.minecraft.data.structures.SnbtToNbt.StructureConversionException",
+        "packageName": "net.minecraft.data.structures",
+        "filePath": "/net\\minecraft\\data\\structures\\SnbtToNbt.java",
+        "classType": "class",
+        "modifiers": [
+          "static"
+        ],
+        "superClass": "RuntimeException",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.collect.Lists",
+          "com.google.common.hash.HashCode",
+          "com.google.common.hash.Hashing",
+          "com.google.common.hash.HashingOutputStream",
+          "com.mojang.logging.LogUtils",
+          "java.io.BufferedReader",
+          "java.io.ByteArrayOutputStream",
+          "java.io.IOException",
+          "java.io.Reader",
+          "java.nio.file.Files",
+          "java.nio.file.Path",
+          "java.util.List",
+          "java.util.concurrent.CompletableFuture",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.Util",
+          "net.minecraft.data.CachedOutput",
+          "net.minecraft.data.DataProvider",
+          "net.minecraft.data.PackOutput",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.nbt.NbtIo",
+          "net.minecraft.nbt.NbtUtils",
+          "org.apache.commons.io.IOUtils",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "StructureConversionException",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pPath",
+                "type": "Path",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "pCause",
+                "type": "Throwable",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 152,
+              "end": 154
+            },
+            "isConstructor": true
+          }
+        ],
+        "fields": [],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 151,
+          "end": 155
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/data/structures/SnbtToNbt/StructureConversionException.java"
+      }
+    ],
+    "lineRange": {
+      "start": 28,
+      "end": 159
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/structures/SnbtToNbt.java"
+  },
+  "net.minecraft.data.structures.StructureUpdater": {
+    "className": "StructureUpdater",
+    "fullName": "net.minecraft.data.structures.StructureUpdater",
+    "packageName": "net.minecraft.data.structures",
+    "filePath": "/net\\minecraft\\data\\structures\\StructureUpdater.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "SnbtToNbt.Filter"
+    ],
+    "imports": [
+      "com.mojang.logging.LogUtils",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.nbt.NbtUtils",
+      "net.minecraft.util.datafix.DataFixTypes",
+      "net.minecraft.util.datafix.DataFixers",
+      "net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "apply",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pStructureLocationPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 17
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "update",
+        "returnType": "CompoundTag",
+        "parameters": [
+          {
+            "name": "pStructureLocationPath",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pTag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 19,
+          "end": 30
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 31
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/data/structures/StructureUpdater.java"
+  }
+}

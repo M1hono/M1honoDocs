@@ -1,0 +1,1225 @@
+{
+  "net.minecraft.world.entity.ai.Brain": {
+    "className": "Brain",
+    "fullName": "net.minecraft.world.entity.ai.Brain",
+    "packageName": "net.minecraft.world.entity.ai",
+    "filePath": "/net\\minecraft\\world\\entity\\ai\\Brain.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "com.google.common.annotations.VisibleForTesting",
+      "com.google.common.collect.ImmutableList",
+      "com.google.common.collect.ImmutableSet",
+      "com.google.common.collect.Maps",
+      "com.google.common.collect.Sets",
+      "com.mojang.datafixers.util.Pair",
+      "com.mojang.logging.LogUtils",
+      "com.mojang.serialization.Codec",
+      "com.mojang.serialization.DataResult",
+      "com.mojang.serialization.Dynamic",
+      "com.mojang.serialization.DynamicOps",
+      "com.mojang.serialization.MapCodec",
+      "com.mojang.serialization.MapLike",
+      "com.mojang.serialization.RecordBuilder",
+      "it.unimi.dsi.fastutil.objects.ObjectArrayList",
+      "java.util.Collection",
+      "java.util.List",
+      "java.util.Map",
+      "java.util.Optional",
+      "java.util.Set",
+      "java.util.function.Supplier",
+      "java.util.stream.Stream",
+      "javax.annotation.Nullable",
+      "net.minecraft.core.registries.BuiltInRegistries",
+      "net.minecraft.server.level.ServerLevel",
+      "net.minecraft.util.VisibleForDebug",
+      "net.minecraft.world.entity.LivingEntity",
+      "net.minecraft.world.entity.ai.behavior.Behavior",
+      "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+      "net.minecraft.world.entity.ai.memory.ExpirableValue",
+      "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+      "net.minecraft.world.entity.ai.memory.MemoryStatus",
+      "net.minecraft.world.entity.ai.sensing.Sensor",
+      "net.minecraft.world.entity.ai.sensing.SensorType",
+      "net.minecraft.world.entity.schedule.Activity",
+      "net.minecraft.world.entity.schedule.Schedule",
+      "org.apache.commons.lang3.mutable.MutableObject",
+      "org.slf4j.Logger"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "Brain",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "extends",
+            "type": "Collection<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "Collection<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemoryValues",
+            "type": "ImmutableList<Brain.MemoryValue<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pCodec",
+            "type": "Supplier<Codec<Brain<E>>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 109,
+          "end": 130
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "hasMemoryValue",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pType",
+            "type": "MemoryModuleType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 142,
+          "end": 144
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "clearMemories",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 146,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "checkMemory",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pMemoryType",
+            "type": "MemoryModuleType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemoryStatus",
+            "type": "MemoryStatus",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 212,
+          "end": 219
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getSchedule",
+        "returnType": "Schedule",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 221,
+          "end": 223
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setSchedule",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNewSchedule",
+            "type": "Schedule",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 225,
+          "end": 227
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setCoreActivities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNewActivities",
+            "type": "Set<Activity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 229,
+          "end": 231
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getActiveActivities",
+        "returnType": "Set<Activity>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 236,
+          "end": 238
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "useDefaultActivity",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 259,
+          "end": 261
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getActiveNonCoreActivity",
+        "returnType": "Optional<Activity>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 263,
+          "end": 271
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setActiveActivityIfPossible",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 273,
+          "end": 280
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setActiveActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 282,
+          "end": 289
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "eraseMemoriesForOtherActivitesThan",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 291,
+          "end": 303
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "updateActivityFromSchedule",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pDayTime",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pGameTime",
+            "type": "long",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 305,
+          "end": 314
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setActiveActivityToFirstValid",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivities",
+            "type": "List<Activity>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 316,
+          "end": 324
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "setDefaultActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pNewFallbackActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 326,
+          "end": 328
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPriorityStart",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "ImmutableList<?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 330,
+          "end": 332
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addActivityAndRemoveMemoryWhenStopped",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pPriorityStart",
+            "type": "int",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "ImmutableList<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemoryType",
+            "type": "MemoryModuleType<?>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 334,
+          "end": 338
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addActivity",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "ImmutableList<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 340,
+          "end": 342
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addActivityWithConditions",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "ImmutableList<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemoryStatuses",
+            "type": "MemoryStatus>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 344,
+          "end": 346
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addActivityAndRemoveMemoriesWhenStopped",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "ImmutableList<?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "extends",
+            "type": "?",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemorieStatuses",
+            "type": "MemoryStatus>>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pMemoryTypes",
+            "type": "Set<MemoryModuleType<?>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 348,
+          "end": 362
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "removeAllBehaviors",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 365,
+          "end": 367
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isActive",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 369,
+          "end": 371
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "copyWithoutBehaviors",
+        "returnType": "Brain<E>",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 373,
+          "end": 384
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tick",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 386,
+          "end": 391
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickSensors",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pBrainHolder",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 393,
+          "end": 398
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "forgetOutdatedMemories",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 400,
+          "end": 412
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "stopAll",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pOwner",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 414,
+          "end": 421
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "startEachNonRunningBehavior",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 423,
+          "end": 439
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "tickEachRunningBehavior",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "pLevel",
+            "type": "ServerLevel",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "pEntity",
+            "type": "E",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 441,
+          "end": 448
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "activityRequirementsAreMet",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pActivity",
+            "type": "Activity",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 450,
+          "end": 464
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isEmptyCollection",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "pCollection",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 466,
+          "end": 468
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "codec",
+        "type": "Supplier<Codec<Brain<E>>>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 44,
+          "end": 44
+        }
+      },
+      {
+        "name": "SCHEDULE_UPDATE_DELAY",
+        "type": "int",
+        "modifiers": [
+          "private",
+          "static",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "20",
+        "lineRange": {
+          "start": 45,
+          "end": 45
+        }
+      },
+      {
+        "name": "schedule",
+        "type": "Schedule",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Schedule.EMPTY",
+        "lineRange": {
+          "start": 49,
+          "end": 49
+        }
+      },
+      {
+        "name": "defaultActivity",
+        "type": "Activity",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "Activity.IDLE",
+        "lineRange": {
+          "start": 54,
+          "end": 54
+        }
+      },
+      {
+        "name": "lastScheduleUpdate",
+        "type": "long",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "-9999L",
+        "lineRange": {
+          "start": 55,
+          "end": 55
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "MemoryValue",
+        "fullName": "net.minecraft.world.entity.ai.Brain.MemoryValue",
+        "packageName": "net.minecraft.world.entity.ai",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\Brain.java",
+        "classType": "class",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.annotations.VisibleForTesting",
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableSet",
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.Dynamic",
+          "com.mojang.serialization.DynamicOps",
+          "com.mojang.serialization.MapCodec",
+          "com.mojang.serialization.MapLike",
+          "com.mojang.serialization.RecordBuilder",
+          "it.unimi.dsi.fastutil.objects.ObjectArrayList",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Supplier",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.VisibleForDebug",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+          "net.minecraft.world.entity.ai.memory.ExpirableValue",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.entity.schedule.Schedule",
+          "org.apache.commons.lang3.mutable.MutableObject",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "MemoryValue",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "pType",
+                "type": "MemoryModuleType<U>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "extends",
+                "type": "Optional<?",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 489,
+              "end": 492
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "setMemoryInternal",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "pBrain",
+                "type": "Brain<?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 494,
+              "end": 496
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "type",
+            "type": "MemoryModuleType<U>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 482,
+              "end": 482
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 481,
+          "end": 505
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/Brain/MemoryValue.java"
+      },
+      {
+        "className": "Provider",
+        "fullName": "net.minecraft.world.entity.ai.Brain.Provider",
+        "packageName": "net.minecraft.world.entity.ai",
+        "filePath": "/net\\minecraft\\world\\entity\\ai\\Brain.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static",
+          "final"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "com.google.common.annotations.VisibleForTesting",
+          "com.google.common.collect.ImmutableList",
+          "com.google.common.collect.ImmutableSet",
+          "com.google.common.collect.Maps",
+          "com.google.common.collect.Sets",
+          "com.mojang.datafixers.util.Pair",
+          "com.mojang.logging.LogUtils",
+          "com.mojang.serialization.Codec",
+          "com.mojang.serialization.DataResult",
+          "com.mojang.serialization.Dynamic",
+          "com.mojang.serialization.DynamicOps",
+          "com.mojang.serialization.MapCodec",
+          "com.mojang.serialization.MapLike",
+          "com.mojang.serialization.RecordBuilder",
+          "it.unimi.dsi.fastutil.objects.ObjectArrayList",
+          "java.util.Collection",
+          "java.util.List",
+          "java.util.Map",
+          "java.util.Optional",
+          "java.util.Set",
+          "java.util.function.Supplier",
+          "java.util.stream.Stream",
+          "javax.annotation.Nullable",
+          "net.minecraft.core.registries.BuiltInRegistries",
+          "net.minecraft.server.level.ServerLevel",
+          "net.minecraft.util.VisibleForDebug",
+          "net.minecraft.world.entity.LivingEntity",
+          "net.minecraft.world.entity.ai.behavior.Behavior",
+          "net.minecraft.world.entity.ai.behavior.BehaviorControl",
+          "net.minecraft.world.entity.ai.memory.ExpirableValue",
+          "net.minecraft.world.entity.ai.memory.MemoryModuleType",
+          "net.minecraft.world.entity.ai.memory.MemoryStatus",
+          "net.minecraft.world.entity.ai.sensing.Sensor",
+          "net.minecraft.world.entity.ai.sensing.SensorType",
+          "net.minecraft.world.entity.schedule.Activity",
+          "net.minecraft.world.entity.schedule.Schedule",
+          "org.apache.commons.lang3.mutable.MutableObject",
+          "org.slf4j.Logger"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "Provider",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "extends",
+                "type": "Collection<?",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "extends",
+                "type": "Collection<?",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 512,
+              "end": 516
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "makeBrain",
+            "returnType": "Brain<E>",
+            "parameters": [
+              {
+                "name": "pOps",
+                "type": "Dynamic<?>",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 518,
+              "end": 524
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "codec",
+            "type": "Codec<Brain<E>>",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 510,
+              "end": 510
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 507,
+          "end": 525
+        },
+        "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/Brain/Provider.java"
+      }
+    ],
+    "lineRange": {
+      "start": 42,
+      "end": 526
+    },
+    "sourceFilePath": "/java-sources/net/minecraft/world/entity/ai/Brain.java"
+  }
+}

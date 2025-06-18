@@ -1,0 +1,1264 @@
+{
+  "net.minecraftforge.common.capabilities.Capability": {
+    "className": "Capability",
+    "fullName": "net.minecraftforge.common.capabilities.Capability",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\Capability.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.common.util.LazyOptional",
+      "org.jetbrains.annotations.NotNull",
+      "java.util.ArrayList",
+      "java.util.List",
+      "java.util.function.Consumer"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getName",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 28,
+          "end": 28
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "isRegistered",
+        "returnType": "boolean",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 39,
+          "end": 42
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "addListener",
+        "returnType": "Capability<T>",
+        "parameters": [
+          {
+            "name": "listener",
+            "type": "Consumer<Capability<T>>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "synchronized"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 51,
+          "end": 58
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "Capability",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 67
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "onRegister",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 69,
+          "end": 74
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "INTERNAL",
+        "initialValue": "",
+        "lineRange": {
+          "start": 61,
+          "end": 61
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 22,
+      "end": 75
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/Capability.java"
+  },
+  "net.minecraftforge.common.capabilities.CapabilityDispatcher": {
+    "className": "CapabilityDispatcher",
+    "fullName": "net.minecraftforge.common.capabilities.CapabilityDispatcher",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\CapabilityDispatcher.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "",
+    "interfaces": [
+      "INBTSerializable<CompoundTag>",
+      "ICapabilityProvider"
+    ],
+    "imports": [
+      "javax.annotation.ParametersAreNonnullByDefault",
+      "java.util.List",
+      "java.util.Locale",
+      "java.util.Map",
+      "com.google.common.collect.Lists",
+      "net.minecraft.MethodsReturnNonnullByDefault",
+      "net.minecraft.nbt.Tag",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.core.Direction",
+      "net.minecraft.resources.ResourceLocation",
+      "net.minecraftforge.common.util.INBTSerializable",
+      "net.minecraftforge.common.util.LazyOptional",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CapabilityDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "list",
+            "type": "ICapabilityProvider>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "listeners",
+            "type": "List<Runnable>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 44,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "CapabilityDispatcher",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "param",
+            "type": "Object",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "list",
+            "type": "ICapabilityProvider>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "listeners",
+            "type": "List<Runnable>",
+            "isVarArgs": false,
+            "isFinal": false
+          },
+          {
+            "name": "parent",
+            "type": "ICapabilityProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 50,
+          "end": 81
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "serializeNBT",
+        "returnType": "CompoundTag",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 110,
+          "end": 118
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deserializeNBT",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "nbt",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 121,
+          "end": 130
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "CapabilityDispatcher",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 132,
+          "end": 137
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidate",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 139,
+          "end": 142
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "caps",
+        "type": "ICapabilityProvider[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 39,
+          "end": 39
+        }
+      },
+      {
+        "name": "writers",
+        "type": "INBTSerializable<Tag>[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 40,
+          "end": 40
+        }
+      },
+      {
+        "name": "names",
+        "type": "String[]",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 41,
+          "end": 41
+        }
+      },
+      {
+        "name": "listeners",
+        "type": "List<Runnable>",
+        "modifiers": [
+          "private",
+          "final"
+        ],
+        "comment": "",
+        "initialValue": "",
+        "lineRange": {
+          "start": 42,
+          "end": 42
+        }
+      }
+    ],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 37,
+      "end": 143
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/CapabilityDispatcher.java"
+  },
+  "net.minecraftforge.common.capabilities.CapabilityManager": {
+    "className": "CapabilityManager",
+    "fullName": "net.minecraftforge.common.capabilities.CapabilityManager",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\CapabilityManager.java",
+    "classType": "enum",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.fml.Logging",
+      "net.minecraftforge.fml.ModLoader",
+      "net.minecraftforge.forgespi.language.ModFileScanData",
+      "org.apache.logging.log4j.LogManager",
+      "org.apache.logging.log4j.Logger",
+      "org.objectweb.asm.Type",
+      "java.util.Comparator",
+      "java.util.IdentityHashMap",
+      "java.util.List"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "injectCapabilities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "data",
+            "type": "List<ModFileScanData>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 64,
+          "end": 82
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 83
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/CapabilityManager.java"
+  },
+  "net.minecraftforge.common.capabilities.CapabilityProvider": {
+    "className": "CapabilityProvider",
+    "fullName": "net.minecraftforge.common.capabilities.CapabilityProvider",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\CapabilityProvider.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "javax.annotation.ParametersAreNonnullByDefault",
+      "net.minecraft.MethodsReturnNonnullByDefault",
+      "net.minecraft.nbt.CompoundTag",
+      "net.minecraft.core.Direction",
+      "net.minecraft.world.level.chunk.LevelChunk",
+      "net.minecraftforge.common.util.LazyOptional",
+      "net.minecraftforge.event.ForgeEventFactory",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable",
+      "org.jetbrains.annotations.VisibleForTesting",
+      "java.util.function.Supplier"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "CapabilityProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "baseClass",
+            "type": "Class<B>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 38,
+          "end": 41
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "CapabilityProvider",
+        "returnType": "",
+        "parameters": [
+          {
+            "name": "baseClass",
+            "type": "Class<B>",
+            "isVarArgs": false,
+            "isFinal": true
+          },
+          {
+            "name": "isLazy",
+            "type": "boolean",
+            "isVarArgs": false,
+            "isFinal": true
+          }
+        ],
+        "modifiers": [
+          "protected"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 43,
+          "end": 47
+        },
+        "isConstructor": true
+      },
+      {
+        "name": "gatherCapabilities",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 49,
+          "end": 52
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gatherCapabilities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "ICapabilityProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 54,
+          "end": 57
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "gatherCapabilities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "Supplier<ICapabilityProvider>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 59,
+          "end": 68
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "doGatherCapabilities",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "parent",
+            "type": "ICapabilityProvider",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 70,
+          "end": 74
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "getProvider",
+        "returnType": "B",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 78,
+          "end": 81
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areCapsCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "CapabilityProvider<B>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 97,
+          "end": 100
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areCapsCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "CapabilityDispatcher",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "public",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 102,
+          "end": 120
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "deserializeCaps",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "tag",
+            "type": "CompoundTag",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 137,
+          "end": 150
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidateCaps",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 160,
+          "end": 166
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reviveCaps",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 173,
+          "end": 176
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "SUPPORTS_LAZY_CAPABILITIES",
+        "type": "boolean",
+        "modifiers": [
+          "static"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 27,
+          "end": 27
+        }
+      },
+      {
+        "name": "valid",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "true",
+        "lineRange": {
+          "start": 31,
+          "end": 31
+        }
+      },
+      {
+        "name": "isLazy",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 33,
+          "end": 33
+        }
+      },
+      {
+        "name": "lazyParentSupplier",
+        "type": "Supplier<ICapabilityProvider>",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 34,
+          "end": 34
+        }
+      },
+      {
+        "name": "lazyData",
+        "type": "CompoundTag",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "null",
+        "lineRange": {
+          "start": 35,
+          "end": 35
+        }
+      },
+      {
+        "name": "initialized",
+        "type": "boolean",
+        "modifiers": [
+          "private"
+        ],
+        "comment": "",
+        "initialValue": "false",
+        "lineRange": {
+          "start": 36,
+          "end": 36
+        }
+      }
+    ],
+    "innerClasses": [
+      {
+        "className": "AsField",
+        "fullName": "net.minecraftforge.common.capabilities.CapabilityProvider.AsField",
+        "packageName": "net.minecraftforge.common.capabilities",
+        "filePath": "/net\\minecraftforge\\common\\capabilities\\CapabilityProvider.java",
+        "classType": "class",
+        "modifiers": [
+          "public",
+          "static"
+        ],
+        "superClass": "",
+        "interfaces": [],
+        "imports": [
+          "javax.annotation.ParametersAreNonnullByDefault",
+          "net.minecraft.MethodsReturnNonnullByDefault",
+          "net.minecraft.nbt.CompoundTag",
+          "net.minecraft.core.Direction",
+          "net.minecraft.world.level.chunk.LevelChunk",
+          "net.minecraftforge.common.util.LazyOptional",
+          "net.minecraftforge.event.ForgeEventFactory",
+          "org.jetbrains.annotations.NotNull",
+          "org.jetbrains.annotations.Nullable",
+          "org.jetbrains.annotations.VisibleForTesting",
+          "java.util.function.Supplier"
+        ],
+        "classComment": "",
+        "methods": [
+          {
+            "name": "AsField",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "baseClass",
+                "type": "Class<B>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "owner",
+                "type": "B",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 194,
+              "end": 198
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "AsField",
+            "returnType": "",
+            "parameters": [
+              {
+                "name": "baseClass",
+                "type": "Class<B>",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "owner",
+                "type": "B",
+                "isVarArgs": false,
+                "isFinal": false
+              },
+              {
+                "name": "isLazy",
+                "type": "boolean",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 200,
+              "end": 204
+            },
+            "isConstructor": true
+          },
+          {
+            "name": "initInternal",
+            "returnType": "void",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 206,
+              "end": 209
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "serializeInternal",
+            "returnType": "CompoundTag",
+            "parameters": [],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 212,
+              "end": 215
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "deserializeInternal",
+            "returnType": "void",
+            "parameters": [
+              {
+                "name": "tag",
+                "type": "CompoundTag",
+                "isVarArgs": false,
+                "isFinal": false
+              }
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 217,
+              "end": 220
+            },
+            "isConstructor": false
+          },
+          {
+            "name": "getProvider",
+            "returnType": "B",
+            "parameters": [],
+            "modifiers": [],
+            "comment": "",
+            "javadocTags": [],
+            "exceptions": [],
+            "lineRange": {
+              "start": 224,
+              "end": 227
+            },
+            "isConstructor": false
+          }
+        ],
+        "fields": [
+          {
+            "name": "owner",
+            "type": "B",
+            "modifiers": [
+              "private",
+              "final"
+            ],
+            "comment": "",
+            "initialValue": "",
+            "lineRange": {
+              "start": 192,
+              "end": 192
+            }
+          }
+        ],
+        "innerClasses": [],
+        "lineRange": {
+          "start": 190,
+          "end": 228
+        },
+        "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/CapabilityProvider/AsField.java"
+      }
+    ],
+    "lineRange": {
+      "start": 24,
+      "end": 230
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/CapabilityProvider.java"
+  },
+  "net.minecraftforge.common.capabilities.CapabilityToken": {
+    "className": "CapabilityToken",
+    "fullName": "net.minecraftforge.common.capabilities.CapabilityToken",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\CapabilityToken.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "abstract"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.fml.common.asm.CapabilityTokenSubclass"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "getType",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 26,
+          "end": 29
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "toString",
+        "returnType": "String",
+        "parameters": [],
+        "modifiers": [
+          "public"
+        ],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 32,
+          "end": 35
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 24,
+      "end": 36
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/CapabilityToken.java"
+  },
+  "net.minecraftforge.common.capabilities.ForgeCapabilities": {
+    "className": "ForgeCapabilities",
+    "fullName": "net.minecraftforge.common.capabilities.ForgeCapabilities",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\ForgeCapabilities.java",
+    "classType": "class",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraftforge.energy.IEnergyStorage",
+      "net.minecraftforge.fluids.capability.IFluidHandler",
+      "net.minecraftforge.fluids.capability.IFluidHandlerItem",
+      "net.minecraftforge.items.IItemHandler"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 18,
+      "end": 24
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/ForgeCapabilities.java"
+  },
+  "net.minecraftforge.common.capabilities.ICapabilityProvider": {
+    "className": "ICapabilityProvider",
+    "fullName": "net.minecraftforge.common.capabilities.ICapabilityProvider",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\ICapabilityProvider.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.core.Direction",
+      "net.minecraftforge.common.util.LazyOptional",
+      "org.jetbrains.annotations.NotNull",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 13,
+      "end": 35
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/ICapabilityProvider.java"
+  },
+  "net.minecraftforge.common.capabilities.ICapabilityProviderImpl": {
+    "className": "ICapabilityProviderImpl",
+    "fullName": "net.minecraftforge.common.capabilities.ICapabilityProviderImpl",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\ICapabilityProviderImpl.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "org.jetbrains.annotations.ApiStatus",
+      "org.jetbrains.annotations.Nullable"
+    ],
+    "classComment": "",
+    "methods": [
+      {
+        "name": "areCapsCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "CapabilityProvider<B>",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 14,
+          "end": 14
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "areCapsCompatible",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "other",
+            "type": "CapabilityDispatcher",
+            "isVarArgs": false,
+            "isFinal": false
+          }
+        ],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 15,
+          "end": 15
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "invalidateCaps",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 16,
+          "end": 16
+        },
+        "isConstructor": false
+      },
+      {
+        "name": "reviveCaps",
+        "returnType": "void",
+        "parameters": [],
+        "modifiers": [],
+        "comment": "",
+        "javadocTags": [],
+        "exceptions": [],
+        "lineRange": {
+          "start": 17,
+          "end": 17
+        },
+        "isConstructor": false
+      }
+    ],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 18
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/ICapabilityProviderImpl.java"
+  },
+  "net.minecraftforge.common.capabilities.ICapabilitySerializable": {
+    "className": "ICapabilitySerializable",
+    "fullName": "net.minecraftforge.common.capabilities.ICapabilitySerializable",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\ICapabilitySerializable.java",
+    "classType": "interface",
+    "modifiers": [
+      "public"
+    ],
+    "superClass": "",
+    "interfaces": [],
+    "imports": [
+      "net.minecraft.nbt.Tag",
+      "net.minecraftforge.common.util.INBTSerializable"
+    ],
+    "classComment": "Just a mix of the two, useful in patches to lower the size.",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 12,
+      "end": 12
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/ICapabilitySerializable.java"
+  },
+  "net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent": {
+    "className": "RegisterCapabilitiesEvent",
+    "fullName": "net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent",
+    "packageName": "net.minecraftforge.common.capabilities",
+    "filePath": "/net\\minecraftforge\\common\\capabilities\\RegisterCapabilitiesEvent.java",
+    "classType": "class",
+    "modifiers": [
+      "public",
+      "final"
+    ],
+    "superClass": "Event",
+    "interfaces": [
+      "IModBusEvent"
+    ],
+    "imports": [
+      "java.util.Objects",
+      "org.objectweb.asm.Type",
+      "net.minecraftforge.eventbus.api.Event",
+      "net.minecraftforge.fml.event.IModBusEvent"
+    ],
+    "classComment": "",
+    "methods": [],
+    "fields": [],
+    "innerClasses": [],
+    "lineRange": {
+      "start": 19,
+      "end": 33
+    },
+    "sourceFilePath": "/java-sources/net/minecraftforge/common/capabilities/RegisterCapabilitiesEvent.java"
+  }
+}
