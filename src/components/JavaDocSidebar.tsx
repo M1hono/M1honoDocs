@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Tree, Typography, Badge, Space } from "antd";
 import {
     FolderOutlined,
@@ -36,6 +36,8 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
     const [treeData, setTreeData] = useState<TreeNode[]>([]);
     const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
     const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+    const treeRef = useRef<any>(null);
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
     // 构建树结构
     useEffect(() => {
@@ -48,6 +50,50 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
     useEffect(() => {
         updateSelectedKeys();
     }, [location.pathname, treeData]);
+
+    // 自动滚动到选中的项
+    useEffect(() => {
+        if (selectedKeys.length > 0 && sidebarRef.current) {
+            // 延迟执行以确保DOM已更新
+            setTimeout(() => {
+                scrollToSelectedNode(selectedKeys[0]);
+            }, 100);
+        }
+    }, [selectedKeys]);
+
+    /**
+     * 滚动到选中的节点
+     */
+    const scrollToSelectedNode = (selectedKey: string) => {
+        if (!sidebarRef.current) return;
+
+        // 查找选中的DOM节点
+        const selectedNode = sidebarRef.current.querySelector(
+            `[data-node-key="${selectedKey}"]`
+        ) as HTMLElement;
+
+        if (selectedNode) {
+            const container = sidebarRef.current.querySelector('.sidebar-tree') as HTMLElement;
+            if (container) {
+                // 计算节点相对于容器的位置
+                const containerRect = container.getBoundingClientRect();
+                const nodeRect = selectedNode.getBoundingClientRect();
+                
+                // 计算滚动位置，使节点在容器中央
+                const nodeTop = nodeRect.top - containerRect.top + container.scrollTop;
+                const containerHeight = container.clientHeight;
+                const nodeHeight = selectedNode.clientHeight;
+                
+                const scrollTop = nodeTop - containerHeight / 2 + nodeHeight / 2;
+                
+                // 平滑滚动到目标位置
+                container.scrollTo({
+                    top: Math.max(0, scrollTop),
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
 
     /**
      * 构建包和类树结构
@@ -79,26 +125,14 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                     const node: TreeNode = {
                         key: packageKey,
                         title: (
-                            <div className="sidebar-package-item">
-                                <div className="package-info">
-                                    <Text strong className="package-name">
-                                        {part}
-                                    </Text>
-                                    {isLeaf && classCount > 0 && (
-                                        <Badge
-                                            count={classCount}
-                                            size="small"
-                                            className="class-count-badge"
-                                        />
-                                    )}
-                                </div>
+                            <div className="compact-package-item">
+                                <Text className="compact-package-name">{part}</Text>
+                                {isLeaf && classCount > 0 && (
+                                    <span className="compact-count">{classCount}</span>
+                                )}
                             </div>
                         ),
-                        icon: isLeaf ? (
-                            <FolderOpenOutlined className="package-icon-open" />
-                        ) : (
-                            <FolderOutlined className="package-icon" />
-                        ),
+                        icon: <FolderOutlined style={{ fontSize: '10px', color: '#1677ff' }} />,
                         children: [],
                         packageName: currentPath,
                         type: "package",
@@ -140,19 +174,13 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                     const classNode: TreeNode = {
                         key: classKey,
                         title: (
-                            <div className="sidebar-class-item">
-                                <Text
-                                    className="class-name"
-                                    title={fullClassName}
-                                >
+                            <div className="compact-class-item">
+                                <Text className="compact-class-name" title={fullClassName}>
                                     {className}
                                 </Text>
-                                <div className="class-info">
-                                    <FileTextOutlined className="class-icon-small" />
-                                </div>
                             </div>
                         ),
-                        icon: <ApiOutlined className="class-icon" />,
+                        icon: <ApiOutlined style={{ fontSize: '10px', color: '#fa8c16' }} />,
                         isLeaf: true,
                         className: fullClassName,
                         type: "class",
@@ -282,10 +310,11 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
     }
 
     return (
-        <div className="clean-sidebar">
+        <div className="ultra-compact-javadoc-sidebar" ref={sidebarRef}>
             {/* 包和类树 */}
             <div className="sidebar-tree">
                 <Tree
+                    ref={treeRef}
                     showIcon
                     onSelect={handleSelect}
                     selectedKeys={selectedKeys}
@@ -293,20 +322,21 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                     onExpand={(keys) => setExpandedKeys(keys as string[])}
                     treeData={treeData}
                     blockNode
-                    className="clean-tree"
+                    className="ultra-compact-tree"
                 />
             </div>
 
-            {/* 简洁样式 */}
+            {/* 极致紧凑样式 */}
             <style
                 dangerouslySetInnerHTML={{
                     __html: `
-                .clean-sidebar {
+                .ultra-compact-javadoc-sidebar {
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                     background: #fafafa;
                     border-right: 1px solid #e8e8e8;
+                    width: 220px;
                 }
 
                 .sidebar-loading {
@@ -314,120 +344,162 @@ export const JavaDocSidebar: React.FC<JavaDocSidebarProps> = ({ docIndex }) => {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 24px;
+                    padding: 12px;
                 }
 
                 .sidebar-tree {
                     flex: 1;
                     overflow: auto;
-                    padding: 12px;
+                    padding: 2px;
                     background: #fafafa;
+                    scroll-behavior: smooth;
                 }
 
-                .clean-tree {
+                .ultra-compact-tree {
                     background: transparent;
-                    font-size: 13px;
+                    font-size: 11px;
                 }
 
-                .sidebar-package-item {
+                .compact-package-item {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
-                    padding: 2px 0;
-                }
-
-                .package-info {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    flex: 1;
-                    min-width: 0;
-                }
-
-                .package-name {
-                    font-size: 13px;
-                    color: #1890ff;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .sidebar-class-item {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding: 2px 0;
-                }
-
-                .class-name {
-                    font-size: 12px;
-                    color: #595959;
-                    flex: 1;
-                    min-width: 0;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .class-info {
-                    opacity: 0.5;
-                }
-
-                .class-icon-small {
-                    font-size: 10px;
-                    color: #d9d9d9;
-                }
-
-                .package-icon, .package-icon-open {
-                    color: #1890ff !important;
-                    font-size: 14px;
-                }
-
-                .class-icon {
-                    color: #fa8c16 !important;
-                    font-size: 12px;
-                }
-
-                .class-count-badge {
-                    background-color: #52c41a !important;
-                    font-size: 10px;
-                    height: 16px;
+                    height: 14px;
                     line-height: 14px;
-                    min-width: 16px;
-                    border-radius: 8px;
                 }
 
-                /* 自定义Tree组件样式 */
-                .clean-tree .ant-tree-node-content-wrapper {
+                .compact-package-name {
+                    font-size: 11px !important;
+                    color: #1890ff !important;
+                    font-weight: 500 !important;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    flex: 1;
+                    margin: 0 !important;
+                }
+
+                .compact-class-item {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 14px;
+                    line-height: 14px;
+                }
+
+                .compact-class-name {
+                    font-size: 11px !important;
+                    color: #595959 !important;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin: 0 !important;
+                }
+
+                .compact-count {
+                    background: #8c8c8c;
+                    color: white;
+                    font-size: 8px;
+                    padding: 0 3px;
                     border-radius: 6px;
-                    transition: all 0.2s;
-                    padding: 4px 8px;
-                    margin: 1px 0;
+                    min-width: 12px;
+                    height: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 500;
+                    margin-left: auto;
+                    flex-shrink: 0;
                 }
 
-                .clean-tree .ant-tree-node-content-wrapper:hover {
+                /* 极致紧凑Tree组件样式 */
+                .ultra-compact-tree .ant-tree-treenode {
+                    padding: 0 !important;
+                    margin: 0 !important;
+                }
+
+                .ultra-compact-tree .ant-tree-node-content-wrapper {
+                    border-radius: 2px;
+                    transition: background-color 0.15s;
+                    padding: 1px 4px !important;
+                    margin: 0 !important;
+                    height: 14px !important;
+                    line-height: 14px !important;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .ultra-compact-tree .ant-tree-node-content-wrapper:hover {
                     background-color: #e6f7ff;
                 }
 
-                .clean-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+                .ultra-compact-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
                     background-color: #1890ff;
                     color: white;
                 }
 
-                .clean-tree .ant-tree-node-content-wrapper.ant-tree-node-selected .package-name {
+                .ultra-compact-tree .ant-tree-node-content-wrapper.ant-tree-node-selected .compact-package-name {
+                    color: white !important;
+                }
+
+                .ultra-compact-tree .ant-tree-node-content-wrapper.ant-tree-node-selected .compact-class-name {
+                    color: white !important;
+                }
+
+                .ultra-compact-tree .ant-tree-node-content-wrapper.ant-tree-node-selected .compact-count {
+                    background: rgba(255, 255, 255, 0.3);
                     color: white;
                 }
 
-                .clean-tree .ant-tree-node-content-wrapper.ant-tree-node-selected .class-name {
-                    color: white;
-                }
-
-                .clean-tree .ant-tree-switcher {
+                .ultra-compact-tree .ant-tree-switcher {
+                    width: 12px !important;
+                    height: 14px !important;
+                    line-height: 14px !important;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    margin-right: 2px;
+                }
+
+                .ultra-compact-tree .ant-tree-switcher .ant-tree-switcher-icon {
+                    font-size: 8px !important;
+                }
+
+                .ultra-compact-tree .ant-tree-iconEle {
+                    width: 12px !important;
+                    height: 14px !important;
+                    line-height: 14px !important;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 2px;
+                }
+
+                .ultra-compact-tree .ant-tree-title {
+                    flex: 1;
+                    height: 14px !important;
+                    line-height: 14px !important;
+                    display: flex;
+                    align-items: center;
+                }
+
+                /* 滚动条样式 */
+                .sidebar-tree::-webkit-scrollbar {
+                    width: 3px;
+                }
+
+                .sidebar-tree::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                .sidebar-tree::-webkit-scrollbar-thumb {
+                    background: #d9d9d9;
+                    border-radius: 2px;
+                }
+
+                .sidebar-tree::-webkit-scrollbar-thumb:hover {
+                    background: #bfbfbf;
                 }
             `,
                 }}

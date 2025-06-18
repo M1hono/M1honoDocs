@@ -110,7 +110,7 @@ class JavaFileScanner {
 
         console.log(`✅ [${this.version}] 复制完成: ${copiedCount} 个文件`);
     }
-}
+    }
 
 async function main() {
     const versionsPath = path.join(__dirname, "../public/versions.json");
@@ -123,7 +123,7 @@ async function main() {
     for (const version of versions) {
         console.log(`\n\n🚀 开始为版本 [${version}] 扫描...`);
         try {
-            const scanner = new JavaFileScanner(version);
+const scanner = new JavaFileScanner(version);
             await scanner.scan();
             console.log(`🎉 成功完成版本 [${version}] 的扫描`);
         } catch (error) {
@@ -135,8 +135,8 @@ async function main() {
 
 main().catch((error) => {
     console.error("❌ 扫描过程发生严重错误:", error);
-    process.exit(1);
-});
+        process.exit(1);
+    });
 
 export default JavaFileScanner;
 

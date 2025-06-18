@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { AutoComplete, Input, Space, Typography, Tag, Select } from "antd";
 import {
@@ -38,6 +38,30 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
     const navigate = useNavigate();
     const location = useLocation();
     const [searchValue, setSearchValue] = useState("");
+    const [debouncedSearchValue, setDebouncedSearchValue] = useState("");
+    const debounceTimerRef = useRef<NodeJS.Timeout>();
+
+    // Debounce search input
+    const handleSearchDebounce = useCallback((value: string) => {
+        setSearchValue(value);
+        
+        if (debounceTimerRef.current) {
+            clearTimeout(debounceTimerRef.current);
+        }
+        
+        debounceTimerRef.current = setTimeout(() => {
+            setDebouncedSearchValue(value);
+        }, 300); // 300ms delay
+    }, []);
+
+    // Cleanup timer on unmount
+    useEffect(() => {
+        return () => {
+            if (debounceTimerRef.current) {
+                clearTimeout(debounceTimerRef.current);
+            }
+        };
+    }, []);
 
     const fuse = useMemo(() => {
         if (!docIndex) return null;
@@ -83,16 +107,17 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
             ],
             includeScore: true,
             threshold: 0.4,
-            minMatchCharLength: 1,
+            minMatchCharLength: 2, // Require at least 2 characters
         });
     }, [docIndex]);
 
     useEffect(() => {
         setSearchValue("");
+        setDebouncedSearchValue("");
     }, [location]);
 
     const handleSearch = (value: string) => {
-        setSearchValue(value);
+        handleSearchDebounce(value);
     };
 
     const renderTitle = (title: string) => (
@@ -146,8 +171,8 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
     };
 
     const options = useMemo(() => {
-        if (!fuse || !searchValue) return [];
-        const results = fuse.search(searchValue).slice(0, 30);
+        if (!fuse || !debouncedSearchValue || debouncedSearchValue.length < 2) return [];
+        const results = fuse.search(debouncedSearchValue).slice(0, 30);
         const grouped: { [key: string]: FuseResult<SearchItem>[] } = {
             class: [],
             package: [],
@@ -159,7 +184,7 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
         const exactIndex = results.findIndex(
             (r) =>
                 r.item.type === "class" &&
-                r.item.name.toLowerCase() === searchValue.toLowerCase()
+                r.item.name.toLowerCase() === debouncedSearchValue.toLowerCase()
         );
         if (exactIndex > -1) exactMatch = results.splice(exactIndex, 1)[0];
 
@@ -204,7 +229,7 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
             });
 
         return optionGroups;
-    }, [searchValue, fuse]);
+    }, [debouncedSearchValue, fuse]);
 
     const onSelect = (value: string) => {
         navigate(value);
@@ -221,6 +246,13 @@ export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({
                 allowClear
                 autoClearSearchValue
                 popupClassName="javadoc-search-popup"
+                notFoundContent={
+                    debouncedSearchValue.length > 0 && debouncedSearchValue.length < 2 ? 
+                        "请输入至少2个字符" : 
+                        searchValue !== debouncedSearchValue ? 
+                            "搜索中..." : 
+                            "未找到结果"
+                }
             >
                 <Input size="large" prefix={<SearchOutlined />} />
             </AutoComplete>
