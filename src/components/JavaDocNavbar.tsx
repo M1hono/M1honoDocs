@@ -1,90 +1,120 @@
-import React, { useState, useMemo } from 'react';
-import { AutoComplete, Input, Typography, Divider } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import { ProjectDocIndex, JavaClassDoc } from '../types';
-import { SearchOutlined, ApiOutlined, FolderOutlined } from '@ant-design/icons';
+import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { AutoComplete, Input, Space, Typography, Tag } from "antd";
+import {
+    SearchOutlined,
+    ApiOutlined,
+    FolderOutlined,
+    CodeOutlined,
+    FieldStringOutlined,
+} from "@ant-design/icons";
+import Fuse, { FuseResult } from "fuse.js";
+import { ProjectDocIndex } from "../types";
 
-const { Title } = Typography;
+const { Text } = Typography;
 
-interface JavaDocNavbarProps {
-    docIndex: ProjectDocIndex | null;
+interface SearchItem {
+    type: "class" | "package" | "method" | "field";
+    name: string; 
+    fullName: string;
+    path: string;
+    parentShortName?: string;
 }
 
-export const JavaDocNavbar: React.FC<JavaDocNavbarProps> = ({ docIndex }) => {
-    const [searchOptions, setSearchOptions] = useState<{ value: string; label: React.ReactNode }[]>([]);
+export const JavaDocNavbar: React.FC<{ docIndex: ProjectDocIndex | null }> = ({ docIndex }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [searchValue, setSearchValue] = useState("");
 
-    const highlightMatch = (text: string, highlight: string) => {
-        const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
-        return (
-            <span>
-                {parts.map((part, i) =>
-                    part.toLowerCase() === highlight.toLowerCase() ? (
-                        <strong key={i}>{part}</strong>
-                    ) : (
-                        part
-                    )
-                )}
-            </span>
-        );
+    const fuse = useMemo(() => {
+        if (!docIndex) return null;
+        const list: SearchItem[] = [];
+        docIndex.classes?.forEach((cls) => {
+            list.push({ type: 'class', name: cls.className, fullName: cls.fullName, path: `/class/${cls.fullName}` });
+            cls.methods?.forEach((method) => list.push({ type: "method", name: method.name, fullName: `${cls.fullName}.${method.name}`, path: `/class/${cls.fullName}#method-${method.name}`, parentShortName: cls.className }));
+            cls.fields?.forEach((field) => list.push({ type: "field", name: field.name, fullName: `${cls.fullName}.${field.name}`, path: `/class/${cls.fullName}#field-${field.name}`, parentShortName: cls.className }));
+        });
+        docIndex.packages?.forEach((_, pkgName) => {
+            list.push({ type: "package", name: pkgName.split(".").pop() || pkgName, fullName: pkgName, path: `/package/${pkgName}` });
+        });
+        return new Fuse(list, { keys: [{ name: "name", weight: 0.7 }, { name: "fullName", weight: 0.3 }], includeScore: true, threshold: 0.4, minMatchCharLength: 1 });
+    }, [docIndex]);
+
+    useEffect(() => { setSearchValue(""); }, [location]);
+
+    const handleSearch = (value: string) => { setSearchValue(value); };
+
+    const renderTitle = (title: string) => <Text type="secondary" style={{ fontSize: "12px", padding: "4px 12px", background: "#f5f5f5", display: "block" }}>{title}</Text>;
+
+    const renderOption = (item: SearchItem, isExact = false) => {
+        const { type, name, path, parentShortName, fullName } = item;
+        let icon, description = fullName;
+        switch (type) {
+            case "class": icon = <ApiOutlined style={{ color: "#52c41a" }} />; break;
+            case "package": icon = <FolderOutlined style={{ color: "#1677ff" }} />; break;
+            case "method": icon = <CodeOutlined style={{ color: "#eb2f96" }} />; description = `in ${parentShortName}`; break;
+            case "field": icon = <FieldStringOutlined style={{ color: "#fa8c16" }} />; description = `in ${parentShortName}`; break;
+        }
+        return {
+            key: path,
+            value: path,
+            label: (
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <Space>
+                        {icon}
+                        <div>
+                            <Text>{name}</Text><br />
+                            <Text type="secondary" style={{ fontSize: "11px" }}>{description}</Text>
+                        </div>
+                    </Space>
+                    {isExact && <Tag color="success">Exact</Tag>}
+                </div>
+            ),
+        };
     };
 
-    const handleSearch = (value: string) => {
-        if (!value || !docIndex) {
-            setSearchOptions([]);
-            return;
-        }
+    const options = useMemo(() => {
+        if (!fuse || !searchValue) return [];
+        const results = fuse.search(searchValue).slice(0, 30);
+        const grouped: { [key: string]: FuseResult<SearchItem>[] } = { class: [], package: [], method: [], field: [] };
+        let exactMatch: FuseResult<SearchItem> | null = null;
         
-        const options: { value: string; label: React.ReactNode }[] = [];
-        const cleanedValue = value.replace(/\.java$/, '').toLowerCase();
+        const exactIndex = results.findIndex(r => r.item.type === "class" && r.item.name.toLowerCase() === searchValue.toLowerCase());
+        if (exactIndex > -1) exactMatch = results.splice(exactIndex, 1)[0];
 
-        const classMatches = Array.from(docIndex.classes.values())
-            .filter(cls => cls.fullName.toLowerCase().includes(cleanedValue))
-            .slice(0, 15);
-
-        classMatches.forEach(cls => {
-            options.push({
-                value: `/class/${encodeURIComponent(cls.fullName)}`,
-                label: <div>{highlightMatch(cls.fullName, value)}</div>
-            });
+        results.forEach(res => {
+            if (!grouped[res.item.type].some(existing => existing.item.path === res.item.path)) {
+                grouped[res.item.type].push(res);
+            }
         });
 
-        if (classMatches.length > 0) {
-            options.push({ value: 'divider', label: <Divider /> });
-        }
+        const optionGroups: { label: React.ReactNode; options: { key: string; value: string; label: JSX.Element }[] }[] = [];
+        if (exactMatch) optionGroups.push({ label: renderTitle("Exact Match"), options: [renderOption(exactMatch.item, true)] });
+        if (grouped.class.length) optionGroups.push({ label: renderTitle("Classes"), options: grouped.class.map(res => renderOption(res.item)) });
+        if (grouped.package.length) optionGroups.push({ label: renderTitle("Packages"), options: grouped.package.map(res => renderOption(res.item)) });
+        if (grouped.method.length) optionGroups.push({ label: renderTitle("Methods"), options: grouped.method.map(res => renderOption(res.item)) });
+        if (grouped.field.length) optionGroups.push({ label: renderTitle("Fields"), options: grouped.field.map(res => renderOption(res.item)) });
 
-        const packageMatches = Array.from(docIndex.packages.keys())
-            .filter(pkgName => pkgName.toLowerCase().includes(cleanedValue))
-            .slice(0, 10);
+        return optionGroups;
+    }, [searchValue, fuse]);
 
-        packageMatches.forEach(pkgName => {
-            options.push({
-                value: `/package/${encodeURIComponent(pkgName)}`,
-                label: <div>{highlightMatch(pkgName, value)}</div>
-            });
-        });
-
-        setSearchOptions(options);
-    };
-
-    const onSelect = (value: string) => {
-        if (value && value !== 'divider') {
-            navigate(value);
-        }
-    };
+    const onSelect = (value: string) => { navigate(value); };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px', backgroundColor: '#fff', borderBottom: '1px solid #f0f0f0' }}>
-            <Title level={4} style={{ margin: 0 }}>JavaDoc</Title>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '8px 0' }}>
             <AutoComplete
-                options={searchOptions}
-                style={{ width: 400 }}
+                value={searchValue}
+                options={options}
+                style={{ width: 500 }}
                 onSelect={onSelect}
                 onSearch={handleSearch}
-                placeholder="Search classes or packages"
+                placeholder="Search classes, packages, methods, or fields..."
+                allowClear
+                autoClearSearchValue
+                popupClassName="javadoc-search-popup"
             >
-                <Input suffix={<SearchOutlined />} />
+              <Input size="large" placeholder="Search..." prefix={<SearchOutlined />} />
             </AutoComplete>
         </div>
     );
-}; 
+};

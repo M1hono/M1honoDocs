@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Card, Typography, Table, Tag, Space, Breadcrumb, Alert, Spin } from "antd";
+import {
+    Card,
+    Typography,
+    Table,
+    Tag,
+    Space,
+    Breadcrumb,
+    Alert,
+    Spin,
+} from "antd";
 import { FolderOutlined, ApiOutlined, HomeOutlined } from "@ant-design/icons";
 import { ProjectDocIndex, JavaClassDoc } from "../../types";
 import { PrebuiltDataLoader } from "../../utils/prebuiltDataLoader";
@@ -37,7 +46,8 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
             if (!classes) return;
 
             // 获取dataLoader实例
-            const dataLoader = (docIndex as any).dataLoader as PrebuiltDataLoader;
+            const dataLoader = (docIndex as any)
+                .dataLoader as PrebuiltDataLoader;
             if (!dataLoader) {
                 setError("数据加载器未初始化");
                 return;
@@ -48,16 +58,21 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
 
             try {
                 console.log(`📦 加载包 ${packageName} 的类数据...`);
-                
+
                 // 加载包的所有类数据
-                const packageClasses = await dataLoader.loadPackageClasses(packageName);
-                
+                const packageClasses = await dataLoader.loadPackageClasses(
+                    packageName
+                );
+
                 // 转换为数组并排序
-                const classDocsArray = Array.from(packageClasses.values())
-                    .sort((a, b) => a.className.localeCompare(b.className));
+                const classDocsArray = Array.from(packageClasses.values()).sort(
+                    (a, b) => a.className.localeCompare(b.className)
+                );
 
                 setClassDocs(classDocsArray);
-                console.log(`✅ 包 ${packageName} 加载完成: ${classDocsArray.length} 个类`);
+                console.log(
+                    `✅ 包 ${packageName} 加载完成: ${classDocsArray.length} 个类`
+                );
             } catch (err) {
                 console.error("加载包数据失败:", err);
                 setError(err instanceof Error ? err.message : "加载失败");
@@ -168,9 +183,6 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
         return breadcrumbItems;
     };
 
-    /**
-     * 生成表格列定义
-     */
     const columns = [
         {
             title: "类型",
@@ -313,12 +325,12 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
                             package {packageName}
                         </Title>
                         <Text type="secondary">
-                            {loading ? "正在加载..." : `包含 ${classDocs.length} 个类`}
+                            {loading
+                                ? "正在加载..."
+                                : `包含 ${classDocs.length} 个类`}
                         </Text>
                     </div>
                 </Space>
-
-                {/* 包统计信息 */}
                 {!loading && (
                     <div style={{ marginTop: "16px" }}>
                         <Space size="large">
@@ -327,7 +339,8 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
                                 {
                                     classDocs.filter(
                                         (c) =>
-                                            c.classType === "class" || !c.classType
+                                            c.classType === "class" ||
+                                            !c.classType
                                     ).length
                                 }
                             </div>
@@ -342,8 +355,9 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
                             <div>
                                 <Text strong>枚举:</Text>{" "}
                                 {
-                                    classDocs.filter((c) => c.classType === "enum")
-                                        .length
+                                    classDocs.filter(
+                                        (c) => c.classType === "enum"
+                                    ).length
                                 }
                             </div>
                             <div>
@@ -466,4 +480,3 @@ export const JavaDocPackage: React.FC<JavaDocPackageProps> = ({ docIndex }) => {
         </div>
     );
 };
- 

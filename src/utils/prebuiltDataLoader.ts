@@ -14,14 +14,10 @@ export class PrebuiltDataLoader {
         console.log('📁 加载预构建的 JavaDoc 数据...');
         
         try {
-            // 加载主索引
+            // Load the main index to get the list of package files
             const mainIndex = await this.loadJSON('/javadoc-data/index.json');
             console.log(`📊 主索引: ${mainIndex.totalClasses} 个类, ${mainIndex.totalPackages} 个包`);
-            
-            // 加载包索引
-            const packageIndex = await this.loadJSON('/javadoc-data/packages.json');
-            
-            // 构建项目索引结构
+
             const docIndex: ProjectDocIndex = {
                 classes: new Map(),
                 packages: new Map(),
@@ -31,13 +27,28 @@ export class PrebuiltDataLoader {
                 buildTime: mainIndex.buildTime
             };
 
-            // 设置包映射
-            for (const [packageName, packageData] of Object.entries(packageIndex)) {
-                const data = packageData as { classes: string[]; classCount: number };
-                docIndex.packages.set(packageName, data.classes);
-            }
+            const packageFiles = mainIndex.packageFiles || [];
+            
+            // Concurrently load all package data files
+            const allPackageData = await Promise.all(
+                packageFiles.map((fileName: string) => this.loadJSON(`/javadoc-data/classes/${fileName}`))
+            );
 
-            console.log(`✅ 预构建数据加载完成: ${docIndex.packages.size} 个包`);
+            // Process all loaded data
+            for (const packageData of allPackageData) {
+                for (const [className, classDoc] of Object.entries(packageData)) {
+                    const typedClassDoc = classDoc as JavaClassDoc;
+                    docIndex.classes.set(className, typedClassDoc);
+                    
+                    const packageName = typedClassDoc.packageName;
+                    if (!docIndex.packages.has(packageName)) {
+                        docIndex.packages.set(packageName, []);
+                    }
+                    docIndex.packages.get(packageName)!.push(className);
+                }
+            }
+            
+            console.log(`✅ 预构建数据加载完成: ${docIndex.classes.size} 个类, ${docIndex.packages.size} 个包`);
             return docIndex;
             
         } catch (error) {

@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
+import {
+    useParams,
+    Link,
+    useSearchParams,
+    useNavigate,
+} from "react-router-dom";
 import {
     Card,
     Typography,
@@ -47,12 +52,17 @@ const { Title, Text, Paragraph } = Typography;
  * Generates the correct KubeJS name for a class, using '$' for inner classes.
  */
 const getKubeJSName = (classDoc: JavaClassDoc): string => {
-    if (!classDoc.packageName || !classDoc.fullName.startsWith(classDoc.packageName)) {
+    if (
+        !classDoc.packageName ||
+        !classDoc.fullName.startsWith(classDoc.packageName)
+    ) {
         // Fallback for missing package or malformed name
-        return classDoc.fullName.replace(/\./g, '$');
+        return classDoc.fullName.replace(/\./g, "$");
     }
-    const classHierarchyPart = classDoc.fullName.substring(classDoc.packageName.length + 1);
-    const kubeJSClassPart = classHierarchyPart.replace(/\./g, '$');
+    const classHierarchyPart = classDoc.fullName.substring(
+        classDoc.packageName.length + 1
+    );
+    const kubeJSClassPart = classHierarchyPart.replace(/\./g, "$");
     return `${classDoc.packageName}.${kubeJSClassPart}`;
 };
 
@@ -87,11 +97,15 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
         }>;
     }>({ usedBy: [], uses: [] });
     const [highlightedLines, setHighlightedLines] = useState<number[]>([]);
-    
+
     // 新增状态：搜索和过滤功能
     const [searchText, setSearchText] = useState("");
-    const [memberFilter, setMemberFilter] = useState<"all" | "fields" | "methods" | "public" | "private">("all");
-    const [highlightedMethod, setHighlightedMethod] = useState<string | null>(null);
+    const [memberFilter, setMemberFilter] = useState<
+        "all" | "fields" | "methods" | "public" | "private"
+    >("all");
+    const [highlightedMethod, setHighlightedMethod] = useState<string | null>(
+        null
+    );
 
     const navigate = useNavigate();
 
@@ -100,22 +114,31 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
 
     // 处理URL参数中的tab和method
     useEffect(() => {
-        const tabParam = searchParams.get('tab');
-        const methodParam = searchParams.get('method');
-        const lineParam = searchParams.get('line');
-        const linesParam = searchParams.get('lines');
+        const tabParam = searchParams.get("tab");
+        const methodParam = searchParams.get("method");
+        const lineParam = searchParams.get("line");
+        const linesParam = searchParams.get("lines");
 
         if (tabParam) setActiveTab(tabParam);
 
         let linesToHighlight: number[] = [];
         if (linesParam) {
-            const parts = linesParam.split('-').map(p => parseInt(p.trim(), 10));
+            const parts = linesParam
+                .split("-")
+                .map((p) => parseInt(p.trim(), 10));
             if (parts.length === 1 && !isNaN(parts[0])) {
                 linesToHighlight = [parts[0]];
-            } else if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+            } else if (
+                parts.length === 2 &&
+                !isNaN(parts[0]) &&
+                !isNaN(parts[1])
+            ) {
                 const [start, end] = parts;
                 if (start <= end) {
-                    linesToHighlight = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+                    linesToHighlight = Array.from(
+                        { length: end - start + 1 },
+                        (_, i) => start + i
+                    );
                 }
             }
         } else if (lineParam) {
@@ -127,19 +150,24 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
 
         if (linesToHighlight.length > 0) {
             setHighlightedLines(linesToHighlight);
-            setActiveTab('source'); // Automatically switch to source tab
+            setActiveTab("source"); // Automatically switch to source tab
         }
-        
+
         if (methodParam) {
             setHighlightedMethod(methodParam);
             // 如果指定了方法，自动滚动到该方法
             setTimeout(() => {
-                const methodElement = document.getElementById(`method-${methodParam}`);
+                const methodElement = document.getElementById(
+                    `method-${methodParam}`
+                );
                 if (methodElement) {
-                    methodElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    methodElement.style.background = '#fff566';
+                    methodElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                    });
+                    methodElement.style.background = "#fff566";
                     setTimeout(() => {
-                        methodElement.style.background = '';
+                        methodElement.style.background = "";
                     }, 2000);
                 }
             }, 500);
@@ -279,16 +307,24 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
         // 根据搜索文本过滤
         if (searchText) {
             const searchLower = searchText.toLowerCase();
-            fields = fields.filter(field => 
-                field.name.toLowerCase().includes(searchLower) ||
-                field.type.toLowerCase().includes(searchLower) ||
-                (field.comment && field.comment.toLowerCase().includes(searchLower))
+            fields = fields.filter(
+                (field) =>
+                    field.name.toLowerCase().includes(searchLower) ||
+                    field.type.toLowerCase().includes(searchLower) ||
+                    (field.comment &&
+                        field.comment.toLowerCase().includes(searchLower))
             );
-            methods = methods.filter(method => 
-                method.name.toLowerCase().includes(searchLower) ||
-                method.returnType?.toLowerCase().includes(searchLower) ||
-                (method.comment && method.comment.toLowerCase().includes(searchLower)) ||
-                method.parameters.some(p => p.type.toLowerCase().includes(searchLower) || p.name.toLowerCase().includes(searchLower))
+            methods = methods.filter(
+                (method) =>
+                    method.name.toLowerCase().includes(searchLower) ||
+                    method.returnType?.toLowerCase().includes(searchLower) ||
+                    (method.comment &&
+                        method.comment.toLowerCase().includes(searchLower)) ||
+                    method.parameters.some(
+                        (p) =>
+                            p.type.toLowerCase().includes(searchLower) ||
+                            p.name.toLowerCase().includes(searchLower)
+                    )
             );
         }
 
@@ -301,12 +337,14 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                 fields = [];
                 break;
             case "public":
-                fields = fields.filter(f => f.modifiers.includes("public"));
-                methods = methods.filter(m => m.modifiers.includes("public"));
+                fields = fields.filter((f) => f.modifiers.includes("public"));
+                methods = methods.filter((m) => m.modifiers.includes("public"));
                 break;
             case "private":
-                fields = fields.filter(f => f.modifiers.includes("private"));
-                methods = methods.filter(m => m.modifiers.includes("private"));
+                fields = fields.filter((f) => f.modifiers.includes("private"));
+                methods = methods.filter((m) =>
+                    m.modifiers.includes("private")
+                );
                 break;
         }
 
@@ -315,9 +353,11 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
 
     // 复制字段声明
     const copyFieldDeclaration = (field: JavaFieldDoc) => {
-        const declaration = `${field.modifiers.join(' ')} ${field.type} ${field.name};`;
+        const declaration = `${field.modifiers.join(" ")} ${field.type} ${
+            field.name
+        };`;
         navigator.clipboard.writeText(declaration);
-        message.success('字段声明已复制到剪贴板');
+        message.success("字段声明已复制到剪贴板");
     };
 
     // 复制方法签名
@@ -325,9 +365,11 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
         const params = method.parameters
             .map((param) => `${createTypeLink(param.type)} ${param.name}`)
             .join(", ");
-        const signature = `${method.modifiers.join(' ')} ${method.returnType || 'void'} ${method.name}(${params})`;
+        const signature = `${method.modifiers.join(" ")} ${
+            method.returnType || "void"
+        } ${method.name}(${params})`;
         navigator.clipboard.writeText(signature);
-        message.success('方法签名已复制到剪贴板');
+        message.success("方法签名已复制到剪贴板");
     };
 
     /**
@@ -339,56 +381,86 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
             return;
         }
 
-        console.log(`Resolving [${simpleName}] from context [${classDoc.fullName}]...`);
+        console.log(
+            `Resolving [${simpleName}] from context [${classDoc.fullName}]...`
+        );
 
         const strategies: (() => Promise<string | null>)[] = [
             // Strategy 1: Imports (direct and wildcard)
             async () => {
                 const imports = classDoc.imports || [];
-                const directImport = imports.find(imp => imp.endsWith(`.${simpleName}`));
+                const directImport = imports.find((imp) =>
+                    imp.endsWith(`.${simpleName}`)
+                );
                 if (directImport) return directImport;
 
-                const wildcardImports = imports.filter(imp => imp.endsWith('.*'));
+                const wildcardImports = imports.filter((imp) =>
+                    imp.endsWith(".*")
+                );
                 for (const imp of wildcardImports) {
                     const fqcn = `${imp.slice(0, -1)}${simpleName}`;
-                    const pkgName = fqcn.substring(0, fqcn.lastIndexOf('.'));
-                    if (docIndex.packages.get(pkgName)?.includes(fqcn)) return fqcn;
+                    const pkgName = fqcn.substring(0, fqcn.lastIndexOf("."));
+                    if (docIndex.packages.get(pkgName)?.includes(fqcn))
+                        return fqcn;
                 }
                 return null;
             },
             // Strategy 2: Parent class
             async () => {
-                if (classDoc.fullName.includes('.')) {
-                    const parentFqcn = classDoc.fullName.substring(0, classDoc.fullName.lastIndexOf('.'));
-                    if (parentFqcn.endsWith(`.${simpleName}`)) return parentFqcn;
+                if (classDoc.fullName.includes(".")) {
+                    const parentFqcn = classDoc.fullName.substring(
+                        0,
+                        classDoc.fullName.lastIndexOf(".")
+                    );
+                    if (parentFqcn.endsWith(`.${simpleName}`))
+                        return parentFqcn;
                 }
                 return null;
             },
             // Strategy 3: Sibling inner class
             async () => {
-                if (classDoc.fullName.includes('.')) {
-                    const parentFqcn = classDoc.fullName.substring(0, classDoc.fullName.lastIndexOf('.'));
+                if (classDoc.fullName.includes(".")) {
+                    const parentFqcn = classDoc.fullName.substring(
+                        0,
+                        classDoc.fullName.lastIndexOf(".")
+                    );
                     const siblingFqcn = `${parentFqcn}.${simpleName}`;
-                    if (docIndex.packages.get(classDoc.packageName)?.includes(siblingFqcn)) return siblingFqcn;
+                    if (
+                        docIndex.packages
+                            .get(classDoc.packageName)
+                            ?.includes(siblingFqcn)
+                    )
+                        return siblingFqcn;
                 }
                 return null;
             },
             // Strategy 4: Direct inner class of current
             async () => {
                 const innerFqcn = `${classDoc.fullName}.${simpleName}`;
-                if (docIndex.packages.get(classDoc.packageName)?.includes(innerFqcn)) return innerFqcn;
+                if (
+                    docIndex.packages
+                        .get(classDoc.packageName)
+                        ?.includes(innerFqcn)
+                )
+                    return innerFqcn;
                 return null;
             },
             // Strategy 5: Same package
             async () => {
                 const fqcnInPackage = `${classDoc.packageName}.${simpleName}`;
-                if (docIndex.packages.get(classDoc.packageName)?.includes(fqcnInPackage)) return fqcnInPackage;
+                if (
+                    docIndex.packages
+                        .get(classDoc.packageName)
+                        ?.includes(fqcnInPackage)
+                )
+                    return fqcnInPackage;
                 return null;
             },
             // Strategy 6: java.lang
             async () => {
                 const fqcn = `java.lang.${simpleName}`;
-                if (docIndex.packages.get('java.lang')?.includes(fqcn)) return fqcn;
+                if (docIndex.packages.get("java.lang")?.includes(fqcn))
+                    return fqcn;
                 return null;
             },
         ];
@@ -442,27 +514,50 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
     }
 
     // --- Breadcrumb and Outer Class Logic ---
-    const breadcrumbItems = [{ title: <Link to="/"><HomeOutlined /> Home</Link> }];
+    const breadcrumbItems = [
+        {
+            title: (
+                <Link to="/">
+                    <HomeOutlined /> Home
+                </Link>
+            ),
+        },
+    ];
     let outerClassFullName: string | null = null;
 
     if (classDoc.packageName) {
         breadcrumbItems.push({
-            title: <Link to={`/package/${encodeURIComponent(classDoc.packageName)}`}><FolderOutlined /> {classDoc.packageName}</Link>,
+            title: (
+                <Link
+                    to={`/package/${encodeURIComponent(classDoc.packageName)}`}
+                >
+                    <FolderOutlined /> {classDoc.packageName}
+                </Link>
+            ),
         });
 
-        const hierarchyPart = classDoc.fullName.substring(classDoc.packageName.length + 1);
-        const classHierarchy = hierarchyPart.split('.');
+        const hierarchyPart = classDoc.fullName.substring(
+            classDoc.packageName.length + 1
+        );
+        const classHierarchy = hierarchyPart.split(".");
 
         if (classHierarchy.length > 1) {
-            outerClassFullName = classDoc.fullName.substring(0, classDoc.fullName.lastIndexOf('.'));
-            
+            outerClassFullName = classDoc.fullName.substring(
+                0,
+                classDoc.fullName.lastIndexOf(".")
+            );
+
             // Add parent classes to breadcrumb
             let currentPath = classDoc.packageName;
             for (let i = 0; i < classHierarchy.length - 1; i++) {
                 const part = classHierarchy[i];
                 currentPath += `.${part}`;
                 breadcrumbItems.push({
-                    title: <Link to={`/class/${encodeURIComponent(currentPath)}`}><ApiOutlined /> {part}</Link>,
+                    title: (
+                        <Link to={`/class/${encodeURIComponent(currentPath)}`}>
+                            <ApiOutlined /> {part}
+                        </Link>
+                    ),
                 });
             }
         }
@@ -535,11 +630,22 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                         <Button
                                             icon={<PlayCircleOutlined />}
                                             onClick={() => {
-                                                const kubeJSCode = `const $${classDoc.className} = Java.loadClass("${getKubeJSName(classDoc)}");`;
-                                                copyToClipboard(kubeJSCode, "KubeJS LoadClass code");
+                                                const kubeJSCode = `const $${
+                                                    classDoc.className
+                                                } = Java.loadClass("${getKubeJSName(
+                                                    classDoc
+                                                )}");`;
+                                                copyToClipboard(
+                                                    kubeJSCode,
+                                                    "KubeJS LoadClass code"
+                                                );
                                             }}
                                             className="action-button kubejs-button"
-                                            style={{ background: '#fa8c16', borderColor: '#fa8c16', color: 'white' }}
+                                            style={{
+                                                background: "#fa8c16",
+                                                borderColor: "#fa8c16",
+                                                color: "white",
+                                            }}
                                         >
                                             KubeJS
                                         </Button>
@@ -569,78 +675,131 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                         {/* Outer Class Link */}
                         {outerClassFullName && (
                             <Card size="small" className="outer-class-card">
-                                <Link to={`/class/${encodeURIComponent(outerClassFullName)}`}>
+                                <Link
+                                    to={`/class/${encodeURIComponent(
+                                        outerClassFullName
+                                    )}`}
+                                >
                                     <Space>
                                         <RollbackOutlined />
-                                        <Text>Return to Outer Class: <Text strong>{outerClassFullName.split('.').pop()}</Text></Text>
+                                        <Text>
+                                            Return to Outer Class:{" "}
+                                            <Text strong>
+                                                {outerClassFullName
+                                                    .split(".")
+                                                    .pop()}
+                                            </Text>
+                                        </Text>
                                     </Space>
                                 </Link>
                             </Card>
                         )}
 
                         {/* Inner Classes */}
-                        {classDoc.innerClasses && classDoc.innerClasses.length > 0 && (
-                            <Card
-                                className="inner-classes-card"
-                                title={
-                                    <Space>
-                                        <BranchesOutlined />
-                                        Inner Classes ({classDoc.innerClasses.length})
-                                    </Space>
-                                }
-                            >
-                                <List
-                                    itemLayout="horizontal"
-                                    dataSource={classDoc.innerClasses}
-                                    renderItem={(innerClass: JavaClassDoc) => (
-                                        <List.Item
-                                            actions={[
-                                                <Button
-                                                    type="dashed"
-                                                    icon={<CodeOutlined />}
-                                                    onClick={() => {
-                                                        setActiveTab("source");
-                                                        setHighlightedLines(innerClass.lineRange ? [innerClass.lineRange.start] : []);
-                                                    }}
-                                                >
-                                                    View Source
-                                                </Button>,
-                                            ]}
-                                        >
-                                            <List.Item.Meta
-                                                avatar={<Avatar icon={<ApiOutlined />} />}
-                                                title={
-                                                    <Link to={`/class/${encodeURIComponent(innerClass.fullName)}`}>
-                                                        {innerClass.className}
-                                                    </Link>
-                                                }
-                                                description={
-                                                    <Space>
-                                                        <Tag color="blue">{innerClass.classType}</Tag>
-                                                        {renderModifiers(innerClass.modifiers)}
-                                                    </Space>
-                                                }
-                                            />
-                                        </List.Item>
-                                    )}
-                                />
-                            </Card>
-                        )}
+                        {classDoc.innerClasses &&
+                            classDoc.innerClasses.length > 0 && (
+                                <Card
+                                    className="inner-classes-card"
+                                    title={
+                                        <Space>
+                                            <BranchesOutlined />
+                                            Inner Classes (
+                                            {classDoc.innerClasses.length})
+                                        </Space>
+                                    }
+                                >
+                                    <List
+                                        itemLayout="horizontal"
+                                        dataSource={classDoc.innerClasses}
+                                        renderItem={(
+                                            innerClass: JavaClassDoc
+                                        ) => (
+                                            <List.Item
+                                                actions={[
+                                                    <Button
+                                                        type="dashed"
+                                                        icon={<CodeOutlined />}
+                                                        onClick={() => {
+                                                            setActiveTab(
+                                                                "source"
+                                                            );
+                                                            setHighlightedLines(
+                                                                innerClass.lineRange
+                                                                    ? [
+                                                                          innerClass
+                                                                              .lineRange
+                                                                              .start,
+                                                                      ]
+                                                                    : []
+                                                            );
+                                                        }}
+                                                    >
+                                                        View Source
+                                                    </Button>,
+                                                ]}
+                                            >
+                                                <List.Item.Meta
+                                                    avatar={
+                                                        <Avatar
+                                                            icon={
+                                                                <ApiOutlined />
+                                                            }
+                                                        />
+                                                    }
+                                                    title={
+                                                        <Link
+                                                            to={`/class/${encodeURIComponent(
+                                                                innerClass.fullName
+                                                            )}`}
+                                                        >
+                                                            {
+                                                                innerClass.className
+                                                            }
+                                                        </Link>
+                                                    }
+                                                    description={
+                                                        <Space>
+                                                            <Tag color="blue">
+                                                                {
+                                                                    innerClass.classType
+                                                                }
+                                                            </Tag>
+                                                            {renderModifiers(
+                                                                innerClass.modifiers
+                                                            )}
+                                                        </Space>
+                                                    }
+                                                />
+                                            </List.Item>
+                                        )}
+                                    />
+                                </Card>
+                            )}
 
                         {/* 类信息网格 */}
                         <div className="class-info-grid">
                             <div className="info-item">
                                 <Text strong>Modifiers:</Text>
                                 <div className="info-value">
-                                    <Space wrap>{renderModifiers(classDoc.modifiers)}</Space>
+                                    <Space wrap>
+                                        {renderModifiers(classDoc.modifiers)}
+                                    </Space>
                                 </div>
                             </div>
                             {outerClassFullName && (
                                 <div className="info-item">
                                     <Text strong>Outer Class:</Text>
                                     <div className="info-value">
-                                        <Link to={`/class/${encodeURIComponent(outerClassFullName)}`}>
-                                            <Text code className="type-link">{outerClassFullName.split('.').pop()}</Text>
+                                        <Link
+                                            to={`/class/${encodeURIComponent(
+                                                outerClassFullName
+                                            )}`}
+                                        >
+                                            <Text code className="type-link">
+                                                {outerClassFullName
+                                                    .split(".")
+                                                    .pop()}
+                                            </Text>
                                         </Link>
                                     </div>
                                 </div>
@@ -707,7 +866,9 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                 <Input
                                     placeholder="搜索字段和方法..."
                                     value={searchText}
-                                    onChange={(e) => setSearchText(e.target.value)}
+                                    onChange={(e) =>
+                                        setSearchText(e.target.value)
+                                    }
                                     prefix={<SearchOutlined />}
                                     allowClear
                                     style={{ width: 300 }}
@@ -716,38 +877,66 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                             <div className="filter-section">
                                 <Space>
                                     <Text>过滤:</Text>
-                                    <Button 
-                                        type={memberFilter === "all" ? "primary" : "default"}
+                                    <Button
+                                        type={
+                                            memberFilter === "all"
+                                                ? "primary"
+                                                : "default"
+                                        }
                                         size="small"
                                         onClick={() => setMemberFilter("all")}
                                     >
                                         全部
                                     </Button>
-                                    <Button 
-                                        type={memberFilter === "fields" ? "primary" : "default"}
+                                    <Button
+                                        type={
+                                            memberFilter === "fields"
+                                                ? "primary"
+                                                : "default"
+                                        }
                                         size="small"
-                                        onClick={() => setMemberFilter("fields")}
+                                        onClick={() =>
+                                            setMemberFilter("fields")
+                                        }
                                     >
                                         字段
                                     </Button>
-                                    <Button 
-                                        type={memberFilter === "methods" ? "primary" : "default"}
+                                    <Button
+                                        type={
+                                            memberFilter === "methods"
+                                                ? "primary"
+                                                : "default"
+                                        }
                                         size="small"
-                                        onClick={() => setMemberFilter("methods")}
+                                        onClick={() =>
+                                            setMemberFilter("methods")
+                                        }
                                     >
                                         方法
                                     </Button>
-                                    <Button 
-                                        type={memberFilter === "public" ? "primary" : "default"}
+                                    <Button
+                                        type={
+                                            memberFilter === "public"
+                                                ? "primary"
+                                                : "default"
+                                        }
                                         size="small"
-                                        onClick={() => setMemberFilter("public")}
+                                        onClick={() =>
+                                            setMemberFilter("public")
+                                        }
                                     >
                                         Public
                                     </Button>
-                                    <Button 
-                                        type={memberFilter === "private" ? "primary" : "default"}
+                                    <Button
+                                        type={
+                                            memberFilter === "private"
+                                                ? "primary"
+                                                : "default"
+                                        }
                                         size="small"
-                                        onClick={() => setMemberFilter("private")}
+                                        onClick={() =>
+                                            setMemberFilter("private")
+                                        }
                                     >
                                         Private
                                     </Button>
@@ -758,7 +947,7 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
 
                     {(() => {
                         const { fields, methods } = getFilteredMembers();
-                        
+
                         return (
                             <>
                                 {/* 字段概览 */}
@@ -784,7 +973,8 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                     className="enhanced-member-item clickable"
                                                     onClick={() =>
                                                         jumpToSourceLine(
-                                                            field.lineRange.start
+                                                            field.lineRange
+                                                                .start
                                                         )
                                                     }
                                                 >
@@ -794,11 +984,15 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                                 {renderModifiers(
                                                                     field.modifiers
                                                                 )}
-                                                                {createTypeLink(field.type)}
+                                                                {createTypeLink(
+                                                                    field.type
+                                                                )}
                                                                 <Text
                                                                     strong
                                                                     className="member-name"
-                                                                    title={field.name}
+                                                                    title={
+                                                                        field.name
+                                                                    }
                                                                 >
                                                                     {field.name}
                                                                 </Text>
@@ -807,21 +1001,35 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                         <div className="member-actions">
                                                             <Tooltip title="复制字段声明">
                                                                 <Button
-                                                                    icon={<CopyOutlined />}
+                                                                    icon={
+                                                                        <CopyOutlined />
+                                                                    }
                                                                     size="small"
-                                                                    onClick={(e) => {
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
                                                                         e.stopPropagation();
-                                                                        copyFieldDeclaration(field);
+                                                                        copyFieldDeclaration(
+                                                                            field
+                                                                        );
                                                                     }}
                                                                 />
                                                             </Tooltip>
                                                             <Tooltip title="跳转到源码">
                                                                 <Button
-                                                                    icon={<CodeOutlined />}
+                                                                    icon={
+                                                                        <CodeOutlined />
+                                                                    }
                                                                     size="small"
-                                                                    onClick={(e) => {
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
                                                                         e.stopPropagation();
-                                                                        jumpToSourceLine(field.lineRange.start);
+                                                                        jumpToSourceLine(
+                                                                            field
+                                                                                .lineRange
+                                                                                .start
+                                                                        );
                                                                     }}
                                                                 />
                                                             </Tooltip>
@@ -862,11 +1070,15 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                     key={index}
                                                     id={`method-${method.name}`}
                                                     className={`enhanced-member-item clickable ${
-                                                        highlightedMethod === method.name ? 'highlighted-method' : ''
+                                                        highlightedMethod ===
+                                                        method.name
+                                                            ? "highlighted-method"
+                                                            : ""
                                                     }`}
                                                     onClick={() =>
                                                         jumpToSourceLine(
-                                                            method.lineRange.start
+                                                            method.lineRange
+                                                                .start
                                                         )
                                                     }
                                                 >
@@ -877,25 +1089,38 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                                     method.modifiers
                                                                 )}
                                                                 {createTypeLink(
-                                                                    method.returnType || "void"
+                                                                    method.returnType ||
+                                                                        "void"
                                                                 )}
                                                                 <Text
                                                                     strong
                                                                     className="member-name"
-                                                                    title={method.name}
+                                                                    title={
+                                                                        method.name
+                                                                    }
                                                                 >
-                                                                    {method.name}
+                                                                    {
+                                                                        method.name
+                                                                    }
                                                                 </Text>
                                                                 <Text className="method-params">
                                                                     (
-                                                                    {method.parameters.length > 0
+                                                                    {method
+                                                                        .parameters
+                                                                        .length >
+                                                                    0
                                                                         ? method.parameters
-                                                                            .map((param, i) => 
-                                                                                `${param.type} ${param.name}`
-                                                                            )
-                                                                            .join(', ')
-                                                                        : ''
-                                                                    }
+                                                                              .map(
+                                                                                  (
+                                                                                      param,
+                                                                                      i
+                                                                                  ) =>
+                                                                                      `${param.type} ${param.name}`
+                                                                              )
+                                                                              .join(
+                                                                                  ", "
+                                                                              )
+                                                                        : ""}
                                                                     )
                                                                 </Text>
                                                             </Space>
@@ -903,21 +1128,35 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                         <div className="member-actions">
                                                             <Tooltip title="复制方法签名">
                                                                 <Button
-                                                                    icon={<CopyOutlined />}
+                                                                    icon={
+                                                                        <CopyOutlined />
+                                                                    }
                                                                     size="small"
-                                                                    onClick={(e) => {
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
                                                                         e.stopPropagation();
-                                                                        copyMethodSignature(method);
+                                                                        copyMethodSignature(
+                                                                            method
+                                                                        );
                                                                     }}
                                                                 />
                                                             </Tooltip>
                                                             <Tooltip title="跳转到源码">
                                                                 <Button
-                                                                    icon={<CodeOutlined />}
+                                                                    icon={
+                                                                        <CodeOutlined />
+                                                                    }
                                                                     size="small"
-                                                                    onClick={(e) => {
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
                                                                         e.stopPropagation();
-                                                                        jumpToSourceLine(method.lineRange.start);
+                                                                        jumpToSourceLine(
+                                                                            method
+                                                                                .lineRange
+                                                                                .start
+                                                                        );
                                                                     }}
                                                                 />
                                                             </Tooltip>
@@ -930,19 +1169,58 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                                             </Text>
                                                         </div>
                                                     )}
-                                                    {method.parameters.length > 0 && (
+                                                    {method.parameters.length >
+                                                        0 && (
                                                         <div className="method-parameters">
-                                                            <Text strong style={{ fontSize: '12px', color: '#666' }}>
+                                                            <Text
+                                                                strong
+                                                                style={{
+                                                                    fontSize:
+                                                                        "12px",
+                                                                    color: "#666",
+                                                                }}
+                                                            >
                                                                 参数:
                                                             </Text>
-                                                            <div style={{ marginTop: '4px' }}>
-                                                                {method.parameters.map((param, i) => (
-                                                                    <div key={i} style={{ marginLeft: '12px', fontSize: '12px' }}>
-                                                                        <Text code>{param.name}</Text>
-                                                                        <Text type="secondary"> : </Text>
-                                                                        {createTypeLink(param.type)}
-                                                                    </div>
-                                                                ))}
+                                                            <div
+                                                                style={{
+                                                                    marginTop:
+                                                                        "4px",
+                                                                }}
+                                                            >
+                                                                {method.parameters.map(
+                                                                    (
+                                                                        param,
+                                                                        i
+                                                                    ) => (
+                                                                        <div
+                                                                            key={
+                                                                                i
+                                                                            }
+                                                                            style={{
+                                                                                marginLeft:
+                                                                                    "12px",
+                                                                                fontSize:
+                                                                                    "12px",
+                                                                            }}
+                                                                        >
+                                                                            <Text
+                                                                                code
+                                                                            >
+                                                                                {
+                                                                                    param.name
+                                                                                }
+                                                                            </Text>
+                                                                            <Text type="secondary">
+                                                                                {" "}
+                                                                                :{" "}
+                                                                            </Text>
+                                                                            {createTypeLink(
+                                                                                param.type
+                                                                            )}
+                                                                        </div>
+                                                                    )
+                                                                )}
                                                             </div>
                                                         </div>
                                                     )}
@@ -951,21 +1229,37 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                                         </div>
                                     </Card>
                                 )}
-                                
+
                                 {/* 无结果提示 */}
-                                {fields.length === 0 && methods.length === 0 && (
-                                    <Card className="no-results-card">
-                                        <div className="no-results">
-                                            <SearchOutlined style={{ fontSize: '48px', color: '#d9d9d9' }} />
-                                            <Title level={4} style={{ color: '#999', marginTop: '16px' }}>
-                                                {searchText ? `没有找到匹配 "${searchText}" 的成员` : '没有符合条件的成员'}
-                                            </Title>
-                                            <Paragraph style={{ color: '#666' }}>
-                                                请尝试调整搜索条件或过滤器
-                                            </Paragraph>
-                                        </div>
-                                    </Card>
-                                )}
+                                {fields.length === 0 &&
+                                    methods.length === 0 && (
+                                        <Card className="no-results-card">
+                                            <div className="no-results">
+                                                <SearchOutlined
+                                                    style={{
+                                                        fontSize: "48px",
+                                                        color: "#d9d9d9",
+                                                    }}
+                                                />
+                                                <Title
+                                                    level={4}
+                                                    style={{
+                                                        color: "#999",
+                                                        marginTop: "16px",
+                                                    }}
+                                                >
+                                                    {searchText
+                                                        ? `没有找到匹配 "${searchText}" 的成员`
+                                                        : "没有符合条件的成员"}
+                                                </Title>
+                                                <Paragraph
+                                                    style={{ color: "#666" }}
+                                                >
+                                                    请尝试调整搜索条件或过滤器
+                                                </Paragraph>
+                                            </div>
+                                        </Card>
+                                    )}
                             </>
                         );
                     })()}
@@ -981,7 +1275,7 @@ export const JavaDocClass: React.FC<JavaDocClassProps> = ({ docIndex }) => {
                 </span>
             ),
             children: (
-                <div style={{ height: 'calc(100vh - 120px)' }}>
+                <div style={{ height: "calc(100vh - 120px)" }}>
                     <CodeViewer
                         sourceCode={sourceCode}
                         className={classDoc.fullName}

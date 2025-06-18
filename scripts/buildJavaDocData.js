@@ -768,12 +768,17 @@ class JavaDocDataBuilder {
     async generateDataFiles() {
         console.log("📄 生成数据文件...");
 
+        const packageFileNames = [];
+        for (const packageName of this.packages.keys()) {
+            packageFileNames.push(`${packageName.replace(/\./g, "-")}.json`);
+        }
+
         // 主索引文件
         const mainIndex = {
             totalClasses: this.classes.size,
             totalPackages: this.packages.size,
             buildTime: new Date().toISOString(),
-            packages: Array.from(this.packages.keys()).sort(),
+            packageFiles: packageFileNames,
         };
 
         fs.writeFileSync(

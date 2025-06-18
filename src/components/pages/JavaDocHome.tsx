@@ -261,7 +261,7 @@ export const JavaDocHome: React.FC<JavaDocHomeProps> = ({
                     text-align: center;
                     padding: 60px 0 40px;
                     margin: -24px -24px 40px -24px;
-                    background: linear-gradient(135deg, #1677ff 0%, #69c0ff 100%);
+                    background: linear-gradient(135deg,rgb(255, 255rgb(255, 255, 255)%, #69c0ff 100%);
                     border-radius: 0 0 16px 16px;
                 }
 
